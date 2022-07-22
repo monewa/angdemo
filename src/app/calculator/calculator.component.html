@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<title>Calculator App</title>
+</head>
+
+<body >
+<h1>My Calculator App</h1>
+
+<div (keyup)='setKeyInput()' class='calc'>
+	<b>Calculator</b><br><br>
+	<div class= 'numpad'>
+	<label >{{toAnswerScreenValue}}</label><br>
+	<input [value]= 'toScreenValue' readonly placeholder='0' ><br><br>
+		<button (click)= 'setValue("1")'>1</button>
+		<button (click)= 'setValue("2")'>2</button>
+		<button (click)= 'setValue("3")'>3</button>
+		<button (click)= 'clearEntry()' class='clear' >CE</button>	
+		<button (click)= 'clearAll()' class='clear'>C</button>	<br>
+		
+		<button (click)= 'setValue("4")'>4</button>
+		<button (click)= 'setValue("5")'>5</button>
+		<button (click)= 'setValue("6")'>6</button>
+		<button (click)= 'calculate("+")' class= 'operator'>+</button>
+		<button (click)= 'calculate("-")' class= 'operator'>-</button><br>
+		
+		<button (click)= 'setValue("7")'>7</button>
+		<button (click)= 'setValue("8")'>8</button>
+		<button (click)= 'setValue("9")'>9</button>
+		<button (click)= 'calculate("*")' class='operator'>x</button>	
+		<button (click)= 'calculate("/")' class= 'operator'>/</button><br>
+		
+		<button (click)= 'setValue("0")' class= 'wide'>0</button>
+		<button (click)= 'setValue(".")'>.</button>
+		<button (click)= 'calculate("=")' class= 'operator'>=</button>
+	</div>
+</div>
+</body>
+
+<html>

@@ -1,0 +1,21 @@
+
+div.calc{ background-color:rgb(5%, 2%, 10%);
+font-size:24px;
+width:410px;
+padding:12px;
+position:relative;
+left:30px;
+/* text-align:center; */
+}
+
+label{ color:yellow;
+	font-size:24px;
+}
+
+input{ text-align:right;	
+}
+
+label, input{ width:350px;
+}
+
+

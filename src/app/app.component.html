@@ -1,5 +1,4 @@
 
-
 <!doctype html>
 <html>
 <head>
@@ -8,29 +7,18 @@
 
 <body >
 	<nav>
-		<ul> 
-			<a href='files/calculator-app.html'>Calculator</a>
-			<a href='files/converter.html'> Converter</a>
-			<a href='files/Mail-List.html'> Mail List</a>
-		</ul>
-	</nav>
-	<h1>Welcome to my Home Page</h1>
-	<p class='home'>Have a look at my current demo projects</p>
-	
-	<li>Calculator</li>
-	<li>Converter</li>
-	<li>Mail List</li><br>
-	<img class='home' src='../assets/img/home.jpg'>
-	<table class='home'>
-		<tr>
-			<td class='html'>HTML</td>
-			<td class='css'>CSS</td>
-			<td class='typescript'>Typescript</td>
-			<td class='java'>Java</td>
-		</tr>
-		</table>
+			 <ul><a routerLink='/home' routerLinkActive= 'active' >Home</a> </ul>
+			<ul><a routerLink='/calculator' routerLinkActive= 'active' >Calculator</a></ul>
+			<ul><a routerLink='/converter' routerLinkActive= 'active' > Converter</a></ul>
+			<ul><a routerLink='/mailinglist' routerLinkActive= 'active' > Mail List</a></ul>
+	</nav><br>
+<router-outlet></router-outlet>
+<br><br><br>
 </body>
+<footer>
+<br><br><br>
+ <p class='footer'>Copyleft ©2022  - All Rights to Share</p>
+</footer>
 </html>
 
 
-<router-outlet></router-outlet>

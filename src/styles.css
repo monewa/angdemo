@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+
+body{background-color:rgb(10%, 2%, 40%); 
+color:white;
+font-family:verdana;
+animation:loadPage 3s 
+}
+
+@keyframes loadPage{from{opacity:0.3}
+to{opacity:1}	
+}

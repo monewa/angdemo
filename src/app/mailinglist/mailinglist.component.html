@@ -1,0 +1,61 @@
+
+<html>
+
+<head>
+	<title>Mail List</title>
+</head>
+
+<body >
+<a routerLink='/mailinglistdata' routerLinkActive= 'active' > Data</a>
+<h1>Mail List app</h1>
+
+<img class='side' src='../assets/img/image.jpg'>
+<p>Welcome to the mail list app. <br>
+Save your details on the form to be part of our mail list for the book.</p>
+<div class= 'form' >
+	<div id='form'  >
+		<b>Mail list Form</b><br><br>
+		
+		<span class='form' >First name  </span>
+		<input (change)= 'checkFormValidity("name")' 
+					[(ngModel)]= 'firstName' required maxlength='15' 
+					id='name' class='form'  placeholder='first name' /> <br><br>
+		<div *ngIf='false'>
+		<!----> 
+			<label>Name required</label>
+		</div>
+		<label class='form' >Last name </label>
+		<input (change)= 'checkFormValidity("lastName")' 
+					[(ngModel)]= 'lastName'
+					[style]= 'setBorderColor("white")' required maxlength='15' 
+					id='lastName' class='form' placeholder='last name'  /><br><br>
+		
+		<label class='form' >Country </label>
+		<input (change)= 'checkFormValidity("country")'  required maxlength='15'
+					[(ngModel)]= 'country'
+					id='country' class='form' placeholder= 'country'  /><br><br>
+		<label class='form' >Email </label>
+		<input (change)= 'checkFormValidity("email")'  required maxlength= '25'  
+					[(ngModel)]= 'email'
+					type='email' id= 'email' class= 'form' placeholder= 'email' /><br><br>
+		
+		<label class='form' >Code</label>
+		<input (change)= 'checkFormValidity("code")' required type='number' 
+					min='1000' max='9999' id='code' class='form code' placeholder='1208'   />
+		<label class='form ' > Phone</label>
+		<input (change)= 'checkFormValidity("phone")' required type='number' 
+					[(ngModel)]= 'phone'
+					min='1000000' max='9999999'  id='phone' class='form phone' 
+					placeholder='8621897' title= 'please include your international code'/> <br><br>		
+		<label class='form' >Comments</label><br>
+		<textarea  [(ngModel)]= 'comments'
+		id='comments' class='form' placeholder='comment' maxlength='50'></textarea><br>
+	 
+		<label [style]= 'color'  id='message' ></label>{{message}}<br><br>
+		
+		<button (click)='saveForm()'  type='submit'  class='form'><b>save</b></button>
+	</div>
+</div>
+</body>
+
+</html>

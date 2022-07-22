@@ -1,0 +1,39 @@
+
+
+
+button.del{ width:32px;
+	background-color:red;
+	color:white;
+	font-size:16px;
+	margin-bottom:0px;
+	margin-left:0px;
+}
+
+button.del:hover{ opacity:.7;	
+}
+
+butto.del:active{ background-color:maroon;	
+}
+
+button.edit{ width:45px;
+/* 	background-color:red;
+	color:white; */
+	font-size:14px;
+	margin-bottom:0px;
+	margin-left:0px;
+}
+
+a, details{ float:right;	
+}
+
+label.datamessage{ background-color:black;
+	padding:3px;
+	color:lightblue;
+	text-align:center;	
+}
+
+ thead{ background-color:black;
+	font-size:16px;
+	text-align:center;
+}
+

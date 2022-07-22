@@ -1,9 +1,9 @@
 
 
-h1{background-color:black;
+h1{ background-color:black;
 	padding:10px;
 	color:red;
-	width:450px;
+	width:500px;
 	text-align:center;
 }
 
@@ -12,77 +12,53 @@ nav{  overflow:hidden;
 	font-size:23px;
 }
 
-ul{float:left; 
-	display:block; 
+div.menu{	position:absolute; 
+	opacity:0.9;
+	background-color:black;	
+	float:left; 
 }
 
-body{background-color:rgb(10%, 2%, 40%); 
-color:white;
-font-family:verdana;
-animation:loadPage 3s 
+div.imagechange{ animation:loadImage 3s 
 }
 
-@keyframes loadPage{from{opacity:0.3}
-to{opacity:1}
-	
-}
-
-a{color:orange;
-background-color:black;
-padding:12px;
-}
-
-a:hover{ color:black;
-background-color:white;
-}
-
-div.calc{ background-color:rgb(5%, 2%, 10%);
-font-size:24px;
-width:380px;
-padding:12px;
-position:relative;
-left:90px;
-top:70px;
-/* text-align:center; */
-}
-
-div.converter{ background-color:lightgray; 
-color:black;
-height:405px;
-width:640px;
-left:40px;
-top:20px;
+@keyframes loadImage{ from{opacity:0.3}
+	to{opacity:1}	
 }
 
 div.numpad{  padding:13px 0px 0px 13px; 	
 }
 
-div.form{ background-color:black;	
-/* height:750px;*/
-width:480px; 
-font-size:22px;
-padding:25px;
+ul{ float:left; 
+	/* display:block;  */
 }
 
-button.form{ width:175px;
-font-size:30px;
-position:relative;
-left:30px;	
+a, summary{ color:orange;
+	background-color:black;
+	text-decoration: none;
+	padding:12px;
 }
+
+a:hover, a.active{ color:black;
+	background-color:white;
+}
+
+a:active{ color:red;
+	background-color:white;
+}
+
+
 
 button{ background-color:lightblue;
-width:75px;
-font-size:40px;
-margin-bottom:-3px;
-margin-left:-12px;
+	width:75px;
+	font-size:40px;
+	margin-bottom:2px;
+	margin-left:2px;
 }
 
 button.operator{ background-color:rgb(70%, 60%, 80%);
 }
 
-button.unit{ width:22%;
-height:35px;
-font-size:26px;
+button.wide{ width:152px;
 }
 
 button.clear{ background-color:rgb(100%, 60%, 60%);
@@ -94,121 +70,47 @@ button:hover{background-color:lightyellow;
 button:active{ background-color:orange;	
 }
 
-button#del{ width:32px;
-	background-color:red;
-	color:white;
-	font-size:16px;
-	margin-bottom:0px;
-	margin-left:0px;
+p.footer{	position:relative;
+left:50px;
 }
 
-button#del:hover{ opacity:.7;	
+img.side{ float:right; 
 }
 
-button#del:active{ background-color:maroon;	
+img.home{ width:800px;
+height:600px;
 }
 
-button.edit{ width:45px;
-/* 	background-color:red;
-	color:white; */
-	font-size:14px;
-	margin-bottom:0px;
-	margin-left:0px;
-}
-
-label#answer{ color:yellow;
-font-size:24px;
-width:305px;
-
-}
-
-label#datamessage{	background-color:black;
-	padding:3px;
-	color:lightblue;
-	text-align:center;	
-}
-
-label#message{	color:red;
+details{ 	width:200px;	
 }
 
 input, textarea{ font-size:30px;
 	background-color:rgb(5%, 2%, 10%);
 	border:solid white;
 	color:white;
-	width:270px;
-	
 }
 
-input.converter{ background-color:white;
-	color:black;
-	text-align:right;
-	
+input.editUser{ font-size:16px;
 }
 
-input#screen{ text-align:right;	
-}
-
-input.form,  textarea{ font-size:22px;
-}
-
-input.code{ width:90px;
-}
-
-input.phone{ width:120px;
-}
-
-label.form, span.form{ width:90px;
-	color:yellow;
-	width:80px;	
-}
-
-input.editUser{	font-size:16px;
-}
-
-img.home{ 
-}
 
 table.home{ background-color:black;
-	position:fixed;
-	top:400px;	
+	/* position:relative;
+	top:400px;	 */
 	border-spacing:10px;
 	font:bold 20px verdana  ;
 	text-align:center;		
 	padding:8px;
 }
 
-td.home{ height:50px;
-width:125px;
-}
-
-td.typescript{ color:yellow;
-border:solid yellow 4px;
-box-shadow:0px 0px 13px yellow
-}
-
-td.html{ border:solid red 4px;
-box-shadow:0px 0px 13px red;
-color:red;
-}
-
-td.css{ border:solid lime 4px;
-box-shadow:0px 0px 13px lime;
-color:lime;
-}
-
-td.java{ border:solid white 4px;
-box-shadow:0px 0px 13px white;
-color:white;
-}
-
- thead{ background-color:black;
-font-size:16px;
-text-align:center;
-}
-
-/**/ th{ padding:8px;
+th{ padding:8px;
 } 
 
 td{ padding:8px;
 	background-color:black;
 }
+
+footer{background-color: black;
+height:100px;
+}
+

@@ -1,0 +1,38 @@
+
+
+div.form{ background-color:black;	
+/* height:750px;*/
+width:480px; 
+font-size:22px;
+padding:25px;
+}
+
+
+
+button.form{ width:175px;
+font-size:30px;
+position:relative;
+left:30px;	
+}
+
+a{float:right;
+}
+
+label#message{	color:red;
+}
+
+
+
+input.form,  textarea{ font-size:22px;
+}
+
+input.code{ width:90px;
+}
+
+input.phone{ width:120px;
+}
+
+label.form, span.form{ width:90px;
+	color:yellow;
+	width:80px;	
+}

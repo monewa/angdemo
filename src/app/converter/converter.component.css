@@ -1,0 +1,28 @@
+
+div.converter{ background-color:lightgray; 
+	font-size:24px;
+	color:black;
+	padding:12px;
+	height:440px;
+	width:410px;
+	left:40px;
+	top:20px;
+}
+
+button.unit{ width:150px;
+	height:45px;
+	font-size:26px;
+}
+
+button.reset{ width:113px;
+}
+
+label, input{ width:350px;
+}
+
+input.converter{ background-color:white;
+	color:black;
+	text-align:right;
+}
+
+

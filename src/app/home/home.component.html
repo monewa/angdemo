@@ -1,0 +1,41 @@
+
+
+<!doctype html>
+<html>
+<head>
+	<title>Home</title>
+</head>
+
+<body >
+	<h1>Welcome to my Home Page</h1>
+	<p class='home'>Have a look at my current demo projects</p>
+	<li>Calculator</li>
+	<li>Converter</li>
+	<li>Mail List</li><br>
+	<details [open]='openAboutMeIsOpen'>
+		<summary (mouseover)='openAboutMe()' 
+						  (mouseleave)='openAboutMe()'>About me
+		</summary>
+			<div class='menu'>
+				I'm an entry level front-end Angular developer. <br>
+				I've been teaching myself to code in Java for 6 months.<br> 
+				HTML, CSS, Typescript for 4 months so far. 
+			</div>
+	</details>
+	<div class='imagechange' *ngIf='changeUrl'>
+		<img class='home' src='../assets/img/home.jpg'>
+	</div>	
+	<div class='imagechange' *ngIf='!changeUrl'>
+		<img class='home' src='../assets/img/river.jpg'>
+	</div>
+	<table class='home'>
+		<tr>
+			<td class='html'>HTML</td>
+			<td class='css'>CSS</td>
+			<td class='typescript'>Typescript</td>
+			<td class='angular'>Angular</td>
+			<td class='java'>Java</td>
+		</tr>
+	</table>
+</body>
+</html>
