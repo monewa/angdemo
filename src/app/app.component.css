@@ -3,7 +3,7 @@
 h1{ background-color:black;
 	padding:10px;
 	color:red;
-	width:500px;
+	width:450px;
 	text-align:center;
 }
 
@@ -16,13 +16,6 @@ div.menu{	position:absolute;
 	opacity:0.9;
 	background-color:black;	
 	float:left; 
-}
-
-div.imagechange{ animation:loadImage 3s 
-}
-
-@keyframes loadImage{ from{opacity:0.3}
-	to{opacity:1}	
 }
 
 div.numpad{  padding:13px 0px 0px 13px; 	
@@ -45,8 +38,6 @@ a:hover, a.active{ color:black;
 a:active{ color:red;
 	background-color:white;
 }
-
-
 
 button{ background-color:lightblue;
 	width:75px;
@@ -71,20 +62,24 @@ button:active{ background-color:orange;
 }
 
 p.footer{	position:relative;
-left:50px;
+	left:50px;
 }
 
 img.side{ float:right; 
 }
 
-img.home{ width:800px;
+img.home{ width:1200px;
 height:600px;
+animation:loadImage 3s;
+}
+@keyframes loadImage{ from{opacity:0.3}
+	to{opacity:1}	
 }
 
 details{ 	width:200px;	
 }
 
-input, textarea{ font-size:30px;
+input, textarea, option, select{ font-size:30px;
 	background-color:rgb(5%, 2%, 10%);
 	border:solid white;
 	color:white;
@@ -93,24 +88,60 @@ input, textarea{ font-size:30px;
 input.editUser{ font-size:16px;
 }
 
-
 table.home{ background-color:black;
-	/* position:relative;
-	top:400px;	 */
+	position:relative;
+	left:100px;	
 	border-spacing:10px;
-	font:bold 20px verdana  ;
+	font:bold 25px verdana  ;
 	text-align:center;		
 	padding:8px;
 }
 
+
 th{ padding:8px;
 } 
 
-td{ padding:8px;
+/* tr{padding:20px} */
+
+td{ padding:6px;
 	background-color:black;
 }
 
+td.home{ height:50px;
+	width:125px;
+	padding:20px;
+	
+}
+
+td.html{ border:solid orange 4px;
+	box-shadow:0px 0px 13px orange;
+	color:orange;
+}
+
+td.css{ border:solid lime 4px;
+	box-shadow:0px 0px 13px lime;
+	color:lime;
+}
+
+td.typescript{ color:deepskyblue;
+	border:solid deepskyblue 4px;
+	box-shadow:0px 0px 13px deepskyblue
+}
+
+td.angular{ color:red;
+	border:solid red 4px;
+	box-shadow:0px 0px 13px red
+}
+
+
+td.java{ border:solid white 4px;
+	box-shadow:0px 0px 13px white;
+	color:white;
+}
+
 footer{background-color: black;
-height:100px;
+	height:180px;
+	width:1300px;
+
 }
 

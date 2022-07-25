@@ -2,6 +2,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user.model';
 import { UserRepositoryService } from '../model/user.repository.service';
+import { MessageService } from '../message.service';
+import {NgModel, NgForm} from '@angular/forms'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-mailinglist',
@@ -10,9 +13,6 @@ import { UserRepositoryService } from '../model/user.repository.service';
 })
 export class MailinglistComponent implements OnInit {
 
-	nextUserId= 0;
-	color:string= ''
-	message:string= ''
 	firstName: string= '';
 	lastName: string= '';
 	country: string= '';
@@ -20,73 +20,70 @@ export class MailinglistComponent implements OnInit {
 	code: string= '';
 	phone: string= '';
 	comments: string= '';
-
-  constructor(private repository:UserRepositoryService) { }
+	message:string= ''
+	submitted=false;
+	formIsInValid:boolean= true;
+	countryList= this.repository.countryList
 	
-	preventForm():void{
-		// let form= document.getElementById('form');
-		// form.addEventListener('submit', 
-		// function(event){
-			// event.preventDefault();
-		// });		
-	}
+  constructor(private repository:UserRepositoryService, private router:Router,
+						private messageService:MessageService) { }
 	
-	validateForm():boolean{
-		if(this.checkFormValidity('name') || this.checkFormValidity('lastName') ||
-			this.checkFormValidity('country') || this.checkFormValidity('email') || 
-			this.checkFormValidity('phone') || this.checkFormValidity('code')){
-				return true;
+	checkFormValidity(form:NgForm){
+		this.submitted= true
+		if(form.valid&& this.submitted){
+			this.saveForm();
+		//	this.formIsInValid= false;
+			// return
 		}
-		return false;
+		// else{
+			// this.formIsInValid= true;
+		// }
 	}
 	
-	checkFormValidity(id:string):boolean{
-		let element = (<HTMLInputElement>document.getElementById(id));
-		if(!element.checkValidity()){
-			this.setColor('red');
-			this.setBorderColor(id, 'red');
-			this.message= element.validationMessage;
-			if(id== 'phone'){
-				this.message= 'Phone number must be 7 characters';
-			}
-			if(id== 'code'){
-				this.message= 'Code must be 4 characters';
-			}
+	checkFieldValidity(field:NgModel):boolean{
+		if(field.invalid&& this.submitted){
 			return true;
 		}
-		this.message= '';
-		this.setBorderColor(id, 'white')
 		return false;
+	}
+	
+	goBackToStore(){
+		this.router.navigateByUrl("/bookstore")
+	}
+	
+	generateNextId():number{
+		let lastIndex= this.repository.users.length- 1
+		if(lastIndex<= -1){
+			return 1;
+		}
+		let nextId= this.repository.users[lastIndex].id +1;
+		return nextId;
 	}
 	
 	saveForm():void{
-		if(this.validateForm()){
-		//	return;
-		}  			
-		this.nextUserId= this.repository.users.length+1;
-		let user:User= new User(this.nextUserId, this.firstName, this.lastName, this.country, this.email, this.code+this.phone, this.comments);
+		//this.submitted= true
+		// if(this.formIsInValid){
+			// return;
+		// }  			
+		this.submitted= false;
+		let user:User= new User(this.generateNextId(), this.firstName, this.lastName, 
+			this.country, this.email, '+'+this.code+' '+this.phone, this.comments);
 		this.repository.addUser(user);
-		this.message= 'Your proflie is saved successfully' ;
-		this.setColor('lime');
-	//	this.saveLocal();
+		this.goBackToStore();
+		this.messageService.showSuccessMessage();
 	}
 		
 	clear():void{
-	//	document.getElementById('lastName').innerHTML= 'json';
-	//	document.getElementById('lastName').innerText= '';
-	}
-	
-	setColor(newcolor:string, id:string= 'message'):void{
-		this.color=`color:{${newcolor}`;
-	}
-	
-	setBorderColor(newcolor:string, id?:string):string{
-		return `border:solid {${newcolor}`;
+		this.firstName= '';
+		this.lastName= '';
+		this.country= '';
+		this.email= '';
+		this.phone= '';
+		this.code= '';
+		this.comments= '';
 	}
 
-	ngOnInit():void {
-		this.preventForm();
-  }
+	ngOnInit():void { }
 
 }
 

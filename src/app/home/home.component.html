@@ -7,33 +7,35 @@
 </head>
 
 <body >
-	<h1>Welcome to my Home Page</h1>
-	<p class='home'>Have a look at my current demo projects</p>
+	<h1>Home</h1>
+	<h3>Welcome to my Home Page</h3>
+	<br>
+	Have a look at my current demo projects
+	<p class='home'></p>
 	<li>Calculator</li>
 	<li>Converter</li>
-	<li>Mail List</li><br>
+	<li>Book Store</li>
+	<li>Mailing List</li>
+	<li>Mailing List Data</li>
+	<br>
 	<details [open]='openAboutMeIsOpen'>
 		<summary (mouseover)='openAboutMe()' 
 						  (mouseleave)='openAboutMe()'>About me
 		</summary>
 			<div class='menu'>
-				I'm an entry level front-end Angular developer. <br>
-				I've been teaching myself to code in Java for 6 months.<br> 
+				I'm an entry level front-end Angular developer. 
+				<br>
+				I've been teaching myself to code in Java for 6 months.
+				<br> 
 				HTML, CSS, Typescript for 4 months so far. 
 			</div>
 	</details>
-	<div class='imagechange' *ngIf='changeUrl'>
-	</div>	
-	<div class='imagechange' *ngIf='!changeUrl'>
-	</div>
-	<table class='home'>
-		<tr>
-			<td class='html'>HTML</td>
-			<td class='css'>CSS</td>
-			<td class='typescript'>Typescript</td>
-			<td class='angular'>Angular</td>
-			<td class='java'>Java</td>
-		</tr>
-	</table>
+		<div [ngSwitch]='imageNo'>
+			<img *ngSwitchCase='1' class='home' src='assets/img/home.jpg'>
+			<img *ngSwitchCase='2' class='home' src='assets/img/river.jpg'>
+			<img *ngSwitchCase='3' class='home' src='assets/img/city.jpg'>
+			<img *ngSwitchCase='4' class='home' src='assets/img/town.jpg'>
+		</div>
+		
 </body>
 </html>

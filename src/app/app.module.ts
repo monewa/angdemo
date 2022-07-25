@@ -11,12 +11,13 @@ import { MailinglistComponent } from './mailinglist/mailinglist.component';
 import { MailinglistdataComponent } from './mailinglistdata/mailinglistdata.component';
 import { HomeComponent } from './home/home.component';
 import { UserRepositoryService } from './model/user.repository.service';
+import { BookstoreComponent } from './bookstore/bookstore.component';
 
 export const components= [AppComponent, HomeComponent,
 											  CalculatorComponent, 
 											  ConverterComponent, 
 											  MailinglistComponent, 
-											  MailinglistdataComponent];
+											  MailinglistdataComponent, BookstoreComponent];
 
 @NgModule({
   declarations: [components, HomeComponent ],

@@ -11,19 +11,28 @@
 		<div class='menu'>{{JSONDATA}}</div>
 	</details>
 <a routerLink='/mailinglist' routerLinkActive= 'active' > Back to MailList</a>
-		<a href='../../assets/maildata.json' routerLinkActive= 'active' >JSON file</a>
-	<br><br><br>
-<h1 title='users information table'>User Data</h1>
-
+<a href='../../assets/maildata.json' routerLinkActive= 'active' >JSON file</a>
+<br>
+<br>
+<br>
+<h1 title='users information table'>Registered User Data</h1>
 <table class='datatable'>	
 	<thead>
-		<th> </th>	<th> </th> <th>Id</th>	<th>Name</th>
-		<th>Last Name</th>		<th>Country</th>
-		<th>Email</th>  	<th>Phone</th>	<th>Comments</th>
+		<th> </th>	
+		<th> </th> 
+		<th>Id</th>	
+		<th>Name</th>
+		<th>Last Name</th>		
+		<th>Country</th>
+		<th>Email</th>  	
+		<th>Phone</th>	
+		<th>Comments</th>
 	</thead>
 	<tbody>
-	<tr [hidden]='checkForData()'><td colspan='4'>no data found</td></tr>
-	<tr *ngFor= 'let user of getUsers(); let i= index;'  >
+		<tr [hidden]='checkForData()'>
+			<td colspan='4'>no data found</td>
+		</tr>
+		<tr *ngFor= 'let user of getUsers(); let i= index;'  >
 			<td>
 				<button (click)= "deleteUser(i)"  class= "del">x</button>
 			</td>					
@@ -31,8 +40,8 @@
 				<button (click)= "editUsers(i)" [hidden]='!checkForEditMode(i)' 
 								class="edit">Edit</button>
 				<button (click)= "saveNewData(i)" [hidden]='checkForEditMode(i)' 
-								class= "edit">
-				Save</button>
+								class= "edit">Save
+				</button>
 			</td>
 			<td>{{user.id}}</td> 					
 			<td> 
@@ -43,7 +52,7 @@
 							 class= 'editUser'  placeholder= 'name'/>					
 			</td>
 			<td> 
-			<label [hidden]= '!checkForEditMode(i)' >{{user.lastName}}</label>
+				<label [hidden]= '!checkForEditMode(i)' >{{user.lastName}}</label>
 				<input [(ngModel)]= "newLastName"	[hidden]='checkForEditMode(i)' 
 							[style]='setWidth(user.lastName.length)' 	
 							maxlength='15' class='editUser' placeholder='lastname' />					
@@ -72,10 +81,12 @@
 			<td>{{user.comments}}</td>
 		</tr>
 	</tbody >
-</table><br>
-
-<label class='datamessage'>{{message}}</label><br><br>
-<label class='datamessage'>http message:{{httpmessage}}</label><br><br>
+</table>
+<br>
+<label class='datamessage' *ngIf= 'message != "" '>{{message}}</label>
+<br>
+<br>
+<!-- <label class='datamessage'>http message:{{httpmessage}}</label><br><br> -->
 </body>
 
 </html>

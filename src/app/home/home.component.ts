@@ -8,15 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 	
 	openAboutMeIsOpen=false;
-	changeUrl:boolean= false
+	imageNo:number= 1
 	constructor() { }
 
 	openAboutMe(){
 		this.openAboutMeIsOpen= !this.openAboutMeIsOpen;
 	}	
-
+	
 	changeImageUrl= ()=>{		
-		this.changeUrl= !this.changeUrl
+		if(this.imageNo>= 4){
+			this.imageNo= 0;
+		}
+		this.imageNo++;
 	}
 
 	ngOnInit(): void {

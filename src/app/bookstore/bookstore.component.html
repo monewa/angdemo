@@ -1,0 +1,30 @@
+
+<html>
+
+<head>
+	<title>Mail List</title>
+</head>
+
+<body>
+
+<h1>Book Store</h1>
+<img src='assets/img/image.jpg' class='side' >
+<br>
+<h3>Welcome to our bookshop</h3>
+<br>
+<p> 
+	Our latest book is almost ready to be published. 
+	<br> 
+	Join our mail list to order a copy or to get updates.
+</p>
+<br> 
+<br> 
+<div *ngIf='profileCreated' class='success'>Your proflie is saved successfully</div>
+<br> 
+<br> 
+<button (click)= 'cancelMessage()'  
+				routerLink='/mailinglist' routerLinkActive= 'active' class='form'>register
+</button>
+</body>
+
+<html>

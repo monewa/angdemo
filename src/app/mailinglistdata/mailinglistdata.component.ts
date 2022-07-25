@@ -44,7 +44,7 @@ export class MailinglistdataComponent implements OnInit {
 	
 	saveNewData(index:number):void{
 		this.selectedIndex= -1;
-		this.message= ' ';
+		this.message= '';
 		this.updateNewName(index);
 		this.updateNewLastName(index);
 		this.updateNewCountry(index);
@@ -55,22 +55,21 @@ export class MailinglistdataComponent implements OnInit {
 	
 	updateNewName(index:number):void{
 		if(this.repository.getFirstName(index) != this.newName){
-			this.message+= 
-			`${this.repository.getFirstName(index)} is changed to ${this.newName}; `;
+			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getFirstName(index)} is changed to ${this.newName}; `;
 			this.repository.setFirstname(index, this.newName);
 		}
 	}
 	
 	updateNewLastName(index:number):void{
 		if(this.repository.getLastName(index) != this.newLastName){
-			this.message+= `${this.repository.getLastName(index)} is changed to ${this.newLastName}; `;
+			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getLastName(index)} is changed to ${this.newLastName}; `;
 			this.repository.setLastname(index, this.newLastName);
 		}
 	}
 	
 	updateNewCountry(index:number):void{
 		if(this.repository.getCountry(index) != this.newCountry){
-			this.message+= `${this.repository.getCountry(index)} is changed to ${this.newCountry}; `;
+			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getCountry(index)} is changed to ${this.newCountry}; `;
 			this.repository.setCountry(index, this.newCountry) ;
 		}
 	}
@@ -79,21 +78,20 @@ export class MailinglistdataComponent implements OnInit {
 	
 	updateNewEmail(index:number):void{
 		if(this.repository.getEmail(index) != this.newEmail){
-			this.message+= `${this.repository.getEmail(index)} is changed to ${this.newEmail}; `;
+			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getEmail(index)} is changed to ${this.newEmail}; `;
 			this.repository.setEmail(index, this.newEmail) ;
 		}
 	}
 	
 	updateNewPhone(index:number):void{
 		if(this.repository.getPhone(index)!= this.newPhone){
-			this.message+= `${this.repository.getPhone(index)} is changed to ${this.newPhone}; `;
+			this.message+= `id no:${this.repository.getId(index)}  ${this.repository.getPhone(index)} is changed to ${this.newPhone}; `;
 			this.repository.setPhone(index, this.newPhone) ;
 		}
 	}
 	
 	deleteUser(index:number):void{
-		this.message= this.repository.getFirstName(index) || 
-		this.repository.users[index]?.lastName+' deleted';
+		this.message= `id no:${this.repository.getId(index)}  ${this.repository.getFirstName(index)}  is deleted`;
 		this.repository.deleteUser(index);
 	}
 
@@ -102,7 +100,7 @@ export class MailinglistdataComponent implements OnInit {
 	} 
 	
 	checkForData():boolean{
-		if(this.repository.users.length<= 0){
+		if(this.getUsers().length<= 0){
 			return false;
 		}
 		return true;

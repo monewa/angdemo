@@ -1,29 +1,25 @@
 
 
-div.form{ background-color:black;	
+form{ background-color:black;	
 /* height:750px;*/
 width:480px; 
 font-size:22px;
 padding:25px;
+
 }
 
-
-
-button.form{ width:175px;
+button.form{ width:145px;
 font-size:30px;
 position:relative;
-left:30px;	
+left:20px;	
+padding:8px;
+font-weight:bold;
 }
 
 a{float:right;
 }
 
-label#message{	color:red;
-}
-
-
-
-input.form,  textarea{ font-size:22px;
+input.form,  textarea.form, option.form, select.form{ font-size:22px;
 }
 
 input.code{ width:90px;
@@ -32,7 +28,22 @@ input.code{ width:90px;
 input.phone{ width:120px;
 }
 
+input.ng-invalid  { border-left: 2px solid red
+}
+
+.alert{ color:red;	
+	font-size:16px;
+}
+div.success{ color:lime;
+	font-size:25px;	
+	background-color:black;
+	padding:20px;
+	width:420px;
+	text-align:center;
+}
+
 label.form, span.form{ width:90px;
 	color:yellow;
 	width:80px;	
 }
+
