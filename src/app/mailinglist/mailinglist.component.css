@@ -1,11 +1,10 @@
 
 
 form{ background-color:black;	
-/* height:750px;*/
+color: yellow;
 width:480px; 
 font-size:22px;
 padding:25px;
-
 }
 
 button.form{ width:145px;
@@ -28,7 +27,10 @@ input.code{ width:90px;
 input.phone{ width:120px;
 }
 
-input.ng-invalid  { border-left: 2px solid red
+input.ng-invalid, textarea.ng-invalid, select.ng-invalid{ border-left: 2px solid red
+}
+
+input.ng-valid, textarea.ng-valid, select.ng-valid{ border-left: 2px solid lime
 }
 
 .alert{ color:red;	
@@ -42,8 +44,4 @@ div.success{ color:lime;
 	text-align:center;
 }
 
-label.form, span.form{ width:90px;
-	color:yellow;
-	width:80px;	
-}
 

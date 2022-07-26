@@ -12,15 +12,18 @@ import { MailinglistdataComponent } from './mailinglistdata/mailinglistdata.comp
 import { HomeComponent } from './home/home.component';
 import { UserRepositoryService } from './model/user.repository.service';
 import { BookstoreComponent } from './bookstore/bookstore.component';
+import { AboutmeComponent } from './aboutme/aboutme.component';
 
 export const components= [AppComponent, HomeComponent,
 											  CalculatorComponent, 
 											  ConverterComponent, 
 											  MailinglistComponent, 
-											  MailinglistdataComponent, BookstoreComponent];
+											  MailinglistdataComponent, 
+											  BookstoreComponent,
+											  AboutmeComponent];
 
 @NgModule({
-  declarations: [components, HomeComponent ],
+  declarations: [components ],
   imports: [
     BrowserModule,
     AppRoutingModule,

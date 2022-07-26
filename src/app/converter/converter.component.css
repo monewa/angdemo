@@ -1,12 +1,12 @@
 
-div.converter{ background-color:lightgray; 
+div.converter{ background-color:STEELBLUE; 
 	font-size:24px;
-	color:black;
+	color:white;
 	padding:12px;
-	height:440px;
+	height:490px;
 	width:410px;
+	position:relative;
 	left:40px;
-	top:20px;
 }
 
 button.unit{ width:150px;
@@ -17,12 +17,17 @@ button.unit{ width:150px;
 button.reset{ width:113px;
 }
 
-label, input{ width:350px;
+label, input{ width:350px; 
+}
+
+label{background-color:black;
+	padding:12px;
 }
 
 input.converter{ background-color:white;
 	color:black;
 	text-align:right;
+	margin-bottom:10px;
 }
 
 

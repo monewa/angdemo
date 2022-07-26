@@ -11,7 +11,8 @@ import { map } from 'rxjs/operators';
 export class UserRepositoryService {
 	
 	users:User[]= [];
-	JSONURL:string= 'assets/maildata.json';
+	// JSONURL:string= 'assets/maildata.json';
+	JSONURL:string= 'http://localhost:3500/users/';
 	output:string= '';
 	
 	constructor( private http:HttpClient) { 
@@ -34,18 +35,21 @@ export class UserRepositoryService {
 	// , {headers:httpHeader}
 	addUser(user:any):void{
 		this.users.push(user);
-		const httpHeader = new HttpRequest('JSONP', this.JSONURL);
+	//	const httpHeader = new HttpRequest('JSONP', this.JSONURL);
 		this.http.post(this.JSONURL, this.getJSONData())
-		// .
-		// pipe(map((response: Response) => {return response;}));
+		.subscribe(
+			data => 
+				console.log('added:', user)
+			);
+	//	. pipe(map((response: Response) => {return response;}));
 	}
   	
 	deleteUser(index:number):void{
 		this.http.delete(`${this.JSONURL}/${this.users[index].id}`)
-		// .subscribe(
-			// data => 
-				// console.error('deleted:', this.users[index].firstName)
-			// );
+		.subscribe(
+			data => 
+				console.error('deleted:', this.users[index].firstName)
+			);
 		this.users.splice(index, 1);
 	}
 	

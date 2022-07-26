@@ -22,7 +22,6 @@ export class MailinglistComponent implements OnInit {
 	comments: string= '';
 	message:string= ''
 	submitted=false;
-	formIsInValid:boolean= true;
 	countryList= this.repository.countryList
 	
   constructor(private repository:UserRepositoryService, private router:Router,
@@ -32,15 +31,15 @@ export class MailinglistComponent implements OnInit {
 		this.submitted= true
 		if(form.valid&& this.submitted){
 			this.saveForm();
-		//	this.formIsInValid= false;
-			// return
 		}
-		// else{
-			// this.formIsInValid= true;
-		// }
 	}
 	
 	checkFieldValidity(field:NgModel):boolean{
+		if(field.name== 'email'){
+			if(this.email.length<=3){
+		//		console.log('email',this.email)
+			}
+		}
 		if(field.invalid&& this.submitted){
 			return true;
 		}
@@ -56,15 +55,11 @@ export class MailinglistComponent implements OnInit {
 		if(lastIndex<= -1){
 			return 1;
 		}
-		let nextId= this.repository.users[lastIndex].id +1;
-		return nextId;
+		let lastId= this.repository.users[lastIndex].id;
+		return lastId+1;
 	}
 	
-	saveForm():void{
-		//this.submitted= true
-		// if(this.formIsInValid){
-			// return;
-		// }  			
+	saveForm():void{	
 		this.submitted= false;
 		let user:User= new User(this.generateNextId(), this.firstName, this.lastName, 
 			this.country, this.email, '+'+this.code+' '+this.phone, this.comments);

@@ -9,7 +9,7 @@ export class ConverterComponent implements OnInit {
 
 	displayValue:string= '';
 	toDisplayValue:string= '';
-	answerDisplayMesseage:string= '';
+	answerDisplayMessage:string= '';
 	unit1:string= '';
 	unit2:string= '';
 	unitType:string= '';
@@ -145,7 +145,7 @@ export class ConverterComponent implements OnInit {
 			this.unit1=unit;
 			this.updateUnitType();
 			this.steps= 'select 2nd unit';
-			this.answerDisplayMesseage= this.unit1+ ' selected';
+			this.answerDisplayMessage= this.unit1+ ' selected';
 			this.clearDisplayForNextStep();
 			return;
 		}
@@ -155,7 +155,7 @@ export class ConverterComponent implements OnInit {
 				return;
 			}
 			this.steps= 'type a value';
-			this.answerDisplayMesseage='convert '+this.unit1 + ' to '+ this.unit2;
+			this.answerDisplayMessage='convert '+this.unit1 + ' to '+ this.unit2;
 			this.clearDisplayForNextStep();
 			return;
 		}
@@ -208,13 +208,21 @@ export class ConverterComponent implements OnInit {
 		this.unit2= '';
 		this.result= 0;
 		this.displayValue= '';
-		this.answerDisplayMesseage= '';
+		this.answerDisplayMessage= '';
 		this.setAnswerDisplay();
 		this.setDisplay();
 		this.setDisplayPlaceholder();
 	}
 	
-	setAnswerDisplay(value:number|string= this.answerDisplayMesseage):string{
+	clearBackgroundColor():string{
+		if(this.answerDisplayMessage== ''){
+			return 'background-color:transparent';
+		}
+		return '';
+	}
+	
+	setAnswerDisplay(value:number|string= this.answerDisplayMessage):string{
+		this.clearBackgroundColor();
 		return value+'';
 	}
 
@@ -226,6 +234,7 @@ export class ConverterComponent implements OnInit {
 	setDisplayPlaceholder(value:number|string= this.steps):string{
 		return value+'';
 	}
+	 
 	 
 
 	ngOnInit(): void {

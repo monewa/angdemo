@@ -8,14 +8,15 @@ import { MailinglistComponent } from './mailinglist/mailinglist.component';
 import { MailinglistdataComponent } from './mailinglistdata/mailinglistdata.component';
 import { BookstoreComponent } from './bookstore/bookstore.component';
 import {components} from './app.module';
+import { AboutmeComponent } from './aboutme/aboutme.component';
 
 const routes: Routes = [{path:'home', component:HomeComponent},  
 										{path:'calculator', component:CalculatorComponent},
 										{path:'converter', component:ConverterComponent}, 
 										{path:'mailinglistdata', component:MailinglistdataComponent}, 
 										{path:'mailinglist', component:MailinglistComponent},
-										{path:'bookstore', component:BookstoreComponent}
-										];
+										{path:'bookstore', component:BookstoreComponent},
+										{path:'aboutme', component:AboutmeComponent}];
  
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
