@@ -1,4 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
+import { WindowService } from '../services/window.service';
+
 
 @Component({
   selector: 'app-calculator',
@@ -14,12 +17,11 @@ export class CalculatorComponent implements OnInit {
 	toAnswerScreenValue= ''
 	
 	previousSymbol:string= '';
-	periodIsPressed:boolean= false;
 	endOfcalculation:boolean= true;
 	acceptedOperators:string[]= ['+', '-', '*', '/', '='];
 	acceptedFunctions:string[]= ['Delete', 'Backspace'];
 
-  constructor() { }
+  constructor(private window:WindowService) { }
 
 	restrictValues(num:string):boolean{
 		if(num== '0' && this.screenValue== '0'){
@@ -28,11 +30,18 @@ export class CalculatorComponent implements OnInit {
 		if(this.screenValue.length >= 16){
 			return true; 
 		}	
-		if(num=='.' && this.periodIsPressed){
+		if(this.restrictPeriod(num)){
 			return true;
 		}
+		return false
+	}
+
+	restrictPeriod(num:string):boolean{
 		if(num=='.'){
-			this.periodIsPressed=true;
+			let pos= this.screenValue.indexOf('.');
+			if(pos>= 0){
+				return true
+			}
 		}
 		return false
 	}
@@ -169,7 +178,6 @@ export class CalculatorComponent implements OnInit {
 	}
 	
 	clearEntry():void{
-		this.periodIsPressed=false;
 		this.screenValue='';
 		this.setMainScreen();
 	}
@@ -192,7 +200,8 @@ export class CalculatorComponent implements OnInit {
 		return  `${value} ${this.previousSymbol}`;
 	}
 
-  ngOnInit(): void {
+  	ngOnInit(): void {
+		this.window.scrollToTop();
   }
   
 }

@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
+import { WindowService } from '../services/window.service';
 
 @Component({
   selector: 'app-home',
@@ -7,23 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 	
-	openAboutMeIsOpen=false;
-	imageNo:number= 1
-	constructor() { }
 
-	openAboutMe(){
-		this.openAboutMeIsOpen= !this.openAboutMeIsOpen;
-	}	
-	
-	changeImageUrl= ()=>{		
-		if(this.imageNo>= 4){
-			this.imageNo= 0;
-		}
-		this.imageNo++;
-	}
+	constructor(private window:WindowService) { }
 
 	ngOnInit(): void {
-		setInterval(this.changeImageUrl, 5000);
-	  }
+    this.window.scrollToTop();
+	}
 
 }

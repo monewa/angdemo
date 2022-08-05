@@ -1,10 +1,9 @@
 
 import { Component, OnInit } from '@angular/core';
-import { User } from '../model/user.model';
 import { UserRepositoryService } from '../model/user.repository.service';
-import { MessageService } from '../message.service';
 import {NgModel, NgForm} from '@angular/forms'
 import {Router} from '@angular/router';
+import { WindowService } from '../services/window.service';
 
 @Component({
   selector: 'app-mailinglist',
@@ -20,34 +19,34 @@ export class MailinglistComponent implements OnInit {
 	code: string= '';
 	phone: string= '';
 	comments: string= '';
-	message:string= ''
-	submitted=false;
-	countryList= this.repository.countryList
+	userDetailsSummary:string= '';
+	submitted= false; 
+	countryList:any[]= [];
+	formIsValid:boolean=false;
+	hideSuccessPopup:boolean=  true;
+	codeInfoIsHidden:boolean= true;
 	
   constructor(private repository:UserRepositoryService, private router:Router,
-						private messageService:MessageService) { }
+						private window:WindowService) { }
 	
-	checkFormValidity(form:NgForm){
+	checkFormValidity(form:NgForm):void{
 		this.submitted= true
-		if(form.valid&& this.submitted){
-			this.saveForm();
-		}
+		if(form.valid&& this.submitted){ 
+			this.formIsValid=true;
+		}  
 	}
 	
 	checkFieldValidity(field:NgModel):boolean{
-		if(field.name== 'email'){
-			if(this.email.length<=3){
-		//		console.log('email',this.email)
-			}
-		}
-		if(field.invalid&& this.submitted){
+		if(this.submitted&& field.invalid){
 			return true;
 		}
 		return false;
 	}
-	
-	goBackToStore(){
+
+	goBackToStore():void{
 		this.router.navigateByUrl("/bookstore")
+		this.hideSuccessPopup=true;
+			  
 	}
 	
 	generateNextId():number{
@@ -58,16 +57,44 @@ export class MailinglistComponent implements OnInit {
 		let lastId= this.repository.users[lastIndex].id;
 		return lastId+1;
 	}
-	
-	saveForm():void{	
-		this.submitted= false;
-		let user:User= new User(this.generateNextId(), this.firstName, this.lastName, 
-			this.country, this.email, '+'+this.code+' '+this.phone, this.comments);
-		this.repository.addUser(user);
-		this.goBackToStore();
-		this.messageService.showSuccessMessage();
+
+	suggestCode():void{
+		let result =this.countryList.find(c=> c.country== this.country)
+		this.code= result.code
 	}
-		
+	
+	saveForm():void{			
+		if(!this.formIsValid){
+			return;
+		}
+		this.repository.addUser(this.generateNextId(), this.firstName, this.lastName, 
+		this.country, this.email, '+'+this.code+' '+this.phone, this.comments);
+		this.displaySavedDetails();
+		this.resetValues();
+	}
+			
+	resetValues():void{
+		this.window.scrollToTop();
+		this.hideSuccessPopup=false;
+		this.submitted= false;
+		this.formIsValid=false;
+	}
+
+	displaySavedDetails(){
+		this.userDetailsSummary= `<br>First name:${this.firstName} 
+			<br>Last name:${this.lastName} <br>Email:${this.email} 
+			<br>Country:${this.country} 
+			 <br>Phone:+${this.code} ${this.phone}`	
+	}
+
+	showCodeInfo(){		
+		this.codeInfoIsHidden= false;
+	}
+
+	hideCodeInfo(){
+		this.codeInfoIsHidden= true;
+	}
+
 	clear():void{
 		this.firstName= '';
 		this.lastName= '';
@@ -78,7 +105,11 @@ export class MailinglistComponent implements OnInit {
 		this.comments= '';
 	}
 
-	ngOnInit():void { }
+	timeout=setTimeout(() => {this.countryList= this.repository.countries;}, 6000);
+
+	ngOnInit():void { 
+		this.window.scrollToTop();
+    }
 
 }
 

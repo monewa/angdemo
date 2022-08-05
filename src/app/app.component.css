@@ -2,21 +2,38 @@
 
 h1{ background-color:black;
 	padding:10px;
-	color:red;
-	width:450px;
+	color:crimson;
+	width:470px;
 	text-align:center;
+	border-radius: 5px;
 }
+
+div.nav{ width: 1300px;
+	height: 52px;
+	font-size:21px;
+	position:fixed;
+	top: 0px;
+	background-color: black;
+	z-index: 1;
+}
+
+nav{ position: fixed;
+	top: 15px;
+}
+
+body,footer{color:white;
+	font:19px verdana;
+		}
 
 body{	margin-bottom: 180px;
-
-
 }
 
-nav{  font-size:21px;
-	 float:left; 
-	 display:block; 
-	 position:fixed;
+body.fade, div.fade, label.fade{border-radius: 5px;
+animation:loadPage 3s 
 }
+@keyframes loadPage{from{opacity:0.2; }
+	to{opacity:1; }	
+	}
 
 div.menu{	position:absolute; 
 	opacity:0.9;
@@ -27,41 +44,47 @@ div.menu{	position:absolute;
 div.numpad{  padding:13px 0px 0px 13px; 	
 }
 
-a, summary{ color:orange;
+a{ color:orange;
 	background-color:black;
 	text-decoration: none;
 	padding:12px;
 	margin-top:18px;
+	transition: background-color .8s, color 1s ;
 }
 
-a:hover, a.active{ color:black;
-	background-color:white;
+a:hover{ color:black;
+	background-color:lightgrey;
 }
 
-a:active{ color:red;
-	background-color:white;
+.active{color:black;
+	background-color:lightgrey;
 }
 
-button{ background-color:lightblue;
+a:active{ opacity: .6;
+}
+
+button{ background-color:rgb(47, 184, 184);
 	width:75px;
 	font-size:40px;
 	margin-bottom:2px;
 	margin-left:2px;
+	border-radius: 5px;
+	transition: background-color .8s;
+}
+
+button.clear{ background-color:rgb(235, 121, 121);
+}
+
+button:hover, button.operator:hover{background-color:lightyellow;
+}
+
+button:active{ opacity: .7;	
 }
 
 button.operator{ background-color:rgb(70%, 60%, 80%);
 }
 
 button.wide{ width:152px;
-}
-
-button.clear{ background-color:rgb(100%, 60%, 60%);
-}
-
-button:hover{background-color:lightyellow;
-}
-
-button:active{ background-color:orange;	
 }
 
 p.footer{	position:relative;
@@ -71,22 +94,24 @@ p.footer{	position:relative;
 img.side{ float:right; 
 }
 
-img.home{ width:1200px;
-height:600px;
-animation:loadImage 3s;
-}
-@keyframes loadImage{ from{opacity:0.3}
-	to{opacity:1}	
-}
-
 input, textarea, option, select{ font-size:30px;
 	background-color:rgb(5%, 2%, 10%);
 	border:solid white;
 	color:white;
 	padding: 12px;
+	border-radius: 5px;
+	transition:  box-shadow .5s, border .5s ;
 }
 
 input.editUser{ font-size:16px;
+}
+
+input:hover, textarea:hover, select:hover{ 
+	border: solid blue;
+}
+
+input:focus, textarea:focus, select:focus{ box-shadow: 0px 0px 12px skyblue; 
+	border: solid blue;
 }
 
 table.home{ background-color:black;
@@ -98,11 +123,8 @@ table.home{ background-color:black;
 	padding:8px;
 }
 
-
 th{ padding:8px;
 } 
-
-/* tr{padding:20px} */
 
 td{ padding:6px;
 	background-color:black;
@@ -134,7 +156,6 @@ td.angular{ color:red;
 	box-shadow:0px 0px 13px red
 }
 
-
 td.java{ border:solid white 4px;
 	box-shadow:0px 0px 13px white;
 	color:white;
@@ -143,6 +164,6 @@ td.java{ border:solid white 4px;
 footer{background-color: black;
 	height:180px;
 	width:1300px;
-
+	position: relative;
 }
 

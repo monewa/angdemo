@@ -1,38 +1,40 @@
 
 <!doctype html>
 <html>
-<head>
-	<title>Home page</title>
-</head>
-
+<head>	</head>
 <body >
-<nav>
-	<a routerLink='/home' routerLinkActive= 'active' >Home</a> 
-	<a routerLink='/calculator' routerLinkActive= 'active' >Calculator</a>
-	<a routerLink='/converter' routerLinkActive= 'active' > Converter</a>
-	<a routerLink='/bookstore' routerLinkActive= 'active' > Book Store</a>
-	<a routerLink='/aboutme' routerLinkActive= 'active' > About Me</a>
-	<a [hidden]='showDatalinks()' routerLink='/mailinglistdata' 
-		routerLinkActive= 'active' > Data</a>
-	<a [hidden]='showMoreDatalinks()' routerLink='/mailinglist' routerLinkActive= 'active' > Back to MailList</a>
-	<a  [hidden]='showMoreDatalinks()' href='../../assets/maildata.json' routerLinkActive= 'active' >JSON file</a>
-</nav>
-<br>
-<br>
-<br>
-<router-outlet></router-outlet>
+	<div class="nav">
+		<nav>
+			<a routerLink='/home' routerLinkActive= 'active' >Home</a> 
+			<a routerLink='/calculator' routerLinkActive= 'active' >Calculator</a>
+			<a routerLink='/converter' routerLinkActive= 'active' > Converter</a>
+			<a routerLink='/bookstore' routerLinkActive= 'active' > Book Store</a>
+			<a [hidden]='showDatalinks()' routerLink='/mailinglistdata' routerLinkActive= 'active' > Data</a>
+			<a [hidden]='showMoreDatalinks()' routerLink='/mailinglist' routerLinkActive= 'active' > 
+				Back to MailList</a>
+			<a  [hidden]='showMoreDatalinks()' href='/assets/data/maildata.json' routerLinkActive= 'active' >
+				JSON file</a>
+			<a routerLink='/aboutme' routerLinkActive= 'active' > About Me</a>
+		</nav>
+	</div>
+	<br>
+	<br>
+	<router-outlet></router-outlet>
+	
 </body>
+<br>
+<br>
 <footer>
-<table class='home'>
-	<tr>
-		<td class='html home' >HTML</td>
-		<td class='css home'>CSS</td>
-		<td class='typescript home'>Typescript</td>
-		<td class='angular home'>Angular</td>
-		<td class='java home'>Java</td>
-	</tr>
-</table>
- <p class='footer'>Copyleft ©2022  - All Rights to Share</p>
+	<table class='home'>
+		<tr>
+			<td class='html home' >HTML</td>
+			<td class='css home'>CSS</td>
+			<td class='typescript home'>Typescript</td>
+			<td class='angular home'>Angular</td>
+			<td class='java home'>Java</td>
+		</tr>
+	</table>
+	<p class='footer'>Copyleft ©2022  - All Rights to Share</p>
 </footer>
 </html>
 

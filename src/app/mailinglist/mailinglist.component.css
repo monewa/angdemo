@@ -1,10 +1,43 @@
 
 
 form{ background-color:black;	
-color: yellow;
-width:480px; 
-font-size:22px;
-padding:25px;
+	color: yellow;
+	width:620px; 
+	height: 870px;
+	font-size:22px;
+	padding:25px;
+}
+div.pg1{ position: relative;
+	top: 5px;
+}
+
+div.name{position: absolute;
+	top: 330px;
+}
+
+div.lastname{position: absolute;
+	top: 430px;
+}
+
+div.email{position: absolute;
+	top: 530px;
+}
+div.country{position: absolute;
+	top: 630px;
+}
+
+div.code{position: absolute;
+	top: 740px;
+	width: 630px;
+	/* background-color: aquamarine; */
+}
+
+div.comments{position: absolute;
+	top: 840px;
+}
+
+div.buttons{position: absolute;
+	top: 1000px;
 }
 
 button.form{ width:145px;
@@ -15,16 +48,14 @@ padding:8px;
 font-weight:bold;
 }
 
-a{float:right;
-}
 
 input.form,  textarea.form, option.form, select.form{ font-size:22px;
 }
 
-input.code{ width:90px;
+input.code{ width:113px;
 }
 
-input.phone{ width:120px;
+input.phone{ width:190px;
 }
 
 input.ng-invalid, textarea.ng-invalid, select.ng-invalid{ border-left: 2px solid red
@@ -33,15 +64,71 @@ input.ng-invalid, textarea.ng-invalid, select.ng-invalid{ border-left: 2px solid
 input.ng-valid, textarea.ng-valid, select.ng-valid{ border-left: 2px solid lime
 }
 
+select{ width:400px;
+}
+
+label.info{ background-color: darkblue;
+	color: whitesmoke;
+	font-weight: bold;
+	padding: 6px;
+	margin-left: 5px;
+	border-radius: 10px;
+	transition: .6s;
+}
+
+label.info:hover{ background-color: blue;
+}
+
+label.code-info{ font-size:medium ;
+	position: absolute;
+	top: -20px;
+	left: 150px;
+}
+
 .alert{ color:red;	
 	font-size:16px;
 }
-div.success{ color:lime;
-	font-size:25px;	
-	background-color:black;
-	padding:20px;
-	width:420px;
-	text-align:center;
+
+.alertphone{ position: absolute;
+	left: 270px;
 }
 
 
+div.background{height: 1130px;
+	width: 1200px;
+	position: absolute;
+	top: 70px;
+	background-color: black;
+	opacity: .6;
+}
+
+div.success{ color:white;
+	font-size:25px;	
+	background-color: rgb(28, 28, 88);
+	padding:20px;
+	width:570px;
+	height: 400px;
+	position: absolute;
+	top: 100px;
+	left: 300px;
+}
+
+button.verify{ background-color: white;
+	text-align: center;
+	margin-left: 200px;
+}
+
+button.verify:hover{ background-color: lightblue;
+}
+
+img.verify{height: 50px;
+	width: 50px;
+}
+
+div.successHeader{text-align: center;}
+
+label.summary{text-align: left;
+	margin-left: 10px;
+}
+
+  

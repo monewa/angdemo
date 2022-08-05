@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
-import { User } from '../model/user.model';
 import { UserRepositoryService } from '../model/user.repository.service';
+import { WindowService } from '../services/window.service';
 
 @Component({
   selector: 'app-mailinglistdata',
@@ -10,29 +10,25 @@ import { UserRepositoryService } from '../model/user.repository.service';
 })
 export class MailinglistdataComponent implements OnInit {
 
+	users:any[]= this.repository.users;
 	message:string= '';
 	selectedIndex:number= -1;
-	newName:string= '';
-	newLastName:string= '';
-	newCountry:string= '';
-	newEmail:string= '';
-	newPhone:string= '';
-	JSONDATA= this.repository.getJSONData();
-	httpmessage= this.repository.output; 
+	name:string= '';
+	lastName:string= '';
+	country:string= '';
+	email:string= '';
+	phone:string= '';
+	timeout=setTimeout(() => {this.users= this.repository.users;}, 4000);
 	
-	constructor(private repository:UserRepositoryService) { }
-	
-	getUsers(){
-		return this.repository.users
-	}
+	constructor(private repository:UserRepositoryService, private window:WindowService) { }
 	
 	editUsers(index:number):void{
 		this.selectedIndex=index;
-		this.newName= this.repository.getFirstName(index);
-		this.newLastName= this.repository.getLastName(index);
-		this.newCountry= this.repository.getCountry(index);
-		this.newEmail= this.repository.getEmail(index);
-		this.newPhone= this.repository.getPhone(index);
+		this.name= this.repository.getFirstName(index);
+		this.lastName= this.repository.getLastName(index);
+		this.country= this.repository.getCountry(index);
+		this.email= this.repository.getEmail(index);
+		this.phone= this.repository.getPhone(index);
 	}
 	
 	checkForEditMode(index:number):boolean{
@@ -42,72 +38,74 @@ export class MailinglistdataComponent implements OnInit {
 		return true;
 	}
 	
-	saveNewData(index:number):void{
+	updateData(index:number):void{
 		this.selectedIndex= -1;
 		this.message= '';
-		this.updateNewName(index);
-		this.updateNewLastName(index);
-		this.updateNewCountry(index);
-		this.updateNewEmail(index);
-		this.updateNewPhone(index);
-		
+
+		this.updateName(index);
+		this.updateLastName(index);
+		this.updateCountry(index);
+		this.updateEmail(index);
+		this.updatePhone(index);
+		this.users= this.repository.users;
 	}
-	
-	updateNewName(index:number):void{
-		if(this.repository.getFirstName(index) != this.newName){
-			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getFirstName(index)} is changed to ${this.newName}; `;
-			this.repository.setFirstname(index, this.newName);
+
+	updateName(index:number):void{
+		if(this.repository.getFirstName(index) != this.name){
+			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getFirstName(index)} is changed to ${this.name}`;
+			this.repository.patchName(index, this.name);
+
 		}
 	}
 	
-	updateNewLastName(index:number):void{
-		if(this.repository.getLastName(index) != this.newLastName){
-			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getLastName(index)} is changed to ${this.newLastName}; `;
-			this.repository.setLastname(index, this.newLastName);
+	updateLastName(index:number):void{
+		if(this.repository.getLastName(index) != this.lastName){
+			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getLastName(index)} is changed to ${this.lastName}`;
+			this.repository.patchLastname(index, this.lastName);
 		}
 	}
 	
-	updateNewCountry(index:number):void{
-		if(this.repository.getCountry(index) != this.newCountry){
-			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getCountry(index)} is changed to ${this.newCountry}; `;
-			this.repository.setCountry(index, this.newCountry) ;
-		}
-	}
-	   
-		
-	
-	updateNewEmail(index:number):void{
-		if(this.repository.getEmail(index) != this.newEmail){
-			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getEmail(index)} is changed to ${this.newEmail}; `;
-			this.repository.setEmail(index, this.newEmail) ;
+	updateCountry(index:number):void{
+		if(this.repository.getCountry(index) != this.country){
+			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getCountry(index)} is changed to ${this.country}`;
+			this.repository.patchCounty(index, this.country);
 		}
 	}
 	
-	updateNewPhone(index:number):void{
-		if(this.repository.getPhone(index)!= this.newPhone){
-			this.message+= `id no:${this.repository.getId(index)}  ${this.repository.getPhone(index)} is changed to ${this.newPhone}; `;
-			this.repository.setPhone(index, this.newPhone) ;
+	updateEmail(index:number):void{
+		if(this.repository.getEmail(index) != this.email){
+			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getEmail(index)} is changed to ${this.email}`;
+			this.repository.patchEmail(index, this.email);
+		}
+	}
+	
+	updatePhone(index:number):void{
+		if(this.repository.getPhone(index)!= this.phone){
+			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getPhone(index)} is changed to ${this.phone}`;
+			this.repository.patchPhone(index, this.phone);
 		}
 	}
 	
 	deleteUser(index:number):void{
 		this.message= `id no:${this.repository.getId(index)}  ${this.repository.getFirstName(index)}  is deleted`;
 		this.repository.deleteUser(index);
+		this.users= this.repository.users
 	}
 
-	setWidth(length:number= 2):string{
-		return `width:${length*5+ 80}px`;
+	setWidth(length:number):string{
+		return `width:${length*5+ 80}px; font-size: 19px;`;
 	} 
 	
 	checkForData():boolean{
-		if(this.getUsers().length<= 0){
+		if(this.users.length<= 0){
 			return false;
 		}
 		return true;
 	}
 
-	ngOnInit(): void { 	
-		this.getUsers();
+	ngOnInit(): void {
+		this.window.scrollToTop();
+		this.timeout
 	}
 
 }

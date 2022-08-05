@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
+import { WindowService } from '../services/window.service';
 
 @Component({
   selector: 'app-converter',
@@ -19,7 +21,7 @@ export class ConverterComponent implements OnInit {
 	periodIsFound:boolean= false;
 	negativeIsFound:boolean= false;
 	
-	constructor() { }
+	constructor(private window:WindowService) { }
 
 	restrictNumberInput(num:string):boolean{
 		if(num== '-' && this.negativeIsFound){
@@ -32,11 +34,8 @@ export class ConverterComponent implements OnInit {
 		if(this.displayValue== '0' && num== '0'){
 			return true;
 		}
-		if(this.periodIsFound && num== '.'){
+		if(this.restrictPeriod(num)){
 			return true;
-		}
-		if(num== '.' && !this.periodIsFound){
-			this.periodIsFound= true;
 		}
 		if(this.steps!= 'type a value'){
 			return true;
@@ -45,6 +44,16 @@ export class ConverterComponent implements OnInit {
 			return true;
 		}
 		return false;
+	}
+
+	restrictPeriod(num:string):boolean{
+		if(num=='.'){
+			let pos= this.displayValue.indexOf('.');
+			if(pos>= 0){
+				return true
+			}
+		}
+		return false
 	}
 	
 	getNumberInput(num:string):void{
@@ -238,6 +247,7 @@ export class ConverterComponent implements OnInit {
 	 
 
 	ngOnInit(): void {
+		this.window.scrollToTop();
 	}
 
 }

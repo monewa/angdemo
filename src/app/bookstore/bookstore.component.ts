@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from '../message.service';
+import { WindowService } from '../services/window.service';
 
 @Component({
   selector: 'app-bookstore',
@@ -9,15 +9,11 @@ import { MessageService } from '../message.service';
 })
 export class BookstoreComponent implements OnInit {
 
-	profileCreated:boolean= this.messageService.profileCreated;
 	
-	constructor(private messageService:MessageService) { }
-	
-	cancelMessage():void{
-		this.messageService.cancelMessage();
-	}
+constructor(private window:WindowService) { }
 
-	  ngOnInit(): void {
+ngOnInit(): void { 
+    this.window.scrollToTop();
   }
 
 }

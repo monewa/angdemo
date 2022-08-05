@@ -1,87 +1,80 @@
 
 <html>
 
-<head>
-	<title>User Data</title>
-</head>
+<head></head>
 
-<body>
-	<details >	
-		<summary><b>JSON data</b>	</summary>
-		<div class='menu'>{{JSONDATA}}</div>
-	</details>
-<h1 title='users information table'>Registered User Data</h1>
-<table class='datatable'>	
-	<thead>
-		<th> </th>	
-		<th> </th> 
-		<th>Id</th>	
-		<th>Name</th>
-		<th>Last Name</th>		
-		<th>Country</th>
-		<th>Email</th>  	
-		<th>Phone</th>	
-		<th>Comments</th>
-	</thead>
-	<tbody>
-		<tr [hidden]='checkForData()'>
-			<td colspan='4'>no data found</td>
-		</tr>
-		<tr *ngFor= 'let user of getUsers(); let i= index;'  >
-			<td>
-				<button (click)= "deleteUser(i)"  class= "del">x</button>
-			</td>					
-			<td>
-				<button (click)= "editUsers(i)" [hidden]='!checkForEditMode(i)' 
-								class="edit">Edit</button>
-				<button (click)= "saveNewData(i)" [hidden]='checkForEditMode(i)' 
-								class= "edit">Save
-				</button>
-			</td>
-			<td>{{user.id}}</td> 					
-			<td> 
-				<label [hidden]= '!checkForEditMode(i)' >{{user.firstName}}</label>
-				<input  [hidden]='checkForEditMode(i)' 
-							[style]='setWidth(user.firstName.length)' 	
-							[(ngModel)]= "newName"	maxlength= '15'					 
-							 class= 'editUser'  placeholder= 'name'/>					
-			</td>
-			<td> 
-				<label [hidden]= '!checkForEditMode(i)' >{{user.lastName}}</label>
-				<input [(ngModel)]= "newLastName"	[hidden]='checkForEditMode(i)' 
-							[style]='setWidth(user.lastName.length)' 	
-							maxlength='15' class='editUser' placeholder='lastname' />					
-			</td>
-			<td> 
-				<label [hidden]= '!checkForEditMode(i)' >{{user.country}}</label>
-				<input [hidden]='checkForEditMode(i)' 
-							[(ngModel)]= "newCountry"
-							[style]='setWidth(user.country.length)' 	
-							maxlength='15' class='editUser' placeholder='country' />					
-			</td>
-			<td> 
-				<label [hidden]= '!checkForEditMode(i)' >{{user.email}}</label>
-				<input [value]= 'user.email' [hidden]='checkForEditMode(i)' 
-							[(ngModel)]= "newEmail"
-							[style]='setWidth(user.email.length)'  		
-							maxlength='25' type='email' class='editUser' placeholder='email' />			
-			</td>
-			<td> 
-				<label [hidden]= '!checkForEditMode(i)' >{{user.phone}}</label>
-				<input [value]='user.phone' [hidden]='checkForEditMode(i)' 
-							[(ngModel)]= "newPhone"
-							[style]='setWidth(10)' 
-							maxlength='14' class='editUser' placeholder='phone'  />					
-			</td>				
-			<td>{{user.comments}}</td>
-		</tr>
-	</tbody >
-</table>
-<br>
-<label class='datamessage' *ngIf= 'message != "" '>{{message}}</label>
-<br>
-<br>
-<!-- <label class='datamessage'>http message:{{httpmessage}}</label><br><br> -->
+<body class="fade">
+	<h1 title='users information table'>Registered User Data</h1>
+	<table class='datatable'>	
+		<thead>
+			<th> </th>	
+			<th> </th> 
+			<th>Id</th>	
+			<th>Name</th>
+			<th>Last Name</th>		
+			<th>Country</th>
+			<th>Email</th>  	
+			<th>Phone</th>	
+			<th>Comments</th>
+		</thead>
+		<tbody>
+			<tr [hidden]='checkForData()'>
+				<td colspan='4'>no data found</td>
+			</tr>
+			<tr *ngFor= 'let user of users; let i= index;'  >
+				<td>
+					<button (click)= "deleteUser(i)"  class= "del">delete</button>
+				</td>					
+				<td>
+					<button (click)= "editUsers(i)" [hidden]='!checkForEditMode(i)' 
+									class="edit">Edit</button>
+					<button (click)= "updateData(i)" [hidden]='checkForEditMode(i)' 
+									class= "edit">Save
+					</button>
+				</td>
+				<td>{{user.id}}</td> 					
+				<td> 
+					<label [hidden]= '!checkForEditMode(i)' >{{user.firstName}}</label>
+					<input [hidden]='checkForEditMode(i)' 
+								[style]='setWidth(user.firstName?.length)' 	
+								[(ngModel)]= "name"	maxlength= '15'					 
+								class= 'editUser'  placeholder= 'name'/>					
+				</td>
+				<td> 
+					<label [hidden]= '!checkForEditMode(i)' >{{user.lastName}}</label>
+					<input [(ngModel)]= "lastName"	[hidden]='checkForEditMode(i)' 
+								[style]='setWidth(user.lastName?.length)' 	
+								maxlength='15' class='editUser' placeholder='lastname' />					
+				</td>
+				<td> 
+					<label [hidden]= '!checkForEditMode(i)' >{{user.country}}</label>
+					<input [hidden]='checkForEditMode(i)' 
+								[(ngModel)]= "country"
+								[style]='setWidth(user.country?.length)' 	
+								maxlength='15' class='editUser' placeholder='country' />					
+				</td>
+				<td> 
+					<label [hidden]= '!checkForEditMode(i)' >{{user.email}}</label>
+					<input [value]= 'user.email' [hidden]='checkForEditMode(i)' 
+								[(ngModel)]= "email"
+								[style]='setWidth(user.email?.length)'  		
+								maxlength='25' type='email' class='editUser' placeholder='email' />			
+				</td>
+				<td> 
+					<label [hidden]= '!checkForEditMode(i)' >{{user.phone}}</label>
+					<input [value]='user.phone' [hidden]='checkForEditMode(i)' 
+								[(ngModel)]= "phone"
+								[style]='setWidth(user.phone?.length)' 
+								maxlength='14' class='editUser' placeholder='phone'  />					
+				</td>				
+				<td>{{user.comments}}</td>
+			</tr>
+		</tbody >
+	</table>
+	<br>
+	<label class='datamessage' *ngIf= 'message != "" '>{{message}}</label>
+	<br>
+	<br>
 </body>
 
 </html>

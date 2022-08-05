@@ -10,52 +10,108 @@ import { map } from 'rxjs/operators';
 })
 export class UserRepositoryService {
 	
-	users:User[]= [];
-	// JSONURL:string= 'assets/maildata.json';
-	JSONURL:string= 'http://localhost:3500/users/';
-	output:string= '';
+	users:any[]= [];
+	countries:any[]= [];
+	// users:any[]= this.getStaticUserData();
+	//USERSURL:string= 'https://monewa.github.io/json-server/maildata.json';
+	USERSURL:string= 'assets/data/users.json';
+	// USERSURL:string= 'http://localhost:3500/users/';
+	// COUNTRIESURL:string= 'http://localhost:3500/countries-codes/';
+	COUNTRIESURL:string= 'assets/data/countrydata.json';
+	
 	
 	constructor( private http:HttpClient) { 
-		this.getFromServer(); 
-		this.addUser(new User(5, 'ret'));
+		this.get(); 
+		this.getCountries();
 	}
 	
-	getFromServer(){
-		this.http.get<User[]>(this.JSONURL, {responseType: 'json'}).
-			subscribe( 
+	getCountries(){
+		this.http.get<any[]>(this.COUNTRIESURL, {responseType: 'json'}).subscribe(
+			(data:any[])=> { this.countries= data; }
+		)
+	}
+
+	getFromServer():Observable<User[]>{
+		return this.http.get<User[]>(this.USERSURL, {responseType: 'json'})
+			
+	}
+
+	get(){
+		this.getFromServer().subscribe( 
 				(data:User[])=> { 
-					this.users= data;
+					this.users= data; 
+					// console.log('get',this.users);
 				}
 			);
 	}
 	
-	getJSONData():string{
-		return JSON.stringify(this.users, null, 3);
+	addUser(id:number= -1, firstName:string= '', lastName:string= '', country:string= '', 	email:string= '', phone:string= '', comments:string= ''):void{
+		let user= {"id": id,
+			"firstName": firstName,
+			"lastName": lastName,
+			"country": country,
+			"email": email,
+			"phone": phone,
+			"comments": comments
+		}
+		// this.http.post<User[]>(this.USERSURL, user,	{responseType: 'json'}).subscribe();
+			this.users.push(user);
+			// this.get()
 	}
-	// , {headers:httpHeader}
-	addUser(user:any):void{
-		this.users.push(user);
-	//	const httpHeader = new HttpRequest('JSONP', this.JSONURL);
-		this.http.post(this.JSONURL, this.getJSONData())
-		.subscribe(
-			data => 
-				console.log('added:', user)
-			);
-	//	. pipe(map((response: Response) => {return response;}));
+
+	putUser(index:number, firstName:string, lastName:string,	country:string, email:string, phone:string):void{
+		let user= {"id": '',
+			"firstName": firstName,
+			"lastName": lastName,
+			"country": country,
+			"email": email,
+			"phone": phone,
+			"comments": this.getComments(index)
+		}
+		this.http.put<User[]>(`${this.USERSURL}/${this.getId(index)}`, user, {responseType: 'json'}).subscribe()
+		this.get()
 	}
-  	
+
+	patchName(index:number, firstName:string):void{
+		// this.http.patch<User[]>(`${this.USERSURL}/${this.getId(index)}`, {"firstName": firstName}, {responseType: 'json'}).subscribe()
+		this.users[index].firstName= firstName
+		this.get()
+	}
+
+	patchLastname(index:number, lastName:string):void{
+		// this.http.patch<User[]>(`${this.USERSURL}/${this.getId(index)}`,  {"lastName": lastName}, {responseType: 'json'}).subscribe();
+		this.users[index].lastName= lastName
+		this.get()
+	}
+
+	patchCounty(index:number, country:string):void{
+		// this.http.patch<User[]>(`${this.USERSURL}/${this.getId(index)}`, {"country": country}, {responseType: 'json'}).subscribe()
+		this.users[index].country= country
+		this.get()
+	}
+
+	patchEmail(index:number, email:string):void{
+		// this.http.patch<User[]>(`${this.USERSURL}/${this.getId(index)}`, {"email": email}, {responseType: 'json'}).subscribe();
+		this.users[index].email= email
+		this.get()
+	}
+
+	patchPhone(index:number, phone:string):void{
+		// this.http.patch<User[]>(`${this.USERSURL}/${this.getId(index)}`, {"phone": phone}, {responseType: 'json'}).subscribe();
+		this.users[index].phone= phone
+		this.get()
+	}
+
 	deleteUser(index:number):void{
-		this.http.delete(`${this.JSONURL}/${this.users[index].id}`)
-		.subscribe(
-			data => 
-				console.error('deleted:', this.users[index].firstName)
-			);
-		this.users.splice(index, 1);
+		// this.http.delete<User[]>(`${this.USERSURL}/${this.getId(index)}`, {responseType: 'json'}).subscribe();
+		this.users.splice(index, 1)	
+	//	this.get()
 	}
 	
 	getId(index:number):number{
 		return this.users[index].id
 	}
+
 	getFirstName(index:number):string{
 		return this.users[index].firstName
 	}
@@ -79,27 +135,10 @@ export class UserRepositoryService {
  	getComments(index:number):string{
 		return this.users[index].comments
 	}
-	
- 	setFirstname(index:number, name:string):void{
-		this.users[index].firstName= name;
+
+	getStaticUserData(){
+	return [{"id":2,"firstName":"Thoho","lastName":"Yandou","country":"RSA","email":"thoho@gmail.com","phone":"+2783 4338670","comments":"like it"},{"id":3,"firstName":"Mary","lastName":"Ann","country":"UK","email":"mary@gmail.com","phone":"+5672 1450697","comments":"love it"},{"id":4,"firstName":"Jane","lastName":"Doring","country":"Australia","email":"jane@gmail.com","phone":"+5674 1434697","comments":"can't wait"},{"id":5,"firstName":"Franco","lastName":"Leon","country":"France","email":"franco@yahoo.com","phone":"+3472 1646334","comments":""},{"id":6,"firstName":"Mario","lastName":"Gotti","country":"Italy","email":"mario@gmail.com","phone":"+3378 8646864","comments":"like it"},{"id":7,"firstName":"Karima","lastName":"Singh","country":"India","email":"karima@gmail.com","phone":"+8370 0664063","comments":"excellent"},{"id":8,"firstName":"Xiao","lastName":"Wang","country":"China","email":"jing@weibo.com","phone":"+6785 0649651","comments":"good read"},{"id":9,"firstName":"Mebo","lastName":"Kamkwamba","country":"Malawi","email":"mebo@yahoo.com","phone":"+9795 4564961","comments":"good work"},{"id":10,"firstName":"Kudjo","lastName":"Omoso","country":"Nigeria","email":"kudjo@yahoo.com","phone":"+9575 4949610","comments":"love this author"}]
 	}
-	  	
- 	setLastname(index:number, name:string):void{
-		this.users[index].lastName= name;
-	}
-	  	
- 	setCountry(index:number, country:string):void{
-		this.users[index].country= country;
-	}
-	
-	setEmail(index:number, email:string):void{
-		this.users[index].email= email;
-	}
-		
-	setPhone(index:number, phone:string):void{
-		this.users[index].phone= phone;
-	}
-	
-	countryList:string[] = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Chad","Chile","China", "Central African Republic", "Colombia", "Comoros", "Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Cyprus","Czech Republic", "Democratic Republic of the Congo","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Greenland","Grenada","Guam","Guatemala","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico", "Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique", "Myanmar", "Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea ","Norway","Oman","Pakistan","Palestine","Palau","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Romania","Russia","Rwanda","Samoa","San Marino","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia", "Solomon Islands","Somalia","South Africa","South Korea"," South Sudan","Spain","Sri Lanka","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
-	  
+
+
 }

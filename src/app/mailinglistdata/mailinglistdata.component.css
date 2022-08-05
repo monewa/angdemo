@@ -1,6 +1,6 @@
 
-
-button.del{ width:32px;
+button{height: 32px;}
+button.del{ width:65px;
 	background-color:red;
 	color:white;
 	font-size:16px;
@@ -15,8 +15,6 @@ button.del:hover{ background-color:coral;
 }
 
 button.edit{ width:45px;
-/* 	background-color:red;
-	color:white; */
 	font-size:14px;
 	margin-bottom:0px;
 	margin-left:0px;
@@ -34,5 +32,8 @@ label.datamessage{ background-color:black;
  thead{ background-color:black;
 	font-size:16px;
 	text-align:center;
+}
+
+td{height: 60px;
 }
 
