@@ -75,31 +75,31 @@ export class UserRepositoryService {
 	patchName(index:number, firstName:string):void{
 		// this.http.patch<User[]>(`${this.USERSURL}/${this.getId(index)}`, {"firstName": firstName}, {responseType: 'json'}).subscribe()
 		this.users[index].firstName= firstName
-		this.get()
+		// this.get()
 	}
 
 	patchLastname(index:number, lastName:string):void{
 		// this.http.patch<User[]>(`${this.USERSURL}/${this.getId(index)}`,  {"lastName": lastName}, {responseType: 'json'}).subscribe();
 		this.users[index].lastName= lastName
-		this.get()
+		// this.get()
 	}
 
 	patchCounty(index:number, country:string):void{
 		// this.http.patch<User[]>(`${this.USERSURL}/${this.getId(index)}`, {"country": country}, {responseType: 'json'}).subscribe()
 		this.users[index].country= country
-		this.get()
+		// this.get()
 	}
 
 	patchEmail(index:number, email:string):void{
 		// this.http.patch<User[]>(`${this.USERSURL}/${this.getId(index)}`, {"email": email}, {responseType: 'json'}).subscribe();
 		this.users[index].email= email
-		this.get()
+		// this.get()
 	}
 
 	patchPhone(index:number, phone:string):void{
 		// this.http.patch<User[]>(`${this.USERSURL}/${this.getId(index)}`, {"phone": phone}, {responseType: 'json'}).subscribe();
 		this.users[index].phone= phone
-		this.get()
+		// this.get()
 	}
 
 	deleteUser(index:number):void{
