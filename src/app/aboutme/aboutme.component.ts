@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { WindowService } from '../services/window.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -10,10 +11,12 @@ import { WindowService } from '../services/window.service';
 })
 export class AboutmeComponent implements OnInit {
 
-  constructor(private window:WindowService) { }
+  constructor(private window:WindowService, private router:Router) { }
 
   ngOnInit(): void {
+    this.router.navigateByUrl("/aboutme")
     this.window.scrollToTop();
+
   }
 
 }
