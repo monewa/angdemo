@@ -11,7 +11,7 @@ import {components} from './app.module';
 import { AboutmeComponent } from './aboutme/aboutme.component';
 
 const routes: Routes = [
-										{path:'home', pathMatch:'full', redirectTo:'home' },
+										{path:'', pathMatch:'full', redirectTo:'home' },
 										{path:'calculator', pathMatch:'full', redirectTo:'calculator' },
 										{path:'converter', pathMatch:'full', redirectTo:'converter' },
 										{path:'home', component:HomeComponent},  
