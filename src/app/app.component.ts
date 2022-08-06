@@ -25,7 +25,7 @@ export class AppComponent {
 	}
  
 	ngOnInit(): void{
-		this.router.navigateByUrl("/home")
+		// this.router.navigateByUrl("/home")
 	}
 	
 }

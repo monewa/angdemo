@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { UserRepositoryService } from './model/user.repository.service';
 import { BookstoreComponent } from './bookstore/bookstore.component';
 import { AboutmeComponent } from './aboutme/aboutme.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const components= [AppComponent, HomeComponent,
 											  CalculatorComponent, 
@@ -20,10 +21,12 @@ export const components= [AppComponent, HomeComponent,
 											  MailinglistComponent, 
 											  MailinglistdataComponent, 
 											  BookstoreComponent,
-											  AboutmeComponent];
+											  AboutmeComponent,
+											 PageNotFoundComponent
+											];
 
 @NgModule({
-  declarations: [components ],
+  declarations: [components],
   imports: [
     BrowserModule,
     AppRoutingModule,

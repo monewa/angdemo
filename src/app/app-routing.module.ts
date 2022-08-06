@@ -7,20 +7,20 @@ import { ConverterComponent } from './converter/converter.component';
 import { MailinglistComponent } from './mailinglist/mailinglist.component';
 import { MailinglistdataComponent } from './mailinglistdata/mailinglistdata.component';
 import { BookstoreComponent } from './bookstore/bookstore.component';
-import {components} from './app.module';
 import { AboutmeComponent } from './aboutme/aboutme.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-										{path:'', pathMatch:'full', redirectTo:'home' },
-										{path:'calculator', pathMatch:'full', redirectTo:'calculator' },
-										{path:'converter', pathMatch:'full', redirectTo:'converter' },
 										{path:'home', component:HomeComponent},  
 										{path:'calculator', component:CalculatorComponent},
 										{path:'converter', component:ConverterComponent}, 
 										{path:'mailinglistdata', component:MailinglistdataComponent}, 
 										{path:'mailinglist', component:MailinglistComponent},
 										{path:'bookstore', component:BookstoreComponent},
-										{path:'aboutme', component:AboutmeComponent}];
+										{path:'aboutme', component:AboutmeComponent},
+										{path:'', pathMatch:'full', redirectTo:'home' },
+										{path:'**', component:PageNotFoundComponent}
+										];
  
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
