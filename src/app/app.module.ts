@@ -1,6 +1,6 @@
 
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerGestureConfig } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule , FormControl } from "@angular/forms";
@@ -17,7 +17,7 @@ import {PathLocationStrategy, LocationStrategy, HashLocationStrategy} from '@ang
     FormsModule,
     HttpClientModule
   ],
-providers: [UserRepositoryService, {provide:LocationStrategy, useClass: PathLocationStrategy}],
+providers: [UserRepositoryService, {provide:LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
