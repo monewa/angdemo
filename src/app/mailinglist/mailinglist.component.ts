@@ -107,6 +107,8 @@ export class MailinglistComponent implements OnInit {
 
 	timeout=setTimeout(() => {this.countryList= this.repository.countries;}, 6000);
 
+	
+
 	ngOnInit():void { 
 		this.window.scrollToTop();
     }
