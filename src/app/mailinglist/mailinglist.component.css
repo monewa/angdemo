@@ -1,11 +1,13 @@
 
 
-form{ background-color:black;	
+form{ background-color:rgba(14, 9, 22, 0.966);	
 	color: yellow;
 	width:560px; 
-	height: 870px;
+	height: 1050px;
 	font-size:22px;
 	padding:25px;
+	position: relative;
+	top: 80px;
 }
 
 div.pg1{ position: relative;
@@ -13,33 +15,33 @@ div.pg1{ position: relative;
 }
 
 div.name{position: absolute;
-	top: 330px;
+	top: 130px;
 }
 
 div.lastname{position: absolute;
-	top: 430px;
+	top: 250px;
 }
 
 div.email{position: absolute;
-	top: 530px;
+	top: 380px;
 }
 
 div.country{position: absolute;
-	top: 630px;
+	top: 525px;
 }
 
 div.code{position: absolute;
-	top: 740px;
+	top: 650px;
 	width: 630px;
-	/* background-color: aquamarine; */
 }
 
 div.comments{position: absolute;
-	top: 840px;
+	top: 800px;
 }
 
 div.buttons{position: absolute;
-	top: 1000px;
+	top: 980px;
+	width: 400px;
 }
 
 button.form{ width:115px;
@@ -50,13 +52,18 @@ padding:8px;
 font-weight:bold;
 }
 
-input.form,  textarea.form, option.form, select.form{ font-size:22px;
+input.form,  textarea.form, select.form{ font-size:22px;
 }
 
 input.code{ width:113px;
 }
 
 input.phone{ width:190px;
+}
+
+label.phone{ position: relative;
+	left: 60px;
+
 }
 
 input.ng-invalid, textarea.ng-invalid, select.ng-invalid{ border-left: 2px solid red
@@ -68,32 +75,21 @@ input.ng-valid, textarea.ng-valid, select.ng-valid{ border-left: 2px solid lime
 select{ width:400px;
 }
 
-label.info{ background-color: darkblue;
-	color: whitesmoke;
-	font-weight: bold;
-	padding: 6px;
-	margin-left: 5px;
-	border-radius: 10px;
-	transition: .6s;
-}
-
-label.info:hover{ background-color: blue;
-}
-
-label.code-info{ font-size:medium ;
-	position: absolute;
-	top: -20px;
-	left: 150px;
+textarea{width: 380px;
 }
 
 .alert{ color:red;	
 	font-size:16px;
 }
 
-.alertphone{ position: absolute;
-	left: 270px;
+.thin{ width: 120px;
+	position: absolute;
+	top: 90px;
 }
 
+.alertphone{ position: absolute;
+	left: 170px;
+}
 
 div.success-background{height: 1130px;
 	width: 1200px;
@@ -133,12 +129,10 @@ div.success-header{text-align: center;
 div.success-mid{ background-color: rgb(28, 28, 88);
 	padding: 15px;
 }
+
 div.success-footer{ background-color: blueviolet;
 	padding: 15px;
 }
-
-
-
 
 div.summary{text-align: left;
 	margin-left: 10px;

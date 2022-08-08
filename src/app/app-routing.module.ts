@@ -13,16 +13,16 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 
 const routes: Routes = [
-										{path:'home', component:HomeComponent},  
-										{path:'calculator', component:CalculatorComponent},
-										{path:'converter', component:ConverterComponent}, 
-										{path:'mailinglistdata', component:MailinglistdataComponent}, 
-										{path:'mailinglist', component:MailinglistComponent},
-										{path:'bookstore', component:BookstoreComponent},
-										{path:'aboutme', component:AboutmeComponent},
-										{path:'calculator', pathMatch:'full', redirectTo:'calculator' },
-										{path:'', pathMatch:'full', redirectTo:'home' },
-										{path:'**', component:PageNotFoundComponent}
+										{path: 'home', component:HomeComponent},  
+										{path: 'calculator', component:CalculatorComponent},
+										{path: 'converter', component:ConverterComponent}, 
+										{path: 'mailinglistdata', component:MailinglistdataComponent}, 
+										{path: 'mailinglist', component:MailinglistComponent},
+										{path: 'bookstore', component:BookstoreComponent},
+										{path: 'aboutme', component:AboutmeComponent},
+										{path: 'calculator', pathMatch:'full', redirectTo:'calculator' },
+										{path: '', pathMatch:'full', redirectTo:'home' },
+										{path: '**', component:PageNotFoundComponent}
 										];
  
 @NgModule({

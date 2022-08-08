@@ -10,21 +10,21 @@ import { WindowService } from '../services/window.service';
 })
 export class CalculatorComponent implements OnInit {
 
-	step:string= 'enter first number';
-	answer:number= 0;
-	screenValue:string= '';
+	step: string= 'enter first number';
+	answer: number= 0;
+	screenValue: string= '';
 	toScreenValue= ''
 	toAnswerScreenValue= ''
 	
-	previousSymbol:string= '';
-	endOfcalculation:boolean= true;
-	acceptedOperators:string[]= ['+', '-', '*', '/', '='];
-	acceptedFunctions:string[]= ['Delete', 'Backspace'];
+	previousSymbol: string= '';
+	endOfcalculation: boolean= true;
+	acceptedOperators: string[]= ['+', '-', '*', '/', '='];
+	acceptedFunctions: string[]= ['Delete', 'Backspace'];
 
-  constructor(private window:WindowService) { }
+  constructor(private window: WindowService) { }
 
-	restrictValues(num:string):boolean{
-		if(num== '0' && this.screenValue== '0'){
+	restrictValues(num: string): boolean{
+		if(num == '0' && this.screenValue == '0'){
 			return true;
 		}
 		if(this.screenValue.length >= 16){
@@ -36,17 +36,17 @@ export class CalculatorComponent implements OnInit {
 		return false
 	}
 
-	restrictPeriod(num:string):boolean{
-		if(num=='.'){
+	restrictPeriod(num: string): boolean{
+		if(num == '.'){
 			let pos= this.screenValue.indexOf('.');
-			if(pos>= 0){
+			if(pos >= 0){
 				return true
 			}
 		}
 		return false
 	}
 	
-	setValue(num:string):void{
+	setValue(num: string): void{
 		if(this.restrictValues(num)){
 			return;
 		}
@@ -60,50 +60,50 @@ export class CalculatorComponent implements OnInit {
 		this.setMainScreen();
 	}
 	
-	validateKeyboardInput(key:string):void{
+	validateKeyboardInput(key: string): void{
 		let val= parseFloat(key)
-		if( isFinite(val) || key== '.'){
+		if(isFinite(val) || key == '.'){
 				this.setValue(key);
 		} 	
 		this.acceptedOperators.forEach(
-			(o:string)=> {
-				if(o==key){
+			(o: string)=> {
+				if(o == key){
 					this.calculate(key);
 				}
 			})
 		this.acceptedFunctions.forEach(
 			(f:string)=> {
-				if(f==key){
+				if(f == key){
 					this.runFunction(key);
 				}
 			})
 	}
 	
-	setKeyInput():void{
-		document.onkeyup= (keyEvent:KeyboardEvent)=> {
+	setKeyInput(): void{
+		document.onkeyup= (keyEvent: KeyboardEvent)=> {
 			let key= keyEvent.key;
 			this.validateKeyboardInput(key);
 		}
 	}
 		
-	clearScreenForNextNum():void{
+	clearScreenForNextNum(): void{
 		this.clearEntry();
 		this.setAnswerScreen();
 	}
 	
-	runOperation():void{
-		let value:number= parseFloat(this.screenValue);
-		if(this.previousSymbol== '+'){
+	runOperation(): void{
+		let value: number= parseFloat(this.screenValue);
+		if(this.previousSymbol == '+'){
 			this.answer+= value;
 		}
-		if(this.previousSymbol== '-'){
+		if(this.previousSymbol == '-'){
 			this.answer-= value;
 		}
-		if(this.previousSymbol== '*'){
+		if(this.previousSymbol == '*'){
 			this.answer*= value;
 		}
-		if(this.previousSymbol== '/'){
-			if(this.answer== 0 && value== 0){
+		if(this.previousSymbol == '/'){
+			if(this.answer == 0 && value == 0){
 				this.answer= Infinity;
 				return;
 			}
@@ -112,15 +112,15 @@ export class CalculatorComponent implements OnInit {
 		this.answer= parseFloat(this.answer.toPrecision(8));		
 	}
 	
-	restrictCalculation(operation:string):boolean{
+	restrictCalculation(operation: string): boolean{
 		if(this.endOfcalculation){
 			return true;
 		}
-		if(operation== '=' &&this.step== 'enter first number'){
+		if(operation == '=' &&this.step == 'enter first number'){
 			return true;
 		}
-		if(this.screenValue== ''){
-			if(operation== '='){
+		if(this.screenValue == ''){
+			if(operation == '='){
 				this.runEquals();
 				return true;
 			}  
@@ -133,23 +133,23 @@ export class CalculatorComponent implements OnInit {
 		return false
 	}
 	
-	calculate(operation:string):void{
+	calculate(operation: string): void{
 		if(this.restrictCalculation(operation)){
 			return;
 		}	
-		if(this.step== 'enter first number'){ 
+		if(this.step == 'enter first number'){ 
 			this.answer= parseFloat(this.screenValue);
 			this.previousSymbol= operation;
 			this.step= 'enter next number';
 			this.clearScreenForNextNum(); 
 			return;
 		}
-		if(operation== '='){
+		if(operation == '='){
 			this.runOperation();
 			this.runEquals();
 			return;
 		}
-		if(this.step== 'enter next number'){ 
+		if(this.step == 'enter next number'){ 
 			this.runOperation();
 			if(!isFinite(this.answer)){
 				this.runEquals();
@@ -160,29 +160,29 @@ export class CalculatorComponent implements OnInit {
 		}
 	} 
 
-	runEquals():void{
-		if(this.step== 'enter next number'){
-			let finalAnswer:number= this.answer;
+	runEquals(): void{
+		if(this.step == 'enter next number'){
+			let finalAnswer: number= this.answer;
 			this.clearAll();
 			this.setMainScreen(finalAnswer);
 		}
 	}
 		
-	runFunction(functions:string){
-		if(functions=='Delete'){
+	runFunction(functions: string){
+		if(functions == 'Delete'){
 			this.clearAll();
 		} 
-		if(functions=='Backspace'){
+		if(functions == 'Backspace'){
 			this.clearEntry();
 		} 
 	}
 	
-	clearEntry():void{
-		this.screenValue='';
+	clearEntry(): void{
+		this.screenValue= '';
 		this.setMainScreen();
 	}
 
-	clearAll():void{
+	clearAll(): void{
 		this.step= 'enter first number';
 		this.previousSymbol= '';
 		this.answer= 0;
@@ -191,11 +191,11 @@ export class CalculatorComponent implements OnInit {
 		this.setAnswerScreen(' ');
 	}
 	
-	setMainScreen(value:number|string= this.screenValue):void|number{
-		this.toScreenValue= value+'';
+	setMainScreen(value:number | string= this.screenValue):void | number{
+		this.toScreenValue= value+ '';
 	}
 	
-	setAnswerScreen(value:string|number= this.answer):string{
+	setAnswerScreen(value:string | number= this.answer):string{
 		this.toAnswerScreenValue=  `${value} ${this.previousSymbol}`
 		return  `${value} ${this.previousSymbol}`;
 	}

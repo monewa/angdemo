@@ -10,7 +10,7 @@ import { WindowService } from '../services/window.service';
 export class BookstoreComponent implements OnInit {
 
 	
-constructor(private window:WindowService) { }
+constructor(private window: WindowService) { }
 
 ngOnInit(): void { 
     this.window.scrollToTop();

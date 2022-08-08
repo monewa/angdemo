@@ -2,106 +2,117 @@
 <html>
 
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="UTF-8">
+	<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
+	<meta charset= "UTF-8">
 </head>
 
 <body >
-	<div class="pg1 fade"  >
+	<div class= "pg1 fade"  >
 		<h1>Mail List app</h1>
-		<h3>Welcome to the mail list app. </h3>
+		<h3 >Welcome to the mail list app. </h3>
 		<p>	Save your details on the form to be part of our mail list for the book.
 			<br>
 			Select your country to see your code.
 		</p>
-		<form (ngSubmit)='checkFormValidity(form)'  #form='ngForm' ngNativeValidate 
+		<form (ngSubmit)= 'checkFormValidity(form)'  #form= 'ngForm' ngNativeValidate 
 			class= 'form'>
 			<b>Mail list Form</b>
 			<br>
 			<br>
-			<div class="name">
-				<span class='form' >First name  </span>
+			<div class= "name">
+				<label class= 'form' >First name  </label>
+				<br>
 				<input required [(ngModel)]= 'firstName' #firstname= 'ngModel'  
-							ngModel pattern="[a-zA-Z- ]*" maxlength='15'  title="Please use letters only"
-							name='firstname' class='form'  placeholder='first name'/> 
-				<div *ngIf='checkFieldValidity(firstname)' class='alert'>Please give a valid name</div>
+							ngModel pattern= "[a-zA-Z- ]*" maxlength='15'  title= "Please use letters only"
+							name='firstname' class= 'form'  placeholder= 'first name'/> 
+				<div *ngIf= 'checkFieldValidity(firstname)' class= 'alert'>Please give a valid name</div>
 			</div>
 			<br>
-			<div class="lastname">
-				<label class='form' >Last name </label>
-				<input required [(ngModel)]= 'lastName' #lastname= 'ngModel'  maxlength='15'
-							 #lastField (oninvalid)="lastField.setCustomValidity('Us')"
-							 ngModel pattern="[a-zA-Z- ]*" title= 'Please use letters only'
-							name='lastname' class='form' placeholder='last name'/>
-				<div *ngIf='checkFieldValidity(lastname)' class='alert'>please give a valid last name</div>
+			<div class= "lastname">
+				<label class= 'form' >Last name </label>
+				<br>
+				<input required [(ngModel)]= 'lastName' #lastname= 'ngModel'  maxlength= '15'
+							 #lastField (oninvalid)= "lastField.setCustomValidity('Us')"
+							 ngModel pattern= "[a-zA-Z- ]*" title= 'Please use letters only'
+							name= 'lastname' class='form' placeholder= 'last name'/>
+				<div *ngIf= 'checkFieldValidity(lastname)' class= 'alert'>please give a valid last name</div>
 			</div>
 			<br>
-			<div class="email">
-				<label class='form' >Email </label>
+			<div class= "email">
+				<label class= 'form' >Email </label>
+				<br>
 				<input required [(ngModel)]= 'email' #emailField= 'ngModel'  
-				ngModel pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength= '25'  
+				ngModel pattern= "[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength= '25'  
 				 title= "Please use a valid email e.g 'abc@domain.com'" 
-				 name='email'  class= 'form' placeholder= 'email' />
-				<div *ngIf='checkFieldValidity(emailField)' class='alert'>
-						Please use a valid email e.g 'abc@domain.com' in small caps
+				 name= 'email'  class= 'form' placeholder= 'email' />
+				<div *ngIf= 'checkFieldValidity(emailField)' class= 'alert'>
+					Please use a valid email e.g 
+					<br>
+					'abc@domain.com' in small caps
 				</div>
 			</div>
-			<div class="country">
-				<label class='form' >Country </label> 
+			<div class= "country">
+				<label class= 'form' >Country </label> 
+				<br>
 				<select required [(ngModel)]= 'country' #countryField= 'ngModel' 
-							(change)="suggestCode()"  name='country' 	class='form'> 
-					<option *ngFor='let nation of countryList' >{{nation.country}}</option>
+							(change)= "suggestCode()"  name= 'country' 	class= 'form'> 
+					<option *ngFor= 'let nation of countryList' >{{nation.country}}</option>
 				</select>
-				<div *ngIf='checkFieldValidity(countryField)' class='alert'>	Please select your country	</div>
+				<div *ngIf= 'checkFieldValidity(countryField)' class= 'alert'>	Please select your country	
+				</div>
 			</div>
 		 	<br>
-			<br>
-			<div class="code">
-				<label class='form' >Code </label>
-				<input required ngModel pattern="[0-9-]{1,7}" maxlength="7"
+			<div class= "code">
+				<label class= 'form' >Code </label>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<label class= 'form phone' > Phone </label>
+				<br>
+				<input required ngModel pattern= "[0-9-]{1,7}" maxlength= "7"
 							 title= 'Select your country to see your code'  
 							[(ngModel)]= 'code' #codeField= 'ngModel' 
-							name='code' class='form code' placeholder='see country' />
+							name= 'code' class= 'form code' placeholder= 'see country' />
 				&nbsp;
-				<label class='form' > Phone </label>
-				<input required  ngModel pattern="[0-9 ]{1,13}" maxlength="13"
+				<input required  ngModel pattern= "[0-9 ]{1,13}" maxlength= "13"
 							[(ngModel)]= 'phone' #phoneField= 'ngModel'
 							title= 'Please use numbers only' 
-							name='phone' class='form phone' placeholder='862189776'/>
-				<div  class='alert'>
-					<label *ngIf='checkFieldValidity(codeField)'>Please provide a vaild code</label>
-					<label *ngIf='checkFieldValidity(phoneField)' class='alertphone' >Please provide a valid phone
+							name= 'phone' class= 'form phone' placeholder= '862189776'/>
+				<div  class= 'alert'>
+					<label *ngIf= 'checkFieldValidity(codeField)' class= "thin">Please provide a vaild code
+					</label>
+					<label *ngIf= 'checkFieldValidity(phoneField)' class= 'alertphone thin' >
+						Please provide a valid phone
 					</label>
 				</div>	
 			</div>
 			<br>
-			<div class="comments">
-				<label class='form' >Comments</label>
+			<div class= "comments">
+				<label class= 'form' >Comments</label>
 				<br>
-				<textarea  [(ngModel)]= 'comments' maxlength='50'
-								name='comments' class='form' placeholder='comment' >
+				<textarea  [(ngModel)]= 'comments' maxlength= '50'
+								name= 'comments' class='form' placeholder= 'comment' >
 				</textarea>
-				<div *ngIf='form.invalid&& submitted' class='alert'>	Your proflie is not saved</div>
+				<div *ngIf= 'form.invalid&& submitted' class= 'alert'>	Your proflie is not saved</div>
 			</div>
 			<br>
 			<br>
-			<div class="buttons">
-				<button  (click)='checkFormValidity(form); saveForm()'	type='submit'  class='form'>save</button>
-				<button  (click)='clear()'  class='form clear'>clear</button>
-				<button  routerLink='/bookstore' class='form clear'>cancel</button>
+			<div class= "buttons">
+				<button  (click)= 'checkFormValidity(form); saveForm()'	type= 'submit'  class= 'form'>save
+				</button>
+				<button  (click)= 'clear()'  class= 'form clear'>clear</button>
+				<button  routerLink= '/bookstore' class= 'form clear'>cancel</button>
 			</div>
 		</form> 
 	</div>
-	<div class="success-background" [hidden]='hideSuccessPopup'></div >
-	<div [hidden]='hideSuccessPopup' class='success popdown'>
-		<div class="success-header">Your proflie is saved successfully</div> 
-		<div class="success-mid">
+	<div class= "success-background" [hidden]= 'hideSuccessPopup'></div >
+	<div [hidden]= 'hideSuccessPopup' class= 'success popdown'>
+		<div class= "success-header">Your proflie is saved successfully</div> 
+		<div class= "success-mid">
 		<b>Your details:</b> 
-		<div [innerHTML]="userDetailsSummary" class="summary"></div>
+		<div [innerHTML]= "userDetailsSummary" class= "summary"></div>
 		</div>
-		<div class="success-footer">
-		<button (click)="goBackToStore()" class="form verify">
-			<img class="verify"  src="assets/img/verify.webp" alt="">done
+		<div class= "success-footer">
+		<button (click)= "goBackToStore()" class= "form verify">
+			<img class= "verify"  src= "assets/img/verify.webp" alt= "">done
 		</button>
 		</div>
 	</div>

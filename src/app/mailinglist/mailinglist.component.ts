@@ -19,51 +19,51 @@ export class MailinglistComponent implements OnInit {
 	code: string= '';
 	phone: string= '';
 	comments: string= '';
-	userDetailsSummary:string= '';
+	userDetailsSummary: string= '';
 	submitted= false; 
-	countryList:any[]= [];
-	formIsValid:boolean=false;
-	hideSuccessPopup:boolean=  true;
-	codeInfoIsHidden:boolean= true;
+	countryList: any[]= [];
+	formIsValid: boolean=false;
+	hideSuccessPopup: boolean=  true;
+	codeInfoIsHidden: boolean= true;
 	
-  constructor(private repository:UserRepositoryService, private router:Router,
-						private window:WindowService) { }
+  constructor(private repository: UserRepositoryService, private router: Router,
+						private window: WindowService) { }
 	
-	checkFormValidity(form:NgForm):void{
+	checkFormValidity(form: NgForm): void{
 		this.submitted= true
 		if(form.valid&& this.submitted){ 
-			this.formIsValid=true;
+			this.formIsValid= true;
 		}  
 	}
 	
-	checkFieldValidity(field:NgModel):boolean{
+	checkFieldValidity(field: NgModel): boolean{
 		if(this.submitted&& field.invalid){
 			return true;
 		}
 		return false;
 	}
 
-	goBackToStore():void{
+	goBackToStore(): void{
 		this.router.navigateByUrl("/bookstore")
-		this.hideSuccessPopup=true;
+		this.hideSuccessPopup= true;
 			  
 	}
 	
-	generateNextId():number{
+	generateNextId(): number{
 		let lastIndex= this.repository.users.length- 1
-		if(lastIndex<= -1){
+		if(lastIndex <= -1){
 			return 1;
 		}
 		let lastId= this.repository.users[lastIndex].id;
 		return lastId+1;
 	}
 
-	suggestCode():void{
-		let result =this.countryList.find(c=> c.country== this.country)
+	suggestCode(): void{
+		let result = this.countryList.find(c=> c.country == this.country)
 		this.code= result.code
 	}
 	
-	saveForm():void{			
+	saveForm(): void{			
 		if(!this.formIsValid){
 			return;
 		}
@@ -73,29 +73,21 @@ export class MailinglistComponent implements OnInit {
 		this.resetValues();
 	}
 			
-	resetValues():void{
+	resetValues(): void{
 		this.window.scrollToTop();
-		this.hideSuccessPopup=false;
+		this.hideSuccessPopup= false;
 		this.submitted= false;
-		this.formIsValid=false;
+		this.formIsValid= false;
 	}
 
-	displaySavedDetails(){
+	displaySavedDetails(): void{
 		this.userDetailsSummary= `<br>First name:${this.firstName} 
 			<br>Last name:${this.lastName} <br>Email:${this.email} 
 			<br>Country:${this.country} 
 			 <br>Phone:+${this.code} ${this.phone}`	
 	}
 
-	showCodeInfo(){		
-		this.codeInfoIsHidden= false;
-	}
-
-	hideCodeInfo(){
-		this.codeInfoIsHidden= true;
-	}
-
-	clear():void{
+	clear(): void{
 		this.firstName= '';
 		this.lastName= '';
 		this.country= '';
@@ -105,7 +97,7 @@ export class MailinglistComponent implements OnInit {
 		this.comments= '';
 	}
 
-	timeout=setTimeout(() => {this.countryList= this.repository.countries;}, 6000);
+	timeout= setTimeout(() => {this.countryList= this.repository.countries;}, 6000);
 
 	
 

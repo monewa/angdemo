@@ -1,5 +1,7 @@
 
-button{height: 32px;}
+button{height: 32px;
+}
+
 button.del{ width:65px;
 	background-color:red;
 	color:white;
@@ -11,7 +13,7 @@ button.del{ width:65px;
 button.del:active{ opacity:.7;	
 }
 
-button.del:hover{ background-color:coral;	
+button.del:hover{ background-color:orangered;	
 }
 
 button.edit{ width:45px;

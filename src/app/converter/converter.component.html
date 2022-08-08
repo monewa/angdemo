@@ -3,47 +3,48 @@
 <!doctype html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="UTF-8">
+	<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
+	<meta charset= "UTF-8">
 </head>
 
-<body (keyup)='getKeyValues()' id='body' class="fade">
+<body (keyup)= 'getKeyValues()' id= 'body' class= "fade">
 	<h1>Converter App</h1>
-	<div class='converter' >
+	<div class= 'converter' >
 		<b>Converter</b>
 		<br>
 		<br>
-		<div class='numpad'>
-		<label [style]='clearBackgroundColor()'>{{setAnswerDisplay()}}</label>
+		<div class= 'numpad'>
+		<label [style]= 'clearBackgroundColor()'>{{setAnswerDisplay()}}</label>
 		<br>
 		<br>
-		<input [value]='toDisplayValue' [placeholder]='setDisplayPlaceholder()' 
+		<input [value]= 'toDisplayValue' [placeholder]= 'setDisplayPlaceholder()' 
 					class= 'converter' readonly>
 		<br>
-		<button (click)='clearAll()' class='reset clear unit'>reset</button>
-		<button (click)='clearDisplay()' class='reset clear unit'>clear</button>
-		<button (click)='run("convert")'  
-					class='unit operator' id='converter'>convert 
+		<button (click)= 'clearAll()' class= 'reset clear unit'>reset</button>
+		<button (click)= 'clearDisplay()' class= 'reset clear unit'>clear</button>
+		<button (click)= 'run("convert")'  
+					class= 'unit operator' id= 'converter'>convert 
 		</button>
 		<br> 
-		<button (click)='getNumberInput("1")'>1</button>
-		<button (click)='getNumberInput("2")'>2</button>
-		<button (click)='getNumberInput("3")'>3</button>
-		<button (click)='run("cm")' class='unit operator'>cm</button>
+		<button (click)= 'getNumberInput("1")'>1</button>
+		<button (click)= 'getNumberInput("2")'>2</button>
+		<button (click)= 'getNumberInput("3")'>3</button>
+		<button (click)= 'run("cm")' class= 'unit operator'>cm</button>
 		<br>
-		<button (click)='getNumberInput("4")'>4</button>
-		<button (click)='getNumberInput("5")'>5</button>
-		<button (click)='getNumberInput("6")'>6</button>
-		<button (click)='run("m")' class='unit operator'>metres</button>
+		<button (click)= 'getNumberInput("4")'>4</button>
+		<button (click)= 'getNumberInput("5")'>5</button>
+		<button (click)= 'getNumberInput("6")'>6</button>
+		<button (click)= 'run("m")' class= 'unit operator'>metres</button>
 		<br>
-		<button (click)='getNumberInput("7")'>7</button>
-		<button (click)='getNumberInput("8")'>8</button>
-		<button (click)='getNumberInput("9")'>9</button>
-		<button (click)='run("C")' class='unit operator'>celcuis</button>
+		<button (click)= 'getNumberInput("7")'>7</button>
+		<button (click)= 'getNumberInput("8")'>8</button>
+		<button (click)= 'getNumberInput("9")'>9</button>
+		<button (click)= 'run("C")' class= 'unit operator'>celcuis</button>
 		<br>
-		<button (click)='getNumberInput("0")' class='wide'>0</button>
-		<button (click)='getNumberInput(".")'>.</button>
-		<button (click)='run("F")' class='unit operator'>fahrenheit</button>
+		<button (click)= 'getNumberInput("-")' >-</button>
+		<button (click)= 'getNumberInput("0")' >0</button>
+		<button (click)= 'getNumberInput(".")'>.</button>
+		<button (click)= 'run("F")' class= 'unit operator'>fahrenheit</button>
 		</div>
 	</div>
 </body>
