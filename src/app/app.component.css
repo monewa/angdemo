@@ -7,7 +7,9 @@ h1{ background-color:black;
 	text-align:center;
 	border-radius: 5px;
 }
+h3{ color: aquamarine;
 
+}
 div.nav{ width: 1338px;
 	height: 52px;
 	font-size:21px;
@@ -22,7 +24,7 @@ nav{ position: fixed;
 	top: 15px;
 }
 
-body,footer{color:white;
+body,footer{color:rgb(241, 248, 182);
 	font:19px verdana;
 }
 
@@ -70,7 +72,7 @@ button.links:hover, a:hover{ color:black;
 	background-color:lightgrey;
 }
 
-.active{color:black;
+button.active{color:black;
 	background-color:lightgrey;
 }
 

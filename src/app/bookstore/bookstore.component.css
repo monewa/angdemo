@@ -1,4 +1,8 @@
 
 button.store{position: relative;
     top: 110px;
+    width: 290px;
+    font-size: 44px;
+    padding: 19px;
+    background-color: rgb(241, 198, 142);
 }
