@@ -25,10 +25,9 @@ button.edit{ width:45px;
 a, details{ float:right;	
 }
 
-label.datamessage{ background-color:black;
+div.datamessage{ 
 	padding:13px;
 	color:lightblue;
-	text-align:center;	
 }
 
  thead{ background-color:black;

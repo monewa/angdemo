@@ -15,11 +15,17 @@ div.inside{box-shadow: 0px 0px 14px blue;
     height: 345px;
 }
 
-div.dedication{ margin-bottom: 700px;
+div.dedication{ margin-bottom: 600px;
 
 }
 
 p{text-align: center;
+}
+
+p.hidden-message{ top: 1550px;   
+    left: 150px;
+    position: absolute;
+
 }
 
 span{ color:lime;
@@ -31,7 +37,7 @@ span{ color:lime;
 img{ width:600px;
     height:600px;
     top: 1000px;   
-    left: 150px;
+    left: 100px;
     border: 12px solid;
     position: absolute;
     }

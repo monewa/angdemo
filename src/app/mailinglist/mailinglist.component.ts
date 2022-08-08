@@ -23,7 +23,7 @@ export class MailinglistComponent implements OnInit {
 	submitted= false; 
 	countryList: any[]= [];
 	formIsValid: boolean=false;
-	hideSuccessPopup: boolean=  true;
+	hideSuccessPopup: boolean= true;
 	codeInfoIsHidden: boolean= true;
 	
   constructor(private repository: UserRepositoryService, private router: Router,
@@ -74,17 +74,18 @@ export class MailinglistComponent implements OnInit {
 	}
 			
 	resetValues(): void{
-		this.window.scrollToTop();
+		this.window.scrollToBottom();
 		this.hideSuccessPopup= false;
 		this.submitted= false;
 		this.formIsValid= false;
 	}
 
-	displaySavedDetails(): void{
-		this.userDetailsSummary= `<br>First name:${this.firstName} 
-			<br>Last name:${this.lastName} <br>Email:${this.email} 
-			<br>Country:${this.country} 
-			 <br>Phone:+${this.code} ${this.phone}`	
+	displaySavedDetails(): string{
+		return `<br><b>First name: </b>${this.firstName} 
+			<br><b>Last name: </b>${this.lastName} 
+			<br><b>Email: </b>${this.email} 
+			<br><b>Country: </b>${this.country} 
+			 <br><b>Phone: </b>+${this.code} ${this.phone}`	
 	}
 
 	clear(): void{

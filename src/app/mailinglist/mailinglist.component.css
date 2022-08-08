@@ -53,6 +53,7 @@ font-weight:bold;
 }
 
 input.form,  textarea.form, select.form{ font-size:22px;
+	background-color: rgb(1, 1, 32);
 }
 
 input.code{ width:113px;
@@ -91,7 +92,7 @@ textarea{width: 380px;
 	left: 170px;
 }
 
-div.success-background{height: 1130px;
+div.success-background{height: 1530px;
 	width: 1200px;
 	position: absolute;
 	top: 70px;
@@ -105,8 +106,14 @@ div.success{ color:white;
 	width:590px;
 	height: 400px;
 	position: absolute;
-    top: 100px;
-	left: 200px; 
+    top: 950px;
+	left: 100px; 
+}
+
+.popdown{ animation: popdown 2s;
+}
+@keyframes popdown { from{top:-100px; opacity: 0;}
+	to{top: 950px; opacity: 1;}
 }
 
 button.verify{ background-color: white;
@@ -130,12 +137,13 @@ div.success-mid{ background-color: rgb(28, 28, 88);
 	padding: 15px;
 }
 
-div.success-footer{ background-color: blueviolet;
+div.success-footer{ background-color: green;
 	padding: 15px;
 }
 
 div.summary{text-align: left;
 	margin-left: 10px;
 }
+
 
   

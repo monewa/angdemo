@@ -16,8 +16,7 @@
 			</button>
 			<button [hidden]='showMoreDatalinks()' routerLink='/mailinglist' routerLinkActive= 'active' 					class="links wider">Back to MailList
 			</button>
-			<button  [hidden]= 'showMoreDatalinks()' routerLinkActive= 'active' class= "links"> 
-				<a href= "/assets/data/maildata.json">JSON file</a> 
+			<button  [hidden]= 'showMoreDatalinks()' routerLink='/jsonfile' routerLinkActive= 'active' 						class= "links wide"> JSON file			<!-- <a href= "/jsonfile"></a>  -->		
 			</button>
 			<button routerLink= '/aboutme' routerLinkActive= 'active' class= "links wide"> About Me</button>
 		</nav>
@@ -26,7 +25,6 @@
 	<br>
 	<router-outlet></router-outlet>
 </body>
-<br>
 <br>
 <footer>
 	<table class='home'>

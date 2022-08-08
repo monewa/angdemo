@@ -89,7 +89,7 @@
 				<label class= 'form' >Comments</label>
 				<br>
 				<textarea  [(ngModel)]= 'comments' maxlength= '50'
-								name= 'comments' class='form' placeholder= 'comment' >
+								name= 'comments' class='form' placeholder= 'leave a comment' >
 				</textarea>
 				<div *ngIf= 'form.invalid&& submitted' class= 'alert'>	Your proflie is not saved</div>
 			</div>
@@ -105,10 +105,10 @@
 	</div>
 	<div class= "success-background" [hidden]= 'hideSuccessPopup'></div >
 	<div [hidden]= 'hideSuccessPopup' class= 'success popdown'>
-		<div class= "success-header">Your proflie is saved successfully</div> 
+		<div class= "success-header">Your profile is saved successfully</div> 
 		<div class= "success-mid">
 		<b>Your details:</b> 
-		<div [innerHTML]= "userDetailsSummary" class= "summary"></div>
+		<div [innerHTML]= "displaySavedDetails()" class= "summary"></div>
 		</div>
 		<div class= "success-footer">
 		<button (click)= "goBackToStore()" class= "form verify">

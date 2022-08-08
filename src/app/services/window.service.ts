@@ -16,4 +16,12 @@ export class WindowService {
 		  });
   }
 
+  scrollToBottom(){
+    window.scroll({
+			top: 900,
+			left: 0,
+			behavior: 'smooth'
+		  });
+  }
+
 }

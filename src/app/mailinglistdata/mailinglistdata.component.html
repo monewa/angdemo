@@ -75,7 +75,7 @@
 		</tbody >
 	</table>
 	<br>
-	<label class='datamessage' *ngIf= 'message != "" '>{{ message }}</label>
+	<div  *ngIf= 'message != "" ' [innerHTML]="message"  class='datamessage'>{{ message }}</div>
 	<br>
 	<br>
 </body>

@@ -40,7 +40,7 @@ export class MailinglistdataComponent implements OnInit {
 	
 	updateData(index:number): void{
 		this.selectedIndex= -1;
-		this.message = '';
+		this.message = `id no:${this.repository.getId(index)} was selected<br>`;
 		this.updateName(index);
 		this.updateLastName(index);
 		this.updateCountry(index);
@@ -51,7 +51,7 @@ export class MailinglistdataComponent implements OnInit {
 
 	updateName(index:number): void{
 		if(this.repository.getFirstName(index) != this.name){
-			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getFirstName(index)} is changed to ${this.name}`;
+			this.message+= ` ${this.repository.getFirstName(index)} is changed to ${this.name}<br>`;
 			this.repository.patchName(index, this.name);
 
 		}
@@ -59,34 +59,34 @@ export class MailinglistdataComponent implements OnInit {
 	
 	updateLastName(index:number): void{
 		if(this.repository.getLastName(index) != this.lastName){
-			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getLastName(index)} is changed to ${this.lastName}`;
+			this.message+= `${this.repository.getLastName(index)} is changed to ${this.lastName}<br>`;
 			this.repository.patchLastname(index, this.lastName);
 		}
 	}
 	
 	updateCountry(index:number): void{
 		if(this.repository.getCountry(index) != this.country){
-			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getCountry(index)} is changed to ${this.country}`;
+			this.message+= `${this.repository.getCountry(index)} is changed to ${this.country}<br>`;
 			this.repository.patchCounty(index, this.country);
 		}
 	}
 	
 	updateEmail(index:number): void{
 		if(this.repository.getEmail(index) != this.email){
-			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getEmail(index)} is changed to ${this.email}`;
+			this.message+= `${this.repository.getEmail(index)} is changed to ${this.email}<br>`;
 			this.repository.patchEmail(index, this.email);
 		}
 	}
 	
 	updatePhone(index:number): void{
 		if(this.repository.getPhone(index) != this.phone){
-			this.message+= `id no:${this.repository.getId(index)} ${this.repository.getPhone(index)} is changed to ${this.phone}`;
+			this.message+= `${this.repository.getPhone(index)} is changed to ${this.phone}<br>`;
 			this.repository.patchPhone(index, this.phone);
 		}
 	}
 	
 	deleteUser(index:number): void{
-		this.message= `id no:${this.repository.getId(index)}  ${this.repository.getFirstName(index)}  is deleted`;
+		this.message= `id no:${this.repository.getId(index)} ${this.repository.getFirstName(index)}  is deleted`;
 		this.repository.deleteUser(index);
 		this.users= this.repository.users
 	}
