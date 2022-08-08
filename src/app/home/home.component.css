@@ -1,14 +1,16 @@
 
 
+div.images{ margin-bottom: 850px;
+}
 
 img{ width:1200px;
     height:600px;
     top: 528px;   
     left: 14px;
+    position: absolute;
     }
 
 img.river{ animation: imagefade 20s infinite;
-    position: absolute;
  }
 @keyframes imagefade { 0% {opacity: 1;}
     25%{opacity: 0;}
@@ -17,17 +19,12 @@ img.river{ animation: imagefade 20s infinite;
 }
 
 img.swan{ animation: imagefade 20s 5s infinite;
-    position: absolute;
  }
 
 img.kemit{ animation: imagefade 20s 10s infinite;
-    position: absolute; 
  }
 
 img.kemit2{ animation: imagefade 20s 15s infinite;
-    position: relative; 
-    top: 83px;
-    left: -10px;
 }
 
 
