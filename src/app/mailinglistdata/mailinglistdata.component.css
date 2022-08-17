@@ -3,7 +3,7 @@ button{height: 32px;
 }
 
 button.del{ width:65px;
-	background-color:red;
+	background-color:crimson;
 	color:white;
 	font-size:16px;
 	margin-bottom:0px;
@@ -27,14 +27,83 @@ a, details{ float:right;
 
 div.datamessage{ 
 	padding:13px;
-	color:lightblue;
+	color:white;
+	position: fixed;
+	top: 150px;
+	background-color: rgb(0, 81, 255);
+	text-align: center;
+	margin-left: 120px;
 }
 
- thead{ background-color:black;
+div.log{ position: fixed;
+	top: 150px;
+	left: 120px;
+	background-color: azure;
+	color: black;
+	border: ridge lightgray;
+}
+
+div.log-header{ border-bottom: solid;
+	padding: 10px;
+}
+
+div.data-log{ padding: 18px;
+	height: 250px;
+	width: 980px;
+	overflow-x:scroll;
+	overflow-y:scroll;
+}
+
+div.log-message{ padding-left: 18px;
+}
+
+button.log-btn{ width: 40px;
+	float: right;
+	font-size: 18px;
+	background-color:azure;
+	color: black;
+}
+
+button.log-btn:hover{ background-color: red;
+	color: antiquewhite;
+}
+
+button.ok-btn{ font-size: 17px;
+	background-color: white;
+	color: black;
+	margin-top: 10px;
+}
+
+button.ok-btn:hover{ color: black;
+	border: solid black ;
+
+}
+
+button.event{ font-size: 19px;
+	background-color: indigo;
+	color: beige;
+	float: right;
+}
+
+button.event:hover{ background-color: blueviolet;	
+}
+
+
+table{margin-top: 50px;
+	border: groove dodgerblue ;
+	/* background-color: dodgerblue; */
+}
+
+ thead{ background-color:rgba(16, 93, 170, 0.192);
 	font-size:16px;
 	text-align:center;
 }
 
 td{height: 60px;
+	/* border: ridge dodgerblue; */
+}
+
+.odd-row{
+    background: rgba(0, 0, 0, 0.363);
 }
 

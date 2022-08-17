@@ -6,8 +6,23 @@
 	<meta charset= "UTF-8">
 </head>
 
-<body class= "fade">
+<body   class= "fade">
 	<h1 title= 'users information table'>Registered User Data</h1>
+	<div *ngIf= 'messageBoxIsOpen' [style]= 'messageColor'    class= 'datamessage fade'> {{ message }} 
+		<br>
+		<br>
+		<button (click)= 'closeMessageBox()' class= 'ok-btn'>Ok</button>
+	</div>
+	<button (click)= "openEventLog()" class= 'wide event'>View Event log</button>
+	<div *ngIf= 'eventLogIsOpen' class= "log fade">
+		<div class= "log-header"><b> Event Log</b>
+			<button (click)= "closeEventLog()" class= 'log-btn'>X</button>
+		</div>
+		<div *ngIf="checkForEvents()" class="log-message">no events found</div>
+		<div  [innerHTML]= "messageLog"   class= 'data-log'>
+		</div>
+		<br>
+	</div>
 	<table class= 'datatable'>	
 		<thead>
 			<th> </th>	
@@ -24,7 +39,7 @@
 			<tr [hidden]= 'checkForData()'>
 				<td colspan= '4'>no data found</td>
 			</tr>
-			<tr *ngFor= 'let user of users; let i= index;'  >
+			<tr *ngFor= 'let user of users; let i= index;  let odd= odd;' [class.odd-row]= "odd" >
 				<td>
 					<button (click)= "deleteUser(i)"  class= "del">delete</button>
 				</td>					
@@ -54,7 +69,7 @@
 					<input [hidden]= 'checkForEditMode(i)' 
 								[(ngModel)]= "country"
 								[style]= 'setWidth(user.country?.length)' 	
-								maxlength= '15' class= 'editUser' placeholder= 'country' />					
+								maxlength= '35' class= 'editUser' placeholder= 'country' />					
 				</td>
 				<td> 
 					<label [hidden]= '!checkForEditMode(i)' >{{ user.email }}</label>
@@ -68,14 +83,13 @@
 					<input [value]= 'user.phone' [hidden]= 'checkForEditMode(i)' 
 								[(ngModel)]= "phone"
 								[style]= 'setWidth(user.phone?.length)' 
-								maxlength= '14' class='editUser' placeholder= 'phone'  />					
+								maxlength= '17' class='editUser' placeholder= 'phone'  />					
 				</td>				
 				<td>{{ user.comments }}</td>
 			</tr>
 		</tbody >
 	</table>
 	<br>
-	<div  *ngIf= 'message != "" ' [innerHTML]="message"  class='datamessage'>{{ message }}</div>
 	<br>
 	<br>
 </body>
