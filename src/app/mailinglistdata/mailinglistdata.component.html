@@ -6,23 +6,26 @@
 	<meta charset= "UTF-8">
 </head>
 
-<body   class= "fade">
+<body [class.fixed-window]= "eventLogIsOpen"  class= "fade">
 	<h1 title= 'users information table'>Registered User Data</h1>
-	<div *ngIf= 'messageBoxIsOpen' [style]= 'messageColor'    class= 'datamessage fade'> {{ message }} 
+	<div *ngIf= 'messageBoxIsOpen' [style]= 'messageColor' class= 'datamessage fade'> {{ message }} 
 		<br>
 		<br>
 		<button (click)= 'closeMessageBox()' class= 'ok-btn'>Ok</button>
 	</div>
+	<button  class= 'wide event'><a href="https://mo-json-api.herokuapp.com/"
+		class= 'wide event'>Remote server</a></button>
 	<button (click)= "openEventLog()" class= 'wide event'>View Event log</button>
-	<div *ngIf= 'eventLogIsOpen' class= "log fade">
-		<div class= "log-header"><b> Event Log</b>
-			<button (click)= "closeEventLog()" class= 'log-btn'>X</button>
+	<div  *ngIf= 'eventLogIsOpen' class= "log-background"></div>
+		<div *ngIf= 'eventLogIsOpen' class= "log fade">
+			<div class= "log-header"><b> Event Log</b>
+				<button (click)= "closeEventLog()" class= 'log-btn'>x</button>
+			</div>
+			<div *ngIf="checkForEvents()" class="log-message">no events found</div>
+			<div  [innerHTML]= "messageLog"   class= 'data-log'>
+			</div>
+			<br>
 		</div>
-		<div *ngIf="checkForEvents()" class="log-message">no events found</div>
-		<div  [innerHTML]= "messageLog"   class= 'data-log'>
-		</div>
-		<br>
-	</div>
 	<table class= 'datatable'>	
 		<thead>
 			<th> </th>	
@@ -37,7 +40,7 @@
 		</thead>
 		<tbody>
 			<tr [hidden]= 'checkForData()'>
-				<td colspan= '4'>no data found</td>
+				<td colspan= '9'>no data found</td>
 			</tr>
 			<tr *ngFor= 'let user of users; let i= index;  let odd= odd;' [class.odd-row]= "odd" >
 				<td>

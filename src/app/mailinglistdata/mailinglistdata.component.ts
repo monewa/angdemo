@@ -15,6 +15,7 @@ export class MailinglistdataComponent implements OnInit {
 	eventLogIsOpen= false;
 	message: string= '';
 	messageBoxIsOpen= false;
+
 	selectedIndex: number= -1;
 	name: string= '';
 	lastName: string= '';
@@ -98,6 +99,7 @@ export class MailinglistdataComponent implements OnInit {
 		this.message= `id no:${this.repository.getId(index)} was deleted`;
 		this.repository.deleteUser(index);
 		this.users= this.repository.users;
+		this.openMessageBox();
 	}
 
 	openMessageBox():void{
@@ -113,11 +115,12 @@ export class MailinglistdataComponent implements OnInit {
 	openEventLog(){
 		this.eventLogIsOpen= true;
 		this.closeMessageBox();
-
+		this.window.freezeWindow();
 	}
 
 	closeEventLog(){
 		this.eventLogIsOpen= false;
+		this.window.unfreezeWindow();
 	}
 
 	checkForEvents(){
@@ -126,7 +129,6 @@ export class MailinglistdataComponent implements OnInit {
 		}
 		return false;
 	}
-
 
 	closePopups(){
 		if(this.eventLogIsOpen){

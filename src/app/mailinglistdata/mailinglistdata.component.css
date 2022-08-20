@@ -2,6 +2,10 @@
 button{height: 32px;
 }
 
+button:hover{ box-shadow: 0px 0px 13px lightblue;
+
+}
+
 button.del{ width:65px;
 	background-color:crimson;
 	color:white;
@@ -10,19 +14,11 @@ button.del{ width:65px;
 	margin-left:0px;
 }
 
-button.del:active{ opacity:.7;	
-}
-
-button.del:hover{ background-color:orangered;	
+button.del:hover{ background-color:red;	
 }
 
 button.edit{ width:45px;
 	font-size:14px;
-	margin-bottom:0px;
-	margin-left:0px;
-}
-
-a, details{ float:right;	
 }
 
 div.datamessage{ 
@@ -33,6 +29,15 @@ div.datamessage{
 	background-color: rgb(0, 81, 255);
 	text-align: center;
 	margin-left: 120px;
+	box-shadow: 0px 0px 9px rgb(29, 27, 27);
+}
+
+div.log-background{height: 560px;
+	width: 1200px;
+	position: absolute;
+	top: 70px;
+	background-color: black;
+	opacity: .6;
 }
 
 div.log{ position: fixed;
@@ -43,8 +48,10 @@ div.log{ position: fixed;
 	border: ridge lightgray;
 }
 
-div.log-header{ border-bottom: solid;
+div.log-header{ border: white groove 3px;
 	padding: 10px;
+	background-color: rgba(29, 135, 241);
+	color: antiquewhite;
 }
 
 div.data-log{ padding: 18px;
@@ -79,31 +86,35 @@ button.ok-btn:hover{ color: black;
 
 }
 
-button.event{ font-size: 19px;
+button.event, a.event{ font-size: 19px;
 	background-color: indigo;
 	color: beige;
 	float: right;
+	border-radius: 10px;
 }
 
-button.event:hover{ background-color: blueviolet;	
+button.event:hover, a.event:hover{ background-color: blueviolet;	
+	color: beige;
 }
-
 
 table{margin-top: 50px;
-	border: groove dodgerblue ;
-	/* background-color: dodgerblue; */
+	box-shadow: 0px 0px 4px;
+	background-color: dodgerblue;
+	border-style: none;
 }
 
- thead{ background-color:rgba(16, 93, 170, 0.192);
+table:hover{ box-shadow: 0px 0px 10px;
+
+}
+
+ thead{ background-color:rgb(34, 106, 179);
 	font-size:16px;
 	text-align:center;
 }
 
-td{height: 60px;
-	/* border: ridge dodgerblue; */
+tr{ background-color: rgb(26, 27, 42);
+	
 }
-
-.odd-row{
-    background: rgba(0, 0, 0, 0.363);
+tr.odd-row{  background-color: rgb(15, 51, 88);
 }
 
