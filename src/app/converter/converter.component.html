@@ -9,6 +9,10 @@
 
 <body (keyup)= 'getKeyValues()' id= 'body' class= "fade">
 	<h1>Converter App</h1>
+	<div class="anim-1 anim-box">F</div>
+	<div class="anim-2 anim-box">C</div>
+	<div class="anim-3 anim-box">cm</div>
+	<div class="anim-4 anim-box">m</div>
 	<div class= 'converter' >
 		<b>Converter</b>
 		<br>
@@ -20,8 +24,8 @@
 		<input [value]= 'toDisplayValue' [placeholder]= 'setDisplayPlaceholder()' 
 					class= 'converter' readonly>
 		<br>
-		<button (click)= 'clearAll()' class= 'reset clear unit'>reset</button>
-		<button (click)= 'clearDisplay()' class= 'reset clear unit'>clear</button>
+		<button (click)= 'clearAll()' class= 'reset clear'>reset</button>
+		<button (click)= 'clearDisplay()' class= 'reset clear'>clear</button>
 		<button (click)= 'run("convert")'  
 					class= 'unit operator' id= 'converter'>convert 
 		</button>
@@ -29,22 +33,22 @@
 		<button (click)= 'getNumberInput("1")'>1</button>
 		<button (click)= 'getNumberInput("2")'>2</button>
 		<button (click)= 'getNumberInput("3")'>3</button>
-		<button (click)= 'run("cm")' class= 'unit operator'>cm</button>
+		<button (click)= 'run("cm")' class= 'unit operator measure'>cm</button>
 		<br>
 		<button (click)= 'getNumberInput("4")'>4</button>
 		<button (click)= 'getNumberInput("5")'>5</button>
 		<button (click)= 'getNumberInput("6")'>6</button>
-		<button (click)= 'run("m")' class= 'unit operator'>metres</button>
+		<button (click)= 'run("m")' class= 'unit operator measure'>metres</button>
 		<br>
 		<button (click)= 'getNumberInput("7")'>7</button>
 		<button (click)= 'getNumberInput("8")'>8</button>
 		<button (click)= 'getNumberInput("9")'>9</button>
-		<button (click)= 'run("C")' class= 'unit operator'>celcuis</button>
+		<button (click)= 'run("C")' class= 'unit operator measure'>celcuis</button>
 		<br>
 		<button (click)= 'getNumberInput("-")' >-</button>
 		<button (click)= 'getNumberInput("0")' >0</button>
 		<button (click)= 'getNumberInput(".")'>.</button>
-		<button (click)= 'run("F")' class= 'unit operator'>fahrenheit</button>
+		<button (click)= 'run("F")' class= 'unit operator measure'>fahrenheit</button>
 		</div>
 	</div>
 </body>
