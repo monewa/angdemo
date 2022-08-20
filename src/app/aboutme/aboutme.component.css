@@ -38,7 +38,7 @@ img{ width:600px;
     height:600px;
     top: 1000px;   
     left: 100px;
-    border: 12px solid;
+    border: 25px groove;
     position: absolute;
     }
 
