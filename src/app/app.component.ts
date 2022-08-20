@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { WindowService } from './services/window.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private router:Router){  }
+  constructor(private router:Router, public window:WindowService){  }
  
 	showDatalinks(){
 		if(this.router.isActive('mailinglist', true)){
@@ -22,8 +23,8 @@ export class AppComponent {
 			return false;			
 		}
 		return true;
-	}
- 
+	}	
+
 	ngOnInit(): void{
 	}
 	

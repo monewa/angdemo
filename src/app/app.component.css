@@ -1,6 +1,9 @@
 
+div, footer, h1{
+	--header-color:rgb(22, 22, 24);
+}
 
-h1{ background-color:black;
+h1{ background-color:  var(--header-color);
 	padding:10px;
 	color:crimson;
 	width:470px;
@@ -11,12 +14,12 @@ h3{ color: aquamarine;
 
 }
 div.nav{ width: 1338px;
-	height: 52px;
+	height: 54px;
 	font-size:21px;
 	position:fixed;
 	top: 0px;
 	left: 0px;
-	background-color: black;
+	background-color: var(--header-color);
 	z-index: 1;
 }
 
@@ -31,6 +34,18 @@ body,footer{color:rgb(222, 242, 243);
 body{	margin-bottom: 180px;
 }
 
+.fixed-window{ position: fixed; 
+}
+
+.fixed-window-bottom{ position: fixed; 
+	top: 400px;
+}
+
+.fixed-footer{ position: fixed; 
+	top: 1200px;
+}
+
+
 body.fade, div.fade, label.fade{border-radius: 5px;
 animation:loadPage 3s 
 }
@@ -42,7 +57,7 @@ animation:loadPage 3s
 	animation:loadPage 3s 
 }
 @keyframes scalePage{from{scale:0.2; }
-	to{opacity:1; }	
+	to{scale:1; }	
 	}
 		
 
@@ -61,22 +76,22 @@ a{ text-decoration: none;
 }
 
 button.links{ color:orange;
-	background-color:black;
-	border: solid black;
+	background-color: var(--header-color);
 	width: 110px;
-	margin-right: -5px;
 	font-size: 20px;	
 	padding:10px;
 	margin-top:-18px;
 	transition: background-color .8s, color .6s ;
 }
 
-button.links:hover, a:hover{ color:black;
+button.links:hover, a:hover{ background-color: var(--header-color);
 	background-color:lightgrey;
+	color:black;
 }
 
 button.active{color:black;
 	background-color:lightgrey;
+
 }
 
 button.links:active{ opacity: .6;
@@ -85,19 +100,22 @@ button.links:active{ opacity: .6;
 button{ background-color:rgb(93, 195, 235);
 	width:75px;
 	font-size:40px;
-	margin-bottom:2px;
-	margin-left:2px;
-	border-radius: 5px;
-	transition: background-color .8s;
+	margin-bottom:3px;
+	margin-left:3px;
+	border-radius: 2.5px;
+	transition: .6s;
+	border-style: none;
+	box-shadow: 0px 0px 9px rgb(29, 27, 27);
 }
 
 button.clear{ background-color:rgb(235, 121, 121);
 }
 
 button:hover, button.operator:hover{background-color:lightyellow;
+	box-shadow: 0px 0px 12px lightskyblue;
 }
 
-button:active{ opacity: .7;	
+button:active{ opacity: .4;	
 }
 
 button.operator{ background-color:rgb(70%, 60%, 80%);
@@ -136,7 +154,7 @@ input:focus, textarea:focus, select:focus{ box-shadow: 0px 0px 12px skyblue;
 	border: solid blue;
 }
 
-table.home{ background-color:black;
+table.home{ background-color: var(--header-color);
 	position:relative;
 	left:100px;	
 	border-spacing:40px;
@@ -149,13 +167,13 @@ th{ padding:8px;
 } 
 
 td{ padding:6px;
-	background-color:black;
 }
 
 td.home{ height:50px;
 	width:125px;
 	padding:20px;
-	
+	background-color: var(--header-color);
+	text-shadow: 0px 0px 14px;
 }
 
 td.html{ border:solid orange 4px;
@@ -183,7 +201,7 @@ td.java{ border:solid white 4px;
 	color:white;
 }
 
-footer{background-color: black;
+footer{ background-color: var(--header-color);
 	height:305px;
 	width:1340px;
 	position: relative;

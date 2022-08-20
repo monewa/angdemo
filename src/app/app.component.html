@@ -4,7 +4,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 </head>
-<body >
+<body   >
 	<div class="nav">
 		<nav>
 			<button routerLink= '/home' routerLinkActive= 'active' class= "links">Home</button> 
@@ -26,7 +26,7 @@
 	<router-outlet></router-outlet>
 </body>
 <br>
-<footer>
+<footer  [class.fixed-footer]= "window.windowIsFrozen">
 	<table class='home'>
 		<tr>
 			<td class= 'html home' >HTML</td>
