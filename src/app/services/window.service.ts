@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class WindowService {
 
+  windowIsFrozen:boolean= false;
+
   constructor() { }
 
   scrollToTop(){
@@ -23,5 +25,14 @@ export class WindowService {
 			behavior: 'smooth'
 		  });
   }
+
+  freezeWindow(){
+      this.windowIsFrozen= true;
+  }
+
+  unfreezeWindow(){
+    this.windowIsFrozen= false;
+}
+
 
 }
