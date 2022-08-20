@@ -8,6 +8,9 @@ form{ background-color:rgba(14, 9, 22, 0.966);
 	padding:25px;
 	position: relative;
 	top: 80px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px lightskyblue;
+
 }
 
 div.pg1{ position: relative;
@@ -50,6 +53,7 @@ position:relative;
 left:20px;	
 padding:8px;
 font-weight:bold;
+margin-right: 10px;
 }
 
 input.form,  textarea.form, select.form{ font-size:22px;
@@ -101,28 +105,32 @@ div.success-background{height: 1530px;
 }
 
 div.success{ color:white;
+	border: 4px groove;
 	font-size:25px;	
-	padding:20px;
 	width:590px;
-	height: 400px;
-	position: absolute;
-    top: 950px;
+	height:385px;
+	position: fixed;
+    top: 150px;
 	left: 100px; 
+	box-shadow: 0px 0px  13px green;
+	z-index: 1;
 }
 
 .popdown{ animation: popdown 2s;
 }
 @keyframes popdown { from{top:-100px; opacity: 0;}
-	to{top: 950px; opacity: 1;}
+	to{top: 150px; opacity: 1;}
 }
 
 button.verify{ background-color: white;
 	text-align: center;
 	margin-left: 200px;
 	font-size: 19px;
+	transition: .5s;
 }
 
-button.verify:hover{ background-color: lightblue;
+button.verify:hover{ 
+	border: solid yellow;
 }
 
 img.verify{height: 30px;
@@ -131,6 +139,7 @@ img.verify{height: 30px;
 
 div.success-header{text-align: center;
 	background-color: green;
+	border: 2px groove;
 	padding: 15px;
 }
 div.success-mid{ background-color: rgb(28, 28, 88);
@@ -139,6 +148,7 @@ div.success-mid{ background-color: rgb(28, 28, 88);
 
 div.success-footer{ background-color: green;
 	padding: 15px;
+	height: 50px;
 }
 
 div.summary{text-align: left;

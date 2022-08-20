@@ -27,7 +27,7 @@ export class MailinglistComponent implements OnInit {
 	codeInfoIsHidden: boolean= true;
 	
   constructor(private repository: UserRepositoryService, private router: Router,
-						private window: WindowService) { }
+						public window: WindowService) { }
 	
 	checkFormValidity(form: NgForm): void{
 		this.submitted= true
@@ -46,7 +46,6 @@ export class MailinglistComponent implements OnInit {
 	goBackToStore(): void{
 		this.router.navigateByUrl("/bookstore")
 		this.hideSuccessPopup= true;
-			  
 	}
 	
 	generateNextId(): number{
@@ -99,8 +98,6 @@ export class MailinglistComponent implements OnInit {
 	}
 
 	timeout= setTimeout(() => {this.countryList= this.repository.countries;}, 6000);
-
-	
 
 	ngOnInit():void { 
 		this.window.scrollToTop();
