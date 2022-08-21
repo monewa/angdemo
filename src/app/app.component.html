@@ -12,11 +12,13 @@
 			<button routerLink= '/converter' routerLinkActive= 'active' class= "links"> Converter</button>
 			<button routerLink= '/bookstore' routerLinkActive= 'active' class= "links wide"> Book Store
 			</button>
+			<button [hidden]= 'showMailList()' routerLink= '/mailinglist' routerLinkActive= 'active' 					class= "links wide"> MailList Form
+			</button>
 			<button [hidden]= 'showDatalinks()' routerLink= '/mailinglistdata' routerLinkActive= 'active' 					class= "links"> Data
 			</button>
 			<button [hidden]='showMoreDatalinks()' routerLink='/mailinglist' routerLinkActive= 'active' 					class="links wider">Back to MailList
 			</button>
-			<button  [hidden]= 'showMoreDatalinks()' routerLink='/jsonfile' routerLinkActive= 'active' 						class= "links wide"> JSON file			<!-- <a href= "/jsonfile"></a>  -->		
+			<button  [hidden]= 'showMoreDatalinks()' routerLink='/jsonfile' routerLinkActive= 'active' 						class= "links wide"> JSON file			
 			</button>
 			<button routerLink= '/aboutme' routerLinkActive= 'active' class= "links wide"> About Me</button>
 		</nav>
@@ -26,7 +28,7 @@
 	<router-outlet></router-outlet>
 </body>
 <br>
-<footer  [class.fixed-footer]= "window.windowIsFrozen">
+<footer >
 	<table class='home'>
 		<tr>
 			<td class= 'html home' >HTML</td>

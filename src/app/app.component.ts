@@ -11,8 +11,15 @@ import { WindowService } from './services/window.service';
 export class AppComponent {
   constructor(private router:Router, public window:WindowService){  }
  
+	showMailList(){ 
+		if(this.router.isActive('mailinglistdata', true) || !this.router.isActive('mailinglist', true)){
+			return true
+		}
+		return false;
+	}
+
 	showDatalinks(){
-		if(this.router.isActive('mailinglist', true)){
+		if(this.router.isActive('mailinglist', true) || this.router.isActive('mailinglistdata', true) ){
 			return false;			
 		}
 		return true;

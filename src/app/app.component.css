@@ -1,6 +1,6 @@
 
 div, footer, h1{
-	--header-color:rgb(22, 22, 24);
+	--header-color:rgb(28, 28, 31);
 }
 
 h1{ background-color:  var(--header-color);
