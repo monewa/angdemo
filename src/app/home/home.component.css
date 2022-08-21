@@ -8,23 +8,22 @@ img{ width:1200px;
     top: 528px;   
     left: 14px;
     position: absolute;
+    animation: imagefade 20s infinite;
     }
 
-img.river{ animation: imagefade 20s infinite;
- }
 @keyframes imagefade { 0% {opacity: 1;}
     25%{opacity: 0;}
     75%{opacity: 0;}
     100%{opacity: 1;}
 }
 
-img.swan{ animation: imagefade 20s 5s infinite;
+img.swan{ animation-delay: 5s;
  }
 
-img.kemit{ animation: imagefade 20s 10s infinite;
+img.kemit{ animation-delay: 10s;
  }
 
-img.kemit2{ animation: imagefade 20s 15s infinite;
+img.kemit2{ animation-delay: 15s ;
 }
 
 
