@@ -33,7 +33,7 @@ label, input{ width:350px;
 	animation: moving-capsules 35s infinite ;
 }
 
-div.capsule-1{ 
+.capsule-1{ 
 	color:mediumorchid;
 	box-shadow: 0px 0px 8px mediumorchid;
 }
@@ -44,21 +44,21 @@ div.capsule-1{
 	100%{scale: 0; top: 1000px;}
 }
 
-div.capsule-2{ left: 720px;
+.capsule-2{ left: 720px;
 	color: violet;
 	box-shadow: 0px 0px 10px violet;
 	animation-delay: 5s;
 	font-size: 25px;
 }
 
-div.capsule-3{ left: 680px;
+.capsule-3{ left: 680px;
 	color:deeppink;
 	box-shadow: 0px 0px 10px deeppink;
 	animation-delay: 18s;
 	font-size: 30px;
 }
 
-div.capsule-4{ left: 660px;
+.capsule-4{ left: 660px;
 	color:fuchsia;
 	box-shadow: 0px 0px 10px fuchsia;
 	animation-delay: 22s;
