@@ -30,50 +30,43 @@ input.converter{ background-color:rgb(240, 243, 253);
 	margin-bottom:10px;
 }
 
-.anim-box{
-	border-radius: 9px;
+.capsule-settings{
+	border-radius: 15px;
 	position: absolute;
 	left: 750px;
 	opacity: 0;
 	text-align: center;
-}
-
-.anim-1{ height: 25px;
-	width: 25px;
-	color: aqua;
-	box-shadow: 0px 0px 8px aqua;
+	padding: 6px;
+	animation: moving-capsules 35s infinite ;
 	text-shadow: 0px 0px 10px;
-	animation: anim 35s infinite ;
 }
 
-@keyframes anim { 0%{opacity: 0; top: 170px;}
+div.capsule-1{ color: aqua;
+	box-shadow: 0px 0px 8px aqua;
+}
+
+@keyframes moving-capsules { 0%{opacity: 0; top: 170px;}
 	15%{opacity: 1;}
 	70%{opacity: 0;}
 	100%{opacity: 0; top: 1000px;}
 }
 
-.anim-2{ height: 35px;
-	width: 35px;
-	color: lightskyblue;
-	box-shadow: 0px 0px 10px lightskyblue;
-	text-shadow: 0px 0px 10px;	
-	animation: anim 35s infinite 5s;
+div.capsule-2{ left: 730px;
+	color:ivory;
+	box-shadow: 0px 0px 10px ivory;
+	animation-delay: 5s;
 	font-size: 25px;
 }
 
-.anim-3{ height: 48px;
-	width: 48px;
-	color: dodgerblue;
-	box-shadow: 0px 0px 10px dodgerblue;
-	text-shadow: 0px 0px 10px;
-	animation: anim 35s infinite 18s;
+div.capsule-3{ left: 680px;
+	color: lime;
+	box-shadow: 0px 0px 10px lime;
+	animation-delay: 18s;
 	font-size: 30px;
 }
 
-.anim-4{ height: 25px;
-	width: 25px;
-	color:lightseagreen;
-	box-shadow: 0px 0px 10px lightseagreen;
-	text-shadow: 0px 0px 10px;
-	animation: anim 35s infinite 22s;
+div.capsule-4{ left: 690px;
+	color:dodgerblue;
+	box-shadow: 0px 0px 10px dodgerblue;
+	animation-delay: 22s;
 }
