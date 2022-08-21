@@ -22,51 +22,45 @@ input{ text-align:right;
 label, input{ width:350px;
 }
 
-.anim-box{
+.capsule-settings{
 	border-radius: 9px;
 	position: absolute;
 	left: 750px;
-	opacity: 0;
 	text-align: center;
+	padding: 5px;
+	scale: 0;
+	text-shadow: 0px 0px 10px;
+	animation: moving-capsules 35s infinite ;
 }
 
-.anim-1{ height: 25px;
-	width: 25px;
+div.capsule-1{ 
 	color:mediumorchid;
 	box-shadow: 0px 0px 8px mediumorchid;
-	text-shadow: 0px 0px 10px;
-	animation: anim 35s infinite ;
 }
 
-@keyframes anim { 0%{opacity: 0; top: 170px;}
-	15%{opacity: 1;}
-	70%{opacity: 0;}
-	100%{opacity: 0; top: 1000px;}
+@keyframes moving-capsules { 0%{scale: 0; top: 170px;}
+	15%{scale: 1;}
+	70%{scale: 0;}
+	100%{scale: 0; top: 1000px;}
 }
 
-.anim-2{ height: 35px;
-	width: 35px;
+div.capsule-2{ left: 720px;
 	color: violet;
 	box-shadow: 0px 0px 10px violet;
-	text-shadow: 0px 0px 10px;	
-	animation: anim 35s infinite 5s;
+	animation-delay: 5s;
 	font-size: 25px;
 }
 
-.anim-3{ height: 48px;
-	width: 48px;
+div.capsule-3{ left: 680px;
 	color:deeppink;
 	box-shadow: 0px 0px 10px deeppink;
-	text-shadow: 0px 0px 10px;
-	animation: anim 35s infinite 18s;
+	animation-delay: 18s;
 	font-size: 30px;
 }
 
-.anim-4{ height: 25px;
-	width: 25px;
+div.capsule-4{ left: 660px;
 	color:fuchsia;
 	box-shadow: 0px 0px 10px fuchsia;
-	text-shadow: 0px 0px 10px;
-	animation: anim 35s infinite 22s;
+	animation-delay: 22s;
 }
 
