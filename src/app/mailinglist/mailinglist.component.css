@@ -118,8 +118,8 @@ div.success{ color:white;
 
 .popdown{ animation: popdown 2s;
 }
-@keyframes popdown { from{top:-100px; opacity: 0;}
-	to{top: 150px; opacity: 1;}
+@keyframes popdown { from{top:-100px; }
+	to{top: 150px;}
 }
 
 button.verify{ background-color: white;
