@@ -8,14 +8,20 @@
 
 <body  class= "fade">
 	<h1 title= 'users information table'>Registered User Data</h1>
-	<div *ngIf= 'messageBoxIsOpen' [style]= 'messageColor' class= 'datamessage fade'> {{ message }} 
+	<div *ngIf= 'editNotificationIsOpen' class= 'datamessage edit-datamessage fade'> 
+		id no:{{ id }} was edited 
 		<br>
+		<button (click)= 'closeEditBox()' class= 'ok-btn ok-btn-edit'>Ok</button>
+	</div>
+	<div *ngIf= 'deleteNotificationIsOpen' class= 'datamessage del-datamessage fade'>
+		id no:{{ id }} was deleted
 		<br>
-		<button (click)= 'closeMessageBox()' class= 'ok-btn'>Ok</button>
+		<button (click)= 'closeDeleteBox()' class= 'ok-btn ok-btn-del'>Ok</button>
 	</div>
 	<button  class= 'wide event'><a href="https://mo-json-api.herokuapp.com/"
 		class= 'wide event'>Remote server</a></button>
 	<button (click)= "openEventLog()" class= 'wide event'>View Event log</button>
+	<br>
 	<div  *ngIf= 'eventLogIsOpen' class= "log-background"></div>
 		<div *ngIf= 'eventLogIsOpen' class= "log fade">
 			<div class= "log-header"><b> Event Log</b>
