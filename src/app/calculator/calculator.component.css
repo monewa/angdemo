@@ -1,7 +1,7 @@
 
 div.calc{ background-color:rgb(5%, 2%, 10%);
 font-size:24px;
-width:410px;
+width:393px;
 height: 440px;
 padding:12px;
 box-shadow: 0px 0px 4px lightpink;
@@ -10,6 +10,18 @@ border-radius: 5px;
 }
 
 div.calc:hover{ box-shadow: 0px 0px 10px lightpink;
+}
+
+div.numpad button{ width:75px;
+	font-size:40px;
+	margin-bottom:3px;
+	margin-left:3px;
+}
+
+div.numpad button.wide{ width:152px;
+}
+
+button.num{background-color:rgb(93, 195, 235);
 }
 
 label{ color:yellow;
@@ -22,7 +34,7 @@ input{ text-align:right;
 label, input{ width:350px;
 }
 
-.capsule-settings{
+div.capsule div{
 	border-radius: 9px;
 	position: absolute;
 	left: 750px;
@@ -33,9 +45,9 @@ label, input{ width:350px;
 	animation: moving-capsules 35s infinite ;
 }
 
-.capsule-1{ 
-	color:mediumorchid;
-	box-shadow: 0px 0px 8px mediumorchid;
+div.capsule div:nth-child(1){ 
+	color:lime;
+	box-shadow: 0px 0px 8px lime;
 }
 
 @keyframes moving-capsules { 0%{scale: 0; top: 170px;}
@@ -44,23 +56,23 @@ label, input{ width:350px;
 	100%{scale: 0; top: 1000px;}
 }
 
-.capsule-2{ left: 720px;
-	color: violet;
-	box-shadow: 0px 0px 10px violet;
+div.capsule div:nth-child(2){ left: 720px;
+	color: deepskyblue;
+	box-shadow: 0px 0px 10px deepskyblue;
 	animation-delay: 5s;
 	font-size: 25px;
 }
 
-.capsule-3{ left: 680px;
+div.capsule div:nth-child(3){ left: 680px;
 	color:deeppink;
 	box-shadow: 0px 0px 10px deeppink;
 	animation-delay: 18s;
 	font-size: 30px;
 }
 
-.capsule-4{ left: 660px;
-	color:fuchsia;
-	box-shadow: 0px 0px 10px fuchsia;
+div.capsule div:nth-child(4){ left: 660px;
+	color:yellow;
+	box-shadow: 0px 0px 10px yellow;
 	animation-delay: 22s;
 }
 

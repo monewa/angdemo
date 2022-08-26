@@ -6,10 +6,12 @@
 
 <body class= "fade">
 	<h1>My Calculator App</h1>
-	<div class="capsule-1 capsule-settings">+</div>
-	<div class="capsule-2 capsule-settings">-</div>
-	<div class="capsule-3 capsule-settings">x</div>
-	<div class="capsule-4 capsule-settings">/</div>
+	<div class="capsule">
+		<div>+</div>
+		<div>-</div>
+		<div>x</div>
+		<div>/</div>
+	</div>
 	<div (keyup)= 'setKeyInput()' class= 'calc'>
 		<b>Calculator</b>
 		<br>
@@ -20,28 +22,28 @@
 			<input [value]= 'toScreenValue' readonly placeholder='0' >
 			<br>
 			<br>
-			<button (click)= 'setValue("1")'>1</button>
-			<button (click)= 'setValue("2")'>2</button>
-			<button (click)= 'setValue("3")'>3</button>
+			<button (click)= 'setValue("1")' class= "num">1</button>
+			<button (click)= 'setValue("2")' class= "num">2</button>
+			<button (click)= 'setValue("3")'class= "num">3</button>
 			<button (click)= 'clearEntry()' class= 'clear' >CE</button>	
 			<button (click)= 'clearAll()' class= 'clear'>C</button>	
 			<br>
-			<button (click)= 'setValue("4")'>4</button>
-			<button (click)= 'setValue("5")'>5</button>
-			<button (click)= 'setValue("6")'>6</button>
+			<button (click)= 'setValue("4")' class= "num">4</button>
+			<button (click)= 'setValue("5")'class= "num">5</button>
+			<button (click)= 'setValue("6")' class= "num">6</button>
 			<button (click)= 'calculate("+")' class= 'operator'>+</button>
 			<button (click)= 'calculate("-")' class= 'operator'>-</button>
 			<br>
-			<button (click)= 'setValue("7")'>7</button>
-			<button (click)= 'setValue("8")'>8</button>
-			<button (click)= 'setValue("9")'>9</button>
+			<button (click)= 'setValue("7")'  class= "num">7</button>
+			<button (click)= 'setValue("8")' class= "num">8</button>
+			<button (click)= 'setValue("9")' class= "num">9</button>
 			<button (click)= 'calculate("*")' class= 'operator'>x</button>	
 			<button (click)= 'calculate("/")' class= 'operator'>/</button>
 			<br>
-			<button (click)= 'setValue("0")' class= 'wide'>0</button>
-			<button (click)= 'setValue(".")'>.</button>
+			<button (click)= 'setValue("0")' class= 'num wide'>0</button>
+			<button (click)= 'setValue(".")' class= "num">.</button>
 			<button (click)= 'calculate("=")' class= 'operator'>=</button>
-			</div>
+		</div>
 	</div>
 </body>
 
