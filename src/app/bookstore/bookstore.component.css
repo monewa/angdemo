@@ -1,9 +1,13 @@
 
-button.store{position: relative;
+body button{position: relative;
     top: 110px;
-    width: 290px;
+    width: 350px;
     font-size: 44px;
     padding: 19px;
     background-color: rgb(241, 198, 142);
     border-radius: 40px;
+}
+
+body button:hover{ background-color: aliceblue;
+
 }
