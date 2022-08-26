@@ -11,7 +11,7 @@ import { WindowService } from '../services/window.service';
 export class MailinglistdataComponent implements OnInit {
 
 	users: any[]= this.repository.users;
-	messageLog: string= '';
+	eventLog: string= '';
 	eventLogIsOpen: boolean= false;
 	deleteNotificationIsOpen: boolean= false;
 	editNotificationIsOpen: boolean= false;
@@ -45,7 +45,7 @@ export class MailinglistdataComponent implements OnInit {
 	
 	updateData(index:number): void{
 		this.selectedIndex= -1;
-		this.messageLog += `<br>id no:${this.repository.getId(index)} ${this.repository.getFirstName(index)} was selected on <i>${new Date().toUTCString()}</i><br>`;
+		this.eventLog += `<br>id no:${this.repository.getId(index)} ${this.repository.getFirstName(index)} was selected on <i>${new Date().toUTCString()}</i><br>`;
 		this.id= this.repository.getId(index);
 		this.updateName(index);
 		this.updateLastName(index); 
@@ -58,41 +58,41 @@ export class MailinglistdataComponent implements OnInit {
 
 	updateName(index:number): void{
 		if(this.repository.getFirstName(index) != this.name){
-			this.messageLog+= `- ${this.repository.getFirstName(index)} is changed to ${this.name}<br>`;
+			this.eventLog+= `- ${this.repository.getFirstName(index)} is changed to ${this.name}<br>`;
 			this.repository.patchName(index, this.name);
 		}
 	}
 	
 	updateLastName(index:number): void{
 		if(this.repository.getLastName(index) != this.lastName){
-			this.messageLog+= `- ${this.repository.getLastName(index)} is changed to ${this.lastName}<br>`;
+			this.eventLog+= `- ${this.repository.getLastName(index)} is changed to ${this.lastName}<br>`;
 			this.repository.patchLastname(index, this.lastName);
 		}
 	}
 	
 	updateCountry(index:number): void{
 		if(this.repository.getCountry(index) != this.country){
-			this.messageLog+= `- ${this.repository.getCountry(index)} is changed to ${this.country}<br>`;
+			this.eventLog+= `- ${this.repository.getCountry(index)} is changed to ${this.country}<br>`;
 			this.repository.patchCounty(index, this.country);
 		}
 	}
 	
 	updateEmail(index:number): void{
 		if(this.repository.getEmail(index) != this.email){
-			this.messageLog+= `- ${this.repository.getEmail(index)} is changed to ${this.email}<br>`;
+			this.eventLog+= `- ${this.repository.getEmail(index)} is changed to ${this.email}<br>`;
 			this.repository.patchEmail(index, this.email);
 		}
 	}
 	
 	updatePhone(index:number): void{
 		if(this.repository.getPhone(index) != this.phone){
-			this.messageLog+= `- ${this.repository.getPhone(index)} is changed to ${this.phone}<br>`;
+			this.eventLog+= `- ${this.repository.getPhone(index)} is changed to ${this.phone}<br>`;
 			this.repository.patchPhone(index, this.phone);
 		}
 	}
 	
 	deleteUser(index:number): void{
-		this.messageLog+= `<br>id no:${this.repository.getId(index)} ${this.repository.getFirstName(index)}  was deleted on <i>${new Date().toUTCString()}</i><br>`;
+		this.eventLog+= `<br>id no:${this.repository.getId(index)} ${this.repository.getFirstName(index)}  was deleted on <i>${new Date().toUTCString()}</i><br>`;
 		this.id= this.repository.getId(index);
 		this.repository.deleteUser(index);
 		this.users= this.repository.users;
@@ -127,7 +127,7 @@ export class MailinglistdataComponent implements OnInit {
 	}
 
 	checkForEvents(){
-		if(this.messageLog==''){
+		if(this.eventLog==''){
 			return true;
 		}
 		return false;

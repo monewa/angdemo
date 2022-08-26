@@ -42,13 +42,26 @@ div.log{ position: fixed;
 	z-index: 1;
 }
 
-div.log-header{ border: white groove 3px;
+div.log div:nth-child(1){ border: white groove 3px;
 	padding: 10px;
 	background-color: rgba(29, 135, 241);
 	color: antiquewhite;
+	font-weight: bold;
 }
 
-div.data-log{ padding: 18px;
+div.log div:nth-child(1) button{
+	width: 40px;
+	float: right;
+	font-size: 18px;
+	background-color:azure;
+	color: black;
+}
+
+div.log div:nth-child(1) button:hover{ background-color: red;
+	color: antiquewhite;
+}
+
+div.log div:nth-child(2){ padding: 18px;
 	height: 250px;
 	width: 900px;
 	overflow-x:scroll;
@@ -58,18 +71,7 @@ div.data-log{ padding: 18px;
 div.log-message{ padding-left: 18px;
 }
 
-button.log-btn{ width: 40px;
-	float: right;
-	font-size: 18px;
-	background-color:azure;
-	color: black;
-}
-
-button.log-btn:hover{ background-color: red;
-	color: antiquewhite;
-}
-
-div.datamessage{ 
+div.notifications div{ 
 	padding:13px;
 	color:white;
 	position: fixed;
@@ -80,33 +82,42 @@ div.datamessage{
 	z-index: 1;
 }
 
-div.del-datamessage{ background-color: crimson;
-}
-
-div.edit-datamessage{ background-color: rgb(0, 81, 255);
-}
-
-button.ok-btn{ font-size: 17px;
+div.notifications button{ font-size: 17px;
 	background-color: transparent;
 	color: whitesmoke;
 	margin-top: 30px;
+	width: 60px;
 }
 
-button.ok-btn-del:hover{  background-color: red;
+div.del-notification{ background-color: crimson;
 }
 
-button.ok-btn-edit:hover{  background-color: blue;
+div.del-notification button:hover{ background-color: red;
 }
 
-button.event, a.event{ font-size: 19px;
+div.edit-notification{ background-color: rgb(0, 81, 255);
+}
+
+div.edit-notification button:hover{ background-color: blue;
+}
+
+div.links button, div.links a{
+	font-size: 19px;
 	background-color: indigo;
 	color: beige;
 	float: right;
 	border-radius: 10px;
 }
 
-button.event:hover, a.event:hover{ background-color: blueviolet;	
+div.links button{ margin-right:8px;
+}
+
+div.links a{ padding: 5px;
+}
+
+div.links button:hover, div.links a:hover{ background-color: blueviolet;	
 	color: beige;
+	box-shadow: 0px 0px 8px;
 }
 
 table{margin-top: 50px;

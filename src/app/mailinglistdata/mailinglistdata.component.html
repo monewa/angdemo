@@ -8,30 +8,32 @@
 
 <body  class= "fade">
 	<h1 title= 'users information table'>Registered User Data</h1>
-	<div *ngIf= 'editNotificationIsOpen' class= 'datamessage edit-datamessage fade'> 
-		id no:{{ id }} was edited 
-		<br>
-		<button (click)= 'closeEditBox()' class= 'ok-btn ok-btn-edit'>Ok</button>
-	</div>
-	<div *ngIf= 'deleteNotificationIsOpen' class= 'datamessage del-datamessage fade'>
-		id no:{{ id }} was deleted
-		<br>
-		<button (click)= 'closeDeleteBox()' class= 'ok-btn ok-btn-del'>Ok</button>
-	</div>
-	<button  class= 'wide event'><a href="https://mo-json-api.herokuapp.com/"
-		class= 'wide event'>Remote server</a></button>
-	<button (click)= "openEventLog()" class= 'wide event'>View Event log</button>
-	<br>
-	<div  *ngIf= 'eventLogIsOpen' class= "log-background"></div>
-		<div *ngIf= 'eventLogIsOpen' class= "log fade">
-			<div class= "log-header"><b> Event Log</b>
-				<button (click)= "closeEventLog()" class= 'log-btn'>x</button>
-			</div>
-			<div *ngIf="checkForEvents()" class="log-message">no events found</div>
-			<div  [innerHTML]= "messageLog"   class= 'data-log'>
-			</div>
+	<div class= 'notifications fade'>
+		<div *ngIf= 'editNotificationIsOpen' class= 'edit-notification '> 
+			id no:{{ id }} was edited 
 			<br>
+			<button (click)= 'closeEditBox()'>Ok</button>
 		</div>
+		<div *ngIf= 'deleteNotificationIsOpen' class= 'del-notification'>
+			id no:{{ id }} was deleted
+			<br>
+			<button (click)= 'closeDeleteBox()'>Ok</button>
+		</div>
+	</div>
+	<div class="links">
+		<a  href="https://mo-json-api.herokuapp.com/">Remote server</a>
+		<button (click)= "openEventLog()" class= 'wide'>View Event log</button>
+	</div>
+	<br>
+	<div *ngIf= 'eventLogIsOpen' class= "log-background"></div>
+	<div *ngIf= 'eventLogIsOpen' class= "log fade">
+		<div>Event Log
+			<button (click)= "closeEventLog()">x</button>
+		</div>
+		<div *ngIf="checkForEvents()" class="log-message">no events found</div>
+		<div  [innerHTML]= "eventLog"></div>
+		<br>
+	</div>
 	<table class= 'datatable'>	
 		<thead>
 			<th> </th>	
