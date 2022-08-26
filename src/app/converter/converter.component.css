@@ -3,7 +3,7 @@ div.converter{ background-color:rgb(62, 113, 155);
 	font-size:24px;
 	padding:12px;
 	height:490px;
-	width:470px;
+	width:440px;
 	box-shadow: 0px 0px 4px lightskyblue;
 	border-radius: 5px;
 }
@@ -11,26 +11,35 @@ div.converter{ background-color:rgb(62, 113, 155);
 div.converter:hover{ box-shadow: 0px 0px 10px lightskyblue;
 }
 
-button.unit{ width:195px;
+div.numpad button{ width:75px;
+	font-size:40px;
+	margin-bottom:3px;
+	margin-left:3px;
 }
 
-button.reset{ width:114px;
+button.num{background-color:rgb(93, 195, 235);
+}
+
+div.numpad button.unit{ width:195px;
+}
+
+div.numpad button.reset{ width:114px;
 }
 
 label, input{ width:400px; 
 }
 
-label{background-color:black;
+label{ background-color:black;
 	padding:12px;
 }
 
-input.converter{ background-color:rgb(240, 243, 253);
+div.converter input{ background-color:rgb(240, 243, 253);
 	color:black;
 	text-align:right;
 	margin-bottom:10px;
 }
 
-.capsule-settings{
+div.capsule div{
 	border-radius: 15px;
 	position: absolute;
 	left: 750px;
@@ -41,8 +50,8 @@ input.converter{ background-color:rgb(240, 243, 253);
 	text-shadow: 0px 0px 10px;
 }
 
-div.capsule-1{ color: aqua;
-	box-shadow: 0px 0px 8px aqua;
+div.capsule div:nth-child(1){ color: fuchsia;
+	box-shadow: 0px 0px 8px fuchsia;
 }
 
 @keyframes moving-capsules { 0%{opacity: 0; top: 170px;}
@@ -51,21 +60,21 @@ div.capsule-1{ color: aqua;
 	100%{opacity: 0; top: 1000px;}
 }
 
-div.capsule-2{ left: 730px;
+div.capsule div:nth-child(2){ left: 730px;
 	color:ivory;
 	box-shadow: 0px 0px 10px ivory;
 	animation-delay: 5s;
 	font-size: 25px;
 }
 
-div.capsule-3{ left: 680px;
-	color: lime;
-	box-shadow: 0px 0px 10px lime;
+div.capsule div:nth-child(3){ left: 680px;
+	color: silver;
+	box-shadow: 0px 0px 10px silver;
 	animation-delay: 18s;
 	font-size: 30px;
 }
 
-div.capsule-4{ left: 690px;
+div.capsule div:nth-child(4){ left: 690px;
 	color:dodgerblue;
 	box-shadow: 0px 0px 10px dodgerblue;
 	animation-delay: 22s;

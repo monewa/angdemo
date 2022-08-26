@@ -9,46 +9,45 @@
 
 <body (keyup)= 'getKeyValues()' id= 'body' class= "fade">
 	<h1>Converter App</h1>
-	<div class="capsule-1 capsule-settings">F</div>
-	<div class="capsule-2 capsule-settings">C</div>
-	<div class="capsule-3 capsule-settings">cm</div>
-	<div class="capsule-4 capsule-settings">m</div>
+	<div class="capsule">
+		<div>F</div>
+		<div>C</div>
+		<div>cm</div>
+		<div>m</div>
+	</div>
 	<div class= 'converter' >
 		<b>Converter</b>
 		<br>
 		<br>
 		<div class= 'numpad'>
-		<label [style]= 'clearBackgroundColor()'>{{setAnswerDisplay()}}</label>
-		<br>
-		<br>
-		<input [value]= 'toDisplayValue' [placeholder]= 'setDisplayPlaceholder()' 
-					class= 'converter' readonly>
-		<br>
-		<button (click)= 'clearAll()' class= 'reset clear'>reset</button>
-		<button (click)= 'clearDisplay()' class= 'reset clear'>clear</button>
-		<button (click)= 'run("convert")'  
-					class= 'unit operator' id= 'converter'>convert 
-		</button>
-		<br> 
-		<button (click)= 'getNumberInput("1")'>1</button>
-		<button (click)= 'getNumberInput("2")'>2</button>
-		<button (click)= 'getNumberInput("3")'>3</button>
-		<button (click)= 'run("cm")' class= 'unit operator measure'>cm</button>
-		<br>
-		<button (click)= 'getNumberInput("4")'>4</button>
-		<button (click)= 'getNumberInput("5")'>5</button>
-		<button (click)= 'getNumberInput("6")'>6</button>
-		<button (click)= 'run("m")' class= 'unit operator measure'>metres</button>
-		<br>
-		<button (click)= 'getNumberInput("7")'>7</button>
-		<button (click)= 'getNumberInput("8")'>8</button>
-		<button (click)= 'getNumberInput("9")'>9</button>
-		<button (click)= 'run("C")' class= 'unit operator measure'>celcuis</button>
-		<br>
-		<button (click)= 'getNumberInput("-")' >-</button>
-		<button (click)= 'getNumberInput("0")' >0</button>
-		<button (click)= 'getNumberInput(".")'>.</button>
-		<button (click)= 'run("F")' class= 'unit operator measure'>fahrenheit</button>
+			<label [style]= 'clearBackgroundColor()'>{{setAnswerDisplay()}}</label>
+			<br>
+			<br>
+			<input [value]= 'toDisplayValue' [placeholder]= 'setDisplayPlaceholder()' readonly>
+			<br>
+			<button (click)= 'clearAll()' class= 'reset clear'>reset</button>
+			<button (click)= 'clearDisplay()' class= 'reset clear'>clear</button>
+			<button (click)= 'run("convert")' class= 'unit operator'>convert</button>
+			<br> 
+			<button (click)= 'getNumberInput("1")' class= "num">1</button>
+			<button (click)= 'getNumberInput("2")' class= "num">2</button>
+			<button (click)= 'getNumberInput("3")' class= "num">3</button>
+			<button (click)= 'run("cm")' class= 'unit operator measure'>cm</button>
+			<br>
+			<button (click)= 'getNumberInput("4")' class= "num">4</button>
+			<button (click)= 'getNumberInput("5")' class= "num">5</button>
+			<button (click)= 'getNumberInput("6")' class= "num">6</button>
+			<button (click)= 'run("m")' class= 'unit operator measure'>metres</button>
+			<br>
+			<button (click)= 'getNumberInput("7")' class= "num">7</button>
+			<button (click)= 'getNumberInput("8")' class= "num">8</button>
+			<button (click)= 'getNumberInput("9")' class= "num">9</button>
+			<button (click)= 'run("C")' class= 'unit operator measure'>celcuis</button>
+			<br>
+			<button (click)= 'getNumberInput("-")'  class= "num">-</button>
+			<button (click)= 'getNumberInput("0")' class= "num">0</button>
+			<button (click)= 'getNumberInput(".")'  class= "num">.</button>
+			<button (click)= 'run("F")' class= 'unit operator measure'>fahrenheit</button>
 		</div>
 	</div>
 </body>
