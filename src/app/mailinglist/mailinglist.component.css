@@ -9,8 +9,9 @@ form{ background-color:rgba(14, 9, 22, 0.966);
 	position: relative;
 	top: 80px;
 	border-radius: 5px;
-	box-shadow: 0px 0px 10px lightskyblue;
+}
 
+form:hover{box-shadow: 0px 0px 10px lightskyblue;
 }
 
 div.pg1{ position: relative;
@@ -47,7 +48,28 @@ div.buttons{position: absolute;
 	width: 400px;
 }
 
-button.form{ width:115px;
+div.buttons button:nth-child(1){ background-color: darkgreen;
+	color: beige;
+}
+
+div.buttons button:nth-child(1):hover{ background-color: rgb(6, 223, 6);
+}
+
+div.buttons button:nth-child(2){ background-color:rgb(10, 116, 223);
+	color: beige;
+}
+
+div.buttons button:nth-child(2):hover{ background-color:rgb(95, 170, 246);
+}
+
+div.buttons button:nth-child(3){ background-color:rgb(144, 4, 4);
+	color: beige;
+}
+
+div.buttons button:nth-child(3):hover{ background-color:red;
+}
+
+body button{ width:115px;
 font-size:30px;
 position:relative;
 left:20px;	
@@ -56,8 +78,8 @@ font-weight:bold;
 margin-right: 10px;
 }
 
-input.form,  textarea.form, select.form{ font-size:22px;
-	background-color: rgb(1, 1, 32);
+form input,  form textarea, form select{ font-size:22px;
+	background-color: rgb(3, 3, 63);
 }
 
 input.code{ width:113px;
@@ -92,6 +114,30 @@ textarea{width: 380px;
 	top: 90px;
 }
 
+div.info-popup{ display: none;
+	width: 350px;
+	background-color: whitesmoke;
+	color: black;
+	padding: 8px;
+	box-shadow: 0px 0px 5px whitesmoke;
+	position: absolute;
+	top: 15px;
+	font-weight: normal;
+	font-size: 18px;
+	z-index: 1;
+}
+
+div.code :nth-child(2){ font-weight: bold;
+	font-style: italic;
+	color: whitesmoke;
+}
+
+div.code :nth-child(2):hover{ color:deepskyblue;
+}
+
+div.code :nth-child(2):hover div.info-popup{ display: inline-block;	
+}
+
 .alertphone{ position: absolute;
 	left: 170px;
 }
@@ -108,10 +154,10 @@ div.success{ color:white;
 	border: 4px groove;
 	font-size:25px;	
 	width:590px;
-	height:385px;
+	height:414px;
 	position: fixed;
     top: 150px;
-	left: 100px; 
+	left: 20px; 
 	box-shadow: 0px 0px  13px green;
 	z-index: 1;
 }
@@ -122,38 +168,39 @@ div.success{ color:white;
 	to{top: 150px;}
 }
 
-button.verify{ background-color: white;
+div.success div:nth-child(1){ text-align: center;
+	background-color: green;
+	border: 2px groove;
+	padding: 15px;
+}
+
+div.success div:nth-child(2){ background-color: rgb(28, 28, 88);
+	padding: 15px;
+}
+
+div.success div:nth-child(2) div{ text-align: left;
+	margin-left: 10px;
+}
+
+div.success div:nth-child(3){ background-color: green;
+	padding: 15px;
+	height: 50px;
+}
+
+div.success div:nth-child(3) button{ background-color: white;
 	text-align: center;
 	margin-left: 200px;
 	font-size: 19px;
 	transition: .5s;
 }
 
-button.verify:hover{ 
-	border: solid yellow;
+div.success div:nth-child(3) button:hover{ border: solid yellow;
 }
 
-img.verify{height: 30px;
+div.success div:nth-child(3) img{ height: 30px;
 	width: 30px;
 }
 
-div.success-header{text-align: center;
-	background-color: green;
-	border: 2px groove;
-	padding: 15px;
-}
-div.success-mid{ background-color: rgb(28, 28, 88);
-	padding: 15px;
-}
-
-div.success-footer{ background-color: green;
-	padding: 15px;
-	height: 50px;
-}
-
-div.summary{text-align: left;
-	margin-left: 10px;
-}
 
 
   

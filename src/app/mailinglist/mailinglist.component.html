@@ -10,41 +10,38 @@
 	<div class= "pg1 fade"  >
 		<h1>Mail List app</h1>
 		<h3 >Welcome to the mail list app. </h3>
-		<p>	Save your details on the form to be part of our mail list for the book.
-			<br>
-			Select your country to see your code.
-		</p>
-		<form (ngSubmit)= 'checkFormValidity(form)'  #form= 'ngForm' ngNativeValidate 
-			class= 'form'>
+		<p>	Save your details on the form to be part of our mail list for the book.</p>
+		<p>Select your country to see your code.</p>
+		<form (ngSubmit)= 'checkFormValidity(form)'  #form= 'ngForm' ngNativeValidate>
 			<b>Mail list Form</b>
 			<br>
 			<br>
 			<div class= "name">
-				<label class= 'form' >First name  </label>
+				<label>First name  </label>
 				<br>
 				<input required [(ngModel)]= 'firstName' #firstname= 'ngModel'  
 							ngModel pattern= "[a-zA-Z- ]*" maxlength='15'  title= "Please use letters only"
-							name='firstname' class= 'form'  placeholder= 'first name'/> 
+							name='firstname'  placeholder= 'first name'/> 
 				<div *ngIf= 'checkFieldValidity(firstname)' class= 'alert'>Please give a valid name</div>
 			</div>
 			<br>
 			<div class= "lastname">
-				<label class= 'form' >Last name </label>
+				<label>Last name </label>
 				<br>
 				<input required [(ngModel)]= 'lastName' #lastname= 'ngModel'  maxlength= '15'
 							 #lastField (oninvalid)= "lastField.setCustomValidity('Us')"
 							 ngModel pattern= "[a-zA-Z- ]*" title= 'Please use letters only'
-							name= 'lastname' class='form' placeholder= 'last name'/>
+							name= 'lastname' placeholder= 'last name'/>
 				<div *ngIf= 'checkFieldValidity(lastname)' class= 'alert'>please give a valid last name</div>
 			</div>
 			<br>
 			<div class= "email">
-				<label class= 'form' >Email </label>
+				<label>Email </label>
 				<br>
 				<input required [(ngModel)]= 'email' #emailField= 'ngModel'  
 				ngModel pattern= "[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength= '25'  
 				 title= "Please use a valid email e.g 'abc@domain.com'" 
-				 name= 'email'  class= 'form' placeholder= 'email' />
+				 name= 'email' placeholder= 'email' />
 				<div *ngIf= 'checkFieldValidity(emailField)' class= 'alert'>
 					Please use a valid email e.g 
 					<br>
@@ -52,10 +49,10 @@
 				</div>
 			</div>
 			<div class= "country">
-				<label class= 'form' >Country </label> 
+				<label>Country </label> 
 				<br>
 				<select required [(ngModel)]= 'country' #countryField= 'ngModel' 
-							(change)= "suggestCode()"  name= 'country' 	class= 'form'> 
+							(change)= "suggestCode()"  name= 'country'> 
 					<option *ngFor= 'let nation of countryList' >{{nation.country}}</option>
 				</select>
 				<div *ngIf= 'checkFieldValidity(countryField)' class= 'alert'>	Please select your country	
@@ -63,19 +60,22 @@
 			</div>
 		 	<br>
 			<div class= "code">
-				<label class= 'form' >Code </label>
-				&nbsp;&nbsp;&nbsp;&nbsp;
-				<label class= 'form phone' > Phone </label>
+				<label>Code </label>
+				<label>?
+					<div class="info-popup">select your country to see your code</div>
+				</label>
+				&nbsp;&nbsp;
+				<label class= 'phone' > Phone </label>
 				<br>
 				<input required ngModel pattern= "[0-9-]{1,7}" maxlength= "7"
-							 title= 'Select your country to see your code'  
 							[(ngModel)]= 'code' #codeField= 'ngModel' 
-							name= 'code' class= 'form code' placeholder= 'see country' />
+							title= 'Select your country to see your code'  
+							name= 'code' class= 'code' placeholder= '27' />
 				&nbsp;
 				<input required  ngModel pattern= "[0-9 ]{1,13}" maxlength= "13"
 							[(ngModel)]= 'phone' #phoneField= 'ngModel'
 							title= 'Please use numbers only' 
-							name= 'phone' class= 'form phone' placeholder= '862189776'/>
+							name= 'phone' class= 'phone' placeholder= '862189776'/>
 				<div  class= 'alert'>
 					<label *ngIf= 'checkFieldValidity(codeField)' class= "thin">Please provide a vaild code
 					</label>
@@ -86,37 +86,34 @@
 			</div>
 			<br>
 			<div class= "comments">
-				<label class= 'form' >Comments</label>
+				<label>Comments</label>
 				<br>
 				<textarea  [(ngModel)]= 'comments' maxlength= '50'
-								name= 'comments' class='form' placeholder= 'leave a comment' >
+									name= 'comments' placeholder= 'leave a comment' >
 				</textarea>
 				<div *ngIf= 'form.invalid&& submitted' class= 'alert'>	Your proflie is not saved</div>
 			</div>
 			<br>
 			<br>
 			<div class= "buttons">
-				<button  (click)= 'checkFormValidity(form); saveForm()'	type= 'submit'  class= 'form'>save
-				</button>
-				<button  (click)= 'clear()'  class= 'form clear'>clear</button>
-				<button  routerLink= '/bookstore' class= 'form clear'>cancel</button>
+				<button  (click)= 'checkFormValidity(form); saveForm()'	type= 'submit'>save</button>
+				<button  (click)= 'clear()'>clear</button>
+				<button  routerLink= '/bookstore'>cancel</button>
 			</div>
 		</form> 
 	</div>
 	<div class= "success-background" [hidden]= 'hideSuccessPopup'></div >
 	<div [hidden]= 'hideSuccessPopup' class= 'success popdown'>
-		<div class= "success-header">Your profile is saved successfully</div> 
-		<div class= "success-mid">
-		<b>Your details:</b> 
-		<div [innerHTML]= "displaySavedDetails()" class= "summary"></div>
+		<div>Your profile is saved successfully</div> 
+		<div><b>Your details:</b> 
+			<div [innerHTML]= "displaySavedDetails()"></div>
 		</div>
-		<div class= "success-footer">
-		<button (click)= "goBackToStore()" class= "form verify">
-			<img class= "verify"  src= "assets/img/verify.webp" alt= "">done
+		<div>
+		<button (click)= "goBackToStore()">
+			<img src= "assets/img/verify.webp" alt= "">done
 		</button>
 		</div>
 	</div>
-	<br>
-	<br>
+	
 </body>
 </html>
