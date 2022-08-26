@@ -1,49 +1,42 @@
 
-h2{color: crimson ;
+h2{ color: crimson ;
 	text-align: center;
 }
 
-div.container{ background-color: rgba(0, 0, 0, 0.76);
-        padding: 20px;
-        width: 710px;
-        height: 350px;
-        margin-bottom: 100px;
+div.container{ background-color: rgb(16, 13, 34);
+    padding: 20px;
+    width: 710px;
+    height: 360px;
+    margin-bottom: 100px;
+    box-shadow: 0px 0px 6px blueviolet;
 }
 
-div.inside{box-shadow: 0px 0px 14px blue;
+div.container div:nth-child(1){ box-shadow: 0px 0px 14px blue;
     width: 700px;
-    height: 345px;
+    height: 355px;
+}
+
+div.container div:nth-child(1) p{ margin-left: 60px;
 }
 
 div.dedication{ margin-bottom: 600px;
-
-}
-
-p{text-align: center;
-}
-
-p.hidden-message{ top: 1550px;   
-    left: 150px;
-    position: absolute;
-
 }
 
 span{ color:lime;
     font-weight:bold;
-    margin-left: 60px;	
-    margin-bottom: 10px;
+    text-shadow: 0px 0px 3px lime;
 }
 
-img{ width:600px;
+div.images img{ width:600px;
     height:600px;
     top: 1000px;   
     left: 100px;
     border: 25px groove;
     position: absolute;
     animation: imagefade 15s infinite;
-    }
+}
 
-img.mal{ border-color: red;
+div.images img:nth-child(1){ border-color: red;
     box-shadow: 0px 0px 12px red; 
  }
 @keyframes imagefade { 0% {opacity: 1;}
@@ -52,12 +45,17 @@ img.mal{ border-color: red;
     100%{opacity: 1;}
 }
 
-img.mal1{ animation-delay: 5s ;
+div.images img:nth-child(2){ animation-delay: 5s ;
     border-color:gold;
     box-shadow: 0px 0px 12px gold; 
  }
 
-img.mal2{ animation-delay: 10s ;
+ div.images img:nth-child(3){ animation-delay: 10s ;
     border-color: orange;
     box-shadow: 0px 0px 12px orange; 
+ }
+
+ div.images p:nth-child(4){ top: 1550px;   
+    left: 150px;
+    position: absolute;
  }
