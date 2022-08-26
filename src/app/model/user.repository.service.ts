@@ -14,11 +14,12 @@ export class UserRepositoryService {
 	countries: any[]= [];
 	SERVER1= 'https://mo-json-api.herokuapp.com'
 	SERVER2= 'http://localhost:3000'
-	USERFILE=  'assets/data/users.json'
+	// USERFILE=  'assets/data/users.json'
 	// COUNTRYFILE=  'assets/data/countrydata.json'
 	// USERSURL: string= this.USERFILE;
 	USERSURL:string= `${this.SERVER1}/users`;
 	COUNTRIESURL:string= `${this.SERVER1}/countries-codes/`;
+	// COUNTRIESURL:string= this.COUNTRYFILE;
 	
 	constructor( private http:HttpClient) { 
 		this.get(); 
@@ -73,7 +74,7 @@ export class UserRepositoryService {
 
 	patchName(index: number, firstName: string): void{
 		this.http.patch<User[]>(`${this.USERSURL}/${this.getId(index)}`, {"firstName": firstName}, {responseType: 'json'}).subscribe(
-			update=>{
+			()=>{
 				this.users[index].firstName= firstName
 			}
 		)
