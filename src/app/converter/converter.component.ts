@@ -22,9 +22,11 @@ export class ConverterComponent implements OnInit {
 	constructor(private window: WindowService) { }
 
 	restrictNumberInput(num: string): boolean{
-		if(this.displayValue == '0' && num == '0'){
-			return true;
-		}
+		if(num == '0'){
+			if (this.displayValue == '0' || this.displayValue == ''){
+				return true;
+			}
+		} 
 		if(this.displayValue.length >= 15){
 			return true;
 		}
