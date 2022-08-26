@@ -22,11 +22,6 @@ export class ConverterComponent implements OnInit {
 	constructor(private window: WindowService) { }
 
 	restrictNumberInput(num: string): boolean{
-		if(num == '0'){
-			if (this.displayValue == '0' || this.displayValue == ''){
-				return true;
-			}
-		} 
 		if(this.displayValue.length >= 15){
 			return true;
 		}
@@ -67,14 +62,30 @@ export class ConverterComponent implements OnInit {
 		return false
 	}
 
+	setConditions(num: string){
+		if(this.displayValue == '.'){
+			this.displayValue= '0.';
+		}
+		if(this.displayValue== '0'+ num){
+			this.displayValue = num;
+			if(num == '.'){
+				this.displayValue = '0.'
+			}
+		}
+		if(this.displayValue== '-0'+ num){
+			this.displayValue = num;
+			if(num == '.'){
+				this.displayValue = '-0.'
+			}
+		}
+	}
+
 	getNumberInput(num: string): void{
 		if(this.restrictNumberInput(num)){
 			return;
 		}
 		this.displayValue+= num;
-		if(this.displayValue == '.'){
-			this.displayValue= '0.';
-		}
+		this.setConditions(num);
 		this.setDisplay();
 	}
 	
