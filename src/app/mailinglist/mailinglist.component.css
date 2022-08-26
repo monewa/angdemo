@@ -36,7 +36,6 @@ div.country{position: absolute;
 
 div.code{position: absolute;
 	top: 650px;
-	width: 630px;
 }
 
 div.comments{position: absolute;
@@ -82,17 +81,6 @@ form input,  form textarea, form select{ font-size:22px;
 	background-color: rgb(3, 3, 63);
 }
 
-input.code{ width:113px;
-}
-
-input.phone{ width:190px;
-}
-
-label.phone{ position: relative;
-	left: 60px;
-
-}
-
 input.ng-invalid, textarea.ng-invalid, select.ng-invalid{ border-left: 2px solid red
 }
 
@@ -106,12 +94,7 @@ textarea{width: 380px;
 }
 
 .alert{ color:red;	
-	font-size:16px;
-}
-
-.thin{ width: 120px;
-	position: absolute;
-	top: 90px;
+	font-size:17px;
 }
 
 div.info-popup{ display: none;
@@ -121,7 +104,7 @@ div.info-popup{ display: none;
 	padding: 8px;
 	box-shadow: 0px 0px 5px whitesmoke;
 	position: absolute;
-	top: 15px;
+	top: 25px;
 	font-weight: normal;
 	font-size: 18px;
 	z-index: 1;
@@ -135,11 +118,18 @@ div.code :nth-child(2){ font-weight: bold;
 div.code :nth-child(2):hover{ color:deepskyblue;
 }
 
-div.code :nth-child(2):hover div.info-popup{ display: inline-block;	
+div.code :nth-child(2):hover div.info-popup{ display: block;	
 }
 
-.alertphone{ position: absolute;
-	left: 170px;
+div.code input:nth-child(4){ width:113px;
+}
+
+div.phone{ position: absolute;
+	top: 650px;
+	left: 200px;
+}
+
+div.phone :nth-child(3){ width:190px;
 }
 
 div.success-background{height: 1530px;

@@ -6,7 +6,7 @@
 	<meta charset= "UTF-8">
 </head>
 
-<body  >
+<body>
 	<div class= "pg1 fade"  >
 		<h1>Mail List app</h1>
 		<h3 >Welcome to the mail list app. </h3>
@@ -64,24 +64,22 @@
 				<label>?
 					<div class="info-popup">select your country to see your code</div>
 				</label>
-				&nbsp;&nbsp;
-				<label class= 'phone' > Phone </label>
 				<br>
 				<input required ngModel pattern= "[0-9-]{1,7}" maxlength= "7"
 							[(ngModel)]= 'code' #codeField= 'ngModel' 
-							title= 'Select your country to see your code'  
-							name= 'code' class= 'code' placeholder= '27' />
-				&nbsp;
+							title= 'Select your country to see your code' name= 'code' placeholder= '27' />
+				<div *ngIf= 'checkFieldValidity(codeField)' class= "alert">Please provide a
+					<br>
+					 vaild code
+				</div>	
+			</div>
+			<div class= "phone">				
+				<label> Phone </label>
+				<br>			
 				<input required  ngModel pattern= "[0-9 ]{1,13}" maxlength= "13"
 							[(ngModel)]= 'phone' #phoneField= 'ngModel'
-							title= 'Please use numbers only' 
-							name= 'phone' class= 'phone' placeholder= '862189776'/>
-				<div  class= 'alert'>
-					<label *ngIf= 'checkFieldValidity(codeField)' class= "thin">Please provide a vaild code
-					</label>
-					<label *ngIf= 'checkFieldValidity(phoneField)' class= 'alertphone thin' >
-						Please provide a valid phone
-					</label>
+							title= 'Please use numbers only' name= 'phone' placeholder= '862189776'/>
+				<div *ngIf= 'checkFieldValidity(phoneField)' class= 'alert'>Please provide a valid phone	
 				</div>	
 			</div>
 			<br>
@@ -109,11 +107,10 @@
 			<div [innerHTML]= "displaySavedDetails()"></div>
 		</div>
 		<div>
-		<button (click)= "goBackToStore()">
-			<img src= "assets/img/verify.webp" alt= "">done
-		</button>
+			<button (click)= "goBackToStore()">
+				<img src= "assets/img/verify.webp" alt= "">done
+			</button>
 		</div>
 	</div>
-	
 </body>
 </html>
