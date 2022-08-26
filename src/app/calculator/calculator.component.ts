@@ -24,11 +24,6 @@ export class CalculatorComponent implements OnInit {
   constructor(private window: WindowService) { }
 
 	restrictValues(num: string): boolean{
-		if(num == '0'){
-			if (this.screenValue == '0' || this.screenValue == ''){
-				return true;
-			}
-		} 
 		if(this.screenValue.length >= 16){
 			return true; 
 		}	
@@ -47,6 +42,18 @@ export class CalculatorComponent implements OnInit {
 		}
 		return false
 	}
+
+	setConditions(num: string){
+		if(this.screenValue == '.'){
+			this.screenValue = '0.';
+		}
+		if(this.screenValue == '0'+ num){
+			this.screenValue = num;
+			if(num == '.'){
+				this.screenValue = '0.'
+			}
+		}
+	}
 	
 	setValue(num: string): void{
 		if(this.restrictValues(num)){
@@ -55,10 +62,8 @@ export class CalculatorComponent implements OnInit {
 		if(this.endOfcalculation){
 			this.endOfcalculation= false;
 		}
-		this.screenValue+=num;
-		if(this.screenValue=='.'){
-			this.screenValue='0.';
-		}
+		this.screenValue+= num;
+		this.setConditions(num);
 		this.setMainScreen();
 	}
 	
