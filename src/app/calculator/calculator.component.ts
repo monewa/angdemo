@@ -24,9 +24,11 @@ export class CalculatorComponent implements OnInit {
   constructor(private window: WindowService) { }
 
 	restrictValues(num: string): boolean{
-		if(num == '0' && this.screenValue == '0'){
-			return true;
-		}
+		if(num == '0'){
+			if (this.screenValue == '0' || this.screenValue == ''){
+				return true;
+			}
+		} 
 		if(this.screenValue.length >= 16){
 			return true; 
 		}	
