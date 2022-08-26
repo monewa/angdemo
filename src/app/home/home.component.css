@@ -3,27 +3,30 @@
 div.images{ margin-bottom: 550px;
 }
 
-img{ width:1200px;
-    height:600px;
+div.images img{ width: 1200px;
+    height: 600px;
     top: 528px;   
     left: 14px;
     position: absolute;
     animation: imagefade 20s infinite;
-    }
+}
 
-@keyframes imagefade { 0% {opacity: 1;}
+@keyframes imagefade { 0%{opacity: 1;}
     25%{opacity: 0;}
     75%{opacity: 0;}
     100%{opacity: 1;}
 }
 
-img.swan{ animation-delay: 5s;
+div.images img:nth-child(1){ animation-delay: 0s;
+}
+
+div.images img:nth-child(2){ animation-delay: 5s;
  }
 
-img.kemit{ animation-delay: 10s;
+ div.images img:nth-child(3){ animation-delay: 10s;
  }
 
-img.kemit2{ animation-delay: 15s ;
+ div.images img:nth-child(4){ animation-delay: 15s ;
 }
 
 
