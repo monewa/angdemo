@@ -1,5 +1,9 @@
 
-
-button.btn{font-size: 26px;
-    width: 150px;
+a{font-size: 26px;
+    background-color: blueviolet;
+    padding: 10px 28px;
+    color: wheat;
 }
+
+a:hover{ background-color: darkorchid;}
+
