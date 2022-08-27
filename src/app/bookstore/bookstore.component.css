@@ -1,13 +1,15 @@
 
-body button{position: relative;
+a{position: relative;
     top: 110px;
-    width: 350px;
     font-size: 44px;
-    padding: 19px;
-    background-color: rgb(241, 198, 142);
+    padding: 19px 48px;
+    background-color: rgb(239, 241, 142);
     border-radius: 40px;
+    color: black;
 }
 
-body button:hover{ background-color: aliceblue;
+a:hover{ background-color: aliceblue;
+}
 
+img{ float:right; 
 }
