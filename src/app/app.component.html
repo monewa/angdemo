@@ -4,41 +4,44 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 </head>
+
 <body   >
 	<div class="nav">
-		<nav>
-			<button routerLink= '/home' routerLinkActive= 'active' class= "links">Home</button> 
-			<button routerLink= '/calculator' routerLinkActive= 'active' class= "links">Calculator</button>
-			<button routerLink= '/converter' routerLinkActive= 'active' class= "links"> Converter</button>
-			<button routerLink= '/bookstore' routerLinkActive= 'active' class= "links wide"> Book Store
-			</button>
-			<button [hidden]= 'showMailList()' routerLink= '/mailinglist' routerLinkActive= 'active' 					class= "links wide"> MailList Form
-			</button>
-			<button [hidden]= 'showDatalinks()' routerLink= '/mailinglistdata' routerLinkActive= 'active' 					class= "links"> Data
-			</button>
-			<button [hidden]='showMoreDatalinks()' routerLink='/mailinglist' routerLinkActive= 'active' 					class="links wider">Back to MailList
-			</button>
-			<button  [hidden]= 'showMoreDatalinks()' routerLink='/jsonfile' routerLinkActive= 'active' 						class= "links wide"> JSON file			
-			</button>
-			<button routerLink= '/aboutme' routerLinkActive= 'active' class= "links wide"> About Me</button>
-		</nav>
+		<ul>
+			<li><a routerLink= '/home' routerLinkActive= 'active'>Home</a></li> 
+			<li><a routerLink= '/calculator' routerLinkActive= 'active'>Calculator</a></li> 
+			<li><a routerLink= '/converter' routerLinkActive= 'active'>Converter</a></li> 
+			<li><a routerLink= '/bookstore' routerLinkActive= 'active'>Book Store</a></li> 
+			<li><a [hidden]= 'showMailList()' routerLink= '/mailinglist' routerLinkActive= 'active'>
+				MailList Form
+			</a></li> 
+			<li><a [hidden]= 'showDatalinks()' routerLink= '/mailinglistdata' routerLinkActive= 'active'> 		Data
+			</a></li> 
+			<li><a [hidden]='showMoreDatalinks()' routerLink='/mailinglist' routerLinkActive= 'active'>
+				Back to MailList
+			</a></li> 
+			<li><a  [hidden]= 'showMoreDatalinks()' routerLink='/jsonfile' routerLinkActive= 'active'> 
+				JSON file			
+			</a></li> 
+			<li> <a routerLink= '/aboutme' routerLinkActive= 'active'> About Me</a></li> 
+		</ul>
 	</div>
 	<br>
 	<br>
 	<router-outlet></router-outlet>
 </body>
 <br>
-<footer >
-	<table class='home'>
+<footer>
+	<table>
 		<tr>
-			<td class= 'html home' >HTML</td>
-			<td class= 'css home'>CSS</td>
-			<td class= 'typescript home'>Typescript</td>
-			<td class= 'angular home'>Angular</td>
-			<td class= 'java home'>Java</td>
+			<td>HTML</td>
+			<td>CSS</td>
+			<td>Typescript</td>
+			<td>Angular</td>
+			<td >Java</td>
 		</tr>
 	</table>
-	<p class= 'footer'>Copyleft ©2022  - All Rights to Share</p>
+	<p>Copyleft ©2022  - All Rights to Share</p>
 </footer>
 </html>
 

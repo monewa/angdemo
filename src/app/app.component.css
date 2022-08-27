@@ -15,36 +15,11 @@ h3{ color: rgb(107, 175, 243);
 
 }
 
-div.nav{ width: 1338px;
-	height: 54px;
-	font-size:21px;
-	position:fixed;
-	top: 0px;
-	left: 0px;
-	background-color: var(--header-color);
-	z-index: 1;
-}
-
-nav{ position: fixed;
-	top: 15px;
-}
-
-body,footer{color:rgb(222, 242, 243);
+body, footer{ color:rgb(222, 242, 243);
 	font:19px verdana;
 }
 
 body{ margin-bottom: 180px;
-}
-
-.fixed-window{ position: fixed; 
-}
-
-.fixed-window-bottom{ position: fixed; 
-	top: 400px;
-}
-
-.fixed-footer{ position: fixed; 
-	top: 1200px;
 }
 
 body.fade, div.fade, label.fade{border-radius: 5px;
@@ -52,7 +27,7 @@ animation:loadPage 3s
 }
 @keyframes loadPage{from{opacity:0.2; }
 	to{opacity:1; }	
-	}
+}
 
 .scale{border-radius: 5px;
 	animation:loadPage 3s 
@@ -67,32 +42,46 @@ div.menu{	position:absolute;
 	float:left; 
 }
 
-a{ text-decoration: none;
-	color: orange;
-	transition: background-color .8s, color .6s ;
-}
-
-button.links{ color:orange;
+div.nav { width: 1338px;
+	height: 45px;
+	font-size:21px;
+	position:fixed;
+	top: 0px;
+	left: 0px;
 	background-color: var(--header-color);
-	width: 110px;
-	font-size: 20px;	
-	padding:10px;
-	margin-top:-18px;
-	transition: background-color .8s, color .6s ;
-	margin-bottom:6px;
-	margin-left:2px;
+	z-index: 1;
 }
 
-button.links:hover, a:hover{ background-color: var(--header-color);
+a{ text-decoration: none;
+}
+
+a:hover{ box-shadow: 0px 0px 13px whitesmoke;
+}
+
+div.nav a{ color:orange;
+	background-color: var(--header-color);
+	font-size: 20px;	
+	padding: 10px 12px;
+	transition: background-color .8s, color .6s ;
+}
+
+div.nav a:hover{ background-color: var(--header-color);
 	background-color:lightgrey;
 	color:black;
 }
 
-button.active{color:black;
+div.nav a.active{color:black;
 	background-color:lightgrey;
 }
 
-button.links:active{ opacity: .6;
+div.nav li { display: inline-block;
+	padding: 10px 0px;
+}
+
+div.nav ul{ position: relative;
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;	
 }
 
 button{ border-radius: 2.5px;
@@ -108,7 +97,7 @@ button:hover, button.operator:hover{background-color:lightyellow;
 	box-shadow: 0px 0px 12px lightskyblue;
 }
 
-button:active{ opacity: .4;	
+button:active, a:active{ opacity: .4;	
 }
 
 button.operator{ background-color:rgb(70%, 60%, 80%);
@@ -118,13 +107,6 @@ button.wide{ width:152px;
 }
 
 button.wider{ width:170px;
-}
-
-p.footer{	position:relative;
-	left:50px;
-}
-
-img.side{ float:right; 
 }
 
 input, textarea, option, select{ font-size:30px;
@@ -147,7 +129,7 @@ input:focus, textarea:focus, select:focus{ box-shadow: 0px 0px 12px skyblue;
 	border: solid blue;
 }
 
-table.home{ background-color: var(--header-color);
+footer table{ background-color: var(--header-color);
 	position:relative;
 	left:100px;	
 	border-spacing:40px;
@@ -162,34 +144,34 @@ th{ padding:8px;
 td{ padding:6px;
 }
 
-td.home{ height:50px;
+footer table tr td { height:50px;
 	width:125px;
 	padding:20px;
 	background-color: var(--header-color);
 	text-shadow: 0px 0px 14px;
 }
 
-td.html{ border:solid orange 4px;
+footer table tr td:nth-child(1){ border:solid orange 4px;
 	box-shadow:0px 0px 13px orange;
 	color:orange;
 }
 
-td.css{ border:solid lime 4px;
+footer table tr td:nth-child(2){ border:solid lime 4px;
 	box-shadow:0px 0px 13px lime;
 	color:lime;
 }
 
-td.typescript{ color:deepskyblue;
+footer table tr td:nth-child(3){ color:deepskyblue;
 	border:solid deepskyblue 4px;
 	box-shadow:0px 0px 13px deepskyblue
 }
 
-td.angular{ color:red;
+footer table tr td:nth-child(4){ color:red;
 	border:solid red 4px;
 	box-shadow:0px 0px 13px red
 }
 
-td.java{ border:solid white 4px;
+footer table tr td:nth-child(5){ border:solid white 4px;
 	box-shadow:0px 0px 13px white;
 	color:white;
 }
@@ -202,3 +184,6 @@ footer{ background-color: var(--header-color);
 	margin-top: 300px;
 }
 
+footer p{ position:relative;
+	left:50px;
+}
