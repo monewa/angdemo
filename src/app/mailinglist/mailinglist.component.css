@@ -97,7 +97,7 @@ textarea{width: 380px;
 	font-size:17px;
 }
 
-div.info-popup{ display: none;
+div.code :nth-child(2) div{ display: none;
 	width: 350px;
 	background-color: whitesmoke;
 	color: black;
@@ -118,7 +118,7 @@ div.code :nth-child(2){ font-weight: bold;
 div.code :nth-child(2):hover{ color:deepskyblue;
 }
 
-div.code :nth-child(2):hover div.info-popup{ display: block;	
+div.code :nth-child(2):hover div{ display: block;	
 }
 
 div.code input:nth-child(4){ width:113px;

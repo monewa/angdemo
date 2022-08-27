@@ -61,9 +61,9 @@
 		 	<br>
 			<div class= "code">
 				<label>Code </label>
-				<label>?
-					<div class="info-popup">select your country to see your code</div>
-				</label>
+				<a href= "javascript:void(0)">?
+					<div>select your country to see your code</div>
+				</a> 
 				<br>
 				<input required ngModel pattern= "[0-9-]{1,7}" maxlength= "7"
 							[(ngModel)]= 'code' #codeField= 'ngModel' 
