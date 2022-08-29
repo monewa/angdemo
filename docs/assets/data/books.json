@@ -1,0 +1,15 @@
+[
+  {
+"title": "The Boy Who Harnessed The Wind", "description": "A story about a poor Malawian boy with a plan and a briliant mind", "author": "William the Genius", "price": 20, "imageUrl": "assets/img/book.png", "pages": "200"
+},  
+{ "title": "A Farmer's Life", "description": "A step by step DIY guide to  become a great farmer", "author": "Farmer Jones", "price": 10, "imageUrl": "assets/img/book1.png", "pages": "180"
+  },  
+  { "title": "Marcus and Amy", "description": "A love story about a poor farmer from Jamaica and a city girl from New York", "author": "Amy Love", "price": 5, "imageUrl": "assets/img/book2.png", "pages": "100"
+    },  
+    { "title": "I Write What I Like", "description": "A collection of essays by a great scholar named Steve", "author": "Steve the Scholar", "price": 15, "imageUrl": "assets/img/book3.png", "pages": "250"
+      },  
+      { "title": "Introduction to Economics", "description": "A basic introduction into how the economy functions", "author": "Sipho the Analyst", "price": 30, "imageUrl": "assets/img/book4.png", "pages": "500"
+        }
+    
+]
+
