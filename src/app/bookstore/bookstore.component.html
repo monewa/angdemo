@@ -18,12 +18,12 @@
 	<p style="margin-top: 100px;">Browse our best selling books</p>
 	<div class= "books" *ngFor= "let book of books" >
 		<div class="book">
-			<div><img [src]="book.imageUrl" width="390" height="400"></div>
-			<div><b> {{ book.title }}</b></div>
+			<img [src]="book.imageUrl" width="392" height="400">
+			<div>{{ book.title }}</div>
 			<div>{{ book.description}}</div>
 			<div>by {{ book.author }}</div>
 			<div>pages: {{ book.pages }}</div>
-			<div><i>price: {{book.price| currency}}</i></div>
+			<div>price: {{book.price| currency}}</div>
 		</div>
 	</div>
 </body>

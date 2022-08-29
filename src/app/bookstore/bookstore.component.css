@@ -20,37 +20,39 @@ div.books{ margin-top: 30px;
 }
 
 div.books div.book{ display: inline-table;
-    height: 510px;
+    height: 540px;
     border: solid dodgerblue;
     margin-right: 20px;
     transition: .6s;
 }
 
 div.books div{ width: var(--bookwidth);
+    margin: 6px
 }
 
 div.books div.book:hover{ border-color: whitesmoke;
+    box-shadow: 0px 0px 7px whitesmoke;
 }
 
 div.book img{ float: none;
 }
 
 div.book :nth-child(2){height: 60px;
-    margin: 5px
+    font: bold 28px Gothic;
+    color: rgb(166, 216, 250);
+    text-align: center;
 }
 
 div.book :nth-child(3){height: 80px;
-    margin: 5px;
 }
 
 div.book :nth-child(4){height: 30px;
-    margin: 5px;
 }
 
 div.book :nth-child(5){height: 30px;
-    margin: 5px;
 }
 
-div.book :nth-child(6){height: 30px;
-    margin: 5px;
+div.book :nth-child(6){height: 60px;
+    color: rgb(246, 66, 102);
+    font: italic 40px Georgia, serif;
 }
