@@ -12,23 +12,33 @@ export class UserRepositoryService {
 	
 	users: any[]= [];
 	countries: any[]= [];
+	books:any[]= []
 	SERVER1= 'https://mo-json-api.herokuapp.com'
 	SERVER2= 'http://localhost:3000'
-	// USERFILE=  'assets/data/users.json'
-	// COUNTRYFILE=  'assets/data/countrydata.json'
-	// USERSURL: string= this.USERFILE;
+	USERFILE=  'assets/data/users.json'
+	COUNTRYFILE=  'assets/data/countrydata.json'
+	BOOKSFILE=  'assets/data/books.json'
 	USERSURL:string= `${this.SERVER1}/users`;
 	COUNTRIESURL:string= `${this.SERVER1}/countries-codes/`;
+	BOOKSURL:string= `${this.SERVER1}/books`;
+	// USERSURL: string= this.USERFILE;
 	// COUNTRIESURL:string= this.COUNTRYFILE;
+	// BOOKSURL:string= this.BOOKSFILE; 
 	
 	constructor( private http:HttpClient) { 
 		this.get(); 
 		this.getCountries();
+		this.getBooks();
 	}
 
 	getCountries(){
 		this.http.get<any[]>(this.COUNTRIESURL, {responseType: 'json'}).subscribe(
 			(data:any[])=> { this.countries= data; }
+		)
+	}
+	getBooks(){
+		this.http.get<any[]>(this.BOOKSURL, {responseType: 'json'}).subscribe(
+			(data:any[])=> { this.books= data; }
 		)
 	}
 
