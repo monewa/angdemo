@@ -113,9 +113,12 @@ div.code :nth-child(2) div{ display: none;
 div.code :nth-child(2){ font-weight: bold;
 	font-style: italic;
 	color: whitesmoke;
+	background-color: blue;
+	padding: 4px;
+	border-radius: 5px;
 }
 
-div.code :nth-child(2):hover{ color:deepskyblue;
+div.code :nth-child(2):hover{ background-color:dodgerblue;
 }
 
 div.code :nth-child(2):hover div{ display: block;	

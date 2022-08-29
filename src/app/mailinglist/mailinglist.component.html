@@ -61,14 +61,15 @@
 		 	<br>
 			<div class= "code">
 				<label>Code </label>
-				<a href= "javascript:void(0)">?
+				<a href= "info:">?
 					<div>select your country to see your code</div>
 				</a> 
 				<br>
 				<input required ngModel pattern= "[0-9-]{1,7}" maxlength= "7"
 							[(ngModel)]= 'code' #codeField= 'ngModel' 
 							title= 'Select your country to see your code' name= 'code' placeholder= '27' />
-				<div *ngIf= 'checkFieldValidity(codeField)' class= "alert">Please provide a
+				<div *ngIf= 'checkFieldValidity(codeField)' class= "alert">
+					Please provide a
 					<br>
 					 vaild code
 				</div>	
