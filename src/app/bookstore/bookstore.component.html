@@ -12,7 +12,20 @@
 	<h3>Welcome to our bookshop</h3>
 	<p>Our latest book is almost ready to be published.</p> 
 	<p>Join our mail list to order a copy or to get updates.</p>	
-	<a  routerLink= '/mailinglist'>register</a>
+	<br>
+	<br>
+	<a routerLink= '/mailinglist'>register</a>
+	<p style="margin-top: 100px;">Browse our best selling books</p>
+	<div class= "books" *ngFor= "let book of books" >
+		<div class="book">
+			<div><img [src]="book.imageUrl" width="390" height="400"></div>
+			<div><b> {{ book.title }}</b></div>
+			<div>{{ book.description}}</div>
+			<div>by {{ book.author }}</div>
+			<div>pages: {{ book.pages }}</div>
+			<div><i>price: {{book.price| currency}}</i></div>
+		</div>
+	</div>
 </body>
 
 <html>

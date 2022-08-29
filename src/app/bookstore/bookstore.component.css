@@ -1,7 +1,8 @@
 
-a{position: relative;
-    top: 110px;
-    font-size: 44px;
+*{ --bookwidth:380px;
+}
+
+a{ font-size: 44px;
     padding: 19px 48px;
     background-color: rgb(239, 241, 142);
     border-radius: 40px;
@@ -12,4 +13,44 @@ a:hover{ background-color: aliceblue;
 }
 
 img{ float:right; 
+}
+
+div.books{ margin-top: 30px;
+    display:inline-block;
+}
+
+div.books div.book{ display: inline-table;
+    height: 510px;
+    border: solid dodgerblue;
+    margin-right: 20px;
+    transition: .6s;
+}
+
+div.books div{ width: var(--bookwidth);
+}
+
+div.books div.book:hover{ border-color: whitesmoke;
+}
+
+div.book img{ float: none;
+}
+
+div.book :nth-child(2){height: 60px;
+    margin: 5px
+}
+
+div.book :nth-child(3){height: 80px;
+    margin: 5px;
+}
+
+div.book :nth-child(4){height: 30px;
+    margin: 5px;
+}
+
+div.book :nth-child(5){height: 30px;
+    margin: 5px;
+}
+
+div.book :nth-child(6){height: 30px;
+    margin: 5px;
 }
