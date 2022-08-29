@@ -1,5 +1,5 @@
 
-div, footer, h1{
+*{
 	--header-color:rgb(28, 28, 31);
 }
 
@@ -19,8 +19,7 @@ body, footer{ color:rgb(222, 242, 243);
 	font:19px verdana;
 }
 
-body{ margin-bottom: 180px;
-}
+
 
 body.fade, div.fade, label.fade{border-radius: 5px;
 animation:loadPage 3s 
@@ -53,6 +52,7 @@ div.nav { width: 1338px;
 }
 
 a{ text-decoration: none;
+	transition: .6s;
 }
 
 a:hover{ box-shadow: 0px 0px 13px whitesmoke;
@@ -103,12 +103,6 @@ button:active, a:active{ opacity: .4;
 button.operator{ background-color:rgb(70%, 60%, 80%);
 }
 
-button.wide{ width:152px;
-}
-
-button.wider{ width:170px;
-}
-
 input, textarea, option, select{ font-size:30px;
 	background-color:rgb(5%, 2%, 10%);
 	border:solid white;
@@ -144,6 +138,13 @@ th{ padding:8px;
 td{ padding:6px;
 }
 
+footer{ background-color: var(--header-color);
+	height:305px;
+	width:1340px;
+	margin-left: -9px;
+	margin-top: 300px;
+}
+
 footer table tr td { height:50px;
 	width:125px;
 	padding:20px;
@@ -176,13 +177,7 @@ footer table tr td:nth-child(5){ border:solid white 4px;
 	color:white;
 }
 
-footer{ background-color: var(--header-color);
-	height:305px;
-	width:1340px;
-	position: relative;
-	left: -9px;
-	margin-top: 300px;
-}
+
 
 footer p{ position:relative;
 	left:50px;
