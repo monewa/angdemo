@@ -15,7 +15,7 @@ a:hover{ background-color: aliceblue;
 img{ float:right; 
 }
 
-div.books{ margin-top: 30px;
+div.books{ margin-top: 20px;
     display:inline-block;
 }
 
@@ -24,6 +24,7 @@ div.books div.book{ display: inline-table;
     border: solid dodgerblue;
     margin-right: 20px;
     transition: .6s;
+    background-color: rgb(45, 25, 82);
 }
 
 div.books div{ width: var(--bookwidth);
@@ -39,8 +40,9 @@ div.book img{ float: none;
 
 div.book :nth-child(2){height: 60px;
     font: bold 28px Gothic;
-    color: rgb(166, 216, 250);
+    color: rgb(153, 201, 233);
     text-align: center;
+    border-top: solid;
 }
 
 div.book :nth-child(3){height: 80px;
