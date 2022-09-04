@@ -6,7 +6,6 @@ height: 440px;
 padding:12px;
 box-shadow: 0px 0px 4px lightpink;
 border-radius: 5px;
-
 }
 
 div.calc:hover{ box-shadow: 0px 0px 10px lightpink;
@@ -34,45 +33,52 @@ input{ text-align:right;
 label, input{ width:350px;
 }
 
+div.capsule{ margin-bottom: 800px;
+}
+
 div.capsule div{
 	border-radius: 9px;
 	position: absolute;
-	left: 750px;
 	text-align: center;
 	padding: 5px;
 	scale: 0;
 	text-shadow: 0px 0px 10px;
-	animation: moving-capsules 35s infinite ;
+	animation: moving-capsules2 30s infinite ;
 }
 
 div.capsule div:nth-child(1){ 
 	color:lime;
 	box-shadow: 0px 0px 8px lime;
+	top: 950px;
+	left: 200px;
 }
 
-@keyframes moving-capsules { 0%{scale: 0; top: 170px;}
+@keyframes moving-capsules2 { 0%{scale: 0;}
 	15%{scale: 1;}
 	70%{scale: 0;}
-	100%{scale: 0; top: 1000px;}
+	100%{scale: 0; }
 }
 
 div.capsule div:nth-child(2){ left: 720px;
+	top: 800px;
 	color: deepskyblue;
 	box-shadow: 0px 0px 10px deepskyblue;
 	animation-delay: 5s;
-	font-size: 25px;
-}
-
-div.capsule div:nth-child(3){ left: 680px;
-	color:deeppink;
-	box-shadow: 0px 0px 10px deeppink;
-	animation-delay: 18s;
 	font-size: 30px;
 }
 
+div.capsule div:nth-child(3){ left: 400px;
+	top: 1100px;
+	color:deeppink;
+	box-shadow: 0px 0px 10px deeppink;
+	animation-delay: 10s;
+	font-size: 35px;
+}
+
 div.capsule div:nth-child(4){ left: 660px;
+	top: 1300px;
 	color:yellow;
 	box-shadow: 0px 0px 10px yellow;
-	animation-delay: 22s;
+	animation-delay: 15s;
 }
 
