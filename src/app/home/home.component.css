@@ -1,13 +1,10 @@
 
+*{--img-margins: -500px}
 
-div.images{ margin-bottom: 550px;
-}
+li{width: 500px ;
+ }
 
-div.images img{ width: 1200px;
-    height: 600px;
-    top: 528px;   
-    left: 14px;
-    position: absolute;
+div.images img{  display: block;
     animation: imagefade 20s infinite;
 }
 
@@ -21,12 +18,15 @@ div.images img:nth-child(1){ animation-delay: 0s;
 }
 
 div.images img:nth-child(2){ animation-delay: 5s;
+    margin-top: var(--img-margins);
  }
 
  div.images img:nth-child(3){ animation-delay: 10s;
+    margin-top: var(--img-margins);
  }
 
  div.images img:nth-child(4){ animation-delay: 15s ;
+    margin-top: var(--img-margins);
 }
 
 
