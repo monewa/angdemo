@@ -1,13 +1,14 @@
 
+<!DOCTYPE html>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 </head>
 
-<body   >
-	<div class="nav">
-		<ul>
+<body class="app" >
+	<nav>
+		<ul >
 			<li><a routerLink= '/home' routerLinkActive= 'active'>Home</a></li> 
 			<li><a routerLink= '/calculator' routerLinkActive= 'active'>Calculator</a></li> 
 			<li><a routerLink= '/converter' routerLinkActive= 'active'>Converter</a></li> 
@@ -24,13 +25,11 @@
 				JSON file			
 			</a></li> 
 			<li> <a routerLink= '/aboutme' routerLinkActive= 'active'> About Me</a></li> 
+			<!-- <li style="padding-left: 580px;"></li>  -->
 		</ul>
-	</div>
-	<br>
-	<br>
+	</nav>
 	<router-outlet></router-outlet>
 </body>
-<br>
 <br>
 <footer>
 	<table>

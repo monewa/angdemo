@@ -9,17 +9,18 @@ h1{ background-color:  var(--header-color);
 	width:470px;
 	text-align:center;
 	border-radius: 5px;
+	margin: 0px 0px 90px 0px;
 }
 
 h3{ color: rgb(107, 175, 243);
-
+ width: 500px;
 }
+
+body.app{margin-left: 200px;}
 
 body, footer{ color:rgb(222, 242, 243);
 	font:19px verdana;
 }
-
-
 
 body.fade, div.fade, label.fade{border-radius: 5px;
 animation:loadPage 3s 
@@ -41,14 +42,31 @@ div.menu{	position:absolute;
 	float:left; 
 }
 
-div.nav { width: 1338px;
-	height: 45px;
-	font-size:21px;
-	position:fixed;
+nav { font-size: 20px;	
+	/* position:fixed; */
 	top: 0px;
-	left: 0px;
+	left: -30px;
 	background-color: var(--header-color);
 	z-index: 1;
+	margin: -10px 0px 100px -206px;
+}
+
+nav ul{	list-style-type: none;
+	margin: 0px;
+}
+
+nav li { display: inline-block;
+	padding: 10px 0px;
+}
+
+.links-btn{	background-color: indigo;
+	color: beige;
+	border-radius: 10px;
+	box-shadow: 0px 0px 8px rgb(29, 27, 27);
+	padding: 15px;
+}
+
+.links-btn:hover{ background-color: blueviolet;	
 }
 
 a{ text-decoration: none;
@@ -58,30 +76,19 @@ a{ text-decoration: none;
 a:hover{ box-shadow: 0px 0px 13px whitesmoke;
 }
 
-div.nav a{ color:orange;
-	background-color: var(--header-color);
-	font-size: 20px;	
+nav a{ color:orange;
 	padding: 10px 12px;
-	transition: background-color .8s, color .6s ;
 }
 
-div.nav a:hover{ background-color: var(--header-color);
-	background-color:lightgrey;
-	color:black;
+nav a:hover{ background-color:lightgrey;
+	color: var(--header-color);
 }
 
-div.nav a.active{color:black;
+nav a.active{color: var(--header-color);
 	background-color:lightgrey;
 }
 
-div.nav li { display: inline-block;
-	padding: 10px 0px;
-}
-
-div.nav ul{ position: relative;
-	list-style-type: none;
-	padding: 0px;
-	margin: 0px;	
+p{width: 500px ;
 }
 
 button{ border-radius: 2.5px;
@@ -141,8 +148,7 @@ td{ padding:6px;
 footer{ background-color: var(--header-color);
 	height:305px;
 	width:1340px;
-	margin-left: -9px;
-	margin-top: 300px;
+	margin: 100px 0px 0px -9px;
 }
 
 footer table tr td { height:50px;
@@ -176,8 +182,6 @@ footer table tr td:nth-child(5){ border:solid white 4px;
 	box-shadow:0px 0px 13px white;
 	color:white;
 }
-
-
 
 footer p{ position:relative;
 	left:50px;
