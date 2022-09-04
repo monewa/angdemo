@@ -2,17 +2,17 @@
 *{ --bookwidth:380px;
 }
 
-a{ font-size: 44px;
+a.links-btn{ font-size: 44px;
     padding: 19px 48px;
-    background-color: rgb(239, 241, 142);
     border-radius: 40px;
-    color: black;
 }
 
 a:hover{ background-color: aliceblue;
 }
 
+
 img{ float:right; 
+    margin: 35px;
 }
 
 div.books{ margin-top: 20px;
@@ -22,7 +22,7 @@ div.books{ margin-top: 20px;
 div.books div.book{ display: inline-table;
     height: 540px;
     border: solid dodgerblue;
-    margin-right: 20px;
+    margin-right: 28px;
     transition: .6s;
     background-color: rgb(45, 25, 82);
 }
