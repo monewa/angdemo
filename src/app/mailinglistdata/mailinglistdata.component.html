@@ -1,6 +1,6 @@
 
+<!DOCTYPE html>
 <html>
-
 <head>
 	<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
 	<meta charset= "UTF-8">
@@ -21,8 +21,8 @@
 		</div>
 	</div>
 	<div class="links">
-		<a  href="https://mo-json-api.herokuapp.com/">Remote server</a>
-		<button (click)= "openEventLog()" class= 'wide'>View Event log</button>
+		<li><button (click)= "openEventLog()" class= 'links-btn'>View Event log</button></li>
+		<li><a  href="https://mo-json-api.herokuapp.com/" class="links-btn">Remote server</a></li>
 	</div>
 	<br>
 	<div *ngIf= 'eventLogIsOpen' class= "log-background"></div>
