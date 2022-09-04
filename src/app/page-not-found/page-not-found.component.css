@@ -1,8 +1,10 @@
 
-a{font-size: 26px;
-    background-color: blueviolet;
-    padding: 10px 28px;
-    color: wheat;
+li{ list-style: none;
+    margin: 100px 0px 350px 0px;
+}
+
+a.links-btn{ font-size: 26px;
+    padding: 15px 30px;
 }
 
 a:hover{ background-color: darkorchid;}
