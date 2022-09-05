@@ -1,4 +1,6 @@
 
+body{height: 1400px;}
+
 div.calc{ background-color:rgb(5%, 2%, 10%);
 font-size:24px;
 width:393px;
@@ -49,8 +51,8 @@ div.capsule div{
 div.capsule div:nth-child(1){ 
 	color:lime;
 	box-shadow: 0px 0px 8px lime;
-	top: 950px;
-	left: 200px;
+	top: 700px;
+	left: 150px;
 }
 
 @keyframes moving-capsules2 { 0%{scale: 0;}
@@ -60,7 +62,7 @@ div.capsule div:nth-child(1){
 }
 
 div.capsule div:nth-child(2){ left: 720px;
-	top: 800px;
+	top: 600px;
 	color: deepskyblue;
 	box-shadow: 0px 0px 10px deepskyblue;
 	animation-delay: 5s;
@@ -68,7 +70,7 @@ div.capsule div:nth-child(2){ left: 720px;
 }
 
 div.capsule div:nth-child(3){ left: 400px;
-	top: 1100px;
+	top: 800px;
 	color:deeppink;
 	box-shadow: 0px 0px 10px deeppink;
 	animation-delay: 10s;
@@ -76,7 +78,7 @@ div.capsule div:nth-child(3){ left: 400px;
 }
 
 div.capsule div:nth-child(4){ left: 660px;
-	top: 1300px;
+	top: 720px;
 	color:yellow;
 	box-shadow: 0px 0px 10px yellow;
 	animation-delay: 15s;
