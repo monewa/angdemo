@@ -3,48 +3,59 @@
 form{ background-color:rgba(14, 9, 22, 0.966);	
 	color: yellow;
 	width:560px; 
-	height: 1050px;
+	height: 1100px;
 	font-size:22px;
 	padding:25px;
-	position: relative;
-	top: 80px;
 	border-radius: 5px;
+	margin-top: 50px;
 }
 
 form:hover{box-shadow: 0px 0px 10px lightskyblue;
 }
 
-div.pg1{ position: relative;
+div.main-page{ position: relative;
 	top: 5px;
 }
 
-div.name{position: absolute;
-	top: 130px;
+div.buttons, div.comments, div.code, div.email, div.country, div.lastname, 
+div.name{ margin: 40px 0px 0px 50px;
 }
 
-div.lastname{position: absolute;
-	top: 250px;
+div.code :nth-child(2){ font-weight: bold;
+	font-style: italic;
+	color: whitesmoke;
+	background-color: blue;
+	padding: 4px 6px;
+	border-radius: 5px;
 }
 
-div.email{position: absolute;
-	top: 380px;
-}
-
-div.country{position: absolute;
-	top: 525px;
-}
-
-div.code{position: absolute;
-	top: 650px;
-}
-
-div.comments{position: absolute;
-	top: 800px;
-}
-
-div.buttons{position: absolute;
+div.code :nth-child(2) div{ display: none;
+	width: 350px;
+	background-color: whitesmoke;
+	color: black;
+	padding: 8px;
+	box-shadow: 0px 0px 5px whitesmoke;
+	position: absolute;
 	top: 980px;
-	width: 400px;
+	font-weight: normal;
+	font-size: 18px;
+	z-index: 1;
+}
+
+div.code :nth-child(2):hover{ background-color:rgb(29, 130, 231);
+}
+
+div.code :nth-child(2):hover div{ display: block;	
+}
+
+div.code input:nth-child(4){ width:113px;
+}
+
+div.phone{ float: right;
+	margin: -127px 90px 0px 0px;
+}
+
+div.phone :nth-child(3){ width:190px;
 }
 
 div.buttons button:nth-child(1){ background-color: darkgreen;
@@ -94,51 +105,18 @@ textarea{width: 380px;
 }
 
 .alert{ color:red;	
-	font-size:17px;
+	font-size:18px;
 }
 
-div.code :nth-child(2) div{ display: none;
-	width: 350px;
-	background-color: whitesmoke;
-	color: black;
-	padding: 8px;
-	box-shadow: 0px 0px 5px whitesmoke;
+.alert-opaque{ opacity: 0;
+	font-size:18px;
+}
+
+div.success-background{height: 1650px;
+	width: 1400px;
 	position: absolute;
-	top: 25px;
-	font-weight: normal;
-	font-size: 18px;
-	z-index: 1;
-}
-
-div.code :nth-child(2){ font-weight: bold;
-	font-style: italic;
-	color: whitesmoke;
-	background-color: blue;
-	padding: 4px;
-	border-radius: 5px;
-}
-
-div.code :nth-child(2):hover{ background-color:dodgerblue;
-}
-
-div.code :nth-child(2):hover div{ display: block;	
-}
-
-div.code input:nth-child(4){ width:113px;
-}
-
-div.phone{ position: absolute;
-	top: 650px;
-	left: 200px;
-}
-
-div.phone :nth-child(3){ width:190px;
-}
-
-div.success-background{height: 1530px;
-	width: 1200px;
-	position: absolute;
-	top: 70px;
+	top: 0px;
+	left: -200px;
 	background-color: black;
 	opacity: .6;
 }
@@ -150,7 +128,7 @@ div.success{ color:white;
 	height:414px;
 	position: fixed;
     top: 150px;
-	left: 20px; 
+	left: 200px; 
 	box-shadow: 0px 0px  13px green;
 	z-index: 1;
 }
