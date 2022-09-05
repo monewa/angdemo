@@ -2,6 +2,12 @@
 *{ --bookwidth:380px;
 }
 
+
+li{ list-style: none;
+    margin-top: 70px;
+
+}
+
 a.links-btn{ font-size: 44px;
     padding: 19px 48px;
     border-radius: 40px;
@@ -10,9 +16,8 @@ a.links-btn{ font-size: 44px;
 a:hover{ background-color: aliceblue;
 }
 
-
-img{ float:right; 
-    margin: 35px;
+body img:nth-child(2){ display: block;
+    margin: -35px 0px -200px 600px;
 }
 
 div.books{ margin-top: 20px;
