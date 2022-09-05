@@ -9,14 +9,15 @@ h1{ background-color:  var(--header-color);
 	width:470px;
 	text-align:center;
 	border-radius: 5px;
-	margin: 0px 0px 90px 0px;
+	margin: 0px 0px 80px 0px;
 }
 
 h3{ color: rgb(107, 175, 243);
  width: 500px;
 }
 
-body.app{margin-left: 200px;}
+body.app{margin-left: 200px;
+}
 
 body, footer{ color:rgb(222, 242, 243);
 	font:19px verdana;
@@ -44,8 +45,9 @@ div.menu{	position:absolute;
 
 nav { font-size: 20px;	
 	/* position:fixed; */
-	top: 0px;
-	left: -30px;
+	top: 10px;
+	left: 200px;
+	width: 1340px;
 	background-color: var(--header-color);
 	z-index: 1;
 	margin: -10px 0px 100px -206px;
