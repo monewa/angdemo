@@ -1,4 +1,7 @@
 
+body{ height: 1400px;
+}
+
 div.converter{ background-color:rgb(62, 113, 155); 
 	font-size:24px;
 	padding:12px;
