@@ -15,13 +15,13 @@
 	<li><a routerLink= '/mailinglist' class="links-btn">register</a></li>
 	<p style="margin-top: 100px;">Browse our best selling books</p>
 	<div class= "books" *ngFor= "let book of books" >
-		<div class="book">
-			<img [src]="'assets/img/'+book.imageUrl" width="392" height="400">
+		<div class="book alt-banner">
+			<img [src]="'assets/img/'+book.imageUrl" width="320" height="280">
 			<div>{{ book.title }}</div>
 			<div>{{ book.description}}</div>
 			<div>by {{ book.author }}</div>
 			<div>pages: {{ book.pages }}</div>
-			<div>price: {{ book.price| currency }}</div>
+			<div>price: <span> {{ book.price| currency }}</span></div>
 		</div>
 	</div>
 </body>
