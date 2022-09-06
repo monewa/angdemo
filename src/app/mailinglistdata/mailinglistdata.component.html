@@ -21,13 +21,13 @@
 		</div>
 	</div>
 	<div class="links">
-		<li><button (click)= "openEventLog()" class= 'links-btn'>View Event log</button></li>
-		<li><a  href="https://mo-json-api.herokuapp.com/" class="links-btn">Remote server</a></li>
+		<button (click)= "openEventLog()" class= 'links-btn'>View Event log</button>
+		<a  href="https://mo-json-api.herokuapp.com/" class="links-btn">Remote server</a>
 	</div>
 	<br>
 	<div *ngIf= 'eventLogIsOpen' class= "log-background"></div>
 	<div *ngIf= 'eventLogIsOpen' class= "log fade">
-		<div>Event Log
+		<div class="banner">Event Log
 			<button (click)= "closeEventLog()">x</button>
 		</div>
 		<div *ngIf="checkForEvents()" class="log-message">no events found</div>
@@ -47,10 +47,10 @@
 			<th>Comments</th>
 		</thead>
 		<tbody>
-			<tr [hidden]= 'checkForData()'>
+			<tr [hidden]= 'checkForData()' class="banner">
 				<td colspan= '9'>no data found</td>
 			</tr>
-			<tr *ngFor= 'let user of users; let i= index;  let odd= odd;' [class.odd-row]= "odd" >
+			<tr *ngFor= 'let user of users; let i= index;  let odd= odd;' [class.alt-banner]= "odd" 					class="banner">
 				<td>
 					<button (click)= "deleteUser(i)"  class= "del">delete</button>
 				</td>					

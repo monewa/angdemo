@@ -102,6 +102,7 @@ export class MailinglistdataComponent implements OnInit {
 	openEditBox():void{
 		this.editNotificationIsOpen= true;
 		this.closeEventLog();
+		this.closeDeleteBox()
 	}
 
 	closeEditBox():void{
@@ -111,6 +112,7 @@ export class MailinglistdataComponent implements OnInit {
 	openDeleteBox():void{
 		this.deleteNotificationIsOpen= true;
 		this.closeEventLog();
+		this.closeEditBox();
 	}
 
 	closeDeleteBox():void{

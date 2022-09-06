@@ -1,4 +1,6 @@
 
+*{--edit-color:rgb(0, 81, 255)
+}
 
 button.del{ background-color:crimson;
 	color:white;
@@ -11,15 +13,19 @@ button.del:hover{ background-color:red;
 }
 
 button.edit{ font-size:14px;
-	background-color: rgb(116, 184, 251);
+	background-color: var(--edit-color);
 	margin: 10px;
 	padding: 10px 20px;
+	color: antiquewhite;
+}
+
+button.edit:hover{background-color: blue;
 }
 
 input.editUser{	padding: 3px;
 }
 
-div.log-background{height: 600px;
+div.log-background{height: 1700px;
 	width: 1325px;
 	position: fixed;
 	top: 0px;
@@ -28,20 +34,21 @@ div.log-background{height: 600px;
 	opacity: .6;
 }
 
-div.log{ position: fixed;
-	top: 150px;
-	left: 70px;
+div.log{ position: sticky;
+	top: 0px;
+	margin-left: -100px;
 	background-color: azure;
 	color: black;
 	border: ridge lightgray;
 	z-index: 1;
+	width: 900px;
 }
 
 div.log div:nth-child(1){ border: white groove 3px;
 	padding: 10px;
-	background-color: rgba(29, 135, 241);
-	color: antiquewhite;
+	color: orange;
 	font-weight: bold;
+
 }
 
 div.log div:nth-child(1) button{
@@ -58,23 +65,29 @@ div.log div:nth-child(1) button:hover{ background-color: red;
 
 div.log div:nth-child(2){ padding: 18px;
 	height: 250px;
-	width: 900px;
+	width: 860px;
 	overflow-x:scroll;
 	overflow-y:scroll;
+	margin-bottom: -10px;
 }
 
 div.log-message{ padding-left: 18px;
 }
 
-div.notifications div{ 
-	padding:13px;
-	color:white;
-	position: fixed;
-	top: 150px;
-	text-align: center;
-	margin-left: 120px;
-	box-shadow: 0px 0px 9px rgb(29, 27, 27);
+div.notifications{	position: sticky;
+	top: 0px;
+	left: 0px;
+	margin-left: -50px;
 	z-index: 1;
+	margin-top: 50px;
+}
+
+div.notifications div{ padding:13px;
+	color:white;
+	width: 250px;
+	text-align: center;
+	box-shadow: 0px 0px 9px rgb(29, 27, 27);
+	
 }
 
 div.notifications button{ font-size: 17px;
@@ -82,6 +95,7 @@ div.notifications button{ font-size: 17px;
 	color: whitesmoke;
 	margin-top: 30px;
 	width: 60px;
+	padding: 8px 15px;
 }
 
 div.del-notification{ background-color: crimson;
@@ -90,30 +104,24 @@ div.del-notification{ background-color: crimson;
 div.del-notification button:hover{ background-color: red;
 }
 
-div.edit-notification{ background-color: rgb(0, 81, 255);
+div.edit-notification{ background-color: var(--edit-color);
 }
 
 div.edit-notification button:hover{ background-color: blue;
 }
 
-div.links {float: right;
-	margin-top: -30px;
-}
-
-div.links li{ display: inline-block;
-	list-style: none;
-	padding: 10px 0px;
-}
-div.links a{ display: block;
+div.links { margin: -30px 0px 0px 600px;
+	width: 350px ;
 }
 
 div.links button{ margin-right:15px;	
 	font-size: 20px;
 }
 
-table{margin: 120px 0px 0px -150px;
+table{margin: 0px 0px 0px -180px;
 	background-color: dodgerblue;
 	border-style: none;
+	min-width:  1250px;
 }
 
 table:hover{ box-shadow: 0px 0px 10px;
@@ -122,11 +130,5 @@ table:hover{ box-shadow: 0px 0px 10px;
  thead{ background-color:rgb(34, 106, 179);
 	font-size:16px;
 	text-align:center;
+	color: aliceblue;
 }
-
-tr{ background-color: rgb(40, 42, 71);
-}
-
-tr.odd-row{  background-color: rgb(15, 51, 88);
-}
-
