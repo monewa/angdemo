@@ -1,25 +1,39 @@
 
 *{
-	--header-color:rgb(28, 28, 31);
+	--banner-color: rgb(9, 6, 50);
+	--heading-color: rgb(107, 175, 255);
+	--default-color: rgb(190, 199, 255);
+	--alternative-banner-color: rgb(15, 51, 110);
 }
 
-h1{ background-color:  var(--header-color);
+.banner{ background-color: var(--banner-color);
+}
+
+.alt-banner{ background-color: var(--alternative-banner-color);
+}
+
+h1{ background-color:  var(--banner-color);
 	padding:10px;
-	color:crimson;
-	width:470px;
+	text-shadow: 0px 0px 2.5px;
+	color:var(--heading-color);
+	min-width:370px;
+	max-width: 650px;
 	text-align:center;
 	border-radius: 5px;
-	margin: 0px 0px 80px 0px;
+	margin: 150px 0px 80px 0px;
 }
 
-h3{ color: rgb(107, 175, 243);
+h2{color: orange;
+}
+
+h3{ color: var(--heading-color);
  width: 500px;
 }
 
 body.app{margin-left: 200px;
 }
 
-body, footer{ color:rgb(222, 242, 243);
+body, footer{ color: var(--default-color);
 	font:19px verdana;
 }
 
@@ -44,17 +58,13 @@ div.menu{	position:absolute;
 }
 
 nav { font-size: 20px;	
-	/* position:fixed; */
+	position:fixed;
 	top: 10px;
-	left: 200px;
+	left: 0px;
 	width: 1340px;
-	background-color: var(--header-color);
+	background-color: var(--banner-color);
 	z-index: 1;
-	margin: -10px 0px 100px -206px;
-}
-
-nav ul{	list-style-type: none;
-	margin: 0px;
+	margin: -10px 0px 0px 0px;
 }
 
 nav li { display: inline-block;
@@ -66,6 +76,7 @@ nav li { display: inline-block;
 	border-radius: 10px;
 	box-shadow: 0px 0px 8px rgb(29, 27, 27);
 	padding: 15px;
+	display: inline-block;
 }
 
 .links-btn:hover{ background-color: blueviolet;	
@@ -83,10 +94,10 @@ nav a{ color:orange;
 }
 
 nav a:hover{ background-color:lightgrey;
-	color: var(--header-color);
+	color: var(--banner-color);
 }
 
-nav a.active{color: var(--header-color);
+nav a.active{color: var(--banner-color);
 	background-color:lightgrey;
 }
 
@@ -113,9 +124,9 @@ button.operator{ background-color:rgb(70%, 60%, 80%);
 }
 
 input, textarea, option, select{ font-size:30px;
-	background-color:rgb(5%, 2%, 10%);
-	border:solid white;
-	color:white;
+	background-color: rgb(3, 3, 63);
+	color: var(--default-color);
+	border:solid rgb(83, 166, 248);
 	padding: 12px;
 	border-radius: 5px;
 	transition:  box-shadow .5s, border .5s ;
@@ -132,7 +143,7 @@ input:focus, textarea:focus, select:focus{ box-shadow: 0px 0px 12px skyblue;
 	border: solid blue;
 }
 
-footer table{ background-color: var(--header-color);
+footer table{ background-color: var(--banner-color);
 	position:relative;
 	left:100px;	
 	border-spacing:40px;
@@ -147,7 +158,7 @@ th{ padding:8px;
 td{ padding:6px;
 }
 
-footer{ background-color: var(--header-color);
+footer{ background-color: var(--banner-color);
 	height:305px;
 	width:1340px;
 	margin: 100px 0px 0px -9px;
@@ -156,7 +167,7 @@ footer{ background-color: var(--header-color);
 footer table tr td { height:50px;
 	width:125px;
 	padding:20px;
-	background-color: var(--header-color);
+	background-color: var(--banner-color);
 	text-shadow: 0px 0px 14px;
 }
 
