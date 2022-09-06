@@ -1,11 +1,10 @@
 
 *{ --img-margin: -650px;}
 
-h2{ color: crimson ;
-	text-align: center;
+h2{ text-align: center;
 }
 
-div.container{ background-color: rgb(16, 13, 34);
+div.container{ background-color: rgb(9, 6, 50);
     padding: 20px;
     width: 760px;
     height: 420px;
@@ -22,7 +21,7 @@ div.container div{ box-shadow: 0px 0px 14px blue;
 div.container  h2{ padding: 15px;
 }
 
-span{ color:lime;
+span{ color:orange;
     text-shadow: 0px 0px 3px ;
 }
 
@@ -42,8 +41,9 @@ div.images img{ width:600px;
     animation: imagefade 15s infinite;
 }
 
-div.images img:nth-child(1){ border-color: red;
-    box-shadow: 0px 0px 12px red; 
+div.images img:nth-child(1){ border-color: orangered;
+    box-shadow: 0px 0px 12px orangered; 
+    animation-delay: 15s ;
  }
 @keyframes imagefade { 0% {opacity: 1;}
     25%{opacity: 0;}
@@ -51,16 +51,16 @@ div.images img:nth-child(1){ border-color: red;
     100%{opacity: 1;}
 }
 
-div.images img:nth-child(2){ animation-delay: 5s ;
-    border-color:gold;
+div.images img:nth-child(2){  border-color:gold;
     box-shadow: 0px 0px 12px gold; 
     margin-top: var(--img-margin);
+    animation-delay: 10s ;
  }
 
- div.images img:nth-child(3){ animation-delay: 10s ;
-    border-color: orange;
+ div.images img:nth-child(3){border-color: orange;
     box-shadow: 0px 0px 12px orange; 
     margin-top: var(--img-margin);
+    animation-delay: 5s ;
  }
 
  div.images p:nth-child(4){ margin: -50px 0px 0px 40px;
