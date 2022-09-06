@@ -1,9 +1,8 @@
 
 body{height: 1400px;}
 
-div.calc{ background-color:rgb(5%, 2%, 10%);
-font-size:24px;
-width:393px;
+div.calc{ font-size:24px;
+width:470px;
 height: 440px;
 padding:12px;
 box-shadow: 0px 0px 4px lightpink;
@@ -11,6 +10,9 @@ border-radius: 5px;
 }
 
 div.calc:hover{ box-shadow: 0px 0px 10px lightpink;
+}
+
+div.numpad{margin: 55px 35px 25px 35px ;
 }
 
 div.numpad button{ width:75px;
@@ -25,14 +27,14 @@ div.numpad button.wide{ width:152px;
 button.num{background-color:rgb(93, 195, 235);
 }
 
-label{ color:yellow;
-	font-size:24px;
+label{ color:orange;
 }
 
-input{ text-align:right;	
+input{ text-align:right;
+	margin-bottom: 10px;	
 }
 
-label, input{ width:350px;
+label, input{ width:355px;
 }
 
 div.capsule{ margin-bottom: 800px;
@@ -61,7 +63,7 @@ div.capsule div:nth-child(1){
 	100%{scale: 0; }
 }
 
-div.capsule div:nth-child(2){ left: 720px;
+div.capsule div:nth-child(2){ left: 760px;
 	top: 600px;
 	color: deepskyblue;
 	box-shadow: 0px 0px 10px deepskyblue;
@@ -78,7 +80,7 @@ div.capsule div:nth-child(3){ left: 400px;
 }
 
 div.capsule div:nth-child(4){ left: 660px;
-	top: 720px;
+	top: 760px;
 	color:yellow;
 	box-shadow: 0px 0px 10px yellow;
 	animation-delay: 15s;

@@ -8,15 +8,12 @@
 
 <body class= "fade">
 	<h1>My Calculator App</h1>
-	<div (keyup)= 'setKeyInput()' class= 'calc'>
+	<div (keyup)= 'setKeyInput()' class= 'calc banner'>
 		<b>Calculator</b>
-		<br>
-		<br>
 		<div class= 'numpad'>
 			<label >{{toAnswerScreenValue}}</label>
 			<br>
 			<input [value]= 'toScreenValue' readonly placeholder='0' >
-			<br>
 			<br>
 			<button (click)= 'setValue("1")' class= "num">1</button>
 			<button (click)= 'setValue("2")' class= "num">2</button>
