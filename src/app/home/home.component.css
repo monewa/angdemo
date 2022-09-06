@@ -17,18 +17,18 @@ div.images img{  display: block;
     100%{opacity: 1;}
 }
 
-div.images img:nth-child(1){ animation-delay: 0s;
+div.images img:nth-child(1){ animation-delay: 20s; 
 }
 
-div.images img:nth-child(2){ animation-delay: 5s;
+div.images img:nth-child(2){ animation-delay: 15s; 
     margin-top: var(--img-margins);
  }
 
- div.images img:nth-child(3){ animation-delay: 10s;
+ div.images img:nth-child(3){ animation-delay: 10s; 
     margin-top: var(--img-margins);
  }
 
- div.images img:nth-child(4){ animation-delay: 15s ;
+ div.images img:nth-child(4){ animation-delay: 5s ; 
     margin-top: var(--img-margins);
 }
 
