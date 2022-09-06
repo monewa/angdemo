@@ -9,14 +9,10 @@
 <body (keyup)= 'getKeyValues()' id= 'body' class= "fade">
 	<h1>Converter App</h1>
 	
-	<div class= 'converter' >
+	<div class= 'converter alt-banner' >
 		<b>Converter</b>
-		<br>
-		<br>
 		<div class= 'numpad'>
-			<label [style]= 'clearBackgroundColor()'>{{setAnswerDisplay()}}</label>
-			<br>
-			<br>
+			<label [style]= 'clearBackgroundColor()' class="banner">{{setAnswerDisplay()}}</label>
 			<input [value]= 'toDisplayValue' [placeholder]= 'setDisplayPlaceholder()' readonly>
 			<br>
 			<button (click)= 'clearAll()' class= 'reset clear'>reset</button>

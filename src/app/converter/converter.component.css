@@ -2,11 +2,10 @@
 body{ height: 1400px;
 }
 
-div.converter{ background-color:rgb(62, 113, 155); 
-	font-size:24px;
+div.converter{ font-size:24px;
 	padding:12px;
 	height:490px;
-	width:440px;
+	width:500px;
 	box-shadow: 0px 0px 4px lightskyblue;
 	border-radius: 5px;
 }
@@ -14,10 +13,12 @@ div.converter{ background-color:rgb(62, 113, 155);
 div.converter:hover{ box-shadow: 0px 0px 10px lightskyblue;
 }
 
+div.numpad{ margin: 95px 25px 25px 25px;
+}
+
 div.numpad button{ width:75px;
 	font-size:40px;
-	margin-bottom:3px;
-	margin-left:3px;
+	margin: 0px 0px 3px 3px;
 }
 
 button.num{background-color:rgb(93, 195, 235);
@@ -32,13 +33,10 @@ div.numpad button.reset{ width:114px;
 label, input{ width:400px; 
 }
 
-label{ background-color:black;
-	padding:12px;
+label{ color: orange;
 }
 
-div.converter input{ background-color:rgb(240, 243, 253);
-	color:black;
-	text-align:right;
+div.converter input{ text-align:right;
 	margin-bottom:10px;
 }
 
