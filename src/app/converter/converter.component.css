@@ -1,10 +1,10 @@
 
-body{ height: 1400px;
+body{ height: 1500px;
 }
 
 div.converter{ font-size:24px;
 	padding:12px;
-	height:490px;
+	height:500px;
 	width:500px;
 	box-shadow: 0px 0px 4px lightskyblue;
 	border-radius: 5px;
@@ -31,9 +31,6 @@ div.numpad button.reset{ width:114px;
 }
 
 label, input{ width:400px; 
-}
-
-label{ color: orange;
 }
 
 div.converter input{ text-align:right;

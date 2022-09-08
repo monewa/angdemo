@@ -12,7 +12,8 @@
 	<div class= 'converter alt-banner' >
 		<b>Converter</b>
 		<div class= 'numpad'>
-			<label [style]= 'clearBackgroundColor()' class="banner">{{setAnswerDisplay()}}</label>
+			<label  class="banner-btn">{{setAnswerDisplay()}}</label>
+			<br>
 			<input [value]= 'toDisplayValue' [placeholder]= 'setDisplayPlaceholder()' readonly>
 			<br>
 			<button (click)= 'clearAll()' class= 'reset clear'>reset</button>

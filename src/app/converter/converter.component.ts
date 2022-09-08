@@ -243,15 +243,7 @@ export class ConverterComponent implements OnInit {
 		this.setDisplayPlaceholder();
 	}
 	
-	clearBackgroundColor(): string{
-		if(this.answerDisplayMessage == ''){
-			return 'background-color:transparent';
-		}
-		return '';
-	}
-	
 	setAnswerDisplay(value: number | string= this.answerDisplayMessage): string{
-		this.clearBackgroundColor();
 		return value+ '';
 	}
 
