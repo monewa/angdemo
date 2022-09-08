@@ -1,5 +1,5 @@
 
-body{height: 1400px;}
+body{height: 1500px;}
 
 div.calc{ font-size:24px;
 width:470px;
@@ -25,9 +25,6 @@ div.numpad button.wide{ width:152px;
 }
 
 button.num{background-color:rgb(93, 195, 235);
-}
-
-label{ color:orange;
 }
 
 input{ text-align:right;
