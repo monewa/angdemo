@@ -57,18 +57,7 @@ div.phone{ float: right;
 div.phone :nth-child(3){ width:190px;
 }
 
-div.buttons button:nth-child(1){ background-color: indigo;
-	color: beige;
-}
-
-div.buttons button:nth-child(1):hover{ background-color:blueviolet;
-}
-
-div.buttons button:nth-child(2){ background-color:indigo;
-	color: beige;
-}
-
-div.buttons button:nth-child(2):hover{ background-color:blueviolet;
+div.buttons button{ border-radius: 3px;
 }
 
 div.buttons button:nth-child(3){ background-color:rgb(144, 4, 4);
@@ -78,13 +67,9 @@ div.buttons button:nth-child(3){ background-color:rgb(144, 4, 4);
 div.buttons button:nth-child(3):hover{ background-color:red;
 }
 
-body button{ width:115px;
-font-size:30px;
-position:relative;
-left:20px;	
-padding:8px;
-font-weight:bold;
-margin-right: 10px;
+body button{ font-size:30px;
+padding:8px 20px;
+margin-right: 12px;
 }
 
 form input,  form textarea, form select{ font-size:22px;
@@ -119,8 +104,7 @@ div.success-background{height: 1650px;
 	opacity: .6;
 }
 
-div.success{ color:white;
-	border: 4px groove;
+div.success{ border: 4px groove;
 	font-size:25px;	
 	width:590px;
 	height:414px;
@@ -138,21 +122,18 @@ div.success{ color:white;
 }
 
 div.success div:nth-child(1){ text-align: center;
-	background-color: green;
-	border: 2px groove;
+	border: 2px groove green;
 	padding: 15px;
 }
 
-div.success div:nth-child(2){ background-color: rgb(28, 28, 88);
-	padding: 15px;
+div.success div:nth-child(2){ padding: 15px;
 }
 
 div.success div:nth-child(2) div{ text-align: left;
 	margin-left: 10px;
 }
 
-div.success div:nth-child(3){ background-color: green;
-	padding: 15px;
+div.success div:nth-child(3){ padding: 15px;
 	height: 50px;
 }
 

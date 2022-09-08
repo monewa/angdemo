@@ -14,7 +14,7 @@
 		<p>	Save your details on the form to be part of our mail list for the book.</p>
 		<p>Select your country to see your code.</p>
 		<form (ngSubmit)= 'checkFormValidity(form)'  #form= 'ngForm' ngNativeValidate
-					class="banner">
+					class="banner-btn">
 			<b>Mail list Form</b>
 			<div class= "name">
 				<label>First name  </label>
@@ -98,15 +98,17 @@
 						[class.alert-opaque]= '!form.invalid|| !submitted'>	Your proflie is not saved</div>
 			</div>
 			<div class= "buttons">
-				<button  (click)= 'checkFormValidity(form); saveForm()'	type= 'submit'>save</button>
-				<button  (click)= 'clear()'>clear</button>
+				<button  (click)= 'checkFormValidity(form); saveForm()'	type= 'submit'
+								class="links-btn">save
+				</button>
+				<button  (click)= 'clear()' class="links-btn">clear</button>
 				<button  routerLink= '/bookstore'>cancel</button>
 			</div>
 		</form> 
 	</div>
 	<div class= "success-background" [hidden]= 'hideSuccessPopup'></div >
-	<div [hidden]= 'hideSuccessPopup' class= 'success popdown'>
-		<div>Your profile is saved successfully</div> 
+	<div [hidden]= 'hideSuccessPopup' class= 'banner-btn success popdown'>
+		<div class="header">Your profile is saved successfully</div> 
 		<div><b>Your details:</b> 
 			<div [innerHTML]= "displaySavedDetails()"></div>
 		</div>
