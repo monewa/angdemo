@@ -17,7 +17,7 @@
 	<div class= "books" *ngFor= "let book of books" >
 		<div class="book alt-banner">
 			<img [src]="'assets/img/'+book.imageUrl" width="320" height="280">
-			<div>{{ book.title }}</div>
+			<div class="banner-btn">{{ book.title }}</div>
 			<div>{{ book.description}}</div>
 			<div>by {{ book.author }}</div>
 			<div>pages: {{ book.pages }}</div>
