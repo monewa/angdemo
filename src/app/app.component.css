@@ -2,11 +2,20 @@
 *{
 	--banner-color: rgb(9, 6, 50);
 	--heading-color: rgb(107, 175, 255);
-	--default-color: rgb(190, 199, 255);
+	--default-color: rgb(199, 199, 255);
 	--alternative-banner-color: rgb(15, 51, 110);
 }
 
+
+
 .banner{ background-color: var(--banner-color);
+}
+
+.banner-btn{ background-color: var(--banner-color);
+	color: orange;
+}
+
+.header{ color: var(--heading-color);
 }
 
 .alt-banner{ background-color: var(--alternative-banner-color);
@@ -16,8 +25,7 @@ h1{ background-color:  var(--banner-color);
 	padding:10px;
 	text-shadow: 0px 0px 2.5px;
 	color:var(--heading-color);
-	min-width:370px;
-	max-width: 650px;
+	width: 650px;
 	text-align:center;
 	border-radius: 5px;
 	margin: 150px 0px 80px 0px;
@@ -72,7 +80,7 @@ nav li { display: inline-block;
 }
 
 .links-btn{	background-color: indigo;
-	color: beige;
+	color: rgb(248, 183, 63);
 	border-radius: 10px;
 	box-shadow: 0px 0px 8px rgb(29, 27, 27);
 	padding: 15px;
@@ -162,6 +170,7 @@ footer{ background-color: var(--banner-color);
 	height:305px;
 	width:1340px;
 	margin: 100px 0px 0px -9px;
+	z-index: 1;
 }
 
 footer table tr td { height:50px;
