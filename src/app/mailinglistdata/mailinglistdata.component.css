@@ -25,22 +25,45 @@ button.edit:hover{background-color: blue;
 input.editUser{	padding: 3px;
 }
 
-div.log-background{height: 1700px;
-	width: 1325px;
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	background-color: black;
-	opacity: .6;
+div.menu button.btn{ position: fixed;
+	left: 0;
+	top: 300px;
+	padding: 80px 8px;
+	z-index: -1;
+	font-size: 16px;
+	font-weight: bold;
 }
 
-div.log{ position: sticky;
-	top: 0px;
-	margin-left: -100px;
+div.menu button.btn:hover{ color: black;
+}
+
+div.menu:hover div.submenu{ left: 0px;
+}
+
+div.menu div.submenu{ min-height: 550px;
+	position: fixed;
+	top: 45px;
+	left: -950px;
+	/* display: none; */
+	z-index: 1;
+	transition: .8s;
+}
+
+div.menu div.show-menu{ left: 0px;
+}
+
+div.links { margin: 10px;
+}
+
+div.links button{ margin-right:15px;	
+	font-size: 20px;
+}
+
+div.log{ margin: 10px;
 	background-color: azure;
 	color: black;
 	border: ridge lightgray;
-	z-index: 1;
+	z-index: 2;
 	width: 900px;
 }
 
@@ -74,27 +97,20 @@ div.log div:nth-child(2){ padding: 18px;
 div.log-message{ padding-left: 18px;
 }
 
-div.notifications{	position: sticky;
-	top: 0px;
-	left: 0px;
-	margin-left: -50px;
-	z-index: 1;
-	margin-top: 50px;
-}
-
 div.notifications div{ padding:13px;
 	color:white;
 	width: 250px;
+	height: 110px;
 	text-align: center;
 	box-shadow: 0px 0px 9px rgb(29, 27, 27);
-	
+	margin: 10px;
 }
 
 div.notifications button{ font-size: 17px;
 	background-color: transparent;
 	color: whitesmoke;
 	margin-top: 30px;
-	width: 60px;
+	/* width: 60px; */
 	padding: 8px 15px;
 }
 
@@ -110,15 +126,7 @@ div.edit-notification{ background-color: var(--edit-color);
 div.edit-notification button:hover{ background-color: blue;
 }
 
-div.links { margin: -30px 0px 0px 600px;
-	width: 350px ;
-}
-
-div.links button{ margin-right:15px;	
-	font-size: 20px;
-}
-
-table{margin: 0px 0px 0px -180px;
+table{margin: 0px 0px 0px -170px;
 	background-color: dodgerblue;
 	border-style: none;
 	min-width:  1250px;
