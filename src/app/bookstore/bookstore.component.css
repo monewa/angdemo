@@ -2,10 +2,12 @@
 *{ --bookwidth:300px;
 }
 
+h1{ margin-bottom: 60px;
+
+}
 
 li{ list-style: none;
     margin-top: 70px;
-
 }
 
 a.links-btn{ font-size: 44px;
@@ -15,8 +17,8 @@ a.links-btn{ font-size: 44px;
 a:hover{ background-color: aliceblue;
 }
 
-body img:nth-child(2){ display: block;
-    margin: 20px 0px -200px 600px;
+.main-img{ 
+    margin: 0px 0px -200px 630px;
 }
 
 div.books{ margin-top: 20px;
@@ -25,7 +27,7 @@ div.books{ margin-top: 20px;
 
 div.books div.book{ display: inline-table;
     height: 540px;
-    border: solid dodgerblue;
+    border: solid rgb(83, 166, 248);
     margin-right: 30px;
     transition: .6s;
 }
@@ -34,7 +36,7 @@ div.books div{ width: var(--bookwidth);
     margin: 10px
 }
 
-div.books div.book:hover{ border-color: whitesmoke;
+div.books div.book:hover{ border-color: blue;
     box-shadow: 0px 0px 7px whitesmoke;
 }
 
