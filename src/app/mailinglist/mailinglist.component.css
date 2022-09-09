@@ -12,8 +12,7 @@ form{ color: orange;
 form:hover{box-shadow: 0px 0px 10px lightskyblue;
 }
 
-div.main-page{ position: relative;
-	top: 5px;
+div.main-page{ 	margin-top: 5px;
 }
 
 div.buttons, div.comments, div.code, div.email, div.country, div.lastname, 
@@ -28,23 +27,23 @@ div.code :nth-child(2){ font-weight: bold;
 	border-radius: 5px;
 }
 
-div.code :nth-child(2) div{ display: none;
+div.code :nth-child(2) div{ scale: 0;
 	width: 350px;
-	background-color: whitesmoke;
-	color: black;
+	color: orange;
 	padding: 8px;
 	box-shadow: 0px 0px 5px whitesmoke;
 	position: absolute;
-	top: 980px;
+	top: 1140px;
 	font-weight: normal;
 	font-size: 18px;
 	z-index: 1;
+	transition: .8s;
 }
 
 div.code :nth-child(2):hover{ background-color:rgb(29, 130, 231);
 }
 
-div.code :nth-child(2):hover div{ display: block;	
+div.code :nth-child(2):hover div{ scale: 1;
 }
 
 div.code input:nth-child(4){ width:113px;
@@ -72,7 +71,7 @@ padding:8px 20px;
 margin-right: 12px;
 }
 
-form input,  form textarea, form select{ font-size:22px;
+form input,  form textarea, form select{ font:22px verdana;
 }
 
 input.ng-invalid, textarea.ng-invalid, select.ng-invalid{ border-left: 2px solid red
