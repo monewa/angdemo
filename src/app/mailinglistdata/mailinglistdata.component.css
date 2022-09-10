@@ -44,9 +44,9 @@ div.menu div.submenu{ min-height: 550px;
 	position: fixed;
 	top: 45px;
 	left: -950px;
-	/* display: none; */
 	z-index: 1;
 	transition: .8s;
+	box-shadow: 0px 0px 7px blue;
 }
 
 div.menu div.show-menu{ left: 0px;
@@ -132,7 +132,7 @@ table{margin: 0px 0px 0px -170px;
 	min-width:  1250px;
 }
 
-table:hover{ box-shadow: 0px 0px 10px;
+table:hover{ box-shadow: 0px 0px 6px;
 }
 
  thead{ background-color:rgb(34, 106, 179);
