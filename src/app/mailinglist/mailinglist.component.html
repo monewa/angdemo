@@ -17,7 +17,7 @@
 					class="banner-btn">
 			<b>Mail list Form</b>
 			<div class= "name">
-				<label>First name  </label>
+				<label for= "firstname">First name  </label>
 				<br>
 				<input required [(ngModel)]= 'firstName' #firstname= 'ngModel'  
 							ngModel pattern= "[a-zA-Z- ]*" maxlength='15'  title= "Please use letters only"
@@ -26,7 +26,7 @@
 						[class.alert]= 'checkFieldValidity(firstname)'>Please give a valid name</div>
 			</div>
 			<div class= "lastname">
-				<label>Last name </label>
+				<label for= "lastname">Last name </label>
 				<br>
 				<input required [(ngModel)]= 'lastName' #lastname= 'ngModel'  maxlength= '15'
 							 #lastField (oninvalid)= "lastField.setCustomValidity('Us')"
@@ -36,7 +36,7 @@
 						[class.alert]= 'checkFieldValidity(lastname)'>Please give a valid last name</div>
 			</div>
 			<div class= "email">
-				<label>Email </label>
+				<label for= "email">Email </label>
 				<br>
 				<input required [(ngModel)]= 'email' #emailField= 'ngModel'  
 				 ngModel pattern= "[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength= '25'  
@@ -50,7 +50,7 @@
 				</div>
 			</div>
 			<div class= "country">
-				<label>Country </label> 
+				<label for="country">Country </label> 
 				<br>
 				<select required [(ngModel)]= 'country' #countryField= 'ngModel' 
 							(change)= "suggestCode()"  name= 'country'> 
@@ -61,9 +61,9 @@
 				</div>
 			</div>
 			<div class= "code">
-					<label>Code </label>
+					<label for="code">Code </label>
 					<a href= "info:">?
-						<div class="alt-banner">select your country to see your code</div>
+						<div class="alt-banner info">select your country to see your code</div>
 					</a> 
 					<br>
 					<input required ngModel pattern= "[0-9-]{1,7}" maxlength= "7"
@@ -71,25 +71,25 @@
 								title= 'Select your country to see your code' name= 'code' placeholder= '27' />
 					<div [class.alert-opaque]= '!checkFieldValidity(codeField)' 
 							[class.alert]= 'checkFieldValidity(codeField)'>
-						Please provide a
+						Please provide 
 						<br>
-						vaild code
+						a vaild code
 					</div>	
 			</div>
 			<div class= "phone">				
-				<label> Phone </label>
+				<label for= "phone"> Phone </label>
 				<br>			
 				<input required  ngModel pattern= "[0-9 ]{1,13}" maxlength= "13"
 							[(ngModel)]= 'phone' #phoneField= 'ngModel'
 							title= 'Please use numbers only' name= 'phone' placeholder= '862189776'/>
 				<div [class.alert-opaque]= '!checkFieldValidity(phoneField)' 
-						[class.alert]= 'checkFieldValidity(phoneField)'>Please provide a 
+						[class.alert]= 'checkFieldValidity(phoneField)'>Please provide 
 						<br>
-						valid phone	
+						 a valid phone	
 				</div>	
 			</div>
 			<div class= "comments">
-				<label>Comments</label>
+				<label for="comments">Comments</label>
 				<br>
 				<textarea  [(ngModel)]= 'comments' maxlength= '50'
 									name= 'comments' placeholder= 'leave a comment' >
