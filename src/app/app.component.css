@@ -1,12 +1,12 @@
 
-*{
-	--banner-color: rgb(9, 6, 50);
-	--heading-color: rgb(107, 175, 255);
-	--default-color: rgb(199, 199, 255);
+*{ 	--banner-color: rgb(9, 9, 50);
+	--heading-color: orange;
+	--default-color: rgb(160, 200, 255);
 	--alternative-banner-color: rgb(15, 51, 110);
 }
 
-
+*{user-select: none;
+}
 
 .banner{ background-color: var(--banner-color);
 }
