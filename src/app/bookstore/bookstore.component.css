@@ -27,7 +27,7 @@ div.books{ margin-top: 20px;
 
 div.books div.book{ display: inline-table;
     height: 540px;
-    border: solid rgb(83, 166, 248);
+    border: solid rgb(116, 184, 251);
     margin-right: 30px;
     transition: .6s;
 }
