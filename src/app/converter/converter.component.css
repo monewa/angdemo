@@ -6,6 +6,7 @@ div.converter{ font-size:24px;
 	width:500px;
 	box-shadow: 0px 0px 4px lightskyblue;
 	border-radius: 5px;
+	margin-left: -10px;
 }
 
 div.converter:hover{ box-shadow: 0px 0px 10px lightskyblue;
@@ -38,45 +39,45 @@ div.converter input{ text-align:right;
 div.capsule{ margin-bottom: 800px;
 }
 
-div.capsule div{border-radius: 15px;
-	position: absolute;
+div.capsule div{border-radius: 15px 10px;
+	position: relative;
 	opacity: 0;
 	text-align: center;
-	padding: 6px;
+	max-width: 50px;
+	padding: 6px 9px;
 	animation: moving-capsules 35s infinite ;
 	text-shadow: 0px 0px 10px;
 }
 
+
 div.capsule div:nth-child(1){ color: fuchsia;
 	box-shadow: 0px 0px 8px fuchsia;
-	left: 200px;
+	left: 40px;
 }
 
-@keyframes moving-capsules { 0%{opacity: 0; top: 800px;}
+@keyframes moving-capsules { 0%{opacity: 0; top: 10px;}
 	15%{opacity: 1;}
 	70%{opacity: 0;}
-	100%{opacity: 0; top: 1600px;}
+	100%{opacity: 0; top: 1300px;}
 }
 
-div.capsule div:nth-child(2){ left: 730px;
-	color:yellowgreen;
+div.capsule div:nth-child(2){ color:yellowgreen;
 	box-shadow: 0px 0px 10px yellowgreen;
 	animation-delay: 7s;
 	font-size: 25px;
-	left: 350px;
+	left: 70px;
 }
 
-div.capsule div:nth-child(3){ left: 680px;
+div.capsule div:nth-child(3){ left: 100px;
 	color: silver;
 	box-shadow: 0px 0px 10px silver;
 	animation-delay: 15s;
 	font-size: 30px;
-	left: 550px;
 }
 
-div.capsule div:nth-child(4){ left: 690px;
-	color:dodgerblue;
+div.capsule div:nth-child(4){color:dodgerblue;
 	box-shadow: 0px 0px 10px dodgerblue;
 	animation-delay: 20s;
-	left: 750px;
+	left: 150px;
+
 }
