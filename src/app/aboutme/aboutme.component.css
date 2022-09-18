@@ -6,16 +6,14 @@ h2{ text-align: center;
 
 div.container{ background-color: rgb(9, 6, 50);
     padding: 20px;
-    width: 760px;
-    height: 420px;
+    width: 85%;
+    height: 72%;
     margin: 0px 0px 150px 0px;
     box-shadow: 0px 0px 6px blueviolet;
 }
 
 div.container div{ box-shadow: 0px 0px 14px blue;
-    width: 700px;
-    height: 355px;
-    margin: 30px;
+    margin: 20px;
 }
 
 div.container  h2{ padding: 15px;
@@ -23,19 +21,23 @@ div.container  h2{ padding: 15px;
 
 span{ color:orange;
     text-shadow: 0px 0px 3px ;
+    background-color: rgb(5, 5, 112);
+    padding: 4px 11px;
+    border-radius: 4px ;
+    text-align: center;
 }
 
-div.container div p{ margin-left: 60px;
+div.container div p{ margin-left: 30px;
+    min-width: 90%;
 }
 
-div.dedication{ margin: 0px 0px 0px 0px;
-}
+
 
 div.images{ margin: 50px 0px 70px 0px;
 }
 
-div.images img{ width:600px;
-    height:600px;
+div.images img{ max-width: 94%;
+    height: 600px;
     border: 25px groove;
     display: block;
     animation: imagefade 15s infinite;
