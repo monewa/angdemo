@@ -2,10 +2,6 @@
 *{ --bookwidth:300px;
 }
 
-h1{ margin-bottom: 60px;
-
-}
-
 li{ list-style: none;
     margin-top: 70px;
 }
@@ -14,15 +10,19 @@ a.links-btn{ font-size: 44px;
     padding: 19px 65px;
 }
 
+p{width: 500px;
+}
+
 a:hover{ background-color: aliceblue;
 }
 
-.main-img{ 
-    margin: 0px 0px -200px 630px;
+.main-img{ float: right;
+    margin: 0 0 0 20px;
+    max-width: 40%;
+    height: auto;
 }
 
-div.books{ margin-top: 20px;
-    display:inline-block;
+div.books{ display:inline-block;
 }
 
 div.books div.book{ display: inline-table;
