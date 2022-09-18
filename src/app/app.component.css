@@ -2,10 +2,9 @@
 *{ 	--banner-color: rgb(9, 9, 50);
 	--heading-color: orange;
 	--default-color: rgb(160, 200, 255);
-	--alternative-banner-color: rgb(15, 51, 110);
-}
-
-*{user-select: none;
+	--alternative-banner-color:  rgb(15, 51, 110);
+	--page-width: 600px;
+	user-select: none;
 }
 
 .banner{ background-color: var(--banner-color);
@@ -21,14 +20,14 @@
 .alt-banner{ background-color: var(--alternative-banner-color);
 }
 
-h1{ background-color:  var(--banner-color);
-	padding:10px;
-	text-shadow: 0px 0px 2.5px;
-	color:var(--heading-color);
-	width: 650px;
-	text-align:center;
+h1{ background-color: var(--banner-color);
+	padding: 120px 5px 10px;
+	text-shadow: 0 0 2.5px;
+	color: var(--heading-color);
+	height: 200px;
+	text-align: center;
 	border-radius: 5px;
-	margin: 150px 0px 80px 0px;
+	margin: 0 0 80px -22px;
 }
 
 h2{color: orange;
@@ -38,11 +37,7 @@ h3{ color: var(--heading-color);
  width: 500px;
 }
 
-body.app{margin-left: 200px;
-}
-
-body{ min-height: 1700px;
-
+body{ min-height: 1500px;
 }
 
 body, footer{ color: var(--default-color);
@@ -56,49 +51,69 @@ animation:loadPage 3s
 	to{opacity:1; }	
 }
 
+.grid-row{  display: grid;
+    grid-template-columns: auto auto ;
+}
+
+ .col-1{  grid-area: 1 / 1 / span 1 / span 4;
+ }
+
+ .col-1-l{  grid-area: 1 / 1 / span 1 / span 6;
+ }
+
+ .col-2-s{  grid-area: 1 / 7 / span 1 / span 5;
+ }
+
+ .col-2{  grid-area: 1 / 5 / span 1 / span 7;
+ }
+
 .scale{border-radius: 5px;
 	animation:loadPage 3s 
 }
-@keyframes scalePage{from{scale:0.2; }
+@keyframes scalePage{from{scale: 0.2; }
 	to{scale:1; }	
 	}
 		
 div.menu{	position:absolute; 
-	opacity:0.9;
+	opacity :0.9;
 	background-color:black;	
 	float:left; 
 }
 
 nav { font-size: 20px;	
+	width: 100%;
 	position:fixed;
 	top: 10px;
 	left: 0px;
-	width: 1340px;
 	background-color: var(--banner-color);
 	z-index: 1;
-	margin: -10px 0px 0px 0px;
+	margin: -10px 0 0 0;
 }
 
 nav li { display: inline-block;
-	padding: 10px 0px;
+	padding: 10px 0;
 }
+
+/* nav span{ margin-left: 600px;
+} */
 
 .links-btn{	background-color: indigo;
 	color: rgb(248, 183, 63);
 	border-radius: 10px;
-	box-shadow: 0px 0px 8px rgb(29, 27, 27);
+	box-shadow: 0 0 8px rgb(29, 27, 27);
 	padding: 15px;
 	display: inline-block;
 }
 
 .links-btn:hover{ background-color: blueviolet;	
+	color: rgb(250, 227, 198);
 }
 
 a{ text-decoration: none;
 	transition: .6s;
 }
 
-a:hover{ box-shadow: 0px 0px 13px whitesmoke;
+a:hover{ box-shadow: 0 0 13px whitesmoke;
 }
 
 nav a{ color:orange;
@@ -113,20 +128,17 @@ nav a.active{color: var(--banner-color);
 	background-color:lightgrey;
 }
 
-p{width: 500px ;
-}
-
 button{ border-radius: 2.5px;
 	transition: .6s;
 	border-style: none;
-	box-shadow: 0px 0px 9px rgb(29, 27, 27);
+	box-shadow: 0 0 9px rgb(29, 27, 27);
 }
 
 button.clear{ background-color:rgb(235, 121, 121);
 }
 
 button:hover, button.operator:hover{background-color:lightyellow;
-	box-shadow: 0px 0px 12px lightskyblue;
+	box-shadow: 0 0 12px lightskyblue;
 }
 
 button:active, a:active{ opacity: .4;	
@@ -135,7 +147,7 @@ button:active, a:active{ opacity: .4;
 button.operator{ background-color:rgb(70%, 60%, 80%);
 }
 
-input, textarea, option, select{ font-size:30px;
+input, textarea, option, select{ font-size: 30px;
 	background-color: rgb(3, 3, 63);
 	color: var(--default-color);
 	border:solid rgb(83, 166, 248);
@@ -147,67 +159,62 @@ input, textarea, option, select{ font-size:30px;
 input.editUser{ font-size:16px;
 }
 
-input:hover, textarea:hover, select:hover{ 
+input:hover, textarea:hover, select:hover{ border: solid blue;
+}
+
+input:focus, textarea:focus, select:focus{ box-shadow: 0 0 12px skyblue; 
 	border: solid blue;
 }
 
-input:focus, textarea:focus, select:focus{ box-shadow: 0px 0px 12px skyblue; 
-	border: solid blue;
+footer{ background-color: var(--banner-color);
+	margin: 100px 0 0 -9px;
+	z-index: 1;
 }
 
-footer table{ background-color: var(--banner-color);
+footer .languages{ background-color: var(--banner-color);
 	margin-left:100px;	
-	border-spacing:40px;
-	font:bold 25px verdana  ;
+	font: bold 25px verdana  ;
 	text-align:center;		
 	padding:8px;
 }
 
-th{ padding:8px;
-} 
-
-td{ padding:6px;
+footer .languages{ padding: 50px;
 }
 
-footer{ background-color: var(--banner-color);
-	height:305px;
-	width:1340px;
-	margin: 100px 0px 0px -9px;
-	z-index: 1;
-}
-
-footer table tr td { height:50px;
-	width:125px;
-	padding:20px;
+.languages div { height:50px;
+	min-width: 125px;
+	padding: 20px;
 	background-color: var(--banner-color);
-	text-shadow: 0px 0px 14px;
+	text-shadow: 0 0 14px;
+	border-radius: 8px 50px;
+	display: inline-block;
+	margin: 20px 40px 0 0;
 }
 
-footer table tr td:nth-child(1){ border:solid orange 4px;
-	box-shadow:0px 0px 13px orange;
+.languages :nth-child(1){ border:solid orange 4px;
+	box-shadow:0 0 13px orange;
 	color:orange;
 }
 
-footer table tr td:nth-child(2){ border:solid lime 4px;
-	box-shadow:0px 0px 13px lime;
+.languages :nth-child(2){ border:solid lime 4px;
+	box-shadow:0 0 13px lime;
 	color:lime;
 }
 
-footer table tr td:nth-child(3){ color:deepskyblue;
+.languages :nth-child(3){ color:deepskyblue;
 	border:solid deepskyblue 4px;
-	box-shadow:0px 0px 13px deepskyblue
+	box-shadow:0 0 13px deepskyblue
 }
 
-footer table tr td:nth-child(4){ color:red;
+.languages :nth-child(4){ color:red;
 	border:solid red 4px;
-	box-shadow:0px 0px 13px red
+	box-shadow:0 0 13px red
 }
 
-footer table tr td:nth-child(5){ border:solid white 4px;
-	box-shadow:0px 0px 13px white;
+.languages :nth-child(5){ border:solid white 4px;
+	box-shadow:0 0 13px white;
 	color:white;
 }
 
-footer p{ position:relative;
-	left:50px;
+footer p{ padding: 10px;
 }
