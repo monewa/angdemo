@@ -7,7 +7,9 @@ body{ height: 1500px;
 li{width: 500px ;
  }
 
-div.images img{  display: block;
+
+div.images img{ display: block;
+    max-width: 90%;
     animation: imagefade 20s infinite;
 }
 
@@ -31,5 +33,3 @@ div.images img:nth-child(2){ animation-delay: 15s;
  div.images img:nth-child(4){ animation-delay: 5s ; 
     margin-top: var(--img-margins);
 }
-
-
