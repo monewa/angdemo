@@ -7,7 +7,9 @@
 </head>
 
 <body  class= "fade">
-	<h1 title= 'users information table'>Registered User Data</h1>
+	<h1 title= 'Recipients information table'> Data
+		<h6>Mail List Recipients</h6>
+	</h1>
 		<div class="menu">
 			<button class="banner-btn btn ">
 				M
@@ -25,7 +27,8 @@
 					[class.show-menu]="editNotificationIsOpen || deleteNotificationIsOpen">
 			<div class="links">
 				<button (click)= "openEventLog()" class= 'links-btn'>View Event log</button>
-				<a  href="https://mo-json-api.herokuapp.com/" class="links-btn">Remote server</a>
+				<a target="_blank"  href="https://mo-json-api.herokuapp.com/" 
+						class="links-btn">Remote server</a>
 			</div>
 			<div class= 'notifications'>
 			<div *ngIf= 'editNotificationIsOpen' class= 'edit-notification '> 
@@ -45,14 +48,13 @@
 				</div>
 				<div *ngIf="checkForEvents()" class="log-message">no events found</div>
 				<div  [innerHTML]= "eventLog"></div>
-				<br>
 			</div>
 		</div>
 	</div>
 	<br>
 	<div class="table"> 
 		<table class= 'datatable'>	
-			<thead>
+			<thead class="banner-btn">
 				<th> </th>	
 				<th> </th> 
 				<th>Id</th>	
@@ -67,7 +69,7 @@
 				<tr [hidden]= 'checkForData()' class="banner">
 					<td colspan= '9'>no data found</td>
 				</tr>
-				<tr *ngFor= 'let user of users; let i= index;  let odd= odd;' [class.alt-banner]= "odd" 					class="banner">
+				<tr *ngFor= 'let user of users; let i= index;  let even= even;' [class.alt-banner]= "even" 					class="banner">
 					<td>
 						<button (click)= "deleteUser(i)"  class= "del">delete</button>
 					</td>					
@@ -119,5 +121,6 @@
 		</table>
 	</div>
 </body>
+<div class="banner-btn end-footer">end</div>
 
 </html>

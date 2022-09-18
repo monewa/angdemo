@@ -37,19 +37,20 @@ div.menu button.btn{ position: fixed;
 div.menu button.btn:hover{ color: black;
 }
 
-div.menu:hover div.submenu{ left: 0px;
+div.menu:hover div.submenu{ left: 0;
 }
 
-div.menu div.submenu{ min-height: 550px;
+div.menu div.submenu{ min-height: 450px;
+	max-width: 80%;
 	position: fixed;
-	top: 45px;
-	left: -950px;
-	z-index: 1;
-	transition: .8s;
-	box-shadow: 0px 0px 7px blue;
+	top: 135px;
+	left: -1250px;
+	transition: 1s;
+	box-shadow: 0 0 7px blue;
+	z-index: 2;
 }
 
-div.menu div.show-menu{ left: 0px;
+div.menu div.show-menu{ left: 0;
 }
 
 div.links { margin: 10px;
@@ -64,7 +65,9 @@ div.log{ margin: 10px;
 	color: black;
 	border: ridge lightgray;
 	z-index: 2;
-	width: 900px;
+	/* width: 100%; */
+	max-width: 100%;
+	max-height: 60% ;
 }
 
 div.log div:nth-child(1){ border: white groove 3px;
@@ -86,12 +89,11 @@ div.log div:nth-child(1) button:hover{ background-color: red;
 	color: antiquewhite;
 }
 
-div.log div:nth-child(2){ padding: 18px;
-	height: 250px;
-	width: 860px;
+div.log div:nth-child(2){ padding: 8px;
+	height: 170px;
 	overflow-x:scroll;
 	overflow-y:scroll;
-	margin-bottom: -10px;
+	margin: 1px;	
 }
 
 div.log-message{ padding-left: 18px;
@@ -102,7 +104,7 @@ div.notifications div{ padding:13px;
 	width: 250px;
 	height: 110px;
 	text-align: center;
-	box-shadow: 0px 0px 9px rgb(29, 27, 27);
+	box-shadow: 0 0 9px rgb(29, 27, 27);
 	margin: 10px;
 }
 
@@ -110,7 +112,6 @@ div.notifications button{ font-size: 17px;
 	background-color: transparent;
 	color: whitesmoke;
 	margin-top: 30px;
-	/* width: 60px; */
 	padding: 8px 15px;
 }
 
@@ -126,17 +127,24 @@ div.edit-notification{ background-color: var(--edit-color);
 div.edit-notification button:hover{ background-color: blue;
 }
 
-table{margin: 0px 0px 0px -170px;
+table{margin: 0 0 0 30px;
 	background-color: dodgerblue;
-	border-style: none;
-	min-width:  1250px;
 }
 
-table:hover{ box-shadow: 0px 0px 6px;
+table:hover{ box-shadow: 0 0 6px;
 }
 
- thead{ background-color:rgb(34, 106, 179);
-	font-size:16px;
+ thead{ font-size:20px;
 	text-align:center;
-	color: aliceblue;
+}
+
+th{ padding:8px;
+} 
+
+td{ padding:4px 3px;
+}
+
+.end-footer{ margin: 100px 0 0 -22px;
+	text-align: center;
+	padding: 10px;
 }
