@@ -1,22 +1,21 @@
 
-
 form{ color: orange;
-	width:560px; 
-	height: 1100px;
+	max-width: 75%; 
 	font-size:22px;
 	padding:25px;
 	border-radius: 5px;
 	margin-top: 50px;
+	transition: 0.4s;
+	margin-left: -15px;
 }
 
-form:hover{box-shadow: 0px 0px 10px lightskyblue;
+form:hover{box-shadow: 4px 4px 6px lightskyblue;
 }
 
-div.main-page{ 	margin-top: 5px;
-}
+p{max-width: 80%;}
 
 div.buttons, div.comments, div.code, div.email, div.country, div.lastname, 
-div.name{ margin: 40px 0px 0px 50px;
+div.name{ margin-top: 40px;
 }
 
 div.code a{ font-weight: bold;
@@ -27,22 +26,32 @@ div.code a{ font-weight: bold;
 	border-radius: 5px;
 }
 
-div.code div.info{ display: none;
+div.code div.info{ visibility: hidden;
 	width: 350px;
 	color: orange;
 	padding: 8px;
-	box-shadow: 0px 0px 5px whitesmoke;
 	position: absolute;
-	top: 1140px;
+	top: 1195px;
 	font-weight: normal;
 	font-size: 18px;
 	z-index: 1;
+	transition: 0.5s;
+}
+
+div.code div.info:after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 18%;
+    border: 9px solid;
+    border-color:rgb(15, 51, 110) transparent transparent ;
 }
 
 div.code a:hover{ background-color:rgb(29, 130, 231);
+	box-shadow: none;
 }
 
-div.code a:hover div{ display: block;
+div.code a:hover div{ visibility: visible;
 }
 
 div.code input{ width:113px;
@@ -92,30 +101,27 @@ textarea{width: 380px;
 	font-size:18px;
 }
 
-div.success-background{height: 1650px;
+div.success-background{height: 1850px;
 	width: 1400px;
-	position: absolute;
-	top: 0px;
-	left: -200px;
+	margin: -1800px 0 0 -22px;
 	background-color: black;
 	opacity: .6;
+	z-index: 0;
 }
 
 div.success{ border: 4px groove;
 	font-size:25px;	
 	width:590px;
-	height:414px;
-	position: fixed;
-    top: 150px;
-	left: 200px; 
-	box-shadow: 0px 0px  13px green;
-	z-index: 1;
+	height:500px;
+	margin-top: -700px;
+	box-shadow: 0 0 13px green;
+	z-index: 2;
 }
 
 .popdown{ animation: popdown 2s;
 }
-@keyframes popdown { from{top:-100px; }
-	to{top: 150px;}
+@keyframes popdown { from{margin-top:-1500px; }
+	to{margin-top: -700px;}
 }
 
 div.success div:nth-child(1){ text-align: center;
@@ -136,7 +142,7 @@ div.success div:nth-child(3){ padding: 15px;
 
 div.success div:nth-child(3) button{ background-color: white;
 	text-align: center;
-	margin-left: 200px;
+	margin: 60px 0 0 240px;
 	font-size: 19px;
 	transition: .5s;
 }
