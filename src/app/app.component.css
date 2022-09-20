@@ -27,7 +27,8 @@ h1{ background-color: var(--banner-color);
 	height: 200px;
 	text-align: center;
 	border-radius: 5px;
-	margin: 0 0 80px -22px;
+	margin: 150px 0 80px -10px;
+	min-width: 420px;
 }
 
 h2{color: orange;
@@ -38,6 +39,7 @@ h3{ color: var(--heading-color);
 }
 
 body{ min-height: 1500px;
+	max-width: 100%;
 }
 
 body, footer{ color: var(--default-color);
@@ -55,18 +57,6 @@ animation:loadPage 3s
     grid-template-columns: auto auto ;
 }
 
- .col-1{  grid-area: 1 / 1 / span 1 / span 4;
- }
-
- .col-1-l{  grid-area: 1 / 1 / span 1 / span 6;
- }
-
- .col-2-s{  grid-area: 1 / 7 / span 1 / span 5;
- }
-
- .col-2{  grid-area: 1 / 5 / span 1 / span 7;
- }
-
 .scale{border-radius: 5px;
 	animation:loadPage 3s 
 }
@@ -83,19 +73,27 @@ div.menu{	position:absolute;
 nav { font-size: 20px;	
 	width: 100%;
 	position:fixed;
-	top: 10px;
+	top: 0px;
 	left: 0px;
 	background-color: var(--banner-color);
 	z-index: 1;
-	margin: -10px 0 0 0;
 }
 
 nav li { display: inline-block;
 	padding: 10px 0;
 }
 
-/* nav span{ margin-left: 600px;
-} */
+.col-1{  grid-area: 1 / 1 / span 1 / span 4;
+}
+
+.col-1-l{  grid-area: 1 / 1 / span 1 / span 6;
+}
+
+.col-2-s{  grid-area: 1 / 7 / span 1 / span 5;
+}
+
+.col-2{  grid-area: 1 / 5 / span 1 / span 7;
+}
 
 .links-btn{	background-color: indigo;
 	color: rgb(248, 183, 63);
@@ -169,13 +167,15 @@ input:focus, textarea:focus, select:focus{ box-shadow: 0 0 12px skyblue;
 footer{ background-color: var(--banner-color);
 	margin: 100px 0 0 -9px;
 	z-index: 1;
+	min-width: 470px;
 }
 
 footer .languages{ background-color: var(--banner-color);
-	margin-left:100px;	
+	margin-left: 70px;	
 	font: bold 25px verdana  ;
-	text-align:center;		
-	padding:8px;
+	text-align: center;		
+	padding: 8px;
+
 }
 
 footer .languages{ padding: 50px;
