@@ -2,11 +2,11 @@
 
 div.converter{ font-size:24px;
 	padding:12px;
-	height:500px;
-	width:500px;
+	height:auto;
+	max-width:500px;
 	box-shadow: 0px 0px 4px lightskyblue;
 	border-radius: 5px;
-	margin-left: -10px;
+	margin: 0 5px 0 -12px;
 }
 
 div.converter:hover{ box-shadow: 0px 0px 10px lightskyblue;
@@ -15,21 +15,27 @@ div.converter:hover{ box-shadow: 0px 0px 10px lightskyblue;
 div.numpad{ margin: 95px 25px 25px 25px;
 }
 
-div.numpad button{ width:75px;
-	font-size:40px;
+div.numpad button{ max-width:75px;
+	min-width: 70px;
+	min-height: 35px;
+	font-size: 16vmax;
+	font-size: 6vmin;
 	margin: 0px 0px 3px 3px;
+
 }
 
 button.num{background-color:rgb(93, 195, 235);
 }
 
-div.numpad button.unit{ width:195px;
+div.numpad button.unit{ max-width:220px;
+	min-width: 173px;
 }
 
-div.numpad button.reset{ width:114px;
+div.numpad button.reset{ min-width: 106px;
+	max-width:114px;
 }
 
-label, input{ width:400px; 
+label, input{ max-width:400px; 
 }
 
 div.converter input{ text-align:right;
