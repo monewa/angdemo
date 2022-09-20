@@ -3,7 +3,7 @@
 div.converter{ font-size:24px;
 	padding:12px;
 	height:auto;
-	max-width:500px;
+	max-width:450px;
 	box-shadow: 0px 0px 4px lightskyblue;
 	border-radius: 5px;
 	margin: 0 5px 0 -12px;
@@ -17,19 +17,23 @@ div.numpad{ margin: 95px 25px 25px 25px;
 
 div.numpad button{ max-width:75px;
 	min-width: 70px;
-	min-height: 35px;
+	min-height: 47px;
 	font-size: 16vmax;
 	font-size: 6vmin;
-	margin: 0px 0px 3px 3px;
-
+	margin: 0 0 3px 3px;
 }
 
 button.num{background-color:rgb(93, 195, 235);
 }
 
-div.numpad button.unit{ max-width:220px;
+div.numpad button.unit{ max-width:175px;
 	min-width: 173px;
 }
+
+div.numpad span{ font-size: 5.5vmax;
+	font-size: 5.49vmin;
+}
+
 
 div.numpad button.reset{ min-width: 106px;
 	max-width:114px;
