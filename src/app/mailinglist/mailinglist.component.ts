@@ -66,9 +66,10 @@ export class MailinglistComponent implements OnInit {
 		if(!this.formIsValid){
 			return;
 		}
+		this.code = this.code;
+		this.phone = `+${this.code} ${this.phone}`
 		this.repository.addUser(this.generateNextId(), this.firstName, this.lastName, 
-		this.country, this.email, '+'+this.code+' '+this.phone, this.comments);
-		this.displaySavedDetails();
+		this.country, this.email, this.phone, this.comments);
 		this.resetValues();
 	}
 			
@@ -77,14 +78,6 @@ export class MailinglistComponent implements OnInit {
 		this.hideSuccessPopup= false;
 		this.submitted= false;
 		this.formIsValid= false;
-	}
-
-	displaySavedDetails(): string{
-		return `<br><b>First name: </b>${this.firstName} 
-			<br><b>Last name: </b>${this.lastName} 
-			<br><b>Email: </b>${this.email} 
-			<br><b>Country: </b>${this.country} 
-			 <br><b>Phone: </b>+${this.code} ${this.phone}`	
 	}
 
 	clear(): void{

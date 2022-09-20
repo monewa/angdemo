@@ -1,6 +1,7 @@
 
 form{ color: orange;
 	max-width: 700px; 
+	min-height: 600px;
 	width: 100%;
 	font-size:22px;
 	padding:25px;
@@ -12,7 +13,8 @@ form{ color: orange;
 form:hover{box-shadow: 4px 4px 6px lightskyblue;
 }
 
-p{max-width: 80%;}
+p{min-width: 310px;
+}
 
 div.buttons, div.comments, div.code, div.email, div.country, div.lastname, 
 div.name{ margin-top: 40px;
@@ -32,7 +34,7 @@ div.code div.info{ visibility: hidden;
 	color: orange;
 	padding: 8px;
 	position: absolute;
-	top: 1310px;
+	top: 1350px;
 	font-weight: normal;
 	font-size: 18px;
 	z-index: 1;
@@ -58,7 +60,7 @@ div.code a:hover div{ visibility: visible;
 div.code input{ width:113px;
 }
 
-div.phone{ margin: -127px 0 0 220px;
+div.phone{ margin: -127px 0 0 170px;
 }
 
 div.phone input{ max-width:190px;
@@ -102,19 +104,11 @@ textarea{width: 380px;
 	font-size:18px;
 }
 
-div.success-background{height: 1850px;
-	width: 1400px;
-	margin: -1800px 0 0 -22px;
-	background-color: black;
-	opacity: .6;
-	z-index: 0;
-}
-
 div.success{ border: 4px groove;
-	font-size:25px;	
-	width:590px;
-	height:500px;
-	margin-top: -700px;
+	font-size:21px;	
+	max-width: 590px;
+	min-width: 310px;
+	margin-top: -500px;
 	box-shadow: 0 0 13px green;
 	z-index: 2;
 }
@@ -122,30 +116,36 @@ div.success{ border: 4px groove;
 .popdown{ animation: popdown 2s;
 }
 @keyframes popdown { from{margin-top:-1500px; }
-	to{margin-top: -700px;}
+	to{margin-top: -500px;}
 }
 
 div.success div:nth-child(1){ text-align: center;
-	border: 2px groove green;
+	border: 2px groove lime;
+	color: lime;
 	padding: 15px;
 }
 
 div.success div:nth-child(2){ padding: 15px;
 }
 
+div.success span{ font-weight: bold;
+	color: orange;
+} 
+
 div.success div:nth-child(2) div{ text-align: left;
 	margin-left: 10px;
 }
 
-div.success div:nth-child(3){ padding: 15px;
-	height: 50px;
+div.success div:nth-child(3){ 
+	text-align: center;
+	margin: 2px;
 }
 
 div.success div:nth-child(3) button{ background-color: white;
 	text-align: center;
-	margin: 60px 0 0 240px;
 	font-size: 19px;
 	transition: .5s;
+	margin: 60px 0 30px 0;
 }
 
 div.success div:nth-child(3) button:hover{ border: solid yellow;

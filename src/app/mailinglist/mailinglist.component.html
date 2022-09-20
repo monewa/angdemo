@@ -12,15 +12,15 @@
 		<h1>Mail List app
 			<h6 >Welcome to the mail list app </h6>
 		</h1>
-		<div class= "grid-row">
+		<div class= "grid-row" >
 			<div class= "col-1"></div>
 			<div class= "col-2">
 				<p>	Save your details on the form to be part of our mail list for the book.</p>
 				<p>Select your country to see your code.</p>
 				<form (ngSubmit)= 'checkFormValidity(form)'  #form= 'ngForm' ngNativeValidate
-								class="banner-btn grid-row">
+							 	class="banner-btn grid-row" >
 					<div class= "col-1-l"></div>
-					<div class="col-2-s">
+					<div class="col-2-s"  [hidden]= '!hideSuccessPopup' >
 						<b>Mail list Form</b>
 						<div class= "name">
 							<label for= "firstname">First name  </label>
@@ -115,14 +115,24 @@
 			</div>
 		</div>		
 	</div>
-	<div class= "success-background" [hidden]= 'hideSuccessPopup '></div >
+	
 	<div class= "grid-row">
 		<div class= "col-1"></div>
 			<div class= "col-2">
-			<div [hidden]= 'hideSuccessPopup' class= 'banner-btn success popdown'>
+			<div [hidden]= 'hideSuccessPopup' class= 'banner success popdown'>
 				<div class="header">Your profile is saved successfully</div> 
-				<div><b>Your details:</b> 
-					<div [innerHTML]= "displaySavedDetails()"></div>
+				<div><span>Your details</span> 
+					<br>
+					<br>
+						<span>First name: </span>{{firstName}} 
+						<br>
+						<span>Last name: </span>{{lastName}}
+						<br>
+						<span>Email: </span>{{email}}
+						<br>
+						<span>Country: </span>{{country}}
+						<br>
+						<span>Phone: </span>{{phone}}
 				</div>
 				<div>
 					<button (click)= "goBackToStore()">
@@ -132,5 +142,6 @@
 			</div>
 		</div>
 	</div>
+	
 </body>
 </html>
