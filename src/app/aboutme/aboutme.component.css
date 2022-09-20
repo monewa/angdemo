@@ -6,13 +6,14 @@ h2{ text-align: center;
 
 div.container{ background-color: rgb(9, 6, 50);
     padding: 20px;
-    width: 85%;
-    height: 72%;
-    margin: 0px 0px 150px 0px;
-    box-shadow: 0px 0px 6px blueviolet;
+    min-width: 400px;
+    max-width: 750px;
+    margin: 0 0 150px -10px;
+    box-shadow: 0 0 6px blueviolet;
+    /* width: */
 }
 
-div.container div{ box-shadow: 0px 0px 14px blue;
+div.container div{ box-shadow: 0 0 14px blue;
     margin: 20px;
 }
 
@@ -31,20 +32,19 @@ div.container div p{ margin-left: 30px;
     min-width: 90%;
 }
 
-
-
-div.images{ margin: 50px 0px 70px 0px;
+div.images{ margin: 50px 6px 70px -12px;
 }
 
 div.images img{ max-width: 94%;
-    height: 600px;
+    min-width: 380px;
+    max-height: 80%;
     border: 25px groove;
     display: block;
     animation: imagefade 15s infinite;
 }
 
 div.images img:nth-child(1){ border-color: orangered;
-    box-shadow: 0px 0px 12px orangered; 
+    box-shadow: 0 0 12px orangered; 
     animation-delay: 15s ;
  }
 @keyframes imagefade { 0% {opacity: 1;}
@@ -54,16 +54,16 @@ div.images img:nth-child(1){ border-color: orangered;
 }
 
 div.images img:nth-child(2){  border-color:gold;
-    box-shadow: 0px 0px 12px gold; 
+    box-shadow: 0 0 12px gold; 
     margin-top: var(--img-margin);
     animation-delay: 10s ;
  }
 
  div.images img:nth-child(3){border-color: orange;
-    box-shadow: 0px 0px 12px orange; 
+    box-shadow: 0 0 12px orange; 
     margin-top: var(--img-margin);
     animation-delay: 5s ;
  }
 
- div.images p:nth-child(4){ margin: -50px 0px 0px 40px;
+ div.images p:nth-child(4){ margin: -50px 0 0 40px;
  }
