@@ -10,15 +10,15 @@ a.links-btn{ font-size: 44px;
     padding: 19px 65px;
 }
 
-p{width: 500px;
+p{min-width: 370px;
 }
 
 a:hover{ background-color: aliceblue;
 }
 
 .main-img{ float: right;
-    margin: 0 0 0 20px;
-    max-width: 40%;
+    margin-left: 20px;
+    max-width: 50%;
     height: auto;
 }
 
