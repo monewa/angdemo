@@ -7,9 +7,8 @@ body h1{  min-width: 450px;
 li{width: 500px ;
  }
 
-
 div.images img{ display: block;
-    max-width: 100%;
+    max-width: 98%;
     animation: imagefade 20s infinite;
     margin: 0 5px 0 -10px;
 }
