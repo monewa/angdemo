@@ -1,27 +1,35 @@
 
+
 div.calc{ font-size:24px;
-width:470px;
-height: 440px;
+max-width:442px;
+height: auto;
 padding:12px;
-box-shadow: 0px 0px 4px lightpink;
+box-shadow: 0 0 4px lightpink;
 border-radius: 5px;
 transition: 0.4s;
-margin-left: -10px;
+margin: 0 5px 0 -10px;
 }
 
-div.calc:hover{ box-shadow: 0px 0px 10px lightpink;
+div.calc:hover{ box-shadow: 0 0 8px lightpink;
 }
 
-div.numpad{margin: 55px 35px 25px 35px ;
+div.numpad{margin: 60px 25px 25px ;
 }
 
-div.numpad button{ width:75px;
-	font-size:40px;
-	margin-bottom:3px;
-	margin-left:3px;
+div.numpad button{  max-width: 90px;
+	min-width:72px;
+	min-height: 35px;
+	padding-top: 5px;
+	font-size: 6vw;
+	font-size: 25vmax;
+	font-size:7vmin;
+	/* font-size: 30px; */
+	margin: 0 0 3px 3px;
 }
 
-div.numpad button.wide{ width:152px;
+div.numpad button.wide{ 
+	max-width: 150px;
+	min-width:147px;
 }
 
 button.num{background-color:rgb(93, 195, 235);
@@ -29,9 +37,10 @@ button.num{background-color:rgb(93, 195, 235);
 
 input{ text-align:right;
 	margin-bottom: 10px;	
+
 }
 
-label, input{ width:355px;
+label, input{ max-width:355px;
 }
 
 div.capsule{ margin-bottom: 800px;
@@ -42,15 +51,15 @@ div.capsule div{
 	position: relative;
 	text-align: center;
 	padding: 5px;
-	/* transform: scale(0, 0); */
-	text-shadow: 0px 0px 10px;
-	/* animation: moving-capsules2 30s infinite ; */
+	transform: scale(0, 0);
+	text-shadow: 0 0 10px;
+	animation: moving-capsules2 30s infinite ;
 	max-width: 40px;
 }
 
 div.capsule div:nth-child(1){ 
 	color:lime;
-	box-shadow: 0px 0px 8px lime;
+	box-shadow: 0 0 8px lime;
 	top: 50px;
 	left: 20px;
 }
@@ -64,7 +73,7 @@ div.capsule div:nth-child(1){
 div.capsule div:nth-child(2){ left: 76px;
 	top: 400px;
 	color: deepskyblue;
-	box-shadow: 0px 0px 10px deepskyblue;
+	box-shadow: 0 0 10px deepskyblue;
 	animation-delay: 5s;
 	font-size: 30px;
 }
@@ -72,7 +81,7 @@ div.capsule div:nth-child(2){ left: 76px;
 div.capsule div:nth-child(3){ left: 40px;
 	top: 550px;
 	color:deeppink;
-	box-shadow: 0px 0px 10px deeppink;
+	box-shadow: 0 0 10px deeppink;
 	animation-delay: 10s;
 	font-size: 35px;
 }
@@ -80,7 +89,7 @@ div.capsule div:nth-child(3){ left: 40px;
 div.capsule div:nth-child(4){ left: 60px;
 	top: 130px;
 	color:yellow;
-	box-shadow: 0px 0px 10px yellow;
+	box-shadow: 0 0 10px yellow;
 	animation-delay: 15s;
 }
 
