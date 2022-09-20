@@ -1,7 +1,7 @@
 
 *{--img-margins: -500px}
 
-body{ height: 1500px;
+body h1{  min-width: 450px;
 }
 
 li{width: 500px ;
@@ -9,8 +9,9 @@ li{width: 500px ;
 
 
 div.images img{ display: block;
-    max-width: 90%;
+    max-width: 100%;
     animation: imagefade 20s infinite;
+    margin: 0 5px 0 -10px;
 }
 
 @keyframes imagefade { 0%{opacity: 1;}
