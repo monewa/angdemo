@@ -1,12 +1,12 @@
 
 form{ color: orange;
-	max-width: 75%; 
+	max-width: 700px; 
+	width: 100%;
 	font-size:22px;
 	padding:25px;
 	border-radius: 5px;
-	margin-top: 50px;
 	transition: 0.4s;
-	margin-left: -15px;
+	margin: 50px 5px 0 -15px;
 }
 
 form:hover{box-shadow: 4px 4px 6px lightskyblue;
@@ -24,6 +24,7 @@ div.code a{ font-weight: bold;
 	background-color: blue;
 	padding: 4px 6px;
 	border-radius: 5px;
+	cursor: pointer;
 }
 
 div.code div.info{ visibility: hidden;
@@ -31,7 +32,7 @@ div.code div.info{ visibility: hidden;
 	color: orange;
 	padding: 8px;
 	position: absolute;
-	top: 1195px;
+	top: 1310px;
 	font-weight: normal;
 	font-size: 18px;
 	z-index: 1;
@@ -57,10 +58,10 @@ div.code a:hover div{ visibility: visible;
 div.code input{ width:113px;
 }
 
-div.phone{ margin: -127px 90px 0px 220px;
+div.phone{ margin: -127px 0 0 220px;
 }
 
-div.phone input{ width:190px;
+div.phone input{ max-width:190px;
 }
 
 div.buttons button{ border-radius: 3px;
