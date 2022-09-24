@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
-	<meta charset= "UTF-8">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -14,22 +14,24 @@
 		</h1>
 		<div class= "grid-row" >
 			<div class= "col-1"></div>
-			<div class= "col-2">
+			<div class= "col-2" [hidden]= 'formIsHidden'>
 				<p>	Save your details on the form to be part of our mail list for the book.</p>
 				<p>Select your country to see your code.</p>
 				<form (ngSubmit)= 'checkFormValidity(form)'  #form= 'ngForm' ngNativeValidate
 							 	class="banner-btn grid-row" >
-					<div class= "col-1-l"></div>
-					<div class="col-2-s"  [hidden]= '!hideSuccessPopup' >
+					<div class= "col-1-l" ></div>
+					<div class="col-2-s">
 						<b>Mail list Form</b>
 						<div class= "name">
 							<label for= "firstname">First name  </label>
 							<br>
 							<input required [(ngModel)]= 'firstName' #firstname= 'ngModel'  
-										ngModel pattern= "[a-zA-Z- ]*" maxlength='15'  title= "Please use letters only"
+										ngModel pattern= "[a-zA-Z- ]*" maxlength='15'  
+										title= "Please use letters only" 
 										name='firstname'  placeholder= 'first name'/> 
 							<div [class.alert-opaque]= '!checkFieldValidity(firstname)' 
-									[class.alert]= 'checkFieldValidity(firstname)'>Please give a valid name</div>
+									[class.alert]= 'checkFieldValidity(firstname)'>Please give a valid name 
+							</div>
 						</div>
 						<div class= "lastname">
 							<label for= "lastname">Last name </label>
@@ -115,33 +117,11 @@
 			</div>
 		</div>		
 	</div>
-	
 	<div class= "grid-row">
 		<div class= "col-1"></div>
 			<div class= "col-2">
-			<div [hidden]= 'hideSuccessPopup' class= 'banner success popdown'>
-				<div class="header">Your profile is saved successfully</div> 
-				<div><span>Your details</span> 
-					<br>
-					<br>
-						<span>First name: </span>{{firstName}} 
-						<br>
-						<span>Last name: </span>{{lastName}}
-						<br>
-						<span>Email: </span>{{email}}
-						<br>
-						<span>Country: </span>{{country}}
-						<br>
-						<span>Phone: </span>{{phone}}
-				</div>
-				<div>
-					<button (click)= "goBackToStore()">
-						<img src= "assets/img/verify.webp" alt= "">done
-					</button>
-				</div>
-			</div>
+				<app-success-popup></app-success-popup>
 		</div>
 	</div>
-	
 </body>
 </html>

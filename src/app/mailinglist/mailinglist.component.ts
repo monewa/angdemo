@@ -4,6 +4,8 @@ import { UserRepositoryService } from '../model/user.repository.service';
 import {NgModel, NgForm} from '@angular/forms'
 import {Router} from '@angular/router';
 import { WindowService } from '../services/window.service';
+import {SuccessPopupService} from './success-popup.service';
+
 
 @Component({
   selector: 'app-mailinglist',
@@ -19,15 +21,14 @@ export class MailinglistComponent implements OnInit {
 	code: string= '';
 	phone: string= '';
 	comments: string= '';
-	userDetailsSummary: string= '';
 	submitted= false; 
 	countryList: any[]= [];
-	formIsValid: boolean=false;
-	hideSuccessPopup: boolean= true;
-	codeInfoIsHidden: boolean= true;
+	formIsValid: boolean= false;
+	formIsHidden: boolean= false;
+	codeInfoIsHidden: boolean= false;
+	timeout= setTimeout(() => {this.countryList= this.repository.countries;}, 6000);
 	
-  constructor(private repository: UserRepositoryService, private router: Router,
-						public window: WindowService) { }
+  constructor(private repository: UserRepositoryService, private popup: SuccessPopupService, public window: WindowService) { }
 	
 	checkFormValidity(form: NgForm): void{
 		this.submitted= true
@@ -43,11 +44,6 @@ export class MailinglistComponent implements OnInit {
 		return false;
 	}
 
-	goBackToStore(): void{
-		this.router.navigateByUrl("/bookstore")
-		this.hideSuccessPopup= true;
-	}
-	
 	generateNextId(): number{
 		let lastIndex= this.repository.users.length- 1
 		if(lastIndex <= -1){
@@ -70,12 +66,14 @@ export class MailinglistComponent implements OnInit {
 		this.phone = `+${this.code} ${this.phone}`
 		this.repository.addUser(this.generateNextId(), this.firstName, this.lastName, 
 		this.country, this.email, this.phone, this.comments);
+		this.popup.setDetails(this.firstName, this.lastName, this.country, this.email, this.phone);
 		this.resetValues();
 	}
 			
 	resetValues(): void{
 		this.window.scrollToBottom();
-		this.hideSuccessPopup= false;
+		this.popup.hidePopup(false);
+		this.formIsHidden= true;
 		this.submitted= false;
 		this.formIsValid= false;
 	}
@@ -90,9 +88,7 @@ export class MailinglistComponent implements OnInit {
 		this.comments= '';
 	}
 
-	timeout= setTimeout(() => {this.countryList= this.repository.countries;}, 6000);
-
-	ngOnInit():void { 
+	ngOnInit(): void { 
 		this.window.scrollToTop();
     }
 
