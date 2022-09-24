@@ -13,17 +13,11 @@ export class UserRepositoryService {
 	users: any[]= [];
 	countries: any[]= [];
 	books:any[]= [];
-	SERVER1= 'https://mo-json-api.herokuapp.com';
-	SERVER2= 'http://localhost:3000';
-	USERFILE=  'assets/data/recipients.json';
-	COUNTRYFILE=  'assets/data/countrydata.json';
-	BOOKSFILE=  'assets/data/books.json';
-	USERSURL:string= `${this.SERVER1}/recipients`;
-	COUNTRIESURL:string= `${this.SERVER1}/countries-codes/`;
-	BOOKSURL:string= `${this.SERVER1}/books`;
-	// USERSURL: string= this.USERFILE;
-	// COUNTRIESURL:string= this.COUNTRYFILE;
-	// BOOKSURL:string= this.BOOKSFILE; 
+	readonly SERVER1= 'https://mo-json-api.herokuapp.com';
+	readonly  USERSURL:string= `${this.SERVER1}/recipients`;
+	readonly  COUNTRIESURL:string= `${this.SERVER1}/countries-codes`;
+	readonly  BOOKSURL:string= `${this.SERVER1}/books`;
+
 	
 	constructor( private http:HttpClient) { 
 		this.get(); 
