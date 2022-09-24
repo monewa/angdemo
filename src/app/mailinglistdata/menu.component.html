@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class= "menu">
+        <button class= "banner-btn btn">
+            M
+            <br>
+            <br>
+            E
+            <br>
+            <br>
+            N
+            <br>
+            <br>
+            U
+        </button>
+        <div class= "banner submenu" 
+                        [class.show-menu]= "openEditBox() || openDeleteBox()">
+            <div class="links">
+                <button (click)= "openEventLog()"   class= 'links-btn'>View Event log</button>
+                <a target="_blank"  href="https://mo-json-api.herokuapp.com/" 
+                            class="links-btn">Remote server
+                </a>
+            </div>
+            <div class= 'notifications'>
+                <div *ngIf= 'openEditBox()' class= 'edit-notification'> 
+                    id no:{{ getEditId() }} was edited 
+                    <br>
+                    <button (click)= 'closeEditBox()'>Ok</button>
+                </div>
+                <div *ngIf= 'openDeleteBox()' class= 'del-notification'>
+                    id no:{{ getDeleteId() }} was deleted
+                    <br>
+                    <button (click)= 'closeDeleteBox()'>Ok</button>
+                </div>
+            </div>
+            <div *ngIf= 'eventLogIsOpen' class= "log fade">
+                <div class= "banner">Event Log
+                    <button (click)= "closeEventLog()">x</button>
+                </div>
+                <div *ngIf= "checkForEvents()" class= "log-message">no events found</div>
+                <div  [innerHTML]= "getEventLogUpdate()" ></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

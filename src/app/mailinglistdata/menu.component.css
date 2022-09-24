@@ -1,0 +1,102 @@
+
+
+
+div.menu button.btn{ position: fixed;
+	left: 0;
+	top: 300px;
+	padding: 80px 8px;
+	z-index: -1;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+div.menu button.btn:hover{ color: black;
+}
+
+div.menu:hover div.submenu{ left: 0;
+}
+
+div.menu div.submenu{ min-height: 450px;
+	max-width: 80%;
+	position: fixed;
+	top: 135px;
+	left: -1250px;
+	transition: 1s;
+	box-shadow: 0 0 7px blue;
+	z-index: 2;
+}
+
+div.menu div.show-menu{ left: 0;
+}
+
+div.links { margin: 10px;
+}
+
+div.links button{ margin-right:15px;	
+	font-size: 20px;
+}
+
+div.log{ margin: 10px;
+	background-color: azure;
+	color: black;
+	border: ridge lightgray;
+	z-index: 2;
+	max-width: 100%;
+	max-height: 60% ;
+}
+
+div.log div:nth-child(1){ border: white groove 3px;
+	padding: 10px;
+	color: orange;
+	font-weight: bold;
+}
+
+div.log div:nth-child(1) button{
+	width: 40px;
+	float: right;
+	font-size: 18px;
+	background-color:azure;
+	color: black;
+}
+
+div.log div:nth-child(1) button:hover{ background-color: red;
+	color: antiquewhite;
+}
+
+div.log div:nth-child(2){ padding: 8px;
+	height: 170px;
+	overflow-x:scroll;
+	overflow-y:scroll;
+	margin: 1px;	
+}
+
+div.log-message{ padding-left: 18px;
+}
+
+div.notifications div{ padding:13px;
+	color:white;
+	width: 250px;
+	height: 110px;
+	text-align: center;
+	box-shadow: 0 0 9px rgb(29, 27, 27);
+	margin: 10px;
+}
+
+div.notifications button{ font-size: 17px;
+	background-color: transparent;
+	color: whitesmoke;
+	margin-top: 30px;
+	padding: 8px 15px;
+}
+
+div.del-notification{ background-color: crimson;
+}
+
+div.del-notification button:hover{ background-color: red;
+}
+
+div.edit-notification{ background-color: var(--edit-color);
+}
+
+div.edit-notification button:hover{ background-color: blue;
+}
