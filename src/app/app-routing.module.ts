@@ -10,6 +10,8 @@ import { MailinglistdataComponent } from './mailinglistdata/mailinglistdata.comp
 import { BookstoreComponent } from './bookstore/bookstore.component';
 import { AboutmeComponent } from './aboutme/aboutme.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MenuComponent } from './mailinglistdata/menu.component';
+import { SuccessPopupComponent } from './mailinglist/success-popup.component'
 
 
 const routes: Routes = [
@@ -34,5 +36,5 @@ export class AppRoutingModule { }
 export const components= [ AppComponent, HomeComponent, CalculatorComponent, 
 										ConverterComponent, MailinglistComponent,
 										MailinglistdataComponent, BookstoreComponent, 
-										AboutmeComponent, PageNotFoundComponent
+										AboutmeComponent, PageNotFoundComponent, MenuComponent,SuccessPopupComponent
 									]

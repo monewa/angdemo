@@ -7,7 +7,8 @@ import { FormsModule } from "@angular/forms";
 import { AppComponent } from './app.component';
 import { UserRepositoryService } from './model/user.repository.service';
 import {components} from './app-routing.module';
-import { LocationStrategy, HashLocationStrategy} from '@angular/common'
+import { LocationStrategy, HashLocationStrategy} from '@angular/common';
+
 
 @NgModule({
   declarations: [components],
