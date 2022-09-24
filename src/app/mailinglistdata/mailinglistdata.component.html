@@ -1,57 +1,17 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
-	<meta charset= "UTF-8">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body  class= "fade">
 	<h1 title= 'Recipients information table'> Data
 		<h6>Mail List Recipients</h6>
 	</h1>
-		<div class="menu">
-			<button class="banner-btn btn ">
-				M
-				<br>
-				<br>
-				E
-				<br>
-				<br>
-				N
-				<br>
-				<br>
-				U
-			</button>
-		<div class="banner submenu" 
-					[class.show-menu]="editNotificationIsOpen || deleteNotificationIsOpen">
-			<div class="links">
-				<button (click)= "openEventLog()" class= 'links-btn'>View Event log</button>
-				<a target="_blank"  href="https://mo-json-api.herokuapp.com/" 
-						class="links-btn">Remote server</a>
-			</div>
-			<div class= 'notifications'>
-			<div *ngIf= 'editNotificationIsOpen' class= 'edit-notification '> 
-				id no:{{ id }} was edited 
-				<br>
-				<button (click)= 'closeEditBox()'>Ok</button>
-			</div>
-			<div *ngIf= 'deleteNotificationIsOpen' class= 'del-notification'>
-				id no:{{ id }} was deleted
-				<br>
-				<button (click)= 'closeDeleteBox()'>Ok</button>
-			</div>
-			</div>
-			<div *ngIf= 'eventLogIsOpen' class= "log fade">
-				<div class="banner">Event Log
-					<button (click)= "closeEventLog()">x</button>
-				</div>
-				<div *ngIf="checkForEvents()" class="log-message">no events found</div>
-				<div  [innerHTML]= "eventLog"></div>
-			</div>
-		</div>
-	</div>
-	<br>
+	<app-menu ></app-menu>
 	<div class="table"> 
 		<table class= 'datatable'>	
 			<thead class="banner-btn">
@@ -69,7 +29,8 @@
 				<tr [hidden]= 'checkForData()' class="banner">
 					<td colspan= '9'>no data found</td>
 				</tr>
-				<tr *ngFor= 'let user of users; let i= index;  let even= even;' [class.alt-banner]= "even" 					class="banner">
+				<tr *ngFor= 'let user of users; let i= index;  let even= even;' 
+						[class.alt-banner]= "even" class="banner">
 					<td>
 						<button (click)= "deleteUser(i)"  class= "del">delete</button>
 					</td>					
@@ -99,21 +60,21 @@
 						<input [hidden]= 'checkForEditMode(i)' 
 									[(ngModel)]= "country"
 									[style]= 'setWidth(user.country?.length)' 	
-									maxlength= '35' class= 'editUser' placeholder= 'country' />					
+									maxlength= '35' class= 'editUser' placeholder= 'country' />				
 					</td>
 					<td> 
 						<label [hidden]= '!checkForEditMode(i)' >{{ user.email }}</label>
 						<input [value]= 'user.email' [hidden]= 'checkForEditMode(i)' 
 									[(ngModel)]= "email"
 									[style]= 'setWidth(user.email?.length)'  		
-									maxlength= '25' type= 'email' class= 'editUser' placeholder= 'email' />		
+									maxlength= '25' type= 'email' class= 'editUser' placeholder= 'email' />	
 					</td>
 					<td> 
 						<label [hidden]= '!checkForEditMode(i)' >{{ user.phone }}</label>
 						<input [value]= 'user.phone' [hidden]= 'checkForEditMode(i)' 
 									[(ngModel)]= "phone"
 									[style]= 'setWidth(user.phone?.length)' 
-									maxlength= '17' class='editUser' placeholder= 'phone'  />					
+									maxlength= '17' class='editUser' placeholder= 'phone'  />				
 					</td>				
 					<td>{{ user.comments }}</td>
 				</tr>

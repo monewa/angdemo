@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserRepositoryService } from '../model/user.repository.service';
 import { WindowService } from '../services/window.service';
+import { MenuService } from './menu.service';
 
 @Component({
   selector: 'app-mailinglistdata',
@@ -11,12 +12,7 @@ import { WindowService } from '../services/window.service';
 export class MailinglistdataComponent implements OnInit {
 
 	users: any[]= this.repository.users;
-	eventLog: string= '';
-	eventLogIsOpen: boolean= false;
-	deleteNotificationIsOpen: boolean= false;
-	editNotificationIsOpen: boolean= false;
 	id: number= -1;
-
 	selectedIndex: number= -1;
 	name: string= '';
 	lastName: string= '';
@@ -25,7 +21,7 @@ export class MailinglistdataComponent implements OnInit {
 	phone: string= '';
 	timeout= setTimeout(() => {this.users= this.repository.users;}, 4000);
 	
-	constructor(private repository:UserRepositoryService, private window:WindowService) { }
+	constructor(private repository: UserRepositoryService, private window: WindowService, private menu: MenuService) { }
 	
 	editUsers(index:number): void{
 		this.selectedIndex=index;
@@ -45,100 +41,56 @@ export class MailinglistdataComponent implements OnInit {
 	
 	updateData(index:number): void{
 		this.selectedIndex= -1;
-		this.eventLog += `<br>id no:${this.repository.getId(index)} ${this.repository.getFirstName(index)} was selected on <i>${new Date().toUTCString()}</i><br>`;
 		this.id= this.repository.getId(index);
+		this.menu.setEvent('edit', this.repository.getId(index), this.repository.getFirstName(index) );
 		this.updateName(index);
 		this.updateLastName(index); 
 		this.updateCountry(index);
 		this.updateEmail(index);
 		this.updatePhone(index);
 		this.users = this.repository.users;
-		this.openEditBox();
 	}
 
 	updateName(index:number): void{
-		if(this.repository.getFirstName(index) != this.name){
-			this.eventLog+= `- ${this.repository.getFirstName(index)} is changed to ${this.name}<br>`;
+		let name= this.repository.getFirstName(index)
+		if(name != this.name){
+			this.menu.setUpdatedMessage(name, this.name);
 			this.repository.patchName(index, this.name);
 		}
 	}
 	
 	updateLastName(index:number): void{
 		if(this.repository.getLastName(index) != this.lastName){
-			this.eventLog+= `- ${this.repository.getLastName(index)} is changed to ${this.lastName}<br>`;
+			this.menu.setUpdatedMessage(this.repository.getLastName(index), this.lastName);
 			this.repository.patchLastname(index, this.lastName);
 		}
 	}
 	
 	updateCountry(index:number): void{
 		if(this.repository.getCountry(index) != this.country){
-			this.eventLog+= `- ${this.repository.getCountry(index)} is changed to ${this.country}<br>`;
+			this.menu.setUpdatedMessage(this.repository.getCountry(index), this.country);
 			this.repository.patchCounty(index, this.country);
 		}
 	}
 	
 	updateEmail(index:number): void{
 		if(this.repository.getEmail(index) != this.email){
-			this.eventLog+= `- ${this.repository.getEmail(index)} is changed to ${this.email}<br>`;
+			this.menu.setUpdatedMessage(this.repository.getEmail(index), this.email);
 			this.repository.patchEmail(index, this.email);
 		}
 	}
 	
 	updatePhone(index:number): void{
 		if(this.repository.getPhone(index) != this.phone){
-			this.eventLog+= `- ${this.repository.getPhone(index)} is changed to ${this.phone}<br>`;
+			this.menu.setUpdatedMessage(this.repository.getPhone(index), this.phone);
 			this.repository.patchPhone(index, this.phone);
 		}
 	}
 	
 	deleteUser(index:number): void{
-		this.eventLog+= `<br>id no:${this.repository.getId(index)} ${this.repository.getFirstName(index)}  was deleted on <i>${new Date().toUTCString()}</i><br>`;
-		this.id= this.repository.getId(index);
+		this.menu.setEvent('delete', this.repository.getId(index), this.repository.getFirstName(index) );
 		this.repository.deleteUser(index);
 		this.users= this.repository.users;
-		this.openDeleteBox();
-	}
-
-	openEditBox():void{
-		this.editNotificationIsOpen= true;
-		this.closeEventLog();
-		this.closeDeleteBox()
-	}
-
-	closeEditBox():void{
-		this.editNotificationIsOpen= false;
-	}
-
-	openDeleteBox():void{
-		this.deleteNotificationIsOpen= true;
-		this.closeEventLog();
-		this.closeEditBox();
-	}
-
-	closeDeleteBox():void{
-		this.deleteNotificationIsOpen= false;
-	}
-
-	openEventLog(){
-		this.eventLogIsOpen= true;
-	}
-
-	closeEventLog(){
-		this.eventLogIsOpen= false;
-		// this.window.unfreezeWindow();
-	}
-
-	checkForEvents(){
-		if(this.eventLog==''){
-			return true;
-		}
-		return false;
-	}
-
-	closePopups(){
-		this.closeEventLog();
-		this.closeEditBox();
-		this.closeDeleteBox();
 	}
 
 	setWidth(length:number): string{
