@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div [hidden]= 'showPopup()' class= 'banner success'>
+    <div class="header">Your profile is saved successfully</div> 
+    <div><span>Your details</span> 
+        <br>
+        <br>
+            <span>First name: </span>{{ getName() }} 
+            <br>
+            <span>Last name: </span>{{ getLastname() }}
+            <br>
+            <span>Country: </span>{{ getCountry() }}
+            <br>
+            <span>Email: </span>{{ getEmail() }}
+            <br>
+            <span>Phone: </span>{{ getPhone() }}
+    </div>
+    <div>
+        <button (click)= "goBackToStore()">
+            <img src= "assets/img/verify.webp" alt= "">done
+        </button>
+    </div>
+</div>
+
+</body>
+</html>
