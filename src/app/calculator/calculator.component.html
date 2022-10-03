@@ -7,14 +7,16 @@
 </head>
 
 <body class= "fade">
-	<h1>My Calculator App
-		<h6>You can count your money here</h6>
-	</h1>
+	<div >
+		<h1>My Calculator App
+			<h4>You can calculate here</h4>
+		</h1>
+	</div>
 	<div class= "grid-row">
 		<div class= "col-1"></div>
 		<div class="col-2">		
 			<div (keyup)= 'setKeyInput()' class= 'calc banner-btn'>
-				<b>Calculator</b>
+				<h2>Calculator</h2>
 				<div class= 'numpad'>
 					<label >{{toAnswerScreenValue}}</label>
 					<br>
@@ -35,8 +37,8 @@
 					<button (click)= 'setValue("7")'  class= "num">7</button>
 					<button (click)= 'setValue("8")' class= "num">8</button>
 					<button (click)= 'setValue("9")' class= "num">9</button>
-					<button (click)= 'calculate("*")' class= 'operator'>x</button>	
-					<button (click)= 'calculate("/")' class= 'operator'>/</button>
+					<button (click)= 'calculate("×")' class= 'operator'>×</button>	
+					<button (click)= 'calculate("÷")' class= 'operator'>÷</button>
 					<br>
 					<button (click)= 'setValue("0")' class= 'num wide'>0</button>
 					<button (click)= 'setValue(".")' class= "num">.</button>
@@ -46,8 +48,8 @@
 			<div class="capsule">
 				<div>+</div>
 				<div>-</div>
-				<div>x</div>
-				<div>/</div>
+				<div>×</div>
+				<div>÷</div>
 			</div>
 		</div>
 	</div>

@@ -6,7 +6,7 @@ import { WindowService } from '../services/window.service';
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
-  styleUrls: ['./calculator.component.css', '../app.component.css']
+  styleUrls: ['./calculator.component.css', '../app.component.css', '../w3.css']
 })
 export class CalculatorComponent implements OnInit {
 
@@ -75,6 +75,12 @@ export class CalculatorComponent implements OnInit {
 		this.acceptedOperators.forEach(
 			(o: string)=> {
 				if(o == key){
+					if(key == '*') {
+						key = '×';
+					}
+					if(key == '/') {
+						key = '÷';
+					}
 					this.calculate(key);
 				}
 			})
@@ -106,10 +112,10 @@ export class CalculatorComponent implements OnInit {
 		if(this.previousSymbol == '-'){
 			this.answer-= value;
 		}
-		if(this.previousSymbol == '*'){
+		if(this.previousSymbol == '×'){
 			this.answer*= value;
 		}
-		if(this.previousSymbol == '/'){
+		if(this.previousSymbol == '÷'){
 			if(this.answer == 0 && value == 0){
 				this.answer= Infinity;
 				return;
