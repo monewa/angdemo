@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -10,17 +11,8 @@ export class SuccessPopupService {
     private country: string= '';
     private email: string= '';
     private phone: string= '';
-    private hideSuccessPopup: boolean= true;
 
     constructor() { }
-
-    hidePopup(status: boolean){
-      this.hideSuccessPopup= status;
-    }
-
-    getPopup(){
-      return this.hideSuccessPopup;
-    }    
 
     setDetails(firstName :string, lastName :string, country :string, email :string, phone :string ):void{
       this.firstName= firstName;

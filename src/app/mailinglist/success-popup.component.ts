@@ -1,25 +1,15 @@
 
-import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, OnInit, OnChanges, } from '@angular/core';
 import {SuccessPopupService} from './success-popup.service';
 
 @Component({
   selector: 'app-success-popup',
   templateUrl: './success-popup.component.html',
-  styleUrls: ['./success-popup.component.css', '../app.component.css']
+  styleUrls: ['./success-popup.component.css', '../app.component.css', '../w3.css']
 })
 export class SuccessPopupComponent implements OnInit {
   
-    constructor(private router: Router, private popup: SuccessPopupService) { }
-
-    showPopup(){
-      return this.popup.openPopup();
-    }
-
-    goBackToStore(): void{
-      this.router.navigateByUrl("/bookstore")
-      this.popup.hidePopup(true);
-    }
+    constructor(private popup: SuccessPopupService) { }
 
     getName(): string{
       return this.popup.getName();
@@ -41,7 +31,6 @@ export class SuccessPopupComponent implements OnInit {
       return this.popup.getPhone();
     }
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void {    }
 
 }
