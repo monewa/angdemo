@@ -13,12 +13,13 @@ form{ color: orange;
 form:hover{box-shadow: 4px 4px 6px lightskyblue;
 }
 
-p{min-width: 310px;
+p{min-width: 100%;
 }
 
 div.buttons, div.comments, div.code, div.email, div.country, div.lastname, 
 div.name{ margin-top: 40px;
 }
+
 
 div.code a{ font-weight: bold;
 	font-style: italic;
@@ -34,7 +35,7 @@ div.code div.info{ visibility: hidden;
 	color: orange;
 	padding: 8px;
 	position: absolute;
-	top: 1350px;
+	top: 1450px;
 	font-weight: normal;
 	font-size: 18px;
 	z-index: 1;
@@ -57,16 +58,23 @@ div.code a:hover{ background-color:rgb(29, 130, 231);
 div.code a:hover div{ visibility: visible;
 }
 
-div.code input{ width:113px;
+div.code input{
+	width: 80%;
 }
 
-div.phone{ margin: -127px 0 0 170px;
+ div.code { 
+	 width:40%; 	
+	float: left;
 }
 
-div.phone input{ max-width:190px;
+div.phone{  width: 60%;
+	margin-top: 40px;
+	float: left;
+	/* margin: -127px 0 0 170px; */
 }
 
 div.buttons button{ border-radius: 3px;
+	max-width: 80%;
 }
 
 div.buttons button:nth-child(3){ background-color:rgb(144, 4, 4);
@@ -77,23 +85,19 @@ div.buttons button:nth-child(3):hover{ background-color:red;
 }
 
 form button{ font-size:30px;
-padding:8px 20px;
-margin-right: 12px;
+	padding:8px 20px;
+	margin: 12px;
 }
 
-form input,  form textarea, form select{ font:22px verdana;
+form input,  form textarea, form select, form option{ max-width: 100% !important;
+	/* font:22px verdana; */
 }
+
 
 input.ng-invalid, textarea.ng-invalid, select.ng-invalid{ border-left: 2px solid red
 }
 
 input.ng-valid, textarea.ng-valid, select.ng-valid{ border-left: 2px solid lime
-}
-
-select{ width:400px;
-}
-
-textarea{width: 380px;
 }
 
 .alert{ color:red;	

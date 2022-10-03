@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserRepositoryService } from '../model/user.repository.service';
 import {NgModel, NgForm} from '@angular/forms'
-import {Router} from '@angular/router';
 import { WindowService } from '../services/window.service';
 import {SuccessPopupService} from './success-popup.service';
 
@@ -10,7 +9,7 @@ import {SuccessPopupService} from './success-popup.service';
 @Component({
   selector: 'app-mailinglist',
   templateUrl: './mailinglist.component.html',
-  styleUrls: ['./mailinglist.component.css', '../app.component.css']
+  styleUrls: ['./mailinglist.component.css', '../app.component.css', '../w3.css']
 })
 export class MailinglistComponent implements OnInit {
 
@@ -24,7 +23,7 @@ export class MailinglistComponent implements OnInit {
 	submitted= false; 
 	countryList: any[]= [];
 	formIsValid: boolean= false;
-	formIsHidden: boolean= false;
+	successPopupIsHidden: boolean= true;
 	codeInfoIsHidden: boolean= false;
 	timeout= setTimeout(() => {this.countryList= this.repository.countries;}, 6000);
 	
@@ -62,18 +61,16 @@ export class MailinglistComponent implements OnInit {
 		if(!this.formIsValid){
 			return;
 		}
-		this.code = this.code;
-		this.phone = `+${this.code} ${this.phone}`
+		let phone = `+${this.code} ${this.phone}`;
 		this.repository.addUser(this.generateNextId(), this.firstName, this.lastName, 
-		this.country, this.email, this.phone, this.comments);
-		this.popup.setDetails(this.firstName, this.lastName, this.country, this.email, this.phone);
+		this.country, this.email, phone, this.comments);
+		this.popup.setDetails(this.firstName, this.lastName, this.country, this.email, phone);
 		this.resetValues();
 	}
 			
 	resetValues(): void{
 		this.window.scrollToBottom();
-		this.popup.hidePopup(false);
-		this.formIsHidden= true;
+		this.successPopupIsHidden= false;
 		this.submitted= false;
 		this.formIsValid= false;
 	}
