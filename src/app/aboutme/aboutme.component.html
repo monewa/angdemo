@@ -1,13 +1,17 @@
 	
-<!doctype html>
-<html>
-<head>	
-	<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
-	<meta charset= "UTF-8">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body class= "fade">
-	<h1>About me</h1>
+	<h1>About me
+		<br>&nbsp;
+	</h1>
 	<div class= "grid-row">
 		<div class= "col-1"></div>
 		<div class= "col-2">
@@ -25,21 +29,21 @@
 			</div>
 		</div>
 	</div>
-	<h1>Special dedication to my mother!!</h1>
-	<div class= "grid-row">
-		<div class= "col-1"></div>
-		<div class= "col-2">
-			<div class= "dedication">
-			</div>
-			<div class= "images">
-				<img  src= 'assets/img/mal (2).png' width= "500" height= "600">
-				<img  src= 'assets/img/mal (1).png' width= "500" height= "600">
-				<img  src= 'assets/img/mal (1).jpg' width= "500" height= "600">
-				<p>Ukhule uze ukhokhobe</p>
-			</div>
-			<p>I would not be a web developer today without her patience and support</p>
-			<p>Thank you mama and happy birthday!!</p>
+	<h1>Special dedication 
+		<h4>To my mother!!</h4>
+	</h1>
+	<div class="w3-content w3-section images w3-display-container">
+		<img class= "imagefade" [style]= "picStyle1"  src="assets/img/mal (2).png">
+		<img class= "imagefade" [style]= "picStyle2" src="assets/img/mal (1).png">
+		<img class= "imagefade" [style]= "picStyle3" src="assets/img/mal (1).jpg">
+		
+		<div class= "w3-display-bottommiddle w3-padding-16">
+			Ukhule uze ukhokhobe
 		</div>
+	</div>
+	<div class="w3-content  w3-section images">
+		<p>I would not be a web developer today without her patience and support</p>
+		<p>Thank you mama and happy birthday!!</p>
 	</div>
 </body>
 </html>

@@ -1,5 +1,4 @@
 
-*{ --img-margin: -650px;}
 
 h2{ text-align: center;
 }
@@ -7,10 +6,9 @@ h2{ text-align: center;
 div.container{ background-color: rgb(9, 6, 50);
     padding: 20px;
     min-width: 400px;
-    max-width: 750px;
     margin: 0 0 150px -10px;
     box-shadow: 0 0 6px blueviolet;
-    /* width: */
+    max-width: 750px;
 }
 
 div.container div{ box-shadow: 0 0 14px blue;
@@ -32,38 +30,24 @@ div.container div p{ margin-left: 30px;
     min-width: 90%;
 }
 
-div.images{ margin: 50px 6px 70px -12px;
+div.images{ max-width:500px;
 }
 
-div.images img{ max-width: 94%;
-    min-width: 380px;
-    max-height: 80%;
+div.images img{ width: 100%;
+    /* margin-bottom: 50px; */
     border: 25px groove;
-    display: block;
-    animation: imagefade 15s infinite;
+    padding: 3px;
+    max-height: 485px;
 }
 
 div.images img:nth-child(1){ border-color: orangered;
     box-shadow: 0 0 12px orangered; 
-    animation-delay: 15s ;
  }
-@keyframes imagefade { 0% {opacity: 1;}
-    25%{opacity: 0;}
-    75%{opacity: 0;}
-    100%{opacity: 1;}
-}
 
 div.images img:nth-child(2){  border-color:gold;
     box-shadow: 0 0 12px gold; 
-    margin-top: var(--img-margin);
-    animation-delay: 10s ;
  }
 
  div.images img:nth-child(3){border-color: orange;
     box-shadow: 0 0 12px orange; 
-    margin-top: var(--img-margin);
-    animation-delay: 5s ;
- }
-
- div.images p:nth-child(4){ margin: -50px 0 0 40px;
  }
