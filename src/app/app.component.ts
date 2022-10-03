@@ -6,30 +6,37 @@ import { WindowService } from './services/window.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css', './w3.css']
 })
 export class AppComponent {
-  constructor(private router:Router, public window:WindowService){  }
+
+	menuIsOpen: boolean= false;
+
+  	constructor(private router:Router, public window:WindowService){  }
  
-	showMailList(){ 
+  	openMenu(): void{
+		this.menuIsOpen= !this.menuIsOpen;
+  	}
+
+	showMailList(): string{ 
 		if(this.router.isActive('mailinglistdata', true) || !this.router.isActive('mailinglist', true)){
-			return true
+			return  'display: none;';
 		}
-		return false;
+		return 'display: block;'
 	}
 
-	showDatalinks(){
+	showDatalinks(): string{
 		if(this.router.isActive('mailinglist', true) || this.router.isActive('mailinglistdata', true) ){
-			return false;			
+			return 'display: block;'
 		}
-		return true;
+		return  'display: none;';
 	}
 	
-	showMoreDatalinks(){
+	showMoreDatalinks(): string{
 		if(this.router.isActive('mailinglistdata', true)){
-			return false;			
+			return 'display: block;'
 		}
-		return true;
+		return  'display: none;';
 	}	
 
 	hideFooter(){
