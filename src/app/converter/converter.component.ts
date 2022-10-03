@@ -5,7 +5,7 @@ import { WindowService } from '../services/window.service';
 @Component({
   selector: 'app-converter',
   templateUrl: './converter.component.html',
-  styleUrls: ['./converter.component.css', '../app.component.css']
+  styleUrls: ['./converter.component.css', '../app.component.css', '../w3.css']
 })
 export class ConverterComponent implements OnInit {
 
@@ -106,10 +106,10 @@ export class ConverterComponent implements OnInit {
 			this.run('m');
 		}
 		if(val == 'f'){
-			this.run('F');
+			this.run('℉');
 		}
 		if(val == 'l'){
-			this.run('C');
+			this.run('℃');
 		}
 	}
 	
@@ -139,7 +139,7 @@ export class ConverterComponent implements OnInit {
 				return true;
 			}
 		}
-		if(this.unit2 == 'F' || this.unit2 == 'C'){
+		if(this.unit2 == '℉' || this.unit2 == '℃'){
 			if(this.unitType == 'length'){
 				return true;
 			}
@@ -163,7 +163,7 @@ export class ConverterComponent implements OnInit {
 		if(this.unit1 == 'cm' || this.unit1=='m'){
 			this.unitType= 'length';
 		}
-		if(this.unit1 == 'C' || this.unit1=='F'){
+		if(this.unit1 == '℃' || this.unit1=='℉'){
 			this.unitType= 'temperature';
 		}
 	}
@@ -204,10 +204,10 @@ export class ConverterComponent implements OnInit {
 			this.result= num*100;
 		}
 		
-		if(this.unit1 == 'F' && this.unit2 == 'C'){
+		if(this.unit1 == '℉' && this.unit2 == '℃'){
 			this.result= (num*0.55556)-17.778;
 		}
-		if(this.unit1 == 'C' && this.unit2 == 'F'){
+		if(this.unit1 == '℃' && this.unit2 == '℉'){
 			this.result= 32+ (num * 1.8);
 		}
 		this.result= parseFloat(this.result.toPrecision(4));
