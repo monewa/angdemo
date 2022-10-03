@@ -9,7 +9,7 @@
 
 <body  class= "fade">
 	<h1 title= 'Recipients information table'> Data
-		<h6>Mail List Recipients</h6>
+		<h4>Mail List Recipients</h4>
 	</h1>
 	<app-menu ></app-menu>
 	<div class="table"> 
@@ -32,13 +32,26 @@
 				<tr *ngFor= 'let user of users; let i= index;  let even= even;' 
 						[class.alt-banner]= "even" class="banner">
 					<td>
-						<button (click)= "deleteUser(i)"  class= "del">delete</button>
+						<button (click)= "deleteUser(i)"  class= "del">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 					  
+								fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+								<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+								<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+							</svg> delete
+						</button>
 					</td>					
 					<td>
-						<button (click)= "editUsers(i)" [hidden]= '!checkForEditMode(i)' 
-										class= "edit">Edit</button>
-						<button (click)= "updateData(i)" [hidden]= 'checkForEditMode(i)' 
-										class= "edit">Save
+						<button (click)= "editUsers(i)" [hidden]= '!checkForEditMode(i)' class= "edit">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+								<path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+							 </svg> Edit								
+						</button>
+						<button (click)= "updateData(i)" [hidden]= 'checkForEditMode(i)' class= "edit">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
+								fill="currentColor" class="bi bi-hdd" viewBox="0 0 16 16">
+								<path d="M4.5 11a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM3 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+								<path d="M16 11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9.51c0-.418.105-.83.305-1.197l2.472-4.531A1.5 1.5 0 0 1 4.094 3h7.812a1.5 1.5 0 0 1 1.317.782l2.472 4.53c.2.368.305.78.305 1.198V11zM3.655 4.26 1.592 8.043C1.724 8.014 1.86 8 2 8h12c.14 0 .276.014.408.042L12.345 4.26a.5.5 0 0 0-.439-.26H4.094a.5.5 0 0 0-.44.26zM1 10v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1z"/>
+							  </svg> Save
 						</button>
 					</td>
 					<td>{{user.id}}</td> 					

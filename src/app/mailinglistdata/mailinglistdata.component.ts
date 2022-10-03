@@ -7,7 +7,7 @@ import { MenuService } from './menu.service';
 @Component({
   selector: 'app-mailinglistdata',
   templateUrl: './mailinglistdata.component.html',
-  styleUrls: ['./mailinglistdata.component.css' , '../app.component.css']
+  styleUrls: ['./mailinglistdata.component.css' , '../app.component.css', '../w3.css']
 })
 export class MailinglistdataComponent implements OnInit {
 

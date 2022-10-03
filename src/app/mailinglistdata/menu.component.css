@@ -6,7 +6,6 @@ div.menu button.btn{ position: fixed;
 	top: 300px;
 	padding: 80px 8px;
 	z-index: -1;
-	font-size: 16px;
 	font-weight: bold;
 }
 
@@ -33,7 +32,6 @@ div.links { margin: 10px;
 }
 
 div.links button{ margin-right:15px;	
-	font-size: 20px;
 }
 
 div.log{ margin: 10px;
@@ -54,7 +52,6 @@ div.log div:nth-child(1){ border: white groove 3px;
 div.log div:nth-child(1) button{
 	width: 40px;
 	float: right;
-	font-size: 18px;
 	background-color:azure;
 	color: black;
 }
@@ -76,7 +73,7 @@ div.log-message{ padding-left: 18px;
 div.notifications div{ padding:13px;
 	color:white;
 	width: 250px;
-	height: 110px;
+	height: 130px;
 	text-align: center;
 	box-shadow: 0 0 9px rgb(29, 27, 27);
 	margin: 10px;

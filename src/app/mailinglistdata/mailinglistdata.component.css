@@ -3,12 +3,11 @@
 }
 
 body h1{
-	min-width: 1000px;
+	min-width: 600px;
 }
 
 button.del{ background-color:crimson;
 	color:white;
-	font-size:16px;
 	margin: 10px;
 	padding: 10px 20px;
 }
@@ -16,14 +15,14 @@ button.del{ background-color:crimson;
 button.del:hover{ background-color:red;	
 }
 
-button.edit{ font-size:14px;
+button.edit{ 
 	background-color: var(--edit-color);
 	margin: 10px;
 	padding: 10px 20px;
 	color: antiquewhite;
 }
 
-button.edit:hover{background-color: blue;
+button.edit:hover{ background-color: blue;
 }
 
 input.editUser{	padding: 3px;
@@ -31,13 +30,10 @@ input.editUser{	padding: 3px;
 
 table{margin-left: 30px;
 	background-color: dodgerblue;
+	text-align: center;
 }
 
 table:hover{ box-shadow: 0 0 6px;
-}
-
- thead{ font-size:20px;
-	text-align:center;
 }
 
 th{ padding:8px;
