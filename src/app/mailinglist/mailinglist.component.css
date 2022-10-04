@@ -3,11 +3,10 @@ form{ color: orange;
 	max-width: 700px; 
 	min-height: 600px;
 	width: 100%;
-	font-size:22px;
-	padding:25px;
+	padding: 5%;
 	border-radius: 5px;
 	transition: 0.4s;
-	margin: 50px 5px 0 -15px;
+	margin: 50px 0 0 -15px;
 }
 
 form:hover{box-shadow: 4px 4px 6px lightskyblue;
@@ -58,19 +57,16 @@ div.code a:hover{ background-color:rgb(29, 130, 231);
 div.code a:hover div{ visibility: visible;
 }
 
-div.code input{
-	width: 80%;
+div.code input{	width: 80%;
 }
 
- div.code { 
-	 width:40%; 	
-	float: left;
+ div.code { width:40%; 	
+	display: inline-block;
 }
 
 div.phone{  width: 60%;
 	margin-top: 40px;
-	float: left;
-	/* margin: -127px 0 0 170px; */
+	display: inline-block;
 }
 
 div.buttons button{ border-radius: 3px;
@@ -84,15 +80,13 @@ div.buttons button:nth-child(3){ background-color:rgb(144, 4, 4);
 div.buttons button:nth-child(3):hover{ background-color:red;
 }
 
-form button{ font-size:30px;
-	padding:8px 20px;
+form button{ padding:8px 25px;
 	margin: 12px;
 }
 
-form input,  form textarea, form select, form option{ max-width: 100% !important;
-	/* font:22px verdana; */
+form label, form input,  form textarea, form select, form option{ max-width: 98% !important;
+	
 }
-
 
 input.ng-invalid, textarea.ng-invalid, select.ng-invalid{ border-left: 2px solid red
 }
