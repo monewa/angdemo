@@ -1,62 +1,58 @@
 
-*{ --bookwidth:300px;
-}
 
 li{ list-style: none;
     margin-top: 70px;
 }
 
-a.links-btn{ font-size: 44px;
-    padding: 19px 65px;
-}
-
-p{min-width: 370px;
+a.links-btn{ font-size: 6vmin;
+    padding: 4% 8%;
 }
 
 a:hover{ background-color: aliceblue;
 }
 
 .main-img{ float: right;
-    margin-left: 20px;
+    margin-left: 3%;
     max-width: 50%;
     height: auto;
 }
 
 div.books{ display:inline-block;
+    max-width: 320px ;
+    max-height: 575px;
+border: solid red;
+margin: 0 0 5% 2% ;
+transition: .6s;
+border: solid rgb(116, 184, 251);
 }
 
-div.books div.book{ display: inline-table;
-    height: 540px;
-    border: solid rgb(116, 184, 251);
-    margin-right: 30px;
-    transition: .6s;
+div.books div{ margin: 3%;
 }
 
-div.books div{ width: var(--bookwidth);
-    margin: 10px
+ div.books:hover{ border-color: blue;
+    box-shadow: 0 0 7px whitesmoke;
 }
+div.books :nth-child(1){ max-width: 320px;
+    width: 100%;;
 
-div.books div.book:hover{ border-color: blue;
-    box-shadow: 0px 0px 7px whitesmoke;
 }
-
-div.book :nth-child(2){height: 65px;
+div.books :nth-child(2){height: 65px;
     font-weight: bold;
     text-align: center;
     border-top: solid;
     padding-top: 15px;
 }
 
-div.book :nth-child(3){height: 80px;
+div.books :nth-child(3){height: 80px;
 }
 
-div.book :nth-child(4){height: 30px;
+div.books :nth-child(4){height: 30px;
 }
 
-div.book :nth-child(5){height: 30px;
+div.books :nth-child(5){height: 30px;
 }
 
-div.book :nth-child(6) span{height: 60px;
+div.books :nth-child(6) span{height: 60px;
     color: rgb(246, 66, 102);
     font: normal x-large Georgia, serif;
 }

@@ -22,15 +22,13 @@
 			<p style="margin-top: 100px;">Browse our best selling books</p>
 		</div>
 	</div>	
-		<div class= "books w3-content" *ngFor= "let book of books" >
-				<div class="book alt-banner">
-					<img [src]="'assets/img/'+book.imageUrl" width="320" height="280">
-					<div class="banner-btn">{{ book.title }}</div>
-					<div>{{ book.description}}</div>
-					<div>by {{ book.author }}</div>
-					<div>pages: {{ book.pages }}</div>
-					<div>price: <span> {{ book.price| currency }}</span></div>
-				</div>
+		<div class= "books  alt-banner" *ngFor= "let book of books" >
+			<img [src]="'assets/img/'+book.imageUrl"  height="280">
+			<div class="banner-btn">{{ book.title }}</div>
+			<div>{{ book.description}}</div>
+			<div>by {{ book.author }}</div>
+			<div>pages: {{ book.pages }}</div>
+			<div>price: <span> {{ book.price| currency }}</span></div>
 		</div>	
 </body>
 
