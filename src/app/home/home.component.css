@@ -1,8 +1,7 @@
 
 
 
-.imagefade :nth-child(2){ 
-    font-size: larger;
+.imagefade :nth-child(2){  font-size: larger;
     background-color: rgb(5, 5, 112);
     padding: 8px !important;
 }
@@ -10,7 +9,7 @@
 .imagefade{ background-color: midnightblue;
     max-width: 670px;
     text-align: center;
-    padding: 8px;
+    padding: 2%;
 }
 
 img{ width: 100%;
