@@ -2,46 +2,46 @@
 
 div.w3-modal-content{ border: 4px groove;
 	max-width: 590px;
-	min-width: 310px;
+	margin-top: -30px;
 	box-shadow: 0 0 13px green;
 	z-index: 2;
     animation: popdown 2s;
 }
 
 @keyframes popdown { from{margin-top: -600px; }
-	to{margin-top: 0px;}
+	to{margin-top: -30px;}
 }
 
 div.w3-modal-content div:nth-child(1){ text-align: center;
-	border: 2px groove lime;
+	box-shadow: 0 0 13px lime;
 	color: lime;
-	padding: 15px;
+	padding: 3%;
 	font-size: large;
 }
 
-div.w3-modal-content div:nth-child(2){ padding: 15px;
+div.w3-modal-content div:nth-child(2){ padding: 1%;
+	margin-top: 5%;
 }
 
 div.w3-modal-content span{ background-color:rgb(5, 5, 112);
-	padding: 8px;
+	padding: 2%;
 	border-radius: 5px;
 	color: orange;
-	margin-right: 5px ;
 } 
 
 div.w3-modal-content div:nth-child(2) div{ text-align: left;
-	margin-left: 10px;
+	margin-left: 3%;
 }
 
 div.w3-modal-content div:nth-child(3){ text-align: center;
-	margin: 2px;
+	margin: 1%;
 }
 
 div.w3-modal-content div:nth-child(3) button{ background-color: white;
-	padding: 8px;
+	padding: 3%;
 	text-align: center;
 	transition: .5s;
-	margin: 60px 0 30px 0;
+	margin: 10% 0 4% 0;
 }
 
 div.w3-modal-content div:nth-child(3) button:hover{ box-shadow: 0 0 13px yellow;

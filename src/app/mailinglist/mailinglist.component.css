@@ -95,11 +95,9 @@ input.ng-valid, textarea.ng-valid, select.ng-valid{ border-left: 2px solid lime
 }
 
 .alert{ color:red;	
-	font-size:18px;
 }
 
 .alert-opaque{ opacity: 0;
-	font-size:18px;
 }
 
 
