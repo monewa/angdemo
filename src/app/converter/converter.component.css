@@ -1,51 +1,36 @@
 
 
 
-div.converter{ font-size: 16vmax;
-	font-size: 4vmin;
-	height: 500px;
-	max-height: 650px;
-	max-width: 395px;
-	box-shadow: 0px 0px 4px lightskyblue;
+div.converter{ 	max-width: 400px;
+	box-shadow: 0 0 4px lightskyblue;
 	border-radius: 5px;
-	margin: 2px;
+	padding: 3%;
 	text-align: center;
+	margin-left: -1%;
+	width: 100%;
 }
-div.converter:hover{ box-shadow: 0px 0px 10px lightskyblue;
+div.converter:hover{ box-shadow: 0 0 10px lightskyblue;
 }
-
-div.numpad{ max-width: 350px;
-	min-width: 300px;
-	margin: 20px;
-	/* margin: 0 0 40px 0; */
+div.numpad{ margin: 7%;
 }
-
-div.numpad button{ max-width:75px;
-	min-width: 55px;
-	min-height: 47px;
-	margin: 0 0 3px 3px;
+div.numpad button{ margin: 0 .5% .3% 0;
+	font-size: 4vmin;
+	padding: 3%;
 }
 button.num{background-color:rgb(93, 195, 235);
+	width: 17%;
 }
-
-div.numpad button.unit{ max-width:180px;
-	min-width: 100px;
+div.numpad button.unit, div.numpad button.reset{ width: 45%;
 }
-div.numpad button.reset{ min-width: 100px;
-	max-width:120px;
+div.numpad .wide{ width: 52% !important;
 }
-div.numpad .wide{ min-width: 170px!important;
+div.numpad .wider{ width: 98% !important;
 }
-div.numpad .wider{ min-width: 275px!important;
-	max-width: 350px!important;
-}
-div.converter label, div.converter input{ max-width: 340px; 
-	min-width: 300px!important;
+div.converter label, div.converter input{ width: 100%; 
+	font-size: 4vmin;
 }
 div.converter input{ text-align:right;
 	margin-bottom:10px;
-	max-width: 290px; 
-
 }
 div.capsule{ margin-bottom: 800px;
 }
@@ -55,37 +40,37 @@ div.capsule div{border-radius: 15px 10px;
 	text-align: center;
 	max-width: 50px;
 	padding: 6px 9px;
-	animation: moving-capsules 35s infinite ;
+	animation: moving-capsules 12s infinite ;
 	text-shadow: 0px 0px 10px;
 }
 div.capsule div:nth-child(1){ color: fuchsia;
-	box-shadow: 0px 0px 8px fuchsia;
+	box-shadow: 0 0 8px fuchsia;
 	left: 40px;
 }
 
 @keyframes moving-capsules { 0%{opacity: 0; top: 10px;}
-	15%{opacity: 1;}
-	70%{opacity: 0;}
+15%{opacity: 1;}
+70%{opacity: 0;}
 	100%{opacity: 0; top: 1300px;}
 }
 
 div.capsule div:nth-child(2){ color:yellowgreen;
-	box-shadow: 0px 0px 10px yellowgreen;
-	animation-delay: 7s;
+	box-shadow: 0 0 10px yellowgreen;
+	animation-delay: 3s;
 	font-size: 25px;
 	left: 70px;
 }
 
 div.capsule div:nth-child(3){ left: 100px;
 	color: silver;
-	box-shadow: 0px 0px 10px silver;
-	animation-delay: 15s;
+	min-width: 80px;
+	box-shadow: 0 0 10px silver;
+	animation-delay: 6s;
 	font-size: 30px;
 }
 
 div.capsule div:nth-child(4){color:dodgerblue;
-	box-shadow: 0px 0px 10px dodgerblue;
-	animation-delay: 20s;
+	box-shadow: 0 0 10px dodgerblue;
+	animation-delay: 9s;
 	left: 150px;
-
 }
