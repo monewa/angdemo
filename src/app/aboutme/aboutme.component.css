@@ -32,7 +32,7 @@ div.images{ max-width:500px;
 }
 
 div.images img{ width: 100%;
-    border: 25px groove;
+    border: 4vmin groove;
     padding: .5%;
     max-height: 485px;
 }
