@@ -1,35 +1,28 @@
 
 
-div.calc{ font-size:24px;
-max-width:450px;
+div.calc{ max-width:450px;
 height: auto;
-padding:12px;
-box-shadow: 0 0 4px lightpink;
+padding: 2.5%;
+box-shadow: 0 0 4px blue;
 border-radius: 5px;
 transition: 0.4s;
-margin: 0 5px 0 -5px;
+margin-left: -3%;
 }
 
-div.calc:hover{ box-shadow: 0 0 8px lightpink;
+div.calc:hover{ box-shadow: 0 0 8px blue;
 }
 
-div.numpad{margin: 60px 25px 25px ;
+div.numpad{margin: 20% 10% ;	
 }
 
-div.numpad button{  max-width: 90px;
-	min-width:72px;
-	min-height: 35px;
-	padding-top: 5px;
-	font-size: 6vw;
-	font-size: 25vmax;
-	font-size:7vmin;
-	/* font-size: 30px; */
-	margin: 0 0 3px 3px;
+div.numpad button{  width:19.5%;
+	height: 25%;
+	padding-top: 1% 0;
+	font-size: 6vmin;
+	margin: 0 .5% .3% 0;
 }
 
-div.numpad button.wide{ 
-	max-width: 150px;
-	min-width:147px;
+div.numpad button.wide{ width: 39.5%;
 }
 
 button.num{background-color:rgb(93, 195, 235);
@@ -40,21 +33,21 @@ input{ text-align:right;
 	width: 100%;
 } 
 
-label, input{ max-width:355px;
+label, input{ font-size: 4.5vmin !important;
 }
 
 div.capsule{ margin-bottom: 800px;
 }
 
-div.capsule div{
-	border-radius: 9px;
+div.capsule div{ border-radius: 9px;
 	position: relative;
 	text-align: center;
-	padding: 5px;
+	padding: 10px;
 	transform: scale(0, 0);
 	text-shadow: 0 0 10px;
-	animation: moving-capsules2 30s infinite ;
-	max-width: 40px;
+	animation: moving-capsules2 12s infinite ;
+	width: 70px;
+	/* padding: 7% !important; */
 }
 
 div.capsule div:nth-child(1){ 
@@ -74,7 +67,7 @@ div.capsule div:nth-child(2){ left: 76px;
 	top: 400px;
 	color: deepskyblue;
 	box-shadow: 0 0 10px deepskyblue;
-	animation-delay: 5s;
+	animation-delay: 3s;
 	font-size: 30px;
 }
 
@@ -82,7 +75,7 @@ div.capsule div:nth-child(3){ left: 40px;
 	top: 550px;
 	color:deeppink;
 	box-shadow: 0 0 10px deeppink;
-	animation-delay: 10s;
+	animation-delay: 6s;
 	font-size: 35px;
 }
 
@@ -90,6 +83,6 @@ div.capsule div:nth-child(4){ left: 60px;
 	top: 130px;
 	color:yellow;
 	box-shadow: 0 0 10px yellow;
-	animation-delay: 15s;
+	animation-delay: 9s;
 }
 
