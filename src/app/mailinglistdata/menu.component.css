@@ -12,11 +12,14 @@ div.menu button.btn{ position: fixed;
 div.menu button.btn:hover{ color: black;
 }
 
+a{margin-top: 5px;
+}
+
 div.menu:hover div.submenu{ left: 0;
 }
 
 div.menu div.submenu{ min-height: 450px;
-	max-width: 80%;
+	max-width: 98%;
 	position: fixed;
 	top: 135px;
 	left: -1250px;
