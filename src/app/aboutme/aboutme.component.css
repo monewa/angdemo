@@ -4,18 +4,17 @@ h2{ text-align: center;
 }
 
 div.container{ background-color: rgb(9, 6, 50);
-    padding: 20px;
-    min-width: 400px;
-    margin: 0 0 150px -10px;
+    padding: 2%;
+    margin: 0 0 150px 0;
     box-shadow: 0 0 6px blueviolet;
     max-width: 750px;
 }
 
 div.container div{ box-shadow: 0 0 14px blue;
-    margin: 20px;
+    margin: 2% ;
 }
 
-div.container  h2{ padding: 15px;
+div.container  h2{ padding: 4%;
 }
 
 span{ color:orange;
@@ -26,17 +25,15 @@ span{ color:orange;
     text-align: center;
 }
 
-div.container div p{ margin-left: 30px;
-    min-width: 90%;
+div.container div p{ margin: 3%;
 }
 
 div.images{ max-width:500px;
 }
 
 div.images img{ width: 100%;
-    /* margin-bottom: 50px; */
     border: 25px groove;
-    padding: 3px;
+    padding: .5%;
     max-height: 485px;
 }
 
