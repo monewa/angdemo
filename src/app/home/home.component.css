@@ -1,5 +1,6 @@
 
-
+.imagefade{ min-height: 200px;
+}
 
 .imagefade :nth-child(2){  font-size: larger;
     background-color: rgb(5, 5, 112);
