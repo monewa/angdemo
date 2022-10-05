@@ -28,6 +28,9 @@ span{ color:orange;
 div.container div p{ margin: 3%;
 }
 
+.imagefade{ min-height: 200px;
+}
+
 div.images{ max-width:500px;
 }
 
