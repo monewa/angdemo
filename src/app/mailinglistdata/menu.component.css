@@ -3,25 +3,24 @@
 
 div.menu button.btn{ position: fixed;
 	left: 0;
-	top: 300px;
-	padding: 80px 8px;
+	top: 30%;
+	padding: 10% 2%;
 	z-index: -1;
 	font-weight: bold;
+	font-size: 2vmin;
 }
 
 div.menu button.btn:hover{ color: black;
 }
 
-a{margin-top: 5px;
-}
-
 div.menu:hover div.submenu{ left: 0;
 }
 
-div.menu div.submenu{ min-height: 450px;
-	max-width: 98%;
+div.menu div.submenu{ min-height: 70%;
+	max-width: 80%;
+	min-width: 40%;
 	position: fixed;
-	top: 135px;
+	top: 14%;
 	left: -1250px;
 	transition: 1s;
 	box-shadow: 0 0 7px blue;
@@ -31,29 +30,29 @@ div.menu div.submenu{ min-height: 450px;
 div.menu div.show-menu{ left: 0;
 }
 
-div.links { margin: 10px;
+div.links { margin: 5px;
+	font-size: 3vmin;
 }
 
-div.links button{ margin-right:15px;	
+div.links button{ margin: 0 5px 5px 0;	
 }
 
-div.log{ margin: 10px;
+div.log{ margin: 5px;
 	background-color: azure;
 	color: black;
 	border: ridge lightgray;
 	z-index: 2;
-	max-width: 100%;
 	max-height: 60% ;
 }
 
 div.log div:nth-child(1){ border: white groove 3px;
-	padding: 10px;
+	padding: 1%;
 	color: orange;
 	font-weight: bold;
 }
 
-div.log div:nth-child(1) button{
-	width: 40px;
+div.log div:nth-child(1) button{ 
+	padding: .1% 2%;
 	float: right;
 	background-color:azure;
 	color: black;
@@ -63,30 +62,31 @@ div.log div:nth-child(1) button:hover{ background-color: red;
 	color: antiquewhite;
 }
 
-div.log div:nth-child(2){ padding: 8px;
+div.log div:nth-child(2){ padding: 3%;
 	height: 170px;
 	overflow-x:scroll;
 	overflow-y:scroll;
 	margin: 1px;	
 }
 
-div.log-message{ padding-left: 18px;
+div.log-message{ padding-left: 9%;
 }
 
-div.notifications div{ padding:13px;
+div.notifications div{ padding: 3%;
 	color:white;
-	width: 250px;
-	height: 130px;
+	max-width: 250px;
+	width: 65%;
+	height: 40% ;
+	max-height: 130px;
 	text-align: center;
 	box-shadow: 0 0 9px rgb(29, 27, 27);
-	margin: 10px;
+	margin: 0.7%;
 }
 
-div.notifications button{ font-size: 17px;
-	background-color: transparent;
+div.notifications button{ background-color: transparent;
 	color: whitesmoke;
-	margin-top: 30px;
-	padding: 8px 15px;
+	margin: 10% 0 5% 0;
+	padding: 2% 7%;
 }
 
 div.del-notification{ background-color: crimson;
