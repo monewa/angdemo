@@ -6,7 +6,7 @@ div.converter{ 	max-width: 400px;
 	border-radius: 5px;
 	padding: 3%;
 	text-align: center;
-	margin-left: -1%;
+	margin-left: -20px;
 	width: 100%;
 }
 div.converter:hover{ box-shadow: 0 0 10px lightskyblue;
@@ -14,17 +14,17 @@ div.converter:hover{ box-shadow: 0 0 10px lightskyblue;
 div.numpad{ margin: 7%;
 }
 div.numpad button{ margin: 0 .5% .3% 0;
-	font-size: 4vmin;
+	font-size: 4.5vmin;
 	padding: 3%;
 }
 button.num{background-color:rgb(93, 195, 235);
-	width: 17%;
+	width: 18%;
 }
-div.numpad button.unit, div.numpad button.reset{ width: 45%;
+div.numpad button.unit, div.numpad button.reset{ width: 44%;
 }
-div.numpad .wide{ width: 52% !important;
+div.numpad .wide{ width: 55% !important;
 }
-div.numpad .wider{ width: 98% !important;
+div.numpad .wider{ width: 99% !important;
 }
 div.converter label, div.converter input{ width: 100%; 
 	font-size: 4vmin;
