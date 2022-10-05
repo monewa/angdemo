@@ -4,7 +4,6 @@
 	--heading-color: orange;
 	--default-color: rgb(160, 200, 255);
 	--alternative-banner-color:  rgb(15, 51, 110);
-	--page-width: 600px;
 	user-select: none;
 }
 
@@ -41,7 +40,6 @@ h3{ color: var(--heading-color);
 }
 
 body{ min-height: 1500px;
-	max-width: 100%;
 }
 
 body, footer{ color: var(--default-color);
@@ -99,7 +97,7 @@ nav { background-color: var(--banner-color);
 	color: rgb(248, 183, 63);
 	border-radius: 10px;
 	box-shadow: 0 0 8px black;
-	padding: 15px;
+	padding: 3%;
 	display: inline-block;
 }
 
@@ -147,15 +145,11 @@ button.operator{ background-color:rgb(70%, 60%, 80%);
 
 input, textarea, option, select{ background-color: rgb(3, 3, 63);
 	color: var(--default-color);
-	border:solid rgb(83, 166, 248);
-	padding: 12px;
+	border: solid rgb(83, 166, 248);
+	padding: 5%;
 	border-radius: 5px;
 	transition: .5s ;
 }
-
-input.editUser{ font-size:16px;
-}
-
 input:hover, textarea:hover, select:hover{ border: solid blue;
 }
 
@@ -166,7 +160,6 @@ input:focus, textarea:focus, select:focus{ box-shadow: 0 0 12px skyblue;
 footer{ background-color: var(--banner-color);
 	margin: 100px 0 0 0;
 	z-index: 1;
-	/* min-width: 470px; */
 	min-height: 400px;
 	height: auto;
 }
