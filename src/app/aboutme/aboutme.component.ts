@@ -19,21 +19,24 @@ export class AboutmeComponent implements OnInit {
 
    constructor(private window:WindowService) { }
    
+
+   hideAllPics(): void{
+    this.picStyle1= 'display: none';
+    this.picStyle2= 'display: none';
+    this.picStyle3= 'display: none';
+  }
    changetoPic1(){
+    this.hideAllPics();
     this.picStyle1 = 'display: block';
-    this.picStyle2 = 'display: none';
-    this.picStyle3 = 'display: none';
    }
 
    changeToPic2(){
-    this.picStyle1 = 'display: none';
+    this.hideAllPics();
     this.picStyle2 = 'display: block';
-    this.picStyle3 = 'display: none';
    }
 
    changeToPic3(){
-    this.picStyle1 = 'display: none';
-    this.picStyle2 = 'display: none';
+    this.hideAllPics();
     this.picStyle3 = 'display: block';
    }
 
