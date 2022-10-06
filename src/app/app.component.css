@@ -39,9 +39,6 @@ h3{ color: var(--heading-color);
  width: 500px;
 }
 
-body{ min-height: 1500px;
-}
-
 body, footer{ color: var(--default-color);
 }
 
@@ -55,9 +52,9 @@ animation:loadPage 3s
 .imagefade{ animation: imagefade 3s;
 }
 
-@keyframes imagefade { 0%{opacity: .1;}
+@keyframes imagefade { 0%{opacity: .3;}
     80%{opacity: 1;}
-    100%{opacity: .2;}
+    100%{opacity: .4;}
 }
 
 .grid-row{  display: grid;
@@ -158,9 +155,9 @@ input:focus, textarea:focus, select:focus{ box-shadow: 0 0 12px skyblue;
 }
 
 footer{ background-color: var(--banner-color);
-	margin: 100px 0 0 0;
+	margin: 50px 0 0 0;
 	z-index: 1;
-	min-height: 400px;
+	min-height: 300px;
 	height: auto;
 }
 
