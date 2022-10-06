@@ -25,39 +25,32 @@ export class HomeComponent implements OnInit {
 
 	ngOnInit(): void {
     this.window.scrollToTop();
-    // this.firstPicInterval;
-    // this.secondPicInterval;
-    // this.thirdPicInterval;
 	}
 
-  show1stPic(): void{
-    this.styleForPic1= 'display: block';
+  hideAllPics(): void{
+    this.styleForPic1= 'display: none';
     this.styleForPic2= 'display: none';
     this.styleForPic3= 'display: none';
     this.styleForPic4= 'display: none';
+  }
+
+  show1stPic(): void{
+    this.hideAllPics();
+    this.styleForPic1= 'display: block';
   }
 
   show2ndPic(): void{
+    this.hideAllPics();
     this.styleForPic2= 'display: block';
-    this.styleForPic1= 'display: none';
-    this.styleForPic3= 'display: none';
-    this.styleForPic4= 'display: none';
   }
 
-  show3rdPic(): void{
+  show3rdPic(): void{ 
+    this.hideAllPics();
     this.styleForPic3= 'display: block';
-    this.styleForPic1= 'display: none';
-    this.styleForPic2= 'display: none';
-    this.styleForPic4= 'display: none';
   }
 
   show4thPic(): void{
+    this.hideAllPics();
     this.styleForPic4= 'display: block';
-    this.styleForPic1= 'display: none';
-    this.styleForPic2= 'display: none';
-    this.styleForPic3= 'display: none';
   }
-
-  
-
 }
