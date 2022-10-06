@@ -25,13 +25,14 @@ div.menu div.submenu{ min-height: 70%;
 	transition: 1s;
 	box-shadow: 0 0 7px blue;
 	z-index: 2;
+	font-size: 3vmin;
 }
 
 div.menu div.show-menu{ left: 0;
+
 }
 
 div.links { margin: 5px;
-	font-size: 3vmin;
 }
 
 div.links button{ margin: 0 5px 5px 0;	
@@ -45,17 +46,15 @@ div.log{ margin: 5px;
 	max-height: 60% ;
 }
 
-div.log div:nth-child(1){ border: white groove 3px;
+div.log div:nth-child(1){ border-bottom: white groove 3px;
 	padding: 1%;
 	color: orange;
 	font-weight: bold;
 }
 
-div.log div:nth-child(1) button{ 
-	padding: .1% 2%;
-	float: right;
-	background-color:azure;
-	color: black;
+div.log div:nth-child(1) button{ float: right;
+	background-color :transparent;
+	color: azure;
 }
 
 div.log div:nth-child(1) button:hover{ background-color: red;
@@ -74,7 +73,7 @@ div.log-message{ padding-left: 9%;
 
 div.notifications div{ padding: 3%;
 	color:white;
-	max-width: 250px;
+	max-width: 260px;
 	width: 65%;
 	height: 40% ;
 	max-height: 130px;

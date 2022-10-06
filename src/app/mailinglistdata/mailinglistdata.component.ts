@@ -94,7 +94,7 @@ export class MailinglistdataComponent implements OnInit {
 	}
 
 	setWidth(length:number): string{
-		return `width:${length*5+ 80}px; font-size: 19px;`;
+		return `width:${length*16}px;`;
 	} 	
 
 	checkForData(): boolean{
