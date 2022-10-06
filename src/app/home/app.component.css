@@ -1,0 +1,210 @@
+
+*{ 	
+	--banner-color: rgb(9, 9, 50);
+	--heading-color: orange;
+	--default-color: rgb(160, 200, 255);
+	--alternative-banner-color:  rgb(15, 51, 110);
+	user-select: none;
+}
+
+.banner{ background-color: var(--banner-color) !important;
+}
+
+.banner-btn{ background-color: var(--banner-color);
+	color: orange;
+}
+
+.header{ color: var(--heading-color);
+}
+
+.alt-banner{ background-color: var(--alternative-banner-color);
+}
+
+h1{ background-color: var(--banner-color);
+	padding: 20px 5px;
+	text-shadow: 0 0 2.5px;
+	color: var(--heading-color);
+	height: auto;
+	text-align: center;
+	border-radius: 5px;
+	margin: 0 0 50px 0 !important;
+	/* min-width: 420px; */
+}
+
+h2{color: orange;
+	text-align: center;
+}
+
+h3{ color: var(--heading-color);
+ width: 500px;
+}
+
+body{ min-height: 1500px;
+}
+
+body, footer{ color: var(--default-color);
+}
+
+body.fade, div.fade, label.fade, img.fade{border-radius: 5px;
+animation:loadPage 3s 
+}
+@keyframes loadPage{from{opacity:0.2; }
+	to{opacity:1; }	
+}
+
+.imagefade{ animation: imagefade 3s;
+}
+
+@keyframes imagefade { 0%{opacity: .3;}
+    80%{opacity: 1;}
+    100%{opacity: .4;}
+}
+
+.grid-row{  display: grid;
+    grid-template-columns: auto auto ;
+}
+
+.scale{border-radius: 5px;
+	animation:loadPage 3s 
+}
+@keyframes scalePage{from{scale: 0.2; }
+	to{scale:1; }	
+	}
+		
+div.menu{	position:absolute; 
+	opacity :0.9;
+	background-color:black;	
+	float:left; 
+}
+
+nav { background-color: var(--banner-color);
+	z-index: 1;
+}
+
+.col-1{  grid-area: 1 / 1 / span 1 / span 4;
+}
+
+.col-1-l{  grid-area: 1 / 1 / span 1 / span 6;
+}
+
+.col-2-s{  grid-area: 1 / 7 / span 1 / span 5;
+}
+
+.col-2{  grid-area: 1 / 5 / span 1 / span 7;
+}
+
+.links-btn{	background-color: indigo;
+	color: rgb(248, 183, 63);
+	border-radius: 10px;
+	box-shadow: 0 0 8px black;
+	padding: 3%;
+	display: inline-block;
+}
+
+.links-btn:hover{ background-color: blueviolet;	
+	color: rgb(250, 227, 198);
+}
+
+a{ text-decoration: none;
+	transition: .6s;
+}
+
+a:hover{ box-shadow: 0 0 13px whitesmoke;
+}
+
+nav a{ color:orange;
+	padding: 10px 12px;
+}
+
+nav a:hover{ background-color:lightgrey;
+	color: var(--banner-color);
+}
+
+body .active{color: var(--banner-color);
+	background-color:lightgrey;
+}
+
+button{ border-radius: 2.5px;
+	transition: .6s;
+	border-style: none;
+	box-shadow: 0 0 9px black;
+}
+
+button.clear{ background-color:rgb(235, 121, 121);
+}
+
+button:hover, button.operator:hover{background-color:lightyellow;
+	box-shadow: 0 0 12px lightskyblue;
+}
+
+button:active, a:active{ opacity: .4;	
+}
+
+button.operator{ background-color:rgb(70%, 60%, 80%);
+}
+
+input, textarea, option, select{ background-color: rgb(3, 3, 63);
+	color: var(--default-color);
+	border: solid rgb(83, 166, 248);
+	padding: 5%;
+	border-radius: 5px;
+	transition: .5s ;
+}
+input:hover, textarea:hover, select:hover{ border: solid blue;
+}
+
+input:focus, textarea:focus, select:focus{ box-shadow: 0 0 12px skyblue; 
+	border: solid blue;
+}
+
+footer{ background-color: var(--banner-color);
+	margin: 100px 0 0 0;
+	z-index: 1;
+	min-height: 400px;
+	height: auto;
+}
+
+footer .languages{ text-align: center;		
+	padding: 15px;
+	width: 100%;
+}
+
+.languages div { height:auto;
+	font-weight: bold;
+	min-width: 145px;
+	margin: 20px;
+	padding: 20px;
+	text-shadow: 0 0 14px;
+	border-radius: 8px 50px;
+	display: inline-block;
+	border:solid 4px
+
+}
+
+.languages :nth-child(1){ border-color: orange;
+	box-shadow:0 0 13px orange;
+	color:orange;
+}
+
+.languages :nth-child(2){ border-color:lime;
+	box-shadow:0 0 13px lime;
+	color:lime;
+}
+
+.languages :nth-child(3){ color:deepskyblue;
+	border-color: deepskyblue;
+	box-shadow:0 0 13px deepskyblue
+}
+
+.languages :nth-child(4){ color:red;
+	border-color: red;
+	box-shadow:0 0 13px red
+}
+
+.languages :nth-child(5){ border-color: white ;
+	box-shadow:0 0 13px white;
+	color:white;
+}
+
+footer p{ padding: 40px 8px;
+}
