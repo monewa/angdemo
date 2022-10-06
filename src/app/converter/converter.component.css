@@ -1,20 +1,21 @@
 
 
 
-div.converter{ 	max-width: 400px;
+div.converter{ 	max-width: 410px;
 	box-shadow: 0 0 4px lightskyblue;
 	border-radius: 5px;
-	padding: 3%;
+	padding: 1%;
 	text-align: center;
-	margin-left: -20px;
+	margin-left: -8px;
 	width: 100%;
 }
 div.converter:hover{ box-shadow: 0 0 10px lightskyblue;
 }
-div.numpad{ margin: 7%;
+div.numpad{ margin: 5%;
+	font-size: 5vmax;
+	font-size: 4.99vmin;
 }
 div.numpad button{ margin: 0 .5% .3% 0;
-	font-size: 4.5vmin;
 	padding: 3%;
 }
 button.num{background-color:rgb(93, 195, 235);
@@ -27,7 +28,6 @@ div.numpad .wide{ width: 55% !important;
 div.numpad .wider{ width: 99% !important;
 }
 div.converter label, div.converter input{ width: 100%; 
-	font-size: 4vmin;
 }
 div.converter input{ text-align:right;
 	margin-bottom:10px;
@@ -45,23 +45,23 @@ div.capsule div{border-radius: 15px 10px;
 }
 div.capsule div:nth-child(1){ color: fuchsia;
 	box-shadow: 0 0 8px fuchsia;
-	left: 40px;
+	left: 8%;
 }
 
 @keyframes moving-capsules { 0%{opacity: 0; top: 10px;}
 15%{opacity: 1;}
 70%{opacity: 0;}
-	100%{opacity: 0; top: 1300px;}
+	100%{opacity: 0; top: 900px;}
 }
 
 div.capsule div:nth-child(2){ color:yellowgreen;
 	box-shadow: 0 0 10px yellowgreen;
 	animation-delay: 3s;
 	font-size: 25px;
-	left: 70px;
+	left: 16%;
 }
 
-div.capsule div:nth-child(3){ left: 100px;
+div.capsule div:nth-child(3){ left: 26%;
 	color: silver;
 	min-width: 80px;
 	box-shadow: 0 0 10px silver;
@@ -72,5 +72,5 @@ div.capsule div:nth-child(3){ left: 100px;
 div.capsule div:nth-child(4){color:dodgerblue;
 	box-shadow: 0 0 10px dodgerblue;
 	animation-delay: 9s;
-	left: 150px;
+	left: 40%;
 }
