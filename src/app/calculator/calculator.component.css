@@ -6,7 +6,7 @@ padding: 2.5%;
 box-shadow: 0 0 4px blue;
 border-radius: 5px;
 transition: 0.4s;
-margin-left: -35px;
+margin-left: -8px;
 }
 
 div.calc:hover{ box-shadow: 0 0 8px blue;
@@ -18,7 +18,8 @@ div.numpad{margin: 20% 10% ;
 div.numpad button{  width:19.5%;
 	height: 25%;
 	padding-top: 1% 0;
-	font-size: 6vmin;
+	font-size: 6.5vmax;
+	font-size: 6.3vmin;
 	margin: 0 .5% .3% 0;
 }
 
@@ -47,14 +48,13 @@ div.capsule div{ border-radius: 9px;
 	text-shadow: 0 0 10px;
 	animation: moving-capsules2 12s infinite ;
 	width: 70px;
-	/* padding: 7% !important; */
 }
 
 div.capsule div:nth-child(1){ 
 	color:lime;
 	box-shadow: 0 0 8px lime;
 	top: 50px;
-	left: 20px;
+	left: 8%;
 }
 
 @keyframes moving-capsules2 { 0%{transform: scale(0, 0);}
@@ -63,7 +63,7 @@ div.capsule div:nth-child(1){
 	100%{transform: scale(0, 0); }
 }
 
-div.capsule div:nth-child(2){ left: 76px;
+div.capsule div:nth-child(2){ left: 35%;
 	top: 400px;
 	color: deepskyblue;
 	box-shadow: 0 0 10px deepskyblue;
@@ -71,7 +71,7 @@ div.capsule div:nth-child(2){ left: 76px;
 	font-size: 30px;
 }
 
-div.capsule div:nth-child(3){ left: 40px;
+div.capsule div:nth-child(3){ left: 25%;
 	top: 550px;
 	color:deeppink;
 	box-shadow: 0 0 10px deeppink;
@@ -79,7 +79,7 @@ div.capsule div:nth-child(3){ left: 40px;
 	font-size: 35px;
 }
 
-div.capsule div:nth-child(4){ left: 60px;
+div.capsule div:nth-child(4){ left: 18%;
 	top: 130px;
 	color:yellow;
 	box-shadow: 0 0 10px yellow;
