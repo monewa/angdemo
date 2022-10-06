@@ -95,7 +95,7 @@ div.del-notification{ background-color: crimson;
 div.del-notification button:hover{ background-color: red;
 }
 
-div.edit-notification{ background-color: var(--edit-color);
+div.edit-notification{ background-color: rgb(0, 81, 255); 
 }
 
 div.edit-notification button:hover{ background-color: blue;
