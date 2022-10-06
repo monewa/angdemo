@@ -85,7 +85,8 @@ div.notifications div{ padding: 3%;
 div.notifications button{ background-color: transparent;
 	color: whitesmoke;
 	margin: 10% 0 5% 0;
-	padding: 2% 7%;
+	padding: 2% 9%;
+	text-align: center;
 }
 
 div.del-notification{ background-color: crimson;
