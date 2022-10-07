@@ -1,12 +1,10 @@
 
 form{ color: orange;
-	max-width: 700px; 
-	min-height: 600px;
-	width: 100%;
-	padding: 3%;
+	max-width: 750px; 
+	padding: 8%;
 	border-radius: 5px;
 	transition: 0.4s;
-	margin: 50px 0 0 -8px;
+	margin-top: 50px;
 	font-size: 4vmin;
 }
 

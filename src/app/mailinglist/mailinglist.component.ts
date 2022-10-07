@@ -27,7 +27,8 @@ export class MailinglistComponent implements OnInit {
 	codeInfoIsHidden: boolean= false;
 	timeout= setTimeout(() => {this.countryList= this.repository.countries;}, 6000);
 	
-  constructor(private repository: UserRepositoryService, private popup: SuccessPopupService, public window: WindowService) { }
+  constructor(private repository: UserRepositoryService, private popup: SuccessPopupService, 
+						public window: WindowService) { }
 	
 	checkFormValidity(form: NgForm): void{
 		this.submitted= true

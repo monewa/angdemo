@@ -11,15 +11,11 @@
 		<h1>Mail List app
 			<h4 >Welcome to the mail list app </h4>
 		</h1>
-		<div class= "grid-row" >
-			<div class= "col-1"></div>
-			<div class= "col-2" >
+		<div class= " w3-content" >
 				<p>	Save your details on the form to be part of our mail list for the book.</p>
 				<p>Select your country to see your code.</p>
 				<form (ngSubmit)= 'checkFormValidity(form)'  #form= 'ngForm' ngNativeValidate
-							 	class="banner-btn grid-row" >
-					<div class= "col-1-l" ></div>
-					<div class="col-2-s" style="margin-left: 2%;">
+							 	class="banner-btn " >
 						<h2 >Mail list Form</h2>
 						<div class= "name">
 							<label for= "firstname">First name  </label>
@@ -146,9 +142,7 @@
 							<button  (click)= 'clear()' class="links-btn w3-mobile">clear</button>
 							<button  routerLink= '/bookstore' class="w3-mobile">cancel</button>
 						</div>
-					</div>
 				</form> 
-			</div>
 		</div>		
 				<app-success-popup [hidden]= "successPopupIsHidden" ></app-success-popup>
 </body>
