@@ -1,22 +1,19 @@
 
 
 
-div.converter{ 	max-width: 410px;
+div.converter{ 	max-width: 550px;
 	box-shadow: 0 0 4px lightskyblue;
 	border-radius: 5px;
-	padding: 1%;
+	padding: 5%;
 	text-align: center;
-	margin-left: -8px;
-	width: 100%;
 }
 div.converter:hover{ box-shadow: 0 0 10px lightskyblue;
 }
-div.numpad{ margin: 5%;
-	font-size: 5vmax;
-	font-size: 4.99vmin;
+div.numpad{ 	font-size: 6vmax;
+	font-size: 5.8vmin;
 }
 div.numpad button{ margin: 0 .5% .3% 0;
-	padding: 3%;
+	padding: .5% 5%;
 }
 button.num{background-color:rgb(93, 195, 235);
 	width: 18%;
