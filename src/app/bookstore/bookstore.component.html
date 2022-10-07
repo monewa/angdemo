@@ -12,24 +12,21 @@
 	<h1>Book Store
 		<h4>Welcome to our bookshop</h4>
 	</h1>
-	<div class= "grid-row">
-		<div class= "col-1"></div>
-		<div class= "col-2">
-			<img src= 'assets/img/image.jpg' class="main-img">
-			<p>Our latest book is almost ready to be published.</p> 
-			<p>Join our mail list to order a copy or to get updates.</p>	
-			<li><a routerLink= '/mailinglist' class="links-btn">register</a></li>
-			<p style="margin-top: 100px;">Browse our best selling books</p>
-		</div>
-	</div>	
+	<div class= "w3-content">
+		<img src= 'assets/img/image.jpg' class="main-img">
+		<p>Our latest book is almost ready to be published.</p> 
+		<p>Join our mail list to order a copy or to get updates.</p>	
+		<li><a routerLink= '/mailinglist' class="links-btn">register</a></li>
+		<p style="margin-top: 100px;">Browse our best selling books</p>
 		<div class= "books  alt-banner" *ngFor= "let book of books" >
-			<img [src]="'assets/img/'+book.imageUrl"  height="280">
+			<img [src]="'assets/img/'+book.imageUrl">
 			<div class="banner-btn">{{ book.title }}</div>
 			<div>{{ book.description}}</div>
-			<div>by {{ book.author }}</div>
+			<div><i> by {{ book.author }}</i></div>
 			<div>pages: {{ book.pages }}</div>
 			<div>price: <span> {{ book.price| currency }}</span></div>
 		</div>	
+	</div>	
 </body>
 
 <html>
