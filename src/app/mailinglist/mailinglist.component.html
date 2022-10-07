@@ -72,7 +72,7 @@
 							<label for="country">Country </label> 
 							<br>
 							<select class="w3-mobile"  required [(ngModel)]= 'country' #countryField= 'ngModel' 
-										(change)= "suggestCode()"  name= 'country' pattern= "[a-zA-Z-]*"> 
+										(change)= "suggestCode()"  name= 'country' pattern= "[a-zA-Z- ]*"> 
 								<option> < select country ></option>
 								<option required *ngFor= 'let nation of countryList' >{{nation.country}}</option>
 							</select>
