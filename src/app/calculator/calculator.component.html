@@ -12,12 +12,12 @@
 			<h4>You can calculate here</h4>
 		</h1>
 	</div>
-	<div class= "grid-row">
-		<div class= "col-1"></div>
-		<div class="col-2">		
+	<div class= "w3-row">
+		<div class= "w3-third w3-container"></div>
+		<div class= "w3-twothird">
 			<div (keyup)= 'setKeyInput()' class= 'calc banner-btn'>
 				<h2>Calculator</h2>
-				<div class= 'numpad'>
+				<div class= 'numpad w3-content'>
 					<label >{{toAnswerScreenValue}}</label>
 					<br>
 					<input [value]= 'toScreenValue' readonly placeholder='0' >
@@ -51,7 +51,7 @@
 				<div>×</div>
 				<div>÷</div>
 			</div>
-		</div>
+			</div>
 	</div>
 </body>
 
