@@ -3,10 +3,11 @@ form{ color: orange;
 	max-width: 700px; 
 	min-height: 600px;
 	width: 100%;
-	padding: 5%;
+	padding: 3%;
 	border-radius: 5px;
 	transition: 0.4s;
-	margin: 50px 0 0 -15px;
+	margin: 50px 0 0 -8px;
+	font-size: 4vmin;
 }
 
 form:hover{box-shadow: 4px 4px 6px lightskyblue;
