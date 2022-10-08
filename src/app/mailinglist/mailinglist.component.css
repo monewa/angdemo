@@ -5,7 +5,6 @@ form{ color: orange;
 	border-radius: 5px;
 	transition: 0.4s;
 	margin-top: 50px;
-	font-size: 4vmin;
 }
 
 form:hover{box-shadow: 4px 4px 6px lightskyblue;
@@ -17,7 +16,6 @@ p{min-width: 100%;
 div.buttons, div.comments, div.code, div.email, div.country, div.lastname, 
 div.name{ margin-top: 40px;
 }
-
 
 div.code a{ font-weight: bold;
 	font-style: italic;
