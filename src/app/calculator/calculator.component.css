@@ -1,20 +1,29 @@
 
 
-div.calc{ max-width: 580px;
+div.calc{ max-width: 490px;
 height: auto;
 padding: 6%;
 box-shadow: 0 0 4px blue;
 border-radius: 5px;
 transition: 0.4s;
+font-size: 5vmin ; 
+text-align: center;
 }
 
 div.calc:hover{ box-shadow: 0 0 8px blue;
 }
 
+@media screen and (max-width: 450px) { 
+	div.calc{ font-size: 8.5vmin;
+	}
+  }
+
+
+div.numpad{ margin-top: 10%;
+}
+
 div.numpad button{  width:19.5%;
-	padding: .5% 5%;
-	font-size: 7vmax;
-	font-size: 6.8vmin;
+	padding: .5% 2%;
 	margin: 0 .5% .3% 0;
 }
 
@@ -24,13 +33,15 @@ div.numpad button.wide{ width: 39.5%;
 button.num{background-color:rgb(93, 195, 235);
 }
 
-input{ text-align:right;
-	margin-bottom: 20px!important;	
-	width: 100%;
-} 
-
-label, input{ font-size: 4.5vmin !important;
+.numpad div{ display: block;
+	text-align: right;
 }
+
+input{ text-align:right;
+	margin-bottom: 3% !important;	
+	width: 100%;
+	font-size: 5.5vmin !important;
+} 
 
 div.capsule{ margin-bottom: 800px;
 }
