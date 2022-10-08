@@ -1,33 +1,40 @@
 
 
 
-div.converter{ 	max-width: 550px;
+div.converter{ 	max-width: 450px;
 	box-shadow: 0 0 4px lightskyblue;
 	border-radius: 5px;
 	padding: 5%;
 	text-align: center;
+	font-size: 4vmin;
 }
 div.converter:hover{ box-shadow: 0 0 10px lightskyblue;
 }
-div.numpad{ 	font-size: 6vmax;
-	font-size: 5.8vmin;
+
+
+@media screen and (max-width: 450px) {
+	div.converter{ font-size: 7.5vmin;
+	}
+}
+
+div.numpad{ margin-top: 12%;
 }
 div.numpad button{ margin: 0 .5% .3% 0;
-	padding: .5% 5%;
+	padding: .5% 3%;
 }
-button.num{background-color:rgb(93, 195, 235);
-	width: 18%;
+button.num{width: 18.6%;
+	background-color:rgb(93, 195, 235);
 }
-div.numpad button.unit, div.numpad button.reset{ width: 44%;
+div.numpad button.unit, div.numpad button.reset{ width: 42%;
 }
-div.numpad .wide{ width: 55% !important;
+div.numpad .wide{ width: 57% !important;
 }
-div.numpad .wider{ width: 99% !important;
+div.numpad .wider{ width: 99.5% !important;
 }
 div.converter label, div.converter input{ width: 100%; 
 }
 div.converter input{ text-align:right;
-	margin-bottom:10px;
+	margin-bottom: 2%;
 }
 div.capsule{ margin-bottom: 800px;
 }
