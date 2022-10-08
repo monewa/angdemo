@@ -1,6 +1,6 @@
 
 
-.imagefade{ min-height: 220px;
+.imagefade{ min-height: 300px;
     background-color: midnightblue;
     text-align: center;
     padding: 1%;
@@ -9,11 +9,17 @@
 
 .imagefade :nth-child(2){  font-size: larger;
     background-color: rgb(5, 5, 112);
-    padding: 8px !important;
+    padding: 2% !important;
 }
 
 .w3-display-middle{ margin-top: -15%;
 }
+
+@media screen and (max-width: 300px) {
+	.w3-display-middle{ font-size:inherit !important;
+        margin-top: -45% ;
+	}
+  }
 
 .images p{ height: 60px;
 }
