@@ -24,7 +24,7 @@ export class CalculatorComponent implements OnInit {
   constructor(private window: WindowService) { }
 
 	restrictValues(num: string): boolean{
-		if(this.screenValue.length >= 16){
+		if(this.screenValue.length >= 15){
 			return true; 
 		}	
 		if(this.restrictPeriod(num)){
