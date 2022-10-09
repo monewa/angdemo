@@ -13,13 +13,15 @@
             <div class="header "> 
               <code style ="font-size: xx-large;">✔</code>   Your profile is saved successfully 
             </div> 
-             <div>
-                <p><span>Your details</span> </p>
-                <p><span>First name</span> {{ getName() }} </p>
-                <p><span>Last name</span> {{ getLastname() }}</p>
-                <p><span>Country</span> {{ getCountry() }}</p>
-                <p><span>Email</span> {{ getEmail() }}</p>
-                <p><span>Phone</span> {{ getPhone() }}</p>
+             <div class= "details">
+               <p style="text-align: center; "><span ><b>Your details</b></span> </p>
+               <table>
+                  <tr><td><span>First name</span> {{ getName() }}</td></tr>
+                  <tr><td><span>Last name</span> {{ getLastname() }}</td></tr>
+                  <tr><td><span>Country</span> {{ getCountry() }}</td></tr>
+                  <tr><td><span>Email</span> {{ getEmail() }}</td></tr>
+                  <tr><td><span>Phone</span> {{ getPhone() }}</td></tr>
+               </table>
              </div>
              <div>
                 <button routerLink= '/bookstore'  > 
