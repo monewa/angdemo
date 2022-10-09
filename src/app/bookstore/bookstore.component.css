@@ -36,6 +36,15 @@ div.books div{ margin: 3%;
 div.books img{ width: 100%;
 }
 
+@media screen and (max-width: 350px) {
+    div.books{ display:inline-block;
+        max-width: 180px ;
+    }
+    div.books img{ max-width: 180px;
+        max-height: 190px;
+    }
+}
+
 div.books :nth-child(2){min-height: 65px;
     font-weight: bold;
     text-align: center;
