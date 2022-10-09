@@ -18,7 +18,7 @@
 			<div (keyup)= 'setKeyInput()' class= 'calc banner-btn'>
 				<b>Calculator</b>
 				<div class= 'numpad w3-content'>
-					<div > {{toAnswerScreenValue}}</div>
+					<div class="answer">{{toAnswerScreenValue}}</div>
 					<input [value]= 'toScreenValue' readonly placeholder='0' >
 					<br>
 					<button (click)= 'setValue("1")' class= "num">1</button>

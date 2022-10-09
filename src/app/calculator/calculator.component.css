@@ -9,17 +9,23 @@ transition: 0.4s;
 font-size: 5vmin ; 
 text-align: center;
 }
-
 div.calc:hover{ box-shadow: 0 0 8px blue;
 }
-
-@media screen and (max-width: 450px) { 
+.answer{ font-size: smaller;
+	min-height: 50px;
+}
+@media screen and (max-width: 350px) { 
 	div.calc{ font-size: 8.5vmin;
+		padding: 3%;
+	}
+	input{ font-size: 6.5vmin !important;
+	}
+	div.numpad .answer{ font-size: small;	
 	}
   }
 
-
 div.numpad{ margin-top: 10%;
+	text-align:right;
 }
 
 div.numpad button{  width:19.5%;
@@ -32,15 +38,9 @@ div.numpad button.wide{ width: 39.5%;
 
 button.num{background-color:rgb(93, 195, 235);
 }
-
-.numpad div{ display: block;
-	text-align: right;
-}
-
 input{ text-align:right;
 	margin-bottom: 3% !important;	
 	width: 100%;
-	font-size: 5.5vmin !important;
 } 
 
 div.capsule{ margin-bottom: 800px;
