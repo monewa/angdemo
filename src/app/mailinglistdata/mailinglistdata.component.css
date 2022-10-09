@@ -1,5 +1,24 @@
 
 
+table{ margin-left: 6%;
+	background-color: dodgerblue;
+	text-align: center;
+}
+
+table:hover{ box-shadow: 0 0 6px;
+}
+
+@media screen and (max-width: 350px){
+	table{ font-size: smaller;
+	}
+}
+
+th{ padding: 8px;
+} 
+
+td{ padding: 8px;
+}
+
 button{ padding: 15% 6%;
 }
 
@@ -18,21 +37,6 @@ button.edit:hover{ background-color: blue;
 }
 
 input{ padding: 1%;
-}
-
-table{ margin-left: 6%;
-	background-color: dodgerblue;
-	text-align: center;
-	font-size: 2.5vmin;
-}
-
-table:hover{ box-shadow: 0 0 6px;
-}
-
-th{ padding: 8px;
-} 
-
-td{ padding: 8px;
 }
 
 app-menu{ position: fixed;
