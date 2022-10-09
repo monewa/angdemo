@@ -13,6 +13,7 @@ div.calc:hover{ box-shadow: 0 0 8px blue;
 }
 .answer{ font-size: smaller;
 	min-height: 50px;
+	max-width: 100%;
 }
 @media screen and (max-width: 350px) { 
 	div.calc{ font-size: 8.5vmin;
@@ -20,7 +21,7 @@ div.calc:hover{ box-shadow: 0 0 8px blue;
 	}
 	input{ font-size: 6.5vmin !important;
 	}
-	div.numpad .answer{ font-size: small;	
+	div.numpad .answer{ font-size: 6vmin; 	 
 	}
   }
 
