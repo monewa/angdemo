@@ -26,12 +26,12 @@ div.code a{ font-weight: bold;
 	cursor: pointer;
 }
 
-div.code div.info{ visibility: hidden;
+div.code div.info{ display: none;
 	width: 350px;
 	color: orange;
 	padding: 8px;
-	position: absolute;
-	top: 1450px;
+	position: relative;
+	top: -60px;
 	font-weight: normal;
 	font-size: 18px;
 	z-index: 1;
@@ -51,7 +51,7 @@ div.code a:hover{ background-color:rgb(29, 130, 231);
 	box-shadow: none;
 }
 
-div.code a:hover div{ visibility: visible;
+div.code a:hover div{ display: block;
 }
 
 div.code input{	width: 80%;
@@ -82,6 +82,14 @@ form button{ padding:8px 25px;
 }
 
 form label, form input,  form textarea, form select, form option{ max-width: 98% !important;
+}
+
+@media screen and (max-width:350px) {
+	form{ padding: 2%;
+	}
+	form input,  form textarea, form select, form option{
+		width: 100%;
+	}
 	
 }
 
