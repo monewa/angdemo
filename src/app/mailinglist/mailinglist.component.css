@@ -10,60 +10,54 @@ form{ color: orange;
 form:hover{box-shadow: 4px 4px 6px lightskyblue;
 }
 
-p{min-width: 100%;
-}
-
 div.buttons, div.comments, div.code, div.email, div.country, div.lastname, 
 div.name{ margin-top: 40px;
 }
 
-div.code a{ font-weight: bold;
+div.code span{ font-weight: bold;
 	font-style: italic;
 	color: whitesmoke;
 	background-color: blue;
-	padding: 4px 6px;
+	padding: 1% 2%;
 	border-radius: 5px;
 	cursor: pointer;
+	z-index: -1;
 }
 
-div.code div.info{ display: none;
-	width: 350px;
-	color: orange;
-	padding: 8px;
-	position: relative;
-	top: -60px;
-	font-weight: normal;
-	font-size: 18px;
-	z-index: 1;
+div.info{ color: orange;
+	padding: 1%;
+	max-width: 320px;
 	transition: 0.5s;
+	margin-bottom: -9%;
 }
 
-div.code div.info:after {
+div.info:after {
+	z-index: 7;
     content: " ";
-    position: absolute;
-    top: 100%;
-    left: 18%;
+    position: relative;
+    top: 32px;
+    left: -80%;
     border: 9px solid;
     border-color:rgb(15, 51, 110) transparent transparent ;
 }
 
-div.code a:hover{ background-color:rgb(29, 130, 231);
+div.code span:hover{ background-color:rgb(29, 130, 231);
 	box-shadow: none;
 }
 
-div.code a:hover div{ display: block;
-}
+div.code input, div.code div{	max-width: 80% !important	;
 
-div.code input{	width: 80%;
 }
 
  div.code { width:40%; 	
 	display: inline-block;
+	border: solid;
+	
 }
 
 div.phone{  width: 60%;
-	margin-top: 40px;
 	display: inline-block;
+	border: solid;
 }
 
 div.buttons button{ border-radius: 3px;
@@ -81,7 +75,8 @@ form button{ padding:8px 25px;
 	margin: 12px;
 }
 
-form label, form input,  form textarea, form select, form option{ max-width: 98% !important;
+form label, form input,  form textarea, form select, form option{ 
+	max-width: 98% !important;
 }
 
 @media screen and (max-width:350px) {
@@ -90,7 +85,6 @@ form label, form input,  form textarea, form select, form option{ max-width: 98%
 	form input,  form textarea, form select, form option{
 		width: 100%;
 	}
-	
 }
 
 input.ng-invalid, textarea.ng-invalid, select.ng-invalid{ border-left: 2px solid red

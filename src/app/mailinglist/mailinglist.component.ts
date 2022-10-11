@@ -25,6 +25,7 @@ export class MailinglistComponent implements OnInit {
 	formIsValid: boolean= false;
 	successPopupIsHidden: boolean= true;
 	codeInfoIsHidden: boolean= false;
+	tipStyle: string= 'opacity: 0';
 	timeout= setTimeout(() => {this.countryList= this.repository.countries;}, 6000);
 	
   constructor(private repository: UserRepositoryService, private popup: SuccessPopupService, 
@@ -84,6 +85,14 @@ export class MailinglistComponent implements OnInit {
 		this.phone= '';
 		this.code= '';
 		this.comments= '';
+	}
+
+	showTip(){
+		this.tipStyle= 'opacity: 1';
+	}
+
+	hideTip(){
+		this.tipStyle= 'opacity: 0';
 	}
 
 	ngOnInit(): void { 
