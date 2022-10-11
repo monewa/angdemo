@@ -51,13 +51,10 @@ div.code input, div.code div{	max-width: 80% !important	;
 
  div.code { width:40%; 	
 	display: inline-block;
-	border: solid;
-	
 }
 
 div.phone{  width: 60%;
 	display: inline-block;
-	border: solid;
 }
 
 div.buttons button{ border-radius: 3px;
