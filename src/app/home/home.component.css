@@ -1,12 +1,13 @@
 
+p{ padding-left: 2%;
+
+}
 
 .imagefade{  min-height: 200px;
-    background-color: midnightblue;
     text-align: center;
     padding: 1%;
     max-width: 800px;
 }
-
 
 .imagefade :nth-child(2){  font-size: larger;
     background-color: rgb(5, 5, 112);
