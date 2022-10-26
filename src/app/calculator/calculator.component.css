@@ -8,6 +8,7 @@ border-radius: 5px;
 transition: 0.4s;
 font-size: 5vmin ; 
 text-align: center;
+margin: auto;
 }
 div.calc:hover{ box-shadow: 0 0 8px blue;
 }
@@ -15,9 +16,10 @@ div.calc:hover{ box-shadow: 0 0 8px blue;
 	min-height: 50px;
 	max-width: 100%;
 }
-@media screen and (max-width: 350px) { 
+@media screen and (max-width: 540px) { 
 	div.calc{ font-size: 8.5vmin;
 		padding: 3%;
+		width: 97%;
 	}
 	input{ font-size: 6.5vmin !important;
 	}
