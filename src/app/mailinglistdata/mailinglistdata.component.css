@@ -19,6 +19,20 @@ th{ padding: 8px;
 td{ padding: 8px;
 }
 
+.loader {
+	border: 5px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 4px solid dodgerblue;
+	width: 30px;
+	height: 30px;
+	margin: -25px 0 0 62%;
+	animation: spin 2s linear infinite;
+  }
+  @keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+  }
+
 button{ padding: 15% 6%;
 }
 
@@ -40,10 +54,4 @@ input{ padding: 1%;
 }
 
 app-menu{ position: fixed;
-}
-
-.end-footer{ margin: 100px 0 0 -22px;
-	text-align: center;
-	padding: 10px;
-	height: 100px;
 }

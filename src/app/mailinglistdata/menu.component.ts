@@ -1,8 +1,7 @@
 
 
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from './menu.service';
-
+import { UserRepositoryService } from '../model/user.repository.service';
 
 @Component({
   selector: 'app-menu',
@@ -13,34 +12,26 @@ export class MenuComponent implements OnInit {
 
     eventLogIsOpen: boolean= false;
 
-    constructor(private menu: MenuService) { }
+    constructor(protected repository:UserRepositoryService) { }
 
     getEventLogUpdate(): string{
-      return this.menu.getEventLogUpdate();
+      return this.repository.logUpdate;
     }
 
-    getEditId(): number{
-      return this.menu.getEditedId();
+    getEditMessage(): string{
+      return this.repository.editNotify;
     }
 
-    getDeleteId(): number{
-      return this.menu.getDeleteId();
-    }  
-
-    openEditBox():boolean{
-      return this.menu.getEditBoxStatus();
+    getDeleteMessage(): string{
+      return this.repository.deleteNotify;
     }
-  
+
     closeEditBox():void{
-      this.menu.closeEditBox();
-    }
-  
-    openDeleteBox():boolean{
-      return this.menu.getDeleteBoxStatus();
+      this.repository.editNotificationIsOpen= false;
     }
   
     closeDeleteBox():void{
-      this.menu.closeDeleteBox();
+      this.repository.deleteNotificationIsOpen= false;
     }
   
     openEventLog(): void{
@@ -52,7 +43,7 @@ export class MenuComponent implements OnInit {
     }
   
     checkForEvents(): boolean{
-      if(this.menu.getEventLogUpdate() == ''){
+      if(this.repository.logUpdate == ''){
         return true;
       }
       return false;

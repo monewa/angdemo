@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserRepositoryService } from '../model/user.repository.service';
 import { WindowService } from '../services/window.service';
-import { MenuService } from './menu.service';
 
 @Component({
   selector: 'app-mailinglistdata',
@@ -19,9 +18,11 @@ export class MailinglistdataComponent implements OnInit {
 	country: string= '';
 	email: string= '';
 	phone: string= '';
-	timeout= setTimeout(() => {this.users= this.repository.users;}, 4000);
+	scroll= 9;
+	dataIsLoaded: boolean= false;
+	timeout= setTimeout(() => {this.loadData(); }, 4000);
 	
-	constructor(private repository: UserRepositoryService, private window: WindowService, private menu: MenuService) { }
+	constructor(private repository: UserRepositoryService, private window: WindowService) { }
 	
 	editUsers(index:number): void{
 		this.selectedIndex=index;
@@ -38,11 +39,11 @@ export class MailinglistdataComponent implements OnInit {
 		}
 		return true;
 	}
-	
+
 	updateData(index:number): void{
 		this.selectedIndex= -1;
 		this.id= this.repository.getId(index);
-		this.menu.setEvent('edit', this.repository.getId(index), this.repository.getFirstName(index) );
+		this.repository.patch(index);
 		this.updateName(index);
 		this.updateLastName(index); 
 		this.updateCountry(index);
@@ -54,59 +55,53 @@ export class MailinglistdataComponent implements OnInit {
 	updateName(index:number): void{
 		let name= this.repository.getFirstName(index)
 		if(name != this.name){
-			this.menu.setUpdatedMessage(name, this.name);
 			this.repository.patchName(index, this.name);
 		}
 	}
 	
 	updateLastName(index:number): void{
 		if(this.repository.getLastName(index) != this.lastName){
-			this.menu.setUpdatedMessage(this.repository.getLastName(index), this.lastName);
 			this.repository.patchLastname(index, this.lastName);
 		}
 	}
 	
 	updateCountry(index:number): void{
 		if(this.repository.getCountry(index) != this.country){
-			this.menu.setUpdatedMessage(this.repository.getCountry(index), this.country);
 			this.repository.patchCounty(index, this.country);
 		}
 	}
 	
 	updateEmail(index:number): void{
 		if(this.repository.getEmail(index) != this.email){
-			this.menu.setUpdatedMessage(this.repository.getEmail(index), this.email);
 			this.repository.patchEmail(index, this.email);
 		}
 	}
 	
 	updatePhone(index:number): void{
 		if(this.repository.getPhone(index) != this.phone){
-			this.menu.setUpdatedMessage(this.repository.getPhone(index), this.phone);
 			this.repository.patchPhone(index, this.phone);
 		}
 	}
 	
 	deleteUser(index:number): void{
-		this.menu.setEvent('delete', this.repository.getId(index), this.repository.getFirstName(index) );
 		this.repository.deleteUser(index);
 		this.users= this.repository.users;
-	}
-
-	setWidth(length:number): string{
-		return `width:${length*16}px;`;
-	} 	
+	}	
 
 	checkForData(): boolean{
-		if(this.users.length <= 0){
+		if(this.users.length <= 0 && this.dataIsLoaded){
 			return false;
-		}
+		} 
 		return true;
+	}
+	
+	loadData(){
+		this.users= this.repository.users;
+		this.dataIsLoaded= true;		
 	}
 
 	ngOnInit(): void {
 		this.window.scrollToTop();
-		this.timeout
 	}
 
 }

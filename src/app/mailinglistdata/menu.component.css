@@ -7,7 +7,6 @@ div.menu button.btn{ position: fixed;
 	padding: 10% 2%;
 	z-index: -1;
 	font-weight: bold;
-	/* font-size: 2vmin; */
 }
 
 div.menu button.btn:hover{ color: black;
@@ -15,7 +14,6 @@ div.menu button.btn:hover{ color: black;
 
 @media screen and (max-width:350px) {
 	div.menu button.btn, div.menu div.submenu { font-size: smaller;
-		 
 	}
 	
 }
@@ -23,26 +21,25 @@ div.menu button.btn:hover{ color: black;
 div.menu:hover div.submenu{ left: 0;
 }
 
-div.menu div.submenu{ min-height: 70%;
+div.menu div.submenu{ 
 	max-width: 80%;
 	min-width: 40%;
 	position: fixed;
+	height: 100%;
 	top: 14%;
 	left: -1250px;
 	transition: 1s;
 	box-shadow: 0 0 7px blue;
 	z-index: 2;
-	/* font-size: 3vmin; */
 }
 
 div.menu div.show-menu{ left: 0;
-
 }
 
-div.links { margin: 5px;
+div.links { margin: 1%;
 }
 
-div.links button{ margin: 0 5px 5px 0;	
+div.links a{ margin: 1% 0 0 1%;	
 }
 
 div.log{ margin: 5px;
@@ -70,8 +67,7 @@ div.log div:nth-child(1) button:hover{ background-color: red;
 
 div.log div:nth-child(2){ padding: 3%;
 	height: 170px;
-	overflow-x:scroll;
-	overflow-y:scroll;
+	overflow: auto;
 	margin: 1px;	
 }
 
