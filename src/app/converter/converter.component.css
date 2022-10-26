@@ -1,5 +1,7 @@
 
 
+body{overflow: hidden;
+}
 
 div.converter{ 	max-width: 450px;
 	box-shadow: 0 0 4px lightskyblue;
@@ -7,16 +9,17 @@ div.converter{ 	max-width: 450px;
 	padding: 5%;
 	text-align: center;
 	font-size: 4vmin;
+	margin: auto;
 }
 div.converter:hover{ box-shadow: 0 0 10px lightskyblue;
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 540px) {
 	div.converter{ font-size: 7.5vmin;
 		padding: 2%;
+		width: 97%;
 	}
 	input{ font-size: smaller !important;
-		
 	}
 }
 

@@ -8,52 +8,47 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body (keyup)= 'getKeyValues()' class= "fade">
-	<h1>Converter App
-		<h4>Try the Converter App</h4>
-	</h1>
-	<div class= "w3-row">
-		<div class= "w3-third w3-container"></div>
-		<div class= "w3-twothird">
-		<div class= 'converter alt-banner' >
-			<b>Converter</b>
-			<div class= 'numpad'>
-				<label >{{ setAnswerDisplay() }}</label>
-				<br>
-				<input [value]= 'toDisplayValue' [placeholder]= 'setDisplayPlaceholder()' readonly>
-				<br>
-				<button (click)= 'run("convert")' class= 'unit operator wider'>convert</button>
-				<br>
-				<button (click)= 'run("℉")' class= 'unit operator measure wide'>fahrenheit</button>
-				<button (click)= 'run("℃")' class= 'unit operator measure'>celcuis</button>
-				<br>
-				<button (click)= 'getNumberInput("1")' class= "num">1</button>
-				<button (click)= 'getNumberInput("2")' class= "num">2</button>
-				<button (click)= 'getNumberInput("3")' class= "num">3</button>
-				<button (click)= 'run("cm")' class= 'unit operator measure'>cm</button>
-				<br>
-				<button (click)= 'getNumberInput("4")' class= "num">4</button>
-				<button (click)= 'getNumberInput("5")' class= "num">5</button>
-				<button (click)= 'getNumberInput("6")' class= "num">6</button>
-				<button (click)= 'run("m")' class= 'unit operator measure'>metres</button>
-				<br>
-				<button (click)= 'getNumberInput("7")' class= "num">7</button>
-				<button (click)= 'getNumberInput("8")' class= "num">8</button>
-				<button (click)= 'getNumberInput("9")' class= "num">9</button>
-				<button (click)= 'clearAll()' class= 'reset clear'>reset</button>
-				<br>
-				<button (click)= 'getNumberInput("-")'  class= "num">-</button>
-				<button (click)= 'getNumberInput("0")' class= "num">0</button>
-				<button (click)= 'getNumberInput(".")'  class= "num">.</button>
-				<button (click)= 'clearDisplay()' class= 'reset clear'>clear</button>
-			</div>
-		</div>
-		<div class="capsule">
-			<div>℉</div>
-			<div>℃</div>
-			<div>cm</div>
-			<div>m</div>
-		</div>
-		</div>
+<h1>Converter App
+	<h4>Try the Converter App</h4>
+</h1>
+<div class= 'converter alt-banner' >
+	<b>Converter</b>
+	<div class= 'numpad'>
+		<label >{{ setAnswerDisplay() }}</label>
+		<br>
+		<input [value]= 'toDisplayValue' [placeholder]= 'setDisplayPlaceholder()' readonly>
+		<br>
+		<button (click)= 'run("convert")' class= 'unit operator wider'>convert</button>
+		<br>
+		<button (click)= 'run("℉")' class= 'unit operator measure wide'>fahrenheit</button>
+		<button (click)= 'run("℃")' class= 'unit operator measure'>celcuis</button>
+		<br>
+		<button (click)= 'getNumberInput("1")' class= "num">1</button>
+		<button (click)= 'getNumberInput("2")' class= "num">2</button>
+		<button (click)= 'getNumberInput("3")' class= "num">3</button>
+		<button (click)= 'run("cm")' class= 'unit operator measure'>cm</button>
+		<br>
+		<button (click)= 'getNumberInput("4")' class= "num">4</button>
+		<button (click)= 'getNumberInput("5")' class= "num">5</button>
+		<button (click)= 'getNumberInput("6")' class= "num">6</button>
+		<button (click)= 'run("m")' class= 'unit operator measure'>metres</button>
+		<br>
+		<button (click)= 'getNumberInput("7")' class= "num">7</button>
+		<button (click)= 'getNumberInput("8")' class= "num">8</button>
+		<button (click)= 'getNumberInput("9")' class= "num">9</button>
+		<button (click)= 'clearAll()' class= 'reset clear'>reset</button>
+		<br>
+		<button (click)= 'getNumberInput("-")'  class= "num">-</button>
+		<button (click)= 'getNumberInput("0")' class= "num">0</button>
+		<button (click)= 'getNumberInput(".")'  class= "num">.</button>
+		<button (click)= 'clearDisplay()' class= 'reset clear'>clear</button>
 	</div>
+</div>
+<div class="capsule">
+	<div>℉</div>
+	<div>℃</div>
+	<div>cm</div>
+	<div>m</div>
+</div>
 </body>
 </html>
