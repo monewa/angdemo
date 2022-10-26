@@ -17,16 +17,21 @@ a:hover{ background-color: aliceblue;
     max-width: 50%;
 }
 
-div.books{ display:inline-block;
-    max-width: 232px ;
-    max-height: 575px;
-    border: solid red;
-    margin: 0 0 5% 4% ;
-    transition: .6s;
-    border: solid rgb(116, 184, 251);
+.container{ 
+    width: 80%; 
+    margin: 10% 0 0 10%;
+    padding: 2%;
 }
 
-div.books div{ margin: 3%;
+p{ padding-left: 2%;
+}
+
+div.books{ display: inline-block;
+    margin: 3%;
+    width: 25%;
+    border: solid red;
+    transition: .6s;
+    border: solid rgb(116, 184, 251);
 }
 
  div.books:hover{ border-color: blue;
@@ -34,34 +39,51 @@ div.books div{ margin: 3%;
 }
 
 div.books img{ width: 100%;
+    height: auto;
 }
 
-@media screen and (max-width: 350px) {
-    div.books{ display:inline-block;
-        max-width: 180px ;
-    }
-    div.books img{ max-width: 180px;
-        max-height: 190px;
+@media screen and (max-width: 1000px) {
+    .container{ width: 100%;
+        margin: 10% auto 0 auto;
     }
 }
 
-div.books :nth-child(2){min-height: 65px;
+@media screen and (max-width: 600px) {
+    div.books{ width: 100% ;
+        margin: 0 auto 8% auto;
+    }
+    div.description :nth-child(1){height: 27px;
+        overflow: hidden;
+    }
+}
+
+div.books .title{height: 72px;
     font-weight: bold;
     text-align: center;
     border-top: solid;
-    padding-top: 15px;
+    padding: 1%;
+    overflow: hidden;
+}
+ 
+.description{ padding: 3%;
 }
 
-div.books :nth-child(3){min-height: 80px;
+div.description :nth-child(1){height: 72px;
+    overflow: hidden;
 }
 
-div.books :nth-child(4){min-height: 30px;
+div.description :nth-child(2){ height: 27px;
+    overflow: hidden;
 }
 
-div.books :nth-child(5){min-height: 30px;
+div.description :nth-child(3){ height: 27px;
+    overflow: hidden;
 }
+div.description :nth-child(4){height: 32px;
+    overflow: hidden;
 
-div.books :nth-child(6) span{min-height: 60px;
+}
+div.description :nth-child(4) span{ 
     color: rgb(246, 66, 102);
     font: normal x-large Georgia, serif;
 }
