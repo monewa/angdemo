@@ -115,6 +115,10 @@ body .active{color: var(--banner-color);
 	background-color:lightgrey;
 }
 
+hr{ border-color: orange !important;
+	margin: 4% !important;
+}
+
 button{ border-radius: 2.5px;
 	transition: .6s;
 	border-style: none;
@@ -146,6 +150,9 @@ input:hover, textarea:hover, select:hover{ border: solid blue;
 
 input:focus, textarea:focus, select:focus{ box-shadow: 0 0 12px skyblue; 
 	border: solid blue;
+}
+
+textarea{ resize: inherit;
 }
 
 footer{ background-color: var(--banner-color);

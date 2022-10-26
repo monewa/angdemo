@@ -10,7 +10,7 @@
 
 <body class="app" >
 	<nav class= "w3-bar banner-btn" style="margin-bottom: 80px;">
-		<svg  class="w3-left" style= "font-size: 2vmin">
+		<svg  class="" style= "float:left; width:126px">
 			<defs>
 				<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
 				<stop offset="0%" style="stop-color:rgb(0, 7, 102);" />
@@ -20,8 +20,8 @@
 			<ellipse cx="65" cy="50" rx="60" ry="45" fill="url(#grad1)" />
 			<text fill="white" font-size="15"  x="13" y="60">Demo Project</text>
 		</svg>
-		<a (click)= "openMenu()" href="javascript:void(0)" 
-			class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"> 
+		<a (click)= "openMenu()" href="javascript:void(0)"  style="float: right;"
+			class="w3-bar-item w3-button w3-hide-large w3-hide-medium"> 
 			<span *ngIf= "!menuIsOpen">&#9776;</span> 
 			<span *ngIf= "menuIsOpen">×</span>
 		</a>
@@ -66,6 +66,7 @@
 		<a routerLink= '/bookstore' routerLinkActive= 'active' 
 			class="w3-bar-item w3-button">Book Store
 		</a>
+		<hr [style]= 'showMailList()' [style]= 'showDatalinks()'>
 		<a [style]= 'showMailList()' routerLink= '/mailinglist' routerLinkActive= 'active'
 			class="w3-bar-item w3-button">MailList Form
 		</a>
@@ -78,12 +79,13 @@
 		<a  [style]= 'showMoreDatalinks()' routerLink='/jsonfile' routerLinkActive= 'active'
 			class="w3-bar-item w3-button">JSON file			
 		</a>
+		<hr [style]= 'showMailList()' [style]= 'showDatalinks()'>
 		<a routerLink= '/aboutme' routerLinkActive= 'active' 
 			class="w3-bar-item w3-button">About Me</a>
 	</div>  
 	<router-outlet></router-outlet>
 </body>
-<footer *ngIf = 'hideFooter()'>
+<footer >
 	<div class= "languages">
 		<div>HTML</div>
 		<div>CSS</div>

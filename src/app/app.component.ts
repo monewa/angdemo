@@ -39,13 +39,6 @@ export class AppComponent {
 		return  'display: none;';
 	}	
 
-	hideFooter(){
-		if(this.router.isActive('mailinglistdata', true)){
-			return false;			
-		}
-		return true;
-	}	
-
 	ngOnInit(): void{
 	}
 	
