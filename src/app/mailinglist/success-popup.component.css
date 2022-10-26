@@ -7,54 +7,47 @@ div.w3-modal-content{ border: 4px groove;
 	z-index: 2;
     animation: popdown 2s;
 }
-
 @keyframes popdown { from{margin-top: -600px; }
 	to{margin-top: -30px;}
 }
-
 div.w3-modal-content div:nth-child(1){ text-align: center;
 	box-shadow: 0 0 13px lime;
 	color: lime;
 	padding: 3%;
 	font-size: large;
+	margin-bottom: -2%;
 }
-
-@media screen and (max-width: 350px){ 
-	div.w3-modal-content div:nth-child(1){
-		font-size: medium;
+@media screen and (max-width: 450px){ 
+	div.w3-modal-content {
+		font-size:smaller;
 	}
 }
-
 div.w3-modal-content div:nth-child(2){ padding: 1%;
 	margin-top: 5%;
 }
-
 div.w3-modal-content span{ background-color:rgb(5, 5, 112);
 	padding: .8%;
 	border-radius: 5px;
 	color: orange;
 } 
 table{ width: 100%;
+	margin-top: 2%;
 }
-
-td{ border: solid 1px;
+td, table, tr{ border: solid 1px;
 	padding: 2% 1%;
+	border-collapse: collapse;
 }
-
 div.w3-modal-content div:nth-child(2) div{ text-align: left;
 	margin-left: 3%;
 }
-
 div.w3-modal-content div:nth-child(3){ text-align: center;
 	margin: 1%;
 }
-
 div.w3-modal-content div:nth-child(3) button{ background-color: white;
 	padding: 3%;
 	text-align: center;
 	transition: .5s;
-	margin: 6% 0 4% 0;
+	margin: 2% 0 4% 0;
 }
-
 div.w3-modal-content div:nth-child(3) button:hover{ box-shadow: 0 0 13px yellow;
 }
