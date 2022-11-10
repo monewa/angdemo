@@ -1,6 +1,6 @@
 
 form{ color: orange;
-	max-width: 750px; 
+	max-width: 650px !important; 
 	padding: 8%;
 	border-radius: 5px;
 	transition: 0.4s;
@@ -15,13 +15,15 @@ div.name{ margin-top: 40px;
 }
 
 p{ padding: 0 2%;
+	max-width: 650px !important; 
+	margin: auto;
 }
 
-div.code span{ font-weight: bold;
+div.code .tooltip{ font-weight: bold;
 	font-style: italic;
 	color: whitesmoke;
 	background-color: blue;
-	padding: 1% 2%;
+	padding: .5% .5%;
 	border-radius: 5px;
 	cursor: pointer;
 	z-index: -1;
@@ -32,6 +34,7 @@ div.info{ color: orange;
 	max-width: 320px;
 	transition: 0.5s;
 	margin-bottom: -9%;
+	transition: 2s;
 }
 
 div.info:after {
@@ -44,24 +47,25 @@ div.info:after {
     border-color:rgb(15, 51, 110) transparent transparent ;
 }
 
-div.code span:hover{ background-color:rgb(29, 130, 231);
+div.code .tooltip:hover{ background-color:rgb(29, 130, 231);
 	box-shadow: none;
 }
 
-div.code input, div.code div{	max-width: 80% !important	;
-
+div.code input, div.code div{	max-width: 80% !important;
 }
 
- div.code { width:40%; 	
+ div.code { width:50%; 	
 	display: inline-block;
 }
 
-div.phone{  width: 60%;
+div.phone{  width: 50%;
 	display: inline-block;
 }
 
 div.buttons button{ border-radius: 3px;
-	max-width: 80%;
+	width: 27%;
+	padding:8px 25px;
+	margin-right: 12px;
 }
 
 div.buttons button:nth-child(3){ background-color:rgb(144, 4, 4);
@@ -71,35 +75,39 @@ div.buttons button:nth-child(3){ background-color:rgb(144, 4, 4);
 div.buttons button:nth-child(3):hover{ background-color:red;
 }
 
-form button{ padding:8px 25px;
-	margin: 12px;
-}
-
 form label, form input,  form textarea, form select, form option{ 
-	max-width: 98% !important;
+	width: 98% !important;
 }
 
-@media screen and (max-width:450px) {
+@media screen and (max-width:600px) {
 	form{ padding: 2%;
 		margin-left: 1px;
 		width: 98%;
 	}
-	form input,  form textarea, form select, form option{
-		width: 100%;
+
+	div.phone{ margin-top: 40px;
 	}
+
+	form input,  form textarea, form select, form option{
+		width: 100% ;
+	}
+	div.buttons button{ width: 100%;
+		margin-bottom: 2%;
+	}
+
 }
 
-input.ng-invalid, textarea.ng-invalid, select.ng-invalid{ border-left: 2px solid red
+.ng-invalid{ border-left: 2px solid red
 }
 
-input.ng-valid, textarea.ng-valid, select.ng-valid{ border-left: 2px solid lime
+.ng-valid{ border-left: 2px solid lime
 }
 
 .alert{ color:red;	
 	visibility: visible;
 }
 
-.alert-opaque{ visibility: hidden;
+.alert-invisible{ visibility: hidden;
 }
 
 
