@@ -20,6 +20,11 @@ div.container div{ box-shadow: 0 0 14px blue;
 	}
   }
 
+@media screen and (min-width: 450px){
+    div.images{  width: 100%;
+    }    
+}
+  
 span{ color:orange;
     text-shadow: 0px 0px 3px ;
     background-color: rgb(5, 5, 112);
@@ -53,7 +58,7 @@ div.images img:nth-child(2){  border-color:gold;
     box-shadow: 0 0 12px gold; 
  }
 
- div.images img:nth-child(3){border-color: orange;
+ div.images img:nth-child(3){ border-color: orange;
     box-shadow: 0 0 12px orange; 
  }
 
