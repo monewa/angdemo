@@ -11,13 +11,29 @@ import { UserRepositoryService } from '../model/user.repository.service';
 export class BookstoreComponent implements OnInit {
 
 books: any[] = [];
-timeout= setTimeout(()=>{this.books= this.repository.books}, 3000);
 
 constructor(private window: WindowService, private repository: UserRepositoryService) { }
 
+error: string= '';
+
+getBooks(): void{
+  console.log('sub');
+  
+  this.repository.getBooks().subscribe(
+    (data:any[])=> { 
+      this.books= data; 
+    }, 
+    err=> {
+      this.error= '(no books not found!)';
+    },
+    ()=> {
+      this.error= '';
+    });
+}
+
 ngOnInit(): void { 
     this.window.scrollToTop();
-    // this.books= this.repository.books;
+    this.getBooks();
   }
 
 }

@@ -21,14 +21,15 @@
 	
 	<div class= "container banner">
 		<p >Browse our best selling books</p>
+		<p>{{ error }}</p>
 		<div class= "books  alt-banner" *ngFor= "let book of books" >
-			<img [src]="'assets/img/'+book.imageUrl">
-			<div class="banner-btn title">{{ book.title }}</div>
+			<img [src]= "'assets/img/'+book.imageUrl">
+			<div class= "banner-btn title">{{ book.title }}</div>
 			<div class= "description">
 				<p>{{ book.description}}</p>
 				<p><i> by {{ book.author }}</i></p>
 				<p>pages: {{ book.pages }}</p>
-				<p>price: <span> {{ book.price| currency }}</span></p>
+				<p>price: <span> {{ book.price | currency }}</span></p>
 			</div>
 		</div>	
 	</div>
