@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { UserRepositoryService } from '../model/user.repository.service';
+import { MessageService } from '../services/message.service';
 import { WindowService } from '../services/window.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { WindowService } from '../services/window.service';
 })
 export class MailinglistdataComponent implements OnInit {
 
-	users: any[]= this.repository.users;
+	users: any[]= [];
 	id: number= -1;
 	selectedIndex: number= -1;
 	name: string= '';
@@ -20,17 +21,24 @@ export class MailinglistdataComponent implements OnInit {
 	phone: string= '';
 	scroll= 9;
 	dataIsLoaded: boolean= false;
-	timeout= setTimeout(() => {this.loadData(); }, 4000);
 	
-	constructor(private repository: UserRepositoryService, private window: WindowService) { }
+	constructor(private repository: UserRepositoryService, private messenger: MessageService,
+		private window: WindowService) { }
 	
+	get(){
+		this.repository.getUsers().subscribe( 
+			(data)=> { 
+				this.users= data; 
+			});
+	}
+
 	editUsers(index:number): void{
 		this.selectedIndex=index;
-		this.name= this.repository.getFirstName(index);
-		this.lastName= this.repository.getLastName(index);
-		this.country= this.repository.getCountry(index);
-		this.email= this.repository.getEmail(index);
-		this.phone= this.repository.getPhone(index);
+		this.name= this.users[index].firstName;
+		this.lastName= this.users[index].lastName;
+		this.country= this.users[index].country;
+		this.email= this.users[index].email;
+		this.phone= this.users[index].phone;
 	}
 	
 	checkForEditMode(index:number): boolean{
@@ -42,51 +50,117 @@ export class MailinglistdataComponent implements OnInit {
 
 	updateData(index:number): void{
 		this.selectedIndex= -1;
-		this.id= this.repository.getId(index);
-		this.repository.patch(index);
+		this.id= this.users[index].id;
+		this.messenger.setLogUpdate(this.users[index].firstName, '', true, '', 'selected', this.id);
 		this.updateName(index);
 		this.updateLastName(index); 
 		this.updateCountry(index);
-		this.updateEmail(index);
 		this.updatePhone(index);
-		this.users = this.repository.users;
+		this.updateEmail(index);
+		this.get();
 	}
 
-	updateName(index:number): void{
-		let name= this.repository.getFirstName(index)
+	updateName(index:number): void{ 
+		let name= this.users[index].firstName;
 		if(name != this.name){
-			this.repository.patchName(index, this.name);
+			this.repository.patchName(this.id, this.name).subscribe(
+				users =>{ }, 
+				err =>{ 
+					this.messenger.setLogUpdate(name, '', false, err.message);
+					this.messenger.setEditNotify(false, this.id);
+				}, 
+				() =>{
+					this.messenger.setEditNotify(true, this.id);
+					this.messenger.setLogUpdate(name, this.name, true);
+				});	
 		}
 	}
 	
 	updateLastName(index:number): void{
-		if(this.repository.getLastName(index) != this.lastName){
-			this.repository.patchLastname(index, this.lastName);
+		let lastName= this.users[index].lastName;
+		if(lastName != this.lastName){
+			this.repository.patchLastname(this.id, this.lastName).subscribe(
+				users =>{ }, 
+				err =>{ 
+					this.messenger.setLogUpdate(lastName, '', false, err.message);
+					this.messenger.setEditNotify(false, this.id);
+				}, 
+				() =>{
+					this.messenger.setEditNotify(true, this.id);
+					this.messenger.setLogUpdate(lastName, this.lastName, true);
+				});
 		}
 	}
 	
 	updateCountry(index:number): void{
-		if(this.repository.getCountry(index) != this.country){
-			this.repository.patchCounty(index, this.country);
+		let country= this.users[index].country;
+		if(country != this.country){
+			this.repository.patchCounty(this.id, this.country).subscribe(
+				users=>{ }, 
+				err =>{ 
+					this.messenger.setLogUpdate(country, '', false, err.message);
+					this.messenger.setEditNotify(false, this.id);
+				}, 
+				() =>{
+					this.messenger.setEditNotify(true, this.id);
+					this.messenger.setLogUpdate(country, this.country, true);
+				});
 		}
 	}
 	
 	updateEmail(index:number): void{
-		if(this.repository.getEmail(index) != this.email){
-			this.repository.patchEmail(index, this.email);
+		let email= this.users[index].email;
+		if(email != this.email){
+			this.repository.patchEmail(this.id, this.email).subscribe(
+				users =>{ }, 
+				err =>{ 
+					this.messenger.setLogUpdate(email, '', false, err.message);
+					this.messenger.setEditNotify(false, this.id);
+				}, 
+				() =>{
+					this.messenger.setEditNotify(true, this.id);
+					this.messenger.setLogUpdate(email, this.email, true);
+				});
 		}
 	}
 	
 	updatePhone(index:number): void{
-		if(this.repository.getPhone(index) != this.phone){
-			this.repository.patchPhone(index, this.phone);
+		let phone= this.users[index].phone
+		if(phone != this.phone){
+			this.repository.patchPhone(this.id, this.phone).subscribe(
+				users =>{ }, 
+				err =>{ 
+					this.messenger.setLogUpdate(phone, '', false, err.message);
+					this.messenger.setEditNotify(false, this.id);
+				}, 
+				() =>{
+					this.messenger.setEditNotify(true, this.id);
+					this.messenger.setLogUpdate(phone, this.phone, true);
+				});
 		}
 	}
 	
-	deleteUser(index:number): void{
-		this.repository.deleteUser(index);
-		this.users= this.repository.users;
+	deleteUser(id:number, index: number): void{
+		let name= this.users[index].firstName;
+		this.repository.deleteUser(id).subscribe(
+			deleted =>{ }, 
+			err =>{ 
+				this.messenger.setLogUpdate(name, '', false, err.message, 'deleted', id);
+				this.messenger.setDeleteNotify(true, id);
+				this.messenger.deleteNotificationIsOpen= true;
+			}, 
+			() =>{
+				this.messenger.setLogUpdate(name, '', true, '', 'deleted', id);
+				this.messenger.setDeleteNotify(false, id);
+				this.messenger.deleteNotificationIsOpen= true;
+			 });
+		this.get();
 	}	
+
+	getName(id: number){
+		let index= this.users?.indexOf(id);
+		return	this.users[index].firstName;
+	}
 
 	checkForData(): boolean{
 		if(this.users.length <= 0 && this.dataIsLoaded){
@@ -96,12 +170,13 @@ export class MailinglistdataComponent implements OnInit {
 	}
 	
 	loadData(){
-		this.users= this.repository.users;
+		this.get();
 		this.dataIsLoaded= true;		
 	}
 
 	ngOnInit(): void {
 		this.window.scrollToTop();
+		setTimeout(() => {this.loadData(); }, 4000);
 	}
 
 }

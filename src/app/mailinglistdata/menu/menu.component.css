@@ -1,0 +1,107 @@
+
+
+
+div.menu button.btn{ position: fixed;
+	left: 0;
+	top: 30%;
+	padding: 10% 2%;
+	z-index: -1;
+	font-weight: bold;
+}
+
+div.menu button.btn:hover{ color: black;
+}
+
+@media screen and (max-width:350px) {
+	div.menu button.btn, div.menu div.submenu { font-size: smaller;
+	}
+	
+}
+
+div.menu:hover div.submenu{ left: 0;
+}
+
+div.menu div.submenu{ 
+	max-width: 80%;
+	min-width: 40%;
+	position: fixed;
+	height: 100%;
+	top: 14%;
+	left: -1250px;
+	transition: 1s;
+	box-shadow: 0 0 7px blue;
+	z-index: 2;
+}
+
+div.menu div.show-menu{ left: 0;
+}
+
+div.links { margin: 1%;
+}
+
+div.links a{ margin: 1% 0 0 1%;	
+}
+
+div.log{ margin: 5px;
+	background-color: azure;
+	color: black;
+	border: ridge lightgray;
+	z-index: 2;
+	max-height: 60% ;
+}
+
+div.log div:nth-child(1){ border-bottom: white groove 3px;
+	padding: 1%;
+	color: orange;
+	font-weight: bold;
+}
+
+div.log div:nth-child(1) button{ float: right;
+	background-color :transparent;
+	color: azure;
+}
+
+div.log div:nth-child(1) button:hover{ background-color: red;
+	color: antiquewhite;
+}
+
+div.log div:nth-child(2){ padding: 3%;
+	height: 170px;
+	overflow: auto;
+	margin: 1px;	
+}
+
+div.log-message{ padding-left: 9%;
+}
+
+div.notifications div{ padding: 3%;
+	color:white;
+	max-width: 260px;
+	width: 65%;
+	height: 40% ;
+	max-height: 130px;
+	text-align: center;
+	box-shadow: 0 0 9px rgb(29, 27, 27);
+	margin: 0.7%;
+}
+
+div.notifications button{ background-color: transparent;
+	color: whitesmoke;
+	margin: 10% 0 5% 0;
+	padding: 2% 9%;
+	width: 35%;
+	text-align: center;
+	font-size: inherit !important;
+}
+
+div.del-notification{ background-color: crimson;
+}
+
+div.del-notification button:hover{ background-color: red;
+}
+
+div.edit-notification{ background-color: rgb(0, 81, 255); 
+}
+
+div.edit-notification button:hover{ background-color: blue;
+}
