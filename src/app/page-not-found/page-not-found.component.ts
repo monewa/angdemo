@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @Component({
   selector: 'app-page-not-found',
@@ -13,4 +16,5 @@ export class PageNotFoundComponent implements OnInit {
   }
 
 }
+
 
