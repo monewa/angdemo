@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
