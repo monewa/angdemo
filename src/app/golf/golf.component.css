@@ -1,0 +1,18 @@
+
+
+body{
+    background-image: url('/assets/img/home.jpeg');
+    background-color: navy;
+    color: azure !important;
+    padding: 5%;
+}
+
+div.block{
+    color: antiquewhite;
+    background-color: rgba(141, 137, 137, 0.171);
+}
+
+.card, form{
+    color: black;
+}
+
