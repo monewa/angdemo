@@ -6,7 +6,7 @@ import { UserRepositoryService } from '../model/user.repository.service';
 @Component({
   selector: 'app-bookstore',
   templateUrl: './bookstore.component.html',
-  styleUrls: ['./bookstore.component.css', '../app.component.css', '../w3.css']
+  styleUrls: ['./bookstore.component.css', '../app.component.css']
 })
 export class BookstoreComponent implements OnInit {
 
