@@ -7,7 +7,7 @@ import { WindowService } from '../services/window.service';
 @Component({
   selector: 'app-mailinglistdata',
   templateUrl: './mailinglistdata.component.html',
-  styleUrls: ['./mailinglistdata.component.css' , '../app.component.css', '../w3.css']
+  styleUrls: ['./mailinglistdata.component.css' , '../app.component.css']
 })
 export class MailinglistdataComponent implements OnInit {
 

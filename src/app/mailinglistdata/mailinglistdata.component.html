@@ -7,11 +7,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body  class= "fade">
+<body  class= "fade-in">
 <h1 title= 'Recipients information table'> Data
 		<h4>Mail List Recipients</h4>
 </h1>
-<app-menu ></app-menu>
+<app-menu></app-menu>
 <div style= "overflow: auto;"> 
 	<table>	
 		<thead class="banner-btn">
@@ -36,7 +36,7 @@
 			</tr>
 			<tr *ngFor= 'let user of users; let i= index;  let even= even;' 
 					[class.alt-banner]= "even" class="banner">
-				<td><button (click)= "deleteUser(i)"  class= "del">
+				<td><button (click)= "deleteUser(user.id, i)"  class= "del">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 					  
 								fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
 								<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -50,14 +50,14 @@
 					 </svg> <span  class= "w3-hide-small">edit</span> 								
 					</button>
 					<button (click)= "updateData(i)" [hidden]= 'checkForEditMode(i)' class= "edit">
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
 								fill="currentColor" class="bi bi-hdd" viewBox="0 0 16 16">
 								<path d="M4.5 11a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM3 10.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
 								<path d="M16 11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9.51c0-.418.105-.83.305-1.197l2.472-4.531A1.5 1.5 0 0 1 4.094 3h7.812a1.5 1.5 0 0 1 1.317.782l2.472 4.53c.2.368.305.78.305 1.198V11zM3.655 4.26 1.592 8.043C1.724 8.014 1.86 8 2 8h12c.14 0 .276.014.408.042L12.345 4.26a.5.5 0 0 0-.439-.26H4.094a.5.5 0 0 0-.44.26zM1 10v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1z"/>
-							  </svg> <span  class= "w3-hide-small">save</span> 
+						</svg> <span  class= "w3-hide-small">save</span> 
 					</button>
 				</td>
-				<td>{{user.id}}</td> 					
+				<td>{{ user.id }}</td> 					
 				<td><label [hidden]= '!checkForEditMode(i)'>{{ user.firstName }}</label>
 					<input [hidden]= 'checkForEditMode(i)' 
 							[ngStyle]= "{ width: user.firstName?.length*16 +'px'}" 	
