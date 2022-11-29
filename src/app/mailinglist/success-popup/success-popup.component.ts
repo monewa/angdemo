@@ -4,7 +4,7 @@ import { Component, Input, OnInit} from '@angular/core';
 @Component({
   selector: 'app-success-popup',
   templateUrl: './success-popup.component.html',
-  styleUrls: ['./success-popup.component.css', '../../app.component.css', '../../w3.css']
+  styleUrls: ['./success-popup.component.css', '../../app.component.css']
 })
 export class SuccessPopupComponent implements OnInit {
   
