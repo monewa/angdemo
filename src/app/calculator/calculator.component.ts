@@ -6,7 +6,7 @@ import { WindowService } from '../services/window.service';
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
-  styleUrls: ['./calculator.component.css', '../app.component.css', '../w3.css']
+  styleUrls: ['./calculator.component.css', '../app.component.css']
 })
 export class CalculatorComponent implements OnInit {
 
@@ -24,7 +24,7 @@ export class CalculatorComponent implements OnInit {
   constructor(private window: WindowService) { }
 
 	restrictValues(num: string): boolean{
-		if(this.screenValue.length >= 15){
+		if(this.screenValue.length >= 16){
 			return true; 
 		}	
 		if(this.restrictPeriod(num)){
