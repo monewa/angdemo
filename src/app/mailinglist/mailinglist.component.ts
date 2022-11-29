@@ -9,7 +9,7 @@ import { MessageService } from '../services/message.service';
 @Component({
   selector: 'app-mailinglist',
   templateUrl: './mailinglist.component.html',
-  styleUrls: ['./mailinglist.component.css', '../app.component.css', '../w3.css']
+  styleUrls: ['./mailinglist.component.css', '../app.component.css']
 })
 export class MailinglistComponent implements OnInit {
 
