@@ -5,7 +5,7 @@ import { WindowService } from '../services/window.service';
 @Component({
   selector: 'app-converter',
   templateUrl: './converter.component.html',
-  styleUrls: ['./converter.component.css', '../app.component.css', '../w3.css']
+  styleUrls: ['./converter.component.css', '../app.component.css']
 })
 export class ConverterComponent implements OnInit {
 
