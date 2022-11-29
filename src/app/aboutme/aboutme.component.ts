@@ -6,7 +6,7 @@ import { WindowService } from '../services/window.service';
 @Component({
   selector: 'app-aboutme',
   templateUrl: './aboutme.component.html',
-  styleUrls: ['./aboutme.component.css', '../app.component.css', '../w3.css']
+  styleUrls: ['./aboutme.component.css', '../app.component.css']
 })
 export class AboutmeComponent implements OnInit {
 
