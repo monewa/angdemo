@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { UserRepositoryService } from './model/user.repository.service';
 import {components} from './app-routing.module';
 import { LocationStrategy, HashLocationStrategy} from '@angular/common';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -19,7 +19,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule,
+    // NgbModule,
   ],
 providers: [UserRepositoryService, {provide:LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

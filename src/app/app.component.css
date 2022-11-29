@@ -42,7 +42,7 @@ h3{ color: var(--heading-color);
 body, footer{ color: var(--default-color);
 }
 
-body.fade, div.fade, label.fade, img.fade{border-radius: 5px;
+body.fade-in, div.fade-in, label.fade-in, img.fade-in{border-radius: 5px;
 animation:loadPage 3s 
 }
 @keyframes loadPage{from{opacity:0.2; }

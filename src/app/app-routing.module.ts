@@ -12,6 +12,7 @@ import { AboutmeComponent } from './aboutme/aboutme.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MenuComponent } from './mailinglistdata/menu/menu.component';
 import { SuccessPopupComponent } from './mailinglist/success-popup/success-popup.component'
+import { GolfComponent } from './golf/golf.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
 	{ path: 'mailinglistdata', component:MailinglistdataComponent}, 
 	{ path: 'mailinglist', component:MailinglistComponent},
 	{ path: 'bookstore', component:BookstoreComponent},
+	{ path: 'golf', component:GolfComponent},
 	{ path: 'aboutme', component:AboutmeComponent},
 	{ path: 'calculator', pathMatch:'full', redirectTo:'calculator' },
 	{ path: '', pathMatch:'full', redirectTo:'home' },
@@ -36,5 +38,5 @@ export class AppRoutingModule { }
 export const components= [ AppComponent, HomeComponent, CalculatorComponent, 
 	ConverterComponent, MailinglistComponent, MailinglistdataComponent, 
 	BookstoreComponent, AboutmeComponent, PageNotFoundComponent, 
-	MenuComponent,SuccessPopupComponent
+	MenuComponent, SuccessPopupComponent, GolfComponent
 ]
