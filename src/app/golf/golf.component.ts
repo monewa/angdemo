@@ -4,7 +4,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 @Component({
   selector: 'app-golf-home',
   templateUrl: './golf.component.html',
-  styleUrls: ['./golf.component.css',
+  styleUrls: ['./golf.component.css', '../../bootstrap-5.2.3-dist/css/bootstrap.min.css',
   ]
 })
 export class GolfComponent implements AfterViewInit {
