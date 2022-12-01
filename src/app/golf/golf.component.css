@@ -1,7 +1,7 @@
 
 
 body{
-    background-image: url('/assets/img/home.jpeg');
+    background-image: url('/assets/img/home.jpeg') !important;
     background-color: navy;
     color: azure !important;
     padding: 5%;
@@ -12,7 +12,5 @@ div.block{
     background-color: rgba(141, 137, 137, 0.171);
 }
 
-.card, form{
-    color: black;
-}
+
 
