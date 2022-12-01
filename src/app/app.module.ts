@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { UserRepositoryService } from './model/user.repository.service';
 import {components} from './app-routing.module';
 import { LocationStrategy, HashLocationStrategy} from '@angular/common';
+import { FormComponent } from './golf/form/form.component';
+import { GolfHomeComponent } from './golf/home/golf-home.component';
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
 @NgModule({
-  declarations: [components],
+  declarations: [components, FormComponent, GolfHomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
