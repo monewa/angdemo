@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
+  name: string= '';
+  score: string= '';
+  message: string= ''; 
   constructor() { }
+
+  savePlayer(){
+    this.message= 'player saved'
+  }
 
   ngOnInit(): void {
   }
