@@ -4,7 +4,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 @Component({
   selector: 'app-golf-home',
   templateUrl: './golf.component.html',
-  styleUrls: ['./golf.component.css', 
+  styleUrls: ['./golf.component.css',
   './bootstrap.min.css'
   ]
 })
