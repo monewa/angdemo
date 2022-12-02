@@ -1,9 +1,9 @@
 
 
 body{
-    background-image: url('/assets/img/home.jpeg') ;
+    background-image: url(/assets/img/home.jpeg);
     background-color: navy;
-    color: azure !important;
+    color: azure;
     padding: 5%;
 }
 
