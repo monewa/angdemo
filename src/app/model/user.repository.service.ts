@@ -12,11 +12,17 @@ export class UserRepositoryService {
 	users: any[]= [];
 	countries: any[]= [];
 	books: any[]= [];
-	readonly SERVER= 'https://mo-json-api.herokuapp.com';
-	readonly  USERSURL:string= `${this.SERVER}/recipients`;
-	readonly  COUNTRIESURL:string= `${this.SERVER}/countries-codes`;
-	readonly  BOOKSURL:string= `${this.SERVER}/books`;
-
+	// readonly SERVER1= 'https://mo-json-api.herokuapp.com';
+	// readonly SERVER2= 'http://localhost:3000';
+	// readonly  USERSURL:string= `${this.SERVER1}/recipients`;
+	// readonly  COUNTRIESURL:string= `${this.SERVER1}/countries-codes`;
+	// readonly  BOOKSURL:string= `${this.SERVER1}/books`;
+	readonly USERFILE=  'assets/data/recipients.json';
+	readonly COUNTRYFILE=  'assets/data/countrydata.json';
+	readonly BOOKSFILE=  'assets/data/books.json';
+	readonly USERSURL: string= this.USERFILE;
+	readonly COUNTRIESURL:string= this.COUNTRYFILE;
+	readonly BOOKSURL:string= this.BOOKSFILE; 
 	
 	constructor( private http:HttpClient) { 
 		this.getUsers();
@@ -26,9 +32,7 @@ export class UserRepositoryService {
 		return	this.http.get<any[]>(this.COUNTRIESURL, {responseType: 'json'})
 	}
 
-	getBooks(): Observable<any[]>{
-		console.log('obs');
-		
+	getBooks(): Observable<any[]>{		
 		return	this.http.get<any[]>(this.BOOKSURL, {responseType: 'json'})
 	}
 
