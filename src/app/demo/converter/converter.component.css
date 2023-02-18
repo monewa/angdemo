@@ -1,0 +1,87 @@
+
+
+body{overflow: hidden;
+}
+
+div.converter{ 	max-width: 450px;
+	box-shadow: 0 0 4px lightskyblue;
+	border-radius: 5px;
+	padding: 5%;
+	text-align: center;
+	font-size: 4vmin;
+	margin: auto;
+}
+div.converter:hover{ box-shadow: 0 0 10px lightskyblue;
+}
+
+@media screen and (max-width: 540px) {
+	div.converter{ font-size: 7.5vmin;
+		padding: 2%;
+		width: 97%;
+	}
+	input{ font-size: smaller !important;
+	}
+}
+
+div.numpad{ margin-top: 12%;
+}
+div.numpad button{ margin: 0 .5% .3% 0;
+	padding: .5% 3%;
+}
+button.num{width: 18.6%;
+	background-color:rgb(93, 195, 235);
+}
+div.numpad button.unit, div.numpad button.reset{ width: 42%;
+}
+div.numpad .wide{ width: 57% !important;
+}
+div.numpad .wider{ width: 99.5% !important;
+}
+div.converter label, div.converter input{ width: 100%; 
+}
+div.converter input{ text-align:right;
+	margin-bottom: 2%;
+	font-size: larger;
+}
+div.capsule{ margin-bottom: 800px;
+}
+div.capsule div{border-radius: 15px 10px;
+	position: relative;
+	opacity: 0;
+	text-align: center;
+	max-width: 50px;
+	padding: 6px 9px;
+	animation: moving-capsules 12s infinite ;
+	text-shadow: 0px 0px 10px;
+}
+div.capsule div:nth-child(1){ color: fuchsia;
+	box-shadow: 0 0 8px fuchsia;
+	left: 8%;
+}
+
+@keyframes moving-capsules { 0%{opacity: 0; top: 10px;}
+15%{opacity: 1;}
+70%{opacity: 0;}
+	100%{opacity: 0; top: 900px;}
+}
+
+div.capsule div:nth-child(2){ color:yellowgreen;
+	box-shadow: 0 0 10px yellowgreen;
+	animation-delay: 3s;
+	font-size: 25px;
+	left: 16%;
+}
+
+div.capsule div:nth-child(3){ left: 26%;
+	color: silver;
+	min-width: 80px;
+	box-shadow: 0 0 10px silver;
+	animation-delay: 6s;
+	font-size: 30px;
+}
+
+div.capsule div:nth-child(4){color:dodgerblue;
+	box-shadow: 0 0 10px dodgerblue;
+	animation-delay: 9s;
+	left: 40%;
+}

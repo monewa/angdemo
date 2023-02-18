@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
+	<meta charset= "UTF-8">
+</head>
+
+<body class= "fade-in">
+<div >
+	<h1>My Calculator App
+		<h4>You can calculate here</h4>
+	</h1>
+</div>
+<div (keyup)= 'setKeyInput()' class= 'calc banner-btn'>
+	<b>Calculator</b>
+	<div class= 'numpad w3-content'>
+		<div class="answer">{{toAnswerScreenValue}}</div>
+		<input [value]= 'toScreenValue' readonly placeholder='0' >
+		<br>
+		<button (click)= 'setValue("1")' class= "num">1</button>
+		<button (click)= 'setValue("2")' class= "num">2</button>
+		<button (click)= 'setValue("3")'class= "num">3</button>
+		<button (click)= 'clearEntry()' class= 'clear' >CE</button>	
+		<button (click)= 'clearAll()' class= 'clear'>C</button>	
+		<br>
+		<button (click)= 'setValue("4")' class= "num">4</button>
+		<button (click)= 'setValue("5")'class= "num">5</button>
+		<button (click)= 'setValue("6")' class= "num">6</button>
+		<button (click)= 'calculate("+")' class= 'operator'>+</button>
+		<button (click)= 'calculate("-")' class= 'operator'>-</button>
+		<br>
+		<button (click)= 'setValue("7")'  class= "num">7</button>
+		<button (click)= 'setValue("8")' class= "num">8</button>
+		<button (click)= 'setValue("9")' class= "num">9</button>
+		<button (click)= 'calculate("×")' class= 'operator'>×</button>	
+		<button (click)= 'calculate("÷")' class= 'operator'>÷</button>
+		<br>
+		<button (click)= 'setValue("0")' class= 'num wide'>0</button>
+		<button (click)= 'setValue(".")' class= "num">.</button>
+		<button (click)= 'calculate("=")' class= 'operator wide'>=</button>
+	</div>
+</div>
+<div class="capsule">
+				<div>+</div>
+				<div>-</div>
+				<div>×</div>
+				<div>÷</div>
+</div>
+</body>
+
+<html>

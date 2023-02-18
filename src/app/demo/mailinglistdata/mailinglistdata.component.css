@@ -1,0 +1,57 @@
+
+
+table{ margin-left: 6%;
+	background-color: dodgerblue;
+	text-align: center;
+}
+
+table:hover{ box-shadow: 0 0 6px;
+}
+
+@media screen and (max-width: 350px){
+	table{ font-size: smaller;
+	}
+}
+
+th{ padding: 8px;
+} 
+
+td{ padding: 8px;
+}
+
+.loader {
+	border: 5px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 4px solid dodgerblue;
+	width: 30px;
+	height: 30px;
+	margin: -25px 0 0 62%;
+	animation: spin 2s linear infinite;
+  }
+  @keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+  }
+
+button{ padding: 15% 6%;
+}
+
+button.del{ background-color:crimson;
+	color:white;
+}
+
+button.del:hover{ background-color:red;	
+}
+
+button.edit{ background-color: rgb(0, 81, 255);
+	color: antiquewhite;
+}
+
+button.edit:hover{ background-color: blue;
+}
+
+input{ padding: 1%;
+}
+
+app-menu{ position: fixed;
+}

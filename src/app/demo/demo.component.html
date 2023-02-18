@@ -1,0 +1,64 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="app" >
+<nav  class="navbar navbar-expand-lg w3-bar banner-btn" style="margin-bottom: 80px;">
+	<div class="container-fluid" >
+		<img src="/assets/img/demo-logo.jpg" alt="">
+		<!-- <svg  style= "float:left; width:126px">
+			<defs>
+				<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+				<stop offset="0%" style="stop-color:rgb(0, 7, 102);" />
+				<stop offset="100%" style="stop-color:orange; " />
+				</linearGradient>
+			</defs>
+			<ellipse cx="65" cy="50" rx="60" ry="45" fill="url(#grad1)" />
+			<text fill="white" font-size="15"  x="13" y="60">Demo Project</text>
+	    </svg> -->
+	 <button style="border: solid orange" class="rounded navbar-toggler" type="button" data-bs-toggle="collapse" 
+		data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" 
+		aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	 </button>
+	 <div class="collapse navbar-collapse navbarmenu" id="navbarNavAltMarkup">
+		<div class="navbar-nav text-white">
+			<a routerLink= 'demo-home' routerLinkActive= 'active' class="btn">Home</a>
+			<a routerLink= 'calculator' routerLinkActive= 'active' class="btn">Calculator</a>
+			<a routerLink= 'converter' routerLinkActive= 'active' 	class="btn">Converter</a>
+			<a routerLink= 'bookstore' routerLinkActive= 'active' 	class="btn">Book Store</a>
+			<hr [style]= 'showMailList()' [style]= 'showDatalinks()' class="w3-hide-large w3-hide-medium">
+			<a [style]= 'showMailList()' routerLink= 'mailinglist' routerLinkActive= 'active' class="btn">MailList Form</a>
+			<a [style]= 'showDatalinks()' routerLink= 'mailinglistdata' routerLinkActive= 'active' class="btn">Data</a> 
+			<a [style]='showMoreDatalinks()' routerLink='mailinglist' routerLinkActive= 'active' class="btn">Back to MailList</a> 
+			<a [style]= 'showMoreDatalinks()' routerLink='jsonfile' routerLinkActive= 'active' class="btn">JSON file</a> 
+			<hr [style]= 'showMailList()' [style]= 'showDatalinks()' class="w3-hide-large w3-hide-medium">
+			<a (click)= "site.switchSite('golf')"  routerLink='golf-home' routerLinkActive= 'active' class="btn">Golf</a>
+			<a routerLink= 'aboutme' routerLinkActive= 'active' class="btn"> About Me</a>
+			<a (click)="site.switchSite('home')" routerLink='home' routerLinkActive= 'active'  class="btn"> Exit</a>
+
+	  </div>
+	 </div>
+	</div>
+</nav>  
+<router-outlet></router-outlet>
+</body>
+<footer >
+	<div class= "languages">
+		<div>HTML</div>
+		<div>CSS</div>
+		<div>Typescript</div>
+		<div>Angular</div>
+		<div >Java</div>
+	</div>	
+	<br>
+	<p>Copyleft ©2022  - All Rights to Share</p>
+</footer>
+</html>
+
+
