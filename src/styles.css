@@ -1,6 +1,160 @@
+
 /* @import "~bootstrap/dist/css/bootstrap.css"; */
 
-body{background-color:rgb(10%, 2%, 40%); 
+body{
+    background-color:rgb(10%, 2%, 40%); 
     margin: 0;
 }
+
+/* .bg-image{    background-image: url(/assets/img/home.jpeg) !important;
+
+} */
+
+.fade-in{border-radius: 5px;
+    animation:loadPage 3s 
+}
+@keyframes loadPage{from{opacity:0.2; }
+    to{opacity:1; }	
+}
+
+nav{ margin-bottom: 5%;
+    font-size: larger !important
+}
+
+nav a, nav li {  font-size: larger !important; 
+    transition: 1s;
+}
+
+@media screen and (max-width:600px) {
+    .navbarmenu { min-height: 420px}
+}
+
+.active{ background-color: navy;
+}
+
+.circle-border{ border-radius: 20px;
+    border: solid yellow 5px;
+}
+
+.no-border{ border: none;
+}
+
+.imagefade{ animation: imagefade 3s;
+}
+
+@keyframes imagefade { 0%{opacity: .3;}
+    80%{opacity: 1;}
+    100%{opacity: .4;}
+}
+
+.transition{ transition: 1s;
+}
+
+.scale{border-radius: 5px;
+    animation:loadPage 3s 
+}
+@keyframes scalePage{from{scale: 0.2; }
+    to{scale:1; }	
+    }
+
+.grid-row{  display: grid;
+    grid-template-columns: auto auto ;
+}
+
+.col-1{  grid-area: 1 / 1 / span 1 / span 4;
+}
+
+.col-2{  grid-area: 1 / 5 / span 1 / span 7;
+}
+
+th{ padding: 5px;
+    text-align: center !important;
+    border: solid .5px; 
+}
+
+th, td{ text-align: center !important;
+}
+
+div.block{ color: antiquewhite;
+    background-color: rgba(141, 137, 137, 0.171);
+}
+
+.alert{ width: 60%;
+    margin: 2% 5% 5% 8% !important;
+}
+
+a{ text-decoration: none;
+    transition: .6s;
+}
+
+a:hover{ box-shadow: 0 0 13px whitesmoke;
+}
+
+hr{ border-color: orange !important;
+    margin: 4% !important;
+}
+
+.home-card{ width: 27% !important; 
+    float: left;
+}
+
+.card{ color: black;
+    padding: 5%;
+    margin: 2% 5% 5% 8% !important;
+    width: 60% !important;
+}
+
+@media screen and (max-width:700px) {
+    form, .card, .alert, .home-card{ width: 98% !important;
+        margin: auto !important;
+        margin-bottom: 5% !important;
+    }
+}
+
+select{width: 50% !important;
+}
+
+button:active, a:active{ opacity: .4;	
+}
+
+textarea{ resize: inherit;
+}
+
+.invisible{ visibility: hidden !important;
+}
+
+.visible{ visibility: visible !important;
+}
+
+.mx-800{ max-width: 800px;
+}
+
+.mx-700{ max-width: 700px;
+}
+
+.mx-200{ max-width: 200px;
+}
+
+.mx-300{ max-width: 300px;
+}
+
+.mx-60{ max-width: 60px;
+}
+
+.px-120{ width: 120px;
+}
+
+.px-90{ width: 90px;
+}
+
+.px-60{ width: 60px;
+}
+
+.bold{ font-weight: bold;
+}
+
+.p-5percent{ padding: 5%;
+
+}
+
 
