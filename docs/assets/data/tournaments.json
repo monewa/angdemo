@@ -1,0 +1,21 @@
+[ 
+  { "id": 1,
+    "name": "tebex cup 2000", 
+    "startDate": "2000-03-04T22:00:00.000Z", 
+    "endDate": "2000-08-04T22:00:00.000Z", 
+  "games": [
+    { "id": 1, "gameNo": 1, "tournament": "tebex cup 2000", "course": "jhb", "startDate": "2000-04-04T22:00:00.000Z", "endDate": "2000-04-04T22:00:00.000Z", "isEnded": false,
+    "scorecard": { "id": 0, "gameNo": 0, 
+    "scores": [
+     { "id": 1, "playerId": "6040MB", "position": 0, "firstName": "Boshomane", "surname": "Mohera", "handicap": 0, "score": 0, "points": 0 }, 
+     { "id": 2, "playerId": "4933PS", "position": 0, "firstName": "Senoamadi", "surname": "Phatelang", "handicap": 0, "score": 0, "points": 0 }, 
+     { "id": 3, "playerId": "7329MK", "position": 0, "firstName": "Kays", "surname": "Mguni", "handicap": 0, "score": 0, "points": 0 }  
+    ], 
+    "playersList": [] } }, 
+   
+    { "id": 2, "gameNo": 2, "tournament": "tebex cup 2000", "course": "jhb", "startDate": "2000-04-14T22:00:00.000Z", "endDate": "2000-04-14T22:00:00.000Z", "isEnded": false, "scorecard": { "id": 0, "gameNo": 0, "scores": [], "playersList": [] } }, 
+   { "id": 3, "gameNo": 3, "tournament": "tebex cup 2000", "course": "jhb", "startDate": "2000-04-24T22:00:00.000Z", "endDate": "2000-04-24T22:00:00.000Z", "isEnded": false, "scorecard": { "id": 0, "gameNo": 0, "scores": [], "playersList": [] } }
+  ], "noOfgames": 0, 
+"results": [ { "position": 1, "name": "Mguni", "points": 24, "gamesPlayed": 3 }, { "position": 2, "name": "Phatelang", "points": 22, "gamesPlayed": 3 }, { "position": 3, "name": "Mohera", "points": 22, "gamesPlayed": 3 } ], "isEnded": false, "lastGameNo": 0 }, 
+{ "id": 2, "name": "tebex cup 2005", "startDate": "2005-03-04T22:00:00.000Z", "endDate": "2005-10-04T22:00:00.000Z", "games": [], "noOfgames": 0, "results": [], "isEnded": false, "lastGameNo": 0 } 
+]  

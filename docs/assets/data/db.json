@@ -1,5 +1,5 @@
 {
-  "users": [
+  "Recipients": [
     {
       "id":1,
       "firstName":"John",
@@ -118,7 +118,7 @@
       }
   ],
   
-"books": [
+"Books": [
   {
     "title": "The Boy Who Harnessed The Wind",
     "description": "A story about a poor Malawian boy with a plan and a briliant mind",
@@ -161,7 +161,7 @@
   }
 ],
 
-  "countries-codes": [
+  "Countries-codes": [
     {
       "country": "Afghanistan",
       "code": "93"
