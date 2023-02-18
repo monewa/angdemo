@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="bg-image"> 
+<app-message [hidden]= "!message.show$removeMessage()"></app-message>
+<div class="card home-card m-auto w3-indigo p-5percent">
+   <h2 >Tournament Report</h2><br>
+    Select your tournament
+    <select [(ngModel)]="selectedTournament" (change)="selectTournament()" class="form-control">
+      <option >Select a Tournament </option>
+      <option *ngFor= "let t of getTournaments()">{{ t.name +' -'+ t.id  || 'n/a' }}</option>
+   </select><br>
+   <div class="p-5percent w3-light-blue" >
+      <div><span class="bold">Name:</span> {{ getTournament().name || 'n/a' }}</div>
+      <div><span class="bold">Total Games:</span> {{getTournament().noOfgames || 0}}</div>
+      <div><span class="bold">Start Date:</span> {{ startDate || '0000-00-00' }}</div>
+      <div><span class="bold">End Date:</span> {{ endDate || '0000-00-00'}}</div>
+      <br>
+      <h5> <span class="w3-deep-purple p-2 bold"> Final Scores</span></h5>
+      <table class=" w3-table-all w3-responsive no-border">
+        <thead class="w3-lime">          
+           <th>Position</th><th>Name</th> <th>Points</th>  <th>Games Played</th> 
+        </thead> 
+        <tr *ngFor= "let r of getFinalResults(); let i = index" class="w3-hover-cyan transition">   
+           <td>{{ r.position || 'n/a' }}</td><td>{{ r.name || 'n/a' }}</td>
+           <td><span class="w3-badge w3-teal"> {{ r.points || 'n/a' }}</span></td>
+           <td ><span class="w3-badge w3-yellow"> {{ r.gamesPlayed || 'n/a' }}</span></td> 
+        </tr> 
+      </table>
+      </div>
+</div>  
+</body>
+</html>
+

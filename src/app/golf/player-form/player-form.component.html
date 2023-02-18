@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <app-message [hidden]= "!message.show$removeMessage()"></app-message>
+
+                      <!-- players form -->
+<div class= "card home-card p-5percent w3-indigo">
+  <h2>Player Form</h2> 
+  <div class="w3-pale-blue mx-800 rounded">
+  <form class= "p-5percent">
+   <div class="mb-3 row">
+        <label for="name" class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-9">
+        <input required  [(ngModel)]="firstName" name= "firstName" type="text" class="form-control">
+        </div>
+   </div>
+   <div class="mb-3 row">
+        <label for="surname" class="col-sm-3 col-form-label">Surname</label>
+        <div class="col-sm-9">
+        <input required  [(ngModel)]="surname" name= "surname" type="text" class="form-control">
+        </div>
+   </div>
+   <div class="mb-3 row">
+      <label for="birth date" class="col-sm-3 col-form-label">Birth Date</label>
+      <div class="col-sm-9">
+      <input required  [(ngModel)]="birthDate" name= "birthDate" type="date"  class="form-control">
+      </div>
+   </div>
+   <div class="mb-3 row">
+      <label for="handicap" class="col-sm-3 col-form-label">Handicap</label>
+      <div class="col-sm-9">
+        <input required [(ngModel)]="handicap" name= "handicap" type="text" class="form-control px-60">
+      </div>
+   </div>
+   <div class="mb-3 row">
+    <label for="handicap" class="col-sm-3 col-form-label">Games Played</label>
+    <div class="col-sm-9">
+      <input required [(ngModel)]="gamesPlayed" name= "gamesPlayed" type="text" class="form-control px-60">
+    </div>
+   </div>
+   <div class="mb-3 row">
+    <label for="handicap" class="col-sm-3 col-form-label">Games Won</label>
+    <div class="col-sm-9">
+      <input required [(ngModel)]="gamesWon" name= "gamesWon" type="text" class="form-control px-60">
+    </div>
+   </div>
+   <div class="mb-3 row">
+    <label for="handicap" class="col-sm-3 col-form-label">Tournaments Won</label>
+    <div class="col-sm-9">
+      <input required [(ngModel)]="tournamentsWon" name= "tournamentsWon" type="text" class="form-control px-60">
+    </div>
+   </div>
+   <div class="mb-3 row">
+    <label for="handicap" class="col-sm-3 col-form-label">Awards Won</label>
+    <div class="col-sm-9">
+      <input required [(ngModel)]="awardsWon" name= "awardsWon" type="text" class="form-control px-60">
+    </div>
+   </div>
+</form>
+<div class= "m-5 p-5percent">
+  <button (click)= "submit()" class="btn btn-success m-4 w3-mobile">Save</button>
+  <button class="btn btn-primary m-4 w3-mobile">Reset</button>
+  <button class="btn btn-danger m-4 w3-mobile">Cancel</button>
+</div>
+</div>
+</div>
+
+                        <!-- modal -->
+  <div [hidden]="!errorFound"  class="w3-modal w3-animate-opacity" style="display:'block'">
+    <div class="w3-modal-content p-2 m-auto alert alert-danger">
+      <h4>Failed to Saved</h4>
+      {{ errorMessage }}
+    </div>
+  </div>
+  <div [hidden]="!isSaved"  class="w3-modal w3-animate-opacity" style="display:'block'">
+    <div class="w3-modal-content p-2 m-auto alert alert-success">
+      <h4>Player Saved</h4>
+      Thank you!
+    </div>
+  </div>
+
+</body>
+</html>
+

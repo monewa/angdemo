@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<app-message [hidden]= "!message.show$removeMessage()"></app-message>
+<div class= "card home-card p-5percent w3-indigo m-auto ">
+  <!-- {{ getStringify( staticDataCourses ) }} -->
+  <h2>Scorecard Form</h2> 
+  <br>
+  Select a Tournament
+  <select [(ngModel)]= "selectedTournament" (change)="selectGame()" class="form-control">
+    <option >Select a Tournament </option>
+    <option *ngFor= "let t of getTournaments()"> {{ t.name +' -'+ t.id  }}</option>
+  </select> 
+  <br>
+  Select a Game 
+  <select [(ngModel)]= "selectedGame" (change)= "selectGame()"  class="mx-200 form-control">
+    <option >Select a Game </option>
+    <option *ngFor= "let g of getGames()"> {{ g.gameNo }}</option>
+  </select>
+  <br> 
+  <div class= "table w3-yellow p-5percent rounded"> 
+    You have selected game {{ getGame().gameNo }} for {{ getGame().tournament || '...' }}<br>
+    <button (click)="addPlayers()" type="button" class="m-3 btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Add Players 
+    </button>
+    <table class= "w3-table-all	w3-responsive m-3 no-border">
+      <thead class="w3-deep-orange">
+        <th></th><th>Position</th><th>Name</th> <th>Surname</th><th>Score</th>
+      </thead> 
+      <tr *ngFor= " let s of getScores(); let i= index " class="w3-hover-cyan transition">
+        <td> <button (click)="removePlayer(i, s.playerId)" class="btn btn-danger m-1">Remove</button> </td> 
+        <td>{{ s.position }}</td> <td>{{ s.firstName }}</td><td>{{ s.surname }}</td> 
+        <td>
+          <input [value]="s.score" type="number" max="100" class="form-control m-auto mx-60" >
+        </td>
+      </tr>             
+    </table>
+    <div class= "m-5 p-5percent">   
+      <button (click)='update()' class="btn btn-success m-4 w3-mobile">Update</button>
+      <button class="btn btn-danger m-4 w3-mobile">Cancel</button>
+    </div>
+  </div>
+</div>
+
+  <!-- players form -->
+<div class="  modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" 
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content w3-indigo">
+      <div class="modal-header">
+        <h3 class="modal-title " id="staticBackdropLabel">Add your Players</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="p-5percent modal-body">
+        <div class= "w3-pale-blue p-2 rounded"> 
+         Your players will be added to game {{ getGame().gameNo }} of {{ getGame().tournament || '...' }}
+         <table class="w3-responsive w3-table-all m-2 no-border">
+             <thead class="w3-lime">
+               <th></th> <th>Name</th> <th>Surname</th><th>Handicap</th>
+             </thead> 
+             <tr *ngFor= "let p of getPlayers(); let i = index" class="w3-hover-cyan transition">
+               <td>
+                 <button (click)= "cancel(i)" [hidden]= "!p.isOnScorecard" 
+                 class="btn btn-danger m-1">Cancel</button> 
+                 <button (click)= "add(p.id, p.firstName, p.surname, p.handicap)" [hidden]= "p.isOnScorecard" 
+                 class="btn btn-success m-1">Add</button></td>
+               <td>{{ p.firstName }}</td> <td>{{ p.surname }}</td> <td>{{ p.handicap }}</td>
+             </tr> 
+         </table>
+         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success m-1 w3-mobile" data-bs-dismiss="modal">Ok</button>
+        <button type="button" class="btn btn-danger m-1 w3-mobile" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+</body>
+</html>

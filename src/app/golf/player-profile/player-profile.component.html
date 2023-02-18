@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body> 
+<app-message [hidden]= "!message.show$removeMessage()"></app-message>
+<div class="card home-card p-5percent m-auto w3-indigo">
+  <h2>Player Profile</h2><br>
+  Select your player
+  <select class="form-control" [(ngModel)]= "selectedPlayer" >
+    <option >Select a player</option>
+    <option  *ngFor= "let p of getPlayers()" > 
+       {{p.firstName }} {{ p.surname }}  {{ p.id }}
+    </option>
+  </select><br>
+  <div class="p-5percent w3-light-blue ">
+    <div><span class="bold">Name:</span> {{ getPlayer().firstName || 'n/a' }}</div>
+    <div><span class="bold">Surname:</span> {{ getPlayer().surname || 'n/a'  }}</div>
+    <div><span class="bold">Age:</span> {{ getPlayer().age || 'n/a'  }}</div>
+    <div><span class="bold">Handicap:</span> {{ getPlayer().handicap || 0  }}</div>
+    <div><span class="bold">Games Played:</span> {{ getPlayer().gamesPlayed || 0  }}</div>
+    <div><span class="bold">Games Won:</span> {{ getPlayer().gamesWon || 0  }}</div>
+    <div><span class="bold">Tournaments Won:</span> {{ getPlayer().tournamentsWon || 0  }}</div>
+    <div><span class="bold">Awards Won:</span> {{ getPlayer().awardsWon || 0  }}</div>
+    <div><span class="bold">Player Rating:</span> {{ getPlayer().rating || 0  }}</div><br>
+    <!-- <div class= " w3-pale-blue"> -->
+      <h5> <span class="w3-deep-purple p-2 bold"> Previous Games</span></h5>
+      <table class="w3-responsive w3-table-all no-border">
+        <thead class="w3-lime">   
+          <th>Game No</th> <th>Tournament</th> <th>Score</th> <th>Points</th>
+        </thead> 
+        <tr *ngFor= "let g of getGames()" class="w3-hover-cyan transition">
+          <td>{{ g.gameNo }}</td><td>{{ g.tournament }}</td>
+          <td class= "px-120"><span class="w3-badge w3-teal">{{ g.score }}</span></td>
+          <td><span class="w3-badge w3-pink">{{ g.points }}</span></td>
+        </tr> 
+      </table>
+  </div>
+</div>
+</body>
+</html>
+

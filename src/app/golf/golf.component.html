@@ -1,0 +1,90 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golf Scoring</title>
+</head>
+ 
+<body class="main" >    
+<nav class="navbar navbar-expand-lg bg-primary navbar-dark text-white">
+  <div class="container-fluid" >
+    <a class="navbar-brand">
+      <img class="circle-border" src= "assets/img/trophy.jpg" alt="Logo">
+    </a>
+   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+      data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" 
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse navbarmenu" id="navbarNavAltMarkup">
+    <div class="navbar-nav text-white">
+      <a (click)="selectMenu('Home', 'Home')" routerLink= 'golf'  [class.active]="selectedMenu== 'Home'" 
+        class="btn btn-primary"  routerLinkActive="lactive">Home
+      </a>
+      <div class="btn-group bg-primary w3-dropdown-hover ">
+        <a  [class.active]="selectedMenu== 'Forms'" class="btn  btn-primary dropdown-toggle" 
+          aria-expanded="false">Forms
+        </a>
+        <ul class="fade-in dropdown-menu w3-dropdown-content bg-info ">
+          <li><a routerLink= 'golf'  (click)="selectMenu('Forms', 'player-form')"  routerLinkActive= 'active'  class="btn dropdown-item" >Player Form</a></li>
+          <li><a routerLink= 'tournament-form'  (click)="selectMenu('Forms', 'tournament-form')"   routerLinkActive="active" class="btn dropdown-item" >Tournament Form</a></li>
+          <li><a  routerLink= 'scorecard-form' (click)="selectMenu('Forms', 'scorecard-form')" routerLinkActive="active" class="btn dropdown-item">Scorecard Form</a></li>  
+          <!-- <li><a class="btn dropdown-item" href="#">Create Game</a></li>
+          <li><a class="btn dropdown-item" href="#">Create Course</a></li> -->
+        </ul>          
+      </div> 
+      <!-- <div class="btn-group bg-primary w3-dropdown-hover ">
+            <a class=" btn btn-primary dropdown-toggle dropdown-toggle-split " 
+            data-bs-toggle="dropdown" aria-expanded="false">End
+          </a>
+            <ul class="dropdown-menu w3-dropdown-content bg-info">
+              <li><a class="btn dropdown-item" href="#">End Tournament</a></li>
+              <li><a class="btn dropdown-item" href="#">End Game</a></li>  
+            </ul>          
+          </div> -->
+      <div class="btn-group bg-primary w3-dropdown-hover ">
+          <a [class.active]="selectedMenu== 'Reports'" class=" btn btn-primary dropdown-toggle" aria-expanded="false" routerLinkActive="active">Reports</a>
+          <ul class="dropdown-menu w3-dropdown-content bg-info fade-in">
+            <li><a  routerLink= '/tournament-report' (click)="selectMenu('Reports', 'tournament-report')" class="btn dropdown-item"  routerLinkActive="active">Tournament Report</a></li>
+            <!-- <li><a class="btn dropdown-item" href="#">Game Report</a></li> -->
+            <li><a  routerLink= '/player-profile' (click)="selectMenu('Reports', 'player-profile')" routerLinkActive="active" class="btn dropdown-item" >Players Profile</a></li>
+            <!-- <li><a class="btn dropdown-item" href="#">Winner of Each Game</a></li>
+            <li><a class="btn dropdown-item" href="#">Tournament Leaders</a></li>
+            <li><a class="btn dropdown-item" href="#">Player of the year</a></li> -->
+          </ul>          
+      </div>
+      <div class="btn-group bg-primary w3-dropdown-hover ">
+        <a [class.active]="selectedMenu== 'Data'" class="btn btn-primary dropdown-toggle" aria-expanded="false">Data Table</a>
+        <ul class="dropdown-menu w3-dropdown-content bg-info fade-in">
+          <li><a (click)="selectMenu('Data', 'players-data')" routerLink= 'player-table' routerLinkActive="lactive" class="dropdown-item btn" >Players Tables</a></li>
+          <!-- <li><a class="dropdown-item btn" href="#">Tournaments Table</a></li>
+              <li><a class="dropdown-item btn" href="#">Games Table</a></li>
+              <li><a class="dropdown-item btn" href="#">Course Table</a></li> -->
+        </ul>          
+      </div>  
+        <a (click)= "site.switchSite('home')" routerLink= 'golf-home'  routerLinkActive= 'lactive' class="btn btn-primary">Exit</a>
+      <!-- <a class="btn btn-primary" href="#">Pricing</a> -->
+    </div>
+  </div>
+  </div>
+</nav>  
+<h1> <span  class="p-2 w3-indigo rounded mb-2">{{ selectedMenu }}</span> </h1>
+<br>
+<app-golfhome [hidden]= "selectedItem!= 'Home'"></app-golfhome>
+<app-player-form [hidden]= "selectedItem!= 'player-form'"></app-player-form>
+<app-tournament-form [hidden]= "selectedItem!= 'tournament-form'" ></app-tournament-form>
+<app-tournament-report [hidden]= "selectedItem!= 'tournament-report'"  ></app-tournament-report>
+<app-player-profile [hidden]= "selectedItem!= 'player-profile'"> </app-player-profile>
+<app-scorecard-form [hidden]= "selectedItem!= 'scorecard-form'"></app-scorecard-form>
+<app-players-data  [hidden]= "selectedItem!= 'players-data'"></app-players-data> 
+
+</body>
+<footer style="width:100%; float: left;" class="bg-primary text-bg-secondary p-4 mt-5">
+  <p>Copyright ©2022  - All Rights reserved</p> 
+</footer>
+
+</html>

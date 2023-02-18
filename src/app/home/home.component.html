@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h1 class="m-3 w3-panel"><span class="w3-amber p-2 " >Home</span></h1>
+<div class="w3-panel w3-leftbar w3-cyan w3-round p-4 mt-5">
+    <h2>Choose your favourite site </h2> 
+</div>
+<br><br>
+<div class="w3-container mb-5 p-2 ">
+    <div (click)= "site.switchSite('golf')" style="float: left;"
+        class="mx-500 w3-mobile col-sm-6 b-shadow w3-hover-pale-blue rounded w3-white m-3 p-4" >
+        <h4>Golf Scoring App</h4>
+        <div class="w3-card-4">
+            <div class=" w3-center">
+                    <img src="assets/img/golf.jpg" alt="golf" style="width:100%">
+                See our Golf Scoring App 
+            </div>
+        </div>
+    </div>
+    <div (click)= "site.switchSite('demo')" routerLink= '/demo-home' style="float: left; "
+        class="mx-500 w3-mobile col-sm-6 b-shadow w3-hover-pale-blue rounded w3-white m-3 p-4" >
+        <h4>Demo App</h4> 
+        <div class="w3-card-4">
+            <div class=" w3-center">
+                <img src="assets/img/demo-logo1.jpg" alt="golf" style="width:100%">
+                See our Demo App 
+            </div>
+        </div>
+    </div>
+</div>    
+</body> 
+<footer class="w3-amber p-4 mt-5">
+    Copyright@ 2023 
+</footer>
+</html>

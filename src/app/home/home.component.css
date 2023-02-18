@@ -1,0 +1,8 @@
+
+div.b-shadow  { 
+    box-shadow: 0 0 10px lightcyan ;
+    /* border: solid dodgerblue; */
+}
+
+.mx-500{  max-width: 500px;    
+}
