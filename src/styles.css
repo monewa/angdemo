@@ -1,14 +1,12 @@
 
 /* @import "~bootstrap/dist/css/bootstrap.css"; */
 
-body{
-    background-color:rgb(10%, 2%, 40%); 
+body{  background-color:rgb(10%, 2%, 40%); 
     margin: 0;
 }
 
-/* .bg-image{    background-image: url(/assets/img/home.jpeg) !important;
-
-} */
+.bg-image{  background-image: url(/assets/img/home.jpeg) !important;
+}
 
 .fade-in{border-radius: 5px;
     animation:loadPage 3s 
@@ -103,58 +101,65 @@ hr{ border-color: orange !important;
     margin: 2% 5% 5% 8% !important;
     width: 60% !important;
 }
-
-@media screen and (max-width:700px) {
-    form, .card, .alert, .home-card{ width: 98% !important;
+@media screen and (max-width:800px) {
+    .card, .alert, .home-card{ width: 98% !important;
         margin: auto !important;
         margin-bottom: 5% !important;
     }
 }
 
-select{width: 50% !important;
+.golf-form{ color: black;
+    padding: 5%;
+    margin: 2% 5% 8% 10% !important;
+    float: left;
+    width: 70%;
 }
 
-button:active, a:active{ opacity: .4;	
+@media screen and (max-width:800px) {
+    .golf-form{ width: 98% !important;
+        margin: 1% !important;
+        padding: 1% !important;
+    }
 }
 
-textarea{ resize: inherit;
+select{width: 50% !important; 
+    transition: 1s !important;
 }
 
-.invisible{ visibility: hidden !important;
-}
+button:active, a:active{ opacity: .4; }
 
-.visible{ visibility: visible !important;
-}
+textarea{ resize: inherit; }
 
-.mx-800{ max-width: 800px;
-}
+.invisible{ visibility: hidden !important; }
 
-.mx-700{ max-width: 700px;
-}
+.visible{ visibility: visible !important; }
 
-.mx-200{ max-width: 200px;
-}
+.mx-800{ max-width: 800px; }
 
-.mx-300{ max-width: 300px;
-}
+.mx-700{ max-width: 700px; }
 
-.mx-60{ max-width: 60px;
-}
+.mx-200{ max-width: 200px; }
 
-.px-120{ width: 120px;
-}
+.mx-300{ max-width: 300px; }
 
-.px-90{ width: 90px;
-}
+.mx-60{ max-width: 60px; }
 
-.px-60{ width: 60px;
-}
+.px-120{ width: 120px; }
 
-.bold{ font-weight: bold;
-}
+.px-100{ width: 100px; }
 
-.p-5percent{ padding: 5%;
+.px-90{ width: 90px; }
 
-}
+.px-60{ width: 60px; }
+
+.bold{ font-weight: bold; }
+
+.p-5percent{ padding: 5%; }
+
+.m-1percent{ margin: 1%; }
+
+.shadowWhite:hover, .shadowWhite:active{ box-shadow: 0 0 13px whitesmoke; }
+
+
 
 
