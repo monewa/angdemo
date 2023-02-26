@@ -5,7 +5,7 @@ body{  background-color:rgb(10%, 2%, 40%);
     margin: 0;
 }
 
-.bg-image{  background-image: url(/assets/img/home.jpeg) !important;
+.bg-image{  background-image: url(assets/img/home.jpeg) !important;
 }
 
 .fade-in{border-radius: 5px;
