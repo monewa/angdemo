@@ -1,6 +1,6 @@
 
 
-body.main{  color: azure;
+body.main{  color: #f0ffff;
     background-image: url(/assets/img/home.jpeg) !important;
     background-color: green;
 }
