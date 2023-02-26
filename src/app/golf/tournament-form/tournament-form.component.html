@@ -8,34 +8,34 @@
 </head>
 <body>
 <app-message [hidden]= "!message.show$removeMessage()"></app-message>
-<div class= "card home-card p-5percent m-auto w3-indigo ">
+<div class= "golf-form p-5percent m-auto w3-indigo ">
     <h2>Tournament  Form</h2>  
-    <div class="w3-pale-blue rounded mx-800">
+    <div class="golf-form w3-pale-blue rounded">
     <form class= "p-5percent">
         <div class="mb-3 row">
-            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <label for="name" class="px-120 col-sm-2 col-form-label">Name</label>
             <div class="col-sm-9">
-            <input type="text" class="form-control">
+            <input type="text" class="mx-200 form-control">
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="score" class="col-sm-2 col-form-label">Start Date</label>
+            <label for="score" class="px-120 col-sm-2 col-form-label">Start Date</label>
             <div class="col-sm-9">
-            <input type="text" class="form-control">
+            <input type="text" class="mx-200 form-control">
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="score" class="col-sm-2 col-form-label">End Date</label>
+            <label for="score" class="px-120 col-sm-2 col-form-label">End Date</label>
             <div class="col-sm-9">
-            <input type="text" class="form-control">
+            <input type="text" class="mx-200 form-control">
             </div>
         </div>
     </form>
-        <div class= "m-5 p-5percent">
-            <button (click)="save()"  class="btn btn-success m-4 w3-mobile">Save</button>
-            <button  class="btn btn-primary m-4 w3-mobile">Reset</button>
-            <button  class="btn btn-danger m-4 w3-mobile">Cancel</button>
-        </div>
+    <div class= "m-5 p-5percent">
+        <button (click)="save()"  class="btn btn-success m-4 w3-mobile">Save</button>
+        <button  class="btn btn-primary m-4 w3-mobile">Reset</button>
+        <button  class="btn btn-danger m-4 w3-mobile">Cancel</button>
+    </div>
     </div>
 </div>
 <br>
