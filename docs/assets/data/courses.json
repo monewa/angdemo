@@ -1,4 +1,22 @@
 [
+  {
+    "id": 1,
+    "name": "jhb",
+    "location": "jhb",
+    "games": []
+  },
+  {
+    "id": 2,
+    "name": "centurion",
+    "location": "pta",
+    "games": []
+  },
+  {
+    "id": 3,
+    "name": "volo",
+    "location": "ktp",
+    "games": []
+  }
 
   ]
 

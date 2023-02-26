@@ -8,7 +8,30 @@
     "handicap": 12,
     "gamesPlayed": 45,
     "games": [
-      { "gameNo": 1, "tournament": "tebex cup 2000", "score": 89, "points": 12 }, { "gameNo": 2, "tournament": "tebex cup 2000", "score": 80, "points": 8 }, { "gameNo": 3, "tournament": "tebex cup 2000", "score": 60, "points": 2 }, { "gameNo": 1, "tournament": "tebex cup 2005", "score": 90, "points": 12 }         
+      {
+        "gameNo": 1,
+        "tournament": "tebex cup 2000",
+        "score": 89,
+        "points": 12
+      },
+      {
+        "gameNo": 2,
+        "tournament": "tebex cup 2000",
+        "score": 80,
+        "points": 8
+      },
+      {
+        "gameNo": 3,
+        "tournament": "tebex cup 2000",
+        "score": 60,
+        "points": 2
+      },
+      {
+        "gameNo": 1,
+        "tournament": "tebex cup 2005",
+        "score": 90,
+        "points": 12
+      }
     ],
     "gamesWon": 5,
     "tournamentsWon": 0,
@@ -24,7 +47,30 @@
     "handicap": 10,
     "gamesPlayed": 12,
     "games": [
-      { "gameNo": 1, "tournament": "tebex cup 2000", "score": 79, "points": 8 }, { "gameNo": 2, "tournament": "tebex cup 2000", "score": 85, "points": 12 }, { "gameNo": 3, "tournament": "tebex cup 2000", "score": 50, "points": 2 }, { "gameNo": 1, "tournament": "tebex cup 2005", "score": 70, "points": 8 } 
+      {
+        "gameNo": 1,
+        "tournament": "tebex cup 2000",
+        "score": 79,
+        "points": 8
+      },
+      {
+        "gameNo": 2,
+        "tournament": "tebex cup 2000",
+        "score": 85,
+        "points": 12
+      },
+      {
+        "gameNo": 3,
+        "tournament": "tebex cup 2000",
+        "score": 50,
+        "points": 2
+      },
+      {
+        "gameNo": 1,
+        "tournament": "tebex cup 2005",
+        "score": 70,
+        "points": 8
+      }
     ],
     "gamesWon": 0,
     "tournamentsWon": 0,
@@ -40,7 +86,30 @@
     "handicap": 10,
     "gamesPlayed": 5,
     "games": [
-      { "gameNo": 1, "tournament": "tebex cup 2000", "score": 70, "points": 6 }, { "gameNo": 2, "tournament": "tebex cup 2000", "score": 75, "points": 6 }, { "gameNo": 3, "tournament": "tebex cup 2000", "score": 70, "points": 12 }, { "gameNo": 1, "tournament": "tebex cup 2005", "score": 40, "points": 2 }
+      {
+        "gameNo": 1,
+        "tournament": "tebex cup 2000",
+        "score": 70,
+        "points": 6
+      },
+      {
+        "gameNo": 2,
+        "tournament": "tebex cup 2000",
+        "score": 75,
+        "points": 6
+      },
+      {
+        "gameNo": 3,
+        "tournament": "tebex cup 2000",
+        "score": 70,
+        "points": 12
+      },
+      {
+        "gameNo": 1,
+        "tournament": "tebex cup 2005",
+        "score": 40,
+        "points": 2
+      }
     ],
     "gamesWon": 0,
     "tournamentsWon": 0,
@@ -89,6 +158,4 @@
     "awardsWon": 0,
     "rating": 0
   }
-  ]
-    
-    
+]
