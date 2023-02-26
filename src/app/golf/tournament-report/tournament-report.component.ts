@@ -13,38 +13,34 @@ import { GolfMessageService } from '../services/message.service';
 export class TournamentReportComponent implements OnInit {
 
   selectedTournament: string= '';
-  startDate: string= '';
-  endDate: string= '';
 
-  constructor(private repository: TournamentRepository, public tournament: TournamentModel,
+  constructor(private repository: TournamentRepository, public tournamentModel: TournamentModel,
     public message: GolfMessageService) {  }
 
-  getTournamentId(): number{
+  get tournamentId(): number{
     const startIndex= this.selectedTournament.indexOf('-')
     const id= this.selectedTournament.slice(startIndex+1)
     return Number(id);
   }
-
-  selectTournament(): void{    
-    this.tournament.selectId(this.getTournamentId())    
-    this.getDates();
+  
+  get startDate() : string {
+    return this.tournamentModel.getStartDate(this.tournamentId)
   }
 
-  getDates(): void{
-    this.startDate= this.tournament.getStartDate()
-    this.endDate= this.tournament.getEndDate()
+  get endDate() : string {
+    return this.tournamentModel.getEndDate(this.tournamentId)
   }
 
-  getTournaments(): Tournament[]{
+  get tournaments(): Tournament[]{
   return this.repository.getTournaments();
   }
 
-  getTournament(): Tournament{
-    return this.repository.getTournament(this.getTournamentId());
+  get tournament(): Tournament{
+    return this.repository.getTournament(this.tournamentId);
   }
 
-  getFinalResults(): any[]{
-    return this.repository.getResults(this.getTournamentId());
+  get finalResults(): any[]{
+    return this.tournament.results;
   }
 
   ngOnInit(): void {
