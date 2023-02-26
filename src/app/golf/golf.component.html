@@ -72,8 +72,9 @@
   </div>
   </div>
 </nav>  
-<h1> <span  class="p-2 w3-indigo rounded mb-2">{{ selectedMenu }}</span> </h1>
+<h1> <span  class="p-2 w3-indigo rounded m-5">{{ selectedMenu }}</span> </h1>
 <br>
+<app-confirm app-golfhome [hidden]= "selectedItem!= 'confirm'"></app-confirm>
 <app-golfhome [hidden]= "selectedItem!= 'Home'"></app-golfhome>
 <app-player-form [hidden]= "selectedItem!= 'player-form'"></app-player-form>
 <app-tournament-form [hidden]= "selectedItem!= 'tournament-form'" ></app-tournament-form>
@@ -85,6 +86,8 @@
 </body>
 <footer style="width:100%; float: left;" class="bg-primary text-bg-secondary p-4 mt-5">
   <p>Copyright ©2022  - All Rights reserved</p> 
+  <a (click)= "selectMenu('Reports', 'confirm')"  routerLinkActive= 'lactive'>Confirm</a>
+
 </footer>
 
 </html>
