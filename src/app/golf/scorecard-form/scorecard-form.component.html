@@ -8,37 +8,42 @@
 </head>
 <body>
 <app-message [hidden]= "!message.show$removeMessage()"></app-message>
-<div class= "card home-card p-5percent w3-indigo m-auto ">
+<div class= "golf-form p-5percent w3-indigo m-auto ">
   <!-- {{ getStringify( staticDataCourses ) }} -->
   <h2>Scorecard Form</h2> 
   <br>
-  Select a Tournament
-  <select [(ngModel)]= "selectedTournament" (change)="selectGame()" class="form-control">
-    <option >Select a Tournament </option>
-    <option *ngFor= "let t of getTournaments()"> {{ t.name +' -'+ t.id  }}</option>
+  <span *ngIf= "tournaments.length== 0">No tournaments found</span>
+  <span *ngIf= "tournaments.length!= 0">Select a Tournament</span>
+  <select [(ngModel)]= "selectedTournament" class="shadowWhite form-control">
+    <option>Select a Tournament </option>
+    <option *ngFor= "let t of tournaments"> {{ t.name +' -'+ t.id  }}</option>
   </select> 
   <br>
-  Select a Game 
-  <select [(ngModel)]= "selectedGame" (change)= "selectGame()"  class="mx-200 form-control">
+  <span *ngIf= "games.length== 0">No games found</span>
+  <span *ngIf= "games.length!= 0">Select a Game</span>
+  <select [(ngModel)]= "selectedGame" (change)="selectGame()"  class="shadowWhite mx-200 form-control">
     <option >Select a Game </option>
-    <option *ngFor= "let g of getGames()"> {{ g.gameNo }}</option>
+    <option *ngFor= "let g of games"> {{ g.gameNo }}</option>
   </select>
   <br> 
   <div class= "table w3-yellow p-5percent rounded"> 
-    You have selected game {{ getGame().gameNo }} for {{ getGame().tournament || '...' }}<br>
+    <div *ngIf="game.gameNo==0">Select a game first</div>
+    <div *ngIf="game.gameNo!=0">
+      You selected game {{ game.gameNo }} of {{ game.tournament || '...' }}
+    </div>
     <button (click)="addPlayers()" type="button" class="m-3 btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
       Add Players 
     </button>
-    <table class= "w3-table-all	w3-responsive m-3 no-border">
+    <table class= "w3-table-all	w3-responsive m-1percent no-border">
       <thead class="w3-deep-orange">
-        <th></th><th>Position</th><th>Name</th> <th>Surname</th><th>Score</th>
+        <th></th><th></th><th>Name</th> <th>Surname</th><th>Score</th>
       </thead> 
-      <tr *ngFor= " let s of getScores(); let i= index " class="w3-hover-cyan transition">
-        <td> <button (click)="removePlayer(i, s.playerId)" class="btn btn-danger m-1">Remove</button> </td> 
-        <td>{{ s.position }}</td> <td>{{ s.firstName }}</td><td>{{ s.surname }}</td> 
-        <td>
-          <input [value]="s.score" type="number" max="100" class="form-control m-auto mx-60" >
-        </td>
+      <td colspan="4" *ngIf= "scores.length== 0&& game.gameNo!=0">No data found</td>
+      <tr *ngFor= " let s of scores;" class="w3-hover-cyan transition">
+        <td><button (click)="removePlayer(s.playerId)" class="btn btn-danger m-1">Remove</button></td> 
+        <td>{{ s.position  }}</td> <td>{{ s.firstName }}</td><td>{{ s.surname }}</td> 
+        <td><input (change)="updateLine(s.playerId, scores.value)" [value]="s.score" #scores
+           type="number" max="100" class="form-control m-auto mx-60" ></td>
       </tr>             
     </table>
     <div class= "m-5 p-5percent">   
@@ -47,7 +52,6 @@
     </div>
   </div>
 </div>
-
   <!-- players form -->
 <div class="  modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" 
     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -58,31 +62,30 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="p-5percent modal-body">
-        <div class= "w3-pale-blue p-2 rounded"> 
-         Your players will be added to game {{ getGame().gameNo }} of {{ getGame().tournament || '...' }}
-         <table class="w3-responsive w3-table-all m-2 no-border">
-             <thead class="w3-lime">
-               <th></th> <th>Name</th> <th>Surname</th><th>Handicap</th>
-             </thead> 
-             <tr *ngFor= "let p of getPlayers(); let i = index" class="w3-hover-cyan transition">
-               <td>
-                 <button (click)= "cancel(i)" [hidden]= "!p.isOnScorecard" 
-                 class="btn btn-danger m-1">Cancel</button> 
-                 <button (click)= "add(p.id, p.firstName, p.surname, p.handicap)" [hidden]= "p.isOnScorecard" 
-                 class="btn btn-success m-1">Add</button></td>
-               <td>{{ p.firstName }}</td> <td>{{ p.surname }}</td> <td>{{ p.handicap }}</td>
-             </tr> 
-         </table>
-         </div>
+        <div class= "w3-pale-blue p-2 rounded">           
+          <div *ngIf="game.gameNo==0">Select a game first</div>
+        <div *ngIf="game.gameNo!=0">
+          Your players will be added to game {{ game.gameNo }} of {{ game.tournament || '...' }}
+        </div>
+        <table class="w3-responsive w3-table-all m-2 no-border">
+          <thead class="w3-lime">
+            <th></th> <th>Name</th> <th>Surname</th><th>Handicap</th>
+          </thead> 
+      <td colspan="3" *ngIf= "playersCard.length== 0&& game.gameNo!=0">No data found</td>
+          <tr *ngFor= "let p of playersCard" class="w3-hover-cyan transition">
+            <td><button (click)= "add(p.playerId)" class="btn btn-success m-1">Add</button></td>
+            <td>{{ p.firstName }}</td> <td>{{ p.surname }}</td> <td>{{ p.handicap }}</td>
+          </tr> 
+        </table>
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success m-1 w3-mobile" data-bs-dismiss="modal">Ok</button>
-        <button type="button" class="btn btn-danger m-1 w3-mobile" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary m-1 w3-mobile" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
-<br>
+<br> 
 <br>
 </body>
 </html>

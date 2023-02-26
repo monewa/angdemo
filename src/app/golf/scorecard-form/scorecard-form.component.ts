@@ -1,11 +1,12 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Game, GameModel } from '../model/game';
+import { Game} from '../model/game';
 import { Scorecard, ScorecardModel } from '../model/scorecard';
 import { ScorecardLine } from '../model/scorecardLine';
 import { TournamentRepository } from '../model/tournament.repository';
 import { Tournament } from '../model/tournament';
 import { GolfMessageService } from '../services/message.service';
+import { PlayerRepository } from '../model/player.repository';
 
 @Component({
   selector: 'app-scorecard-form',
@@ -17,73 +18,68 @@ export class ScorecardFormComponent implements OnInit {
   selectedGame:number= 0;
   selectedTournament:string= '';
 
-  constructor(private scorecard: ScorecardModel, private game: GameModel,
-    private repository: TournamentRepository, public message: GolfMessageService) { }
+  constructor(private scorecard: ScorecardModel, private repository: TournamentRepository, public message: GolfMessageService) { }
 
   getStringify(object: any){
      return JSON.stringify(object, null, ' ');
   }
 
-  getTournamentId(): number{
+  selectGame(){
+    this.scorecard.filterScorecard(this.tournamentId, this.selectedGame);
+  }
+
+  get  tournamentId(): number{
     const startIndex= this.selectedTournament.indexOf('-')
     const id= this.selectedTournament.slice(startIndex+1)
     return Number(id);
   }
 
-  selectGame(): void{
-    this.game.selectId$Game(this.getTournamentId(), this.selectedGame)
-    this.scorecard.selectId$Game(this.getTournamentId(), this.selectedGame)
-    this.scorecard.sortByScore();
-  }
-  
-  getPlayers(): any[] {
-    return this.scorecard.getPlayersList();
-  }
-
-  getTournaments(): Tournament[]{    
+  get tournaments(): Tournament[]{    
     return this.repository.getActiveTournaments()
   }
 
-  getGames(): Game[] {
-    return this.repository.getActiveGames(this.getTournamentId());
+  get games(): Game[] {
+    return this.repository.getActiveGames(this.tournamentId);
   }
 
-  getGame(): Game {
-    return this.repository.getActiveGame(this.getTournamentId(), this.selectedGame);
+  get game(): Game {
+    return this.repository.getActiveGame(this.tournamentId, this.selectedGame);
   }
 
-  getScoreCard(): Scorecard{
-    return this.getGame().scorecard;
-  }  
+  get scores(): ScorecardLine[]{    
+    return this.scorecard.filteredscorecard;
+  }
   
-  getScores(): ScorecardLine[]{
-    return this.getScoreCard().scores;
+  get playersCard(): ScorecardLine[]{    
+    return this.scorecard.playersCard;
   }
 
-  removePlayer(index: number, playerId: number): void{
-    this.scorecard.removeScorecardLine(index, playerId);
+  getScoreline(playerId: number) : ScorecardLine {
+    return this.repository.getScoreLine(this.tournamentId, this.selectedGame, playerId)
+  }
+  
+  removePlayer(playerId: number): void{
+    this.scorecard.add$removeScorecardLine(this.tournamentId, this.selectedGame, playerId, false);
+
   }
 
-  cancel(index: number){
-    // this.players[index]?.selected == false
+  addPlayers(): void{ 
+    this.scorecard.compareCard$Players(this.tournamentId, this.selectedGame);
   }
-
-  addPlayers(){
+  
+  add(playerId: number){
+    this.scorecard.add$removeScorecardLine(this.tournamentId, this.selectedGame, playerId, true);
     
   }
-  
-  add(playerId: number, firstName: string, surname: string, handicap: number){
-    this.scorecard.addNewScorecardLine( 
-      new ScorecardLine(playerId, firstName, surname, handicap) 
-    )
+
+  updateLine(playerId: number, score: string){
+    this.scorecard.updateScoreline(this.tournamentId, this.selectedGame, playerId, Number(score))
   }
 
   update(){
-    this.repository.patchGames(this.getGames(), this.getTournamentId())
+    this.scorecard.updateScorecard(this.games, this.tournamentId)
   }
 
-  ngOnInit(): void {
-
-  }
-
+  ngOnInit(): void { 
+    }
 }
