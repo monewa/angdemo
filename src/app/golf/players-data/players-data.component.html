@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,66 +15,68 @@
    <table class="w3-responsive w3-table-all">
      <thead class="w3-lime">
         <th></th> <th></th> <th>Id</th> <th>Name</th> <th>Surname</th><th>Birth Date</th>
-        <th>Age</th><th>Games Played</th><th>Games Won</th> <th>Tournaments Won</th><th>Awards Won</th> 
-        <th>Handicap</th> <th>Player Rating</th>
+        <th>Age</th><th>Games Played</th><th>Games Won</th> <th>Tournaments Won</th>
+        <th>Awards Won</th> <th>Handicap</th> <th>Player Rating</th>
      </thead> 
-     <tr *ngFor= "let p of players; let i = index" class="w3-hover-cyan transition" >
+     <td colspan="8" *ngIf= "players.length== 0">No data found</td>
+     <tr *ngFor= "let p of players" class="w3-hover-cyan transition" >
         <td><button (click)= "delete(p.id)" class="btn btn-danger m-1">Delete</button></td>
         <td class="px-90">
-           <button [hidden]= "checkForEditMode(i)" (click)= "edit(i)" 
-             class="btn btn-primary m-1 ">Edit </button>
-           <button [hidden]= "!checkForEditMode(i)" (click)= "openConfirmBox()" 
-             class="btn btn-success m-1">Save</button>
+           <button [hidden]= "checkForEditMode(p.id)" (click)= "edit(p.id)" 
+             class="btn btn-primary m-1 ">Edit 
+           </button>
+           <button [hidden]= "!checkForEditMode(p.id)" (click)= "openConfirmBox()" 
+             class="btn btn-success m-1">Save
+           </button>
         </td>
         <td>{{ p.id }}</td>   
         <td>
-           <span [hidden]= "checkForEditMode(i)">{{ p.firstName }}</span>
-           <input maxlength="15" [hidden]= "!checkForEditMode(i)" [(ngModel)]= "firstName" 
+           <span [hidden]= "checkForEditMode(p.id)">{{ p.firstName }}</span>
+           <input maxlength="15" [hidden]= "!checkForEditMode(p.id)" [(ngModel)]= "firstName" 
              pattern="[A-Za-z]" class= "px-120 form-control" type="text"> 
         </td> 
         <td>
-           <span [hidden]= "checkForEditMode(i)">{{ p.surname }}</span>
-           <input maxlength="15" [hidden]= "!checkForEditMode(i)" [(ngModel)]= "surname" 
+           <span [hidden]= "checkForEditMode(p.id)">{{ p.surname }}</span>
+           <input maxlength="15" [hidden]= "!checkForEditMode(p.id)" [(ngModel)]= "surname" 
               pattern="[A-Za-z]" class= "px-120 form-control" type="text"> 
         </td>       
         <td class= "px-120">
-         <span [hidden]= "checkForEditMode(i)">{{ p.birthDate }} </span>
-         <input [hidden]= "!checkForEditMode(i)" [(ngModel)]= "birthDate" 
+         <span [hidden]= "checkForEditMode(p.id)">{{ getDateOfBirth(p.id) || 'n/a'}} </span>
+         <input [hidden]= "!checkForEditMode(p.id)" [(ngModel)]= "birthDate" 
            maxlength="9" pattern="[0-9-]" class= "form-control" type="text">            
         </td>
         <td>{{ p.age }}</td>
         <td>
-           <span [hidden]= "checkForEditMode(i)" class="w3-badge w3-green">{{ p.gamesPlayed }} </span>
-           <input [hidden]= "!checkForEditMode(i)" [(ngModel)]= "gamesPlayed" 
+           <span [hidden]= "checkForEditMode(p.id)" class="w3-badge w3-green">{{ p.gamesPlayed }} </span>
+           <input [hidden]= "!checkForEditMode(p.id)" [(ngModel)]= "gamesPlayed" 
              maxlength="3" pattern="[0-9]" class= "mx-60 form-control" type="text">
         </td>
         <td>
-           <span [hidden]= "checkForEditMode(i)" class="w3-badge w3-green">{{ p.gamesWon }} </span>
-           <input [hidden]= "!checkForEditMode(i)" [(ngModel)]= "gamesWon" 
+           <span [hidden]= "checkForEditMode(p.id)" class="w3-badge w3-green">{{ p.gamesWon }} </span>
+           <input [hidden]= "!checkForEditMode(p.id)" [(ngModel)]= "gamesWon" 
               maxlength="3" pattern="[0-9]" class= "m-auto mx-60 form-control" type="text">
         </td>
         <td>
-           <span [hidden]= "checkForEditMode(i)" class="w3-badge w3-yellow">{{ p.tournamentsWon }} </span>
-           <input [hidden]= "!checkForEditMode(i)" [(ngModel)]= "tournamentsWon" 
+           <span [hidden]= "checkForEditMode(p.id)" class="w3-badge w3-yellow">{{ p.tournamentsWon }} </span>
+           <input [hidden]= "!checkForEditMode(p.id)" [(ngModel)]= "tournamentsWon" 
               maxlength="3" pattern="[0-9]" class= "m-auto mx-60 form-control" type="text">           
         </td>
         <td>
-           <span [hidden]= "checkForEditMode(i)" class="w3-badge w3-yellow">{{ p.awardsWon }} </span>
-           <input [hidden]= "!checkForEditMode(i)" [(ngModel)]= "awardsWon" 
+           <span [hidden]= "checkForEditMode(p.id)" class="w3-badge w3-yellow">{{ p.awardsWon }} </span>
+           <input [hidden]= "!checkForEditMode(p.id)" [(ngModel)]= "awardsWon" 
               maxlength="3" pattern="[0-9]" class= "mx-60 form-control" type="text">            
         </td>
         <td>
-            <span [hidden]= "checkForEditMode(i)" class="w3-badge w3-red">{{ p.handicap }} </span>
-            <input [hidden]= "!checkForEditMode(i)" [(ngModel)]= "handicap" 
+            <span [hidden]= "checkForEditMode(p.id)" class="w3-badge w3-red">{{ p.handicap }} </span>
+            <input [hidden]= "!checkForEditMode(p.id)" [(ngModel)]= "handicap" 
             maxlength="3" pattern="[0-9]" class= "mx-60 form-control" type="text"> 
         </td> 
-        <td><span class="w3-badge w3-red">{{ p.rating }}</span></td>
+        <td><span class="w3-badge w3-red">{{ getRating(p.awardsWon, p.tournamentsWon, p.gamesWon, p.gamesPlayed) }}</span></td>
      </tr> 
    </table>
 </div>
 <!-- {{stringify}} -->
 </div> 
-
          <!-- alert  -->
 <div [hidden]="!confirmIsopen" class=" w3-modal w3-animate-opacity" style="display:'block'">
   <div   class="p-5 w3-modal-content alert alert-info m-auto">
