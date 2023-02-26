@@ -1,8 +1,9 @@
 
 import { Injectable } from "@angular/core";
-import { PlayerModel } from "./player";
+import { Player, PlayerModel } from "./player";
 import { Scorecard } from "./scorecard";
 import { ScorecardLine } from "./scorecardLine";
+import { Tournament } from "./tournament";
 import { TournamentRepository } from "./tournament.repository";
 
 @Injectable({
@@ -11,80 +12,66 @@ import { TournamentRepository } from "./tournament.repository";
 
 export class GameModel{
 
-    gameNo: number= 0;
-    id: number= 0;
-
     constructor(private player: PlayerModel, private repository: TournamentRepository ) { }
 
-    selectId$Game(id: number, gameNo: number): void{
-        this.id= id;
-        this.gameNo= gameNo;
+    getTournament(id: number): Tournament{
+        return this.repository.getActiveTournament(id);
     }
 
-    getGame(): Game{
-        return this.repository.getActiveGame(this.id, this.gameNo);
+    getScores(id: number, gameNo: number): ScorecardLine[]{
+        return this.repository.getScores(id, gameNo);
     }
-    
-    generateGameNo(lastGameNo: number): void{
-        this.getGame().gameNo= lastGameNo+ 1;
+
+    getGame(id: number, gameNo: number): Game{
+        return this.repository.getActiveGame(id, gameNo);
+    }
+
+    linkToTournament(id: number, gameNo: number, name: string): void{
+        this.getGame(id, gameNo).tournament= name;
     } // create game / update game
 
-    getScorecard(): Scorecard{
-        return this.getGame().scorecard;     
-    }
-
-    getScores(): ScorecardLine[]{
-        return this.getGame().scorecard.scores;     
-    }
-
-    linkToTournament(name: string): void{
-        this.getGame().tournament= name;
+    linkToCourse(id: number, gameNo: number, name: string): void{
+        this.getGame(id, gameNo).course= name;
     } // create game / update game
 
-    linkToCourse(name: string): void{
-        this.getGame().course= name;
-    } // create game / update game
-
-    linkToScorecard(scorecard: Scorecard): void{
-        this.getGame().scorecard= scorecard
+    linkToScorecard(id: number, gameNo: number, scorecard: Scorecard): void{
+        this.getGame(id, gameNo).scorecard= scorecard
     } // create game / update game
     
-    showEndGameAlert(): boolean{
-        if (this.getGame().endDate <= new Date()) {
+    showEndGameAlert(id: number, gameNo: number): boolean{
+        if (this.getGame(id, gameNo).endDate <= new Date()) {
             return true;
         }
         return false;
     } //home
 
-    postponeGame(): void{
-        const newEndDate= this.getGame().endDate.getDay()+1
-        this.getGame().endDate.setMonth(newEndDate)
-        this.getGame().isEnded= false;
+    postponeGame(id: number, gameNo: number): void{
+        const newEndDate= this.getGame(id, gameNo).endDate.getDay()+1
+        this.getGame(id, gameNo).endDate.setDate(newEndDate)
+        this.getGame(id, gameNo).isEnded= false;
     } //alert
 
-    endGame(): void{
-        this.getGame().isEnded= true;
-        this.updateGamesPlayed();
-        this.declareWinner();
+    endGame(id: number, gameNo: number): void{
+        this.getGame(id, gameNo).isEnded= true;
+        this.updateGamesPlayed(id, gameNo);
+        this.declareWinner(id, gameNo);
     }// end game
     
-    updateGamesPlayed(): void{
-        this.getScores().forEach( (s)=> {
-           const gameNo= this.getGame().gameNo
-           const tournament= this.getGame().tournament
-           this.player.selectId(s.playerId)
-           this.player.playGame(gameNo, tournament, s.score, s.points)
+    updateGamesPlayed(id: number, gameNo: number): void{
+        this.getScores(id, gameNo).forEach( (s)=> {
+           const tournamentId= this.getTournament(id).id;
+           const tournament= this.getGame(id, gameNo).tournament;
+           this.player.playGame(s.playerId, tournamentId, tournament, gameNo, s.score, s.points)
       });
     } //end game
 
-    getLeaderId(): number{
-        const result= this.getScores().find( r=> { return r.position == 1 } )
+    getLeaderId(id: number, gameNo: number): number{
+        const result= this.getScores(id, gameNo).find( s=> { return s.position == 1 } );
         return result?.playerId || -1;
      }
   
-    declareWinner(): void{
-        this.player.selectId(this.getLeaderId())
-        this.player.winGame();
+    declareWinner(id: number, gameNo: number): void{
+        this.player.winGame(this.getLeaderId(id, gameNo));
     }
 }
 
@@ -105,5 +92,38 @@ export class Game{
         this.course= course;
         this.startDate= startDate;
         this.endDate= endDate;
+    }
+
+    linkToTournament(name: string): void{
+        this.tournament= name;
+    } // create game / update game
+
+    linkToCourse(name: string): void{
+        this.course= name;        
+    } // create game / update game
+
+    linkToScorecard(scorecard: Scorecard): void{
+        this.scorecard= scorecard
+    } // create game / update game
+    
+    showEndGameAlert(): boolean{
+        if (this.endDate <= new Date()) {
+            return true;
+        }
+        return false;
+    } //home
+
+    postponeGame(): void{
+        const newEndDate= this.endDate.getDay()+1
+        this.endDate.setMonth(newEndDate)
+        this.isEnded= false;
+    } //alert
+
+    endGame(): void{
+        this.isEnded= true;
+    }// end game
+  
+    declareWinner(player: Player): void{
+        player.winGame();
     }
 }

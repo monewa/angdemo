@@ -8,80 +8,69 @@ import { PlayerRepository } from "./player.repository";
 
 export class PlayerModel{
 
-  id: number= 0;
-  index: number= 0;
-
   constructor(private repository: PlayerRepository) {  }
 
-  selectIndex(index: number){
-    this.index= index;
+  getPlayer(id: number): Player{
+    return this.repository.getPlayer(id);
   }
 
-  selectId(id: number){
-    this.id= id;
+  getSurname(id: number): string{
+    return this.repository.getPlayer(id).surname;
   }
 
-  getPlayer(){
-    return this.repository.getPlayer(this.id) || this.repository.getPlayerbyIndex(this.index);
+  calculateHandcap(id: number): void{  
+    this.getPlayer(id).calculateHandcap();
   }
 
-  calculateHandcap(): void{  
-  }
-
-  calculateRating(): void{ 
-    let rating= ((this.getPlayer().awardsWon* 5) + (this.getPlayer().tournamentsWon*3) + (this.getPlayer().gamesWon*1))
-  / (this.getPlayer().gamesPlayed);
-    this.getPlayer().rating= Math.floor(rating);
-  }
-  
-  calculateAge(): void{
-   this.getPlayer().age= new Date().getFullYear() - this.getPlayer().birthDate.getFullYear()-1;
-   if (  this.getPlayer().birthDate.getMonth() <= new Date().getMonth() ) {
-       this.getPlayer().age++;
-   }
-  } 
-
-  getDateOfBirth(): string {
-    let birth= `${this.getPlayer().birthDate.getDate()}-${this.getPlayer().birthDate.getMonth()}-${this.getPlayer().birthDate.getFullYear()}`
-    return birth;
+  getDateOfBirth(id: number): string {
+      const date= this.getPlayer(id).birthDate.toString();
+      return date.substring(0,10)
   } //Player proflie
+
+  getRating(awardsWon: number, tournamentsWon: number, gamesWon: number, gamesPlayed: number, ) : number {
+    let rating= (awardsWon* 5) + (tournamentsWon*3) + (gamesWon*1)/ (gamesPlayed);
+    return rating= Math.floor(rating);
+  }
   
-  playGame(gameNo: number, tournament: string, score: number, points: number ): void{
-    this.getGames().push({"gameNo": gameNo, "tournament": tournament, "score": score, "points": points}) 
-    this.getPlayer().gamesPlayed= this.getGames().length;
+  playGame(id: number, tournamentId:number, tournament: string, gameNo: number, score: number, points: number ): void{
+    this.getPlayer(id).games.push({ "tournamentId": tournamentId, "tournament": tournament, "gameNo": gameNo, "score": score, "points": points}) 
+    // this.getPlayer(id).playGame(tournamentId, tournament, gameNo, score, points);
   } //End Game
 
-  getGames(): any[]{
-    return this.repository.getPlayer(this.id).games;
+  getGames(id: number): any[]{
+    return this.repository.getPlayer(id).games;
   }
 
-  getTournamentGames(tournament: string, ): any[]{
-    let tournamentGames= this.getGames().filter( g=> {return g.tournament == tournament})
-    return tournamentGames;
+  getTournamentGames(id: number, tournamentId: number, ): any[]{
+    return this.getPlayer(id).getTournamentGames(tournamentId);
   } //Tournament report
 
-  getTournamentPoints(tournament: string, ): number{
+  getTournamentPoints(id: number, tournamentId: number, ): number{
+    // return this.getPlayer(id).getTournamentPoints(tournamentId);
     let tournamentPoints= 0;
-    this.getTournamentGames(tournament).forEach(g => { 
-      tournamentPoints+= g.points; 
-    });
+    this.getTournamentGames(id, tournamentId).forEach(g => { tournamentPoints+= g.points; });
     return tournamentPoints;
   } //Tournament report
 
-  getTournamentGamesPlayed(tournament: string, ): number{
-    return this.getTournamentGames(tournament).length
+  getTournamentGamesPlayed(id: number, tournamentId: number, ): number{
+    return this.getTournamentGames(id, tournamentId).length
   } //Tournament report
 
-  winGame(): void{
-    this.getPlayer().gamesWon++;
+  winGame(id: number): void{
+    // this.getPlayer(id).winGame();
+    this.getPlayer(id).gamesWon++;
   } //End Game
   
-  winTournament(): void{
-    this.getPlayer().tournamentsWon++;
+  winTournament(id: number): void{
+    // this.getPlayer(id).winTournament();
+    this.getPlayer(id).tournamentsWon++;
+
   } //End Tournament 
   
-  winAward(): void{
-    this.getPlayer().awardsWon++;
+  winAward(id: number): void{
+    // this.getPlayer(id).winAward();
+    this.getPlayer(id).awardsWon++;
+
   } //Give award
 
 }
@@ -93,14 +82,12 @@ export class Player{
     firstName: string= '';
     surname: string= '';
     birthDate: Date= new Date();
-    age: number= 0;
     handicap: number= 0;
     gamesPlayed: number= 0;
     games: any[]= [];  
     gamesWon: number= 0;
     tournamentsWon: number= 0;
     awardsWon: number= 0;
-    rating: number= 0;
      
     constructor(firstName: string, surname: string, date: any, handicap: number, 
         gamesPlayed: number, gamesWon: number, tournamentsWon: number, awardsWon: number ){
@@ -112,26 +99,72 @@ export class Player{
         this.gamesWon= gamesWon;
         this.tournamentsWon= tournamentsWon;
         this.awardsWon= awardsWon;
-        this.calculateAge();   
-        // this.generateId();
-        this.calculateRating();
-        
+    }
+
+    get rating() : number {
+      let rating= (this.awardsWon* 5) + (this.tournamentsWon*3) + (this.gamesWon*1)/ 
+        (this.gamesPlayed);
+        rating= Math.floor(rating);
+      return rating
     }
     
-    // generateId(){
-    //   this.playerId= Math.floor(Math.random()*9999)+ this.surname.charAt(0)+ this.firstName.charAt(0);
-    // }
-
-    calculateAge(){ 
-      this.age= new Date().getFullYear() - this.birthDate.getFullYear()-1;
+    get age(): number{ 
+      let age= new Date().getFullYear() - this.birthDate.getFullYear()-1;
       if (  this.birthDate.getMonth() <= new Date().getMonth() ) {
-        this.age++;
+        age++;
       }
+      return age;
+    }   
+
+    playGame(tournamentId:number, tournament: string, gameNo: number, score: number, points: number ): void{
+      this.games.push({ "tournamentId": tournamentId, "tournament": tournament, "gameNo": gameNo, "score": score, "points": points}) 
+      this.gamesPlayed++;
     } 
 
-    calculateRating(){ 
-        let rating= ((this.awardsWon* 5) + (this.tournamentsWon*3) + (this.gamesWon*1))
-        / (this.gamesPlayed)
-        this.rating= this.rating= Math.floor(rating);
-    }    
+    getTournamentGames(tournamentId: number): any[]{
+      let tournamentGames= this.games.filter( g=> {return g.tournamentId == tournamentId})
+      return tournamentGames;
+    }
+
+    getTournamentPoints(tournamentId: number): number{
+      let tournamentPoints= 0;
+      this.getTournamentGames(tournamentId).forEach(g => { tournamentPoints+= g.points; });
+      return tournamentPoints;
+    } //Tournament report
+
+    calculateHandcap(): void{  
+    
+    }
+
+    winGame(): void{
+      this.gamesWon++;
+    } //End Game
+    
+    winTournament(): void{
+      this.tournamentsWon++;
+    }
+
+    winAward(): void{
+      this.awardsWon++;
+    } 
+
+
+
+    // public get firstName() : string { return this.firstName }
+
+    // public set surname(val : string) { this.firstName = val;  }
+
+    // public set birthDate(val : any) { this.firstName = val;  }
+
+    // public set handicap(val : number) { this.handicap = val;  }
+
+    // public set gamesPlayed(val : number) { this.gamesPlayed = val;  }
+
+    // public set gamesWon(val : number) { this.gamesWon = val;  }
+
+    // public set tournamentsWon(val : number) { this.tournamentsWon = val;  }
+
+    // public set awardsWon(val : number) { this.awardsWon = val;  }
+    
+
 }

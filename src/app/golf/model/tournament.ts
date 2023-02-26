@@ -1,8 +1,9 @@
 
-import { Game } from "./game";
-import { Player, PlayerModel } from "./player";
 import { Injectable } from "@angular/core";
+import { Game } from "./game";
 import { TournamentRepository } from "./tournament.repository";
+import { PlayerRepository } from "./player.repository";
+import { PlayerModel } from "./player";
 
 @Injectable({
     providedIn: 'root'
@@ -10,104 +11,106 @@ import { TournamentRepository } from "./tournament.repository";
 
 export class TournamentModel{
 
-   id: number= 1;
 
-   constructor(private player: PlayerModel, private repository: TournamentRepository) {   }
+   constructor(private player: PlayerModel, private tournamentRepository: TournamentRepository) {   }
 
-   selectId(id: number): void{
-      this.id= id;
+   getTournament(id: number): Tournament{
+      return this.tournamentRepository.getTournament(id);
    }
 
-   getTournament(): Tournament{
-      return this.repository.getTournament(this.id);
+   getGames(id: number): Game[]{
+      return this.tournamentRepository.getActiveGames(id);
    }
 
-   getGames(): Game[]{
-      return this.getTournament().games;
+   getResults(id: number,): any[]{
+      return this.tournamentRepository.getResults(id);
    }
 
-   getStartDate(): string{
-      const date= this.getTournament().startDate.toString();
-      const result= date.substring(0,10)
-      return result;
+   getResult(playerId: number): any{
+      return this.tournamentRepository.getResult(playerId);
    }
 
-   getEndDate(): string{
-      const date= this.getTournament().endDate.toString();
-      const result= date.substring(0,10)
-      return result;
+   getStartDate(id: number): string{
+      // return this.getTournament(id).getStartDate();
+      const date= this.getTournament(id).startDate.toString();
+      return date.substring(0,10) || '0000-00-00'
    }
 
-   addNewGame(game: Game): void{
-      this.getTournament().games.push(game);
-      this.getTournament().noOfgames= this.getTournament().games.length;
-      this.calculateResults();
-      this.getTournament().lastGameNo= game.gameNo;
+   getEndDate(id: number): string{
+      // return this.getTournament(id).getEndDate();
+      const date= this.getTournament(id).endDate.toString();
+      return date.substring(0,10)
+   }
+
+   addNewGame(id: number, game: Game): void{
+      // this.getTournament(id).addNewGame(game);
+      this.getGames(id).push(game);
+      game.gameNo= this.getTournament(id).noOfgames+ 1 ;
+      this.calculateResults(id);
    } //end game
    
-   removeGame(index: number): void{
-      this.getTournament().games.splice(index, 1);
-      this.getTournament().noOfgames= this.getTournament().games.length;
+   removeGame(id: number, index: number): void{
+      // this.getTournament(id).removeGame(index)
+      this.getGames(id).splice(index, 1);
    } //update game
 
-   addNewPlayer(player: Player): void{
-      const aleadyThere= this.getTournament().results.some( r=> { return r.name==  player.surname})
-      if (!aleadyThere) {
-         this.player.selectId(player.id)
+   addNewPlayer(id: number, playerId: number, surname: string, gamesPlayed: number, points: number): void{
+      // this.getTournament(id).addNewPlayer(playerId, surname, score, points);
+      const isAlreadyThere= this.getResults(id).some( r=> { return r.playerId==  playerId} )
+      if (!isAlreadyThere) {
          const result= {
-            "playerId": player.id,
+            "playerId": playerId,
             "position": 0, 
-            "name": player.surname, 
-            "points": this.player.getTournamentPoints(this.getTournament().name),
-            "gamesPlayed": this.player.getTournamentGamesPlayed(this.getTournament().name)
+            "name": surname, 
+            "points": points,
+            "gamesPlayed": gamesPlayed
          }
-         this.getTournament().results.push(result);
+      this.getResults(id).push(result);
       } 
    } //end game / player proflie
 
-   updatePoints$Games(index: number, player: Player): void{
-      this.player.selectId(player.id)
-     this.getResults()[index].points= this.player.getTournamentPoints(this.getTournament().name);
-     this.getResults()[index].gamesPlayed= this.player.getTournamentGamesPlayed(this.getTournament().name)
+   updatePoints$Games(playerId: number, score: number, points: number): void{
+      // this.getTournament(id).updatePoints$Games(playerId, score, points);
+     this.getResult(playerId).points= points;
+     this.getResult(playerId).gamesPlayed= score;
    } //player proflie
 
-   calculateResults(): void{
-      this.getResults().sort(( a: any, b: any)=> {  return a.points - b.points;
-      });
-      this.getResults().reverse();
-      this.getResults().forEach( (r, index) => { r.position= index+1 });
+   calculateResults(id: number): void{
+      // this.getTournament(id).calculateResults()
+      this.getResults(id).sort(( a: any, b: any)=> { return a.points - b.points; });
+      this.getResults(id).reverse();
+      this.getResults(id).forEach( (r, index) => { r.position= index+1 });
    } //end game
 
-   getResults(): any[]{
-      return this.getTournament().results
-   }
-
-   showEndTournamentAlert(): boolean{
-      if (this.getTournament().endDate <= new Date()) {
+   showEndTournamentAlert(id: number): boolean{
+      // return this.getTournament(id).showEndTournamentAlert()
+      if (this.getTournament(id).endDate <= new Date()) {
          return true;
       }
       return false;
    } // home
 
-   postponeTournament(): void{
-      const newEndDate= this.getTournament().endDate.getMonth()+1
-      this.getTournament().endDate.setMonth(newEndDate)
-      this.getTournament().isEnded= false;
+   postponeTournament(id: number): void{
+      // this.getTournament(id).postponeTournament()
+      const newEndDate= this.getTournament(id).endDate.getMonth()+1;
+      this.getTournament(id).endDate.setMonth(newEndDate);
+      this.getTournament(id).isEnded= false;
    }// alert
 
-   endTournament(): void{
-      this.getTournament().isEnded= true;
+   endTournament(id: number): void{
+      // this.getTournament(id).endTournament()
+      this.getTournament(id).isEnded= true;
    } //end tournament / alert
 
-   getLeaderId(): number{
-      const result= this.getResults().find( r=>{ return r.position == 1 } )
-      const leaderId= result.playerId;
-      return leaderId;
+   getLeaderId(id: number): number{
+      // return this.getTournament(id).getLeaderId()
+      const leader= this.getResults(id).find( r=>{ return r.position == 1 } )
+      return leader.playerId;
    }
 
-   declareWinner(): void{
-      this.player.selectId(this.getLeaderId())
-      this.player.winTournament();
+   declareWinner(id: number): void{
+      // this.getTournament(id).declareWinner(this.playerRepository)
+      this.player.winTournament(this.getLeaderId(id));
    }//end tournament
 
 }
@@ -120,15 +123,94 @@ export class Tournament{
    startDate: Date= new Date();
    endDate: Date= new Date();
    games: Game[]= [];
-   noOfgames: number= 0;
    results: any[]= [];  
    isEnded: boolean= false;
-   lastGameNo: number= 0;
 
    constructor(name: string, startDate: Date, endDate: Date){ 
      this.name= name;
      this.startDate= startDate;
      this.endDate= endDate;
    }
+ 
+   get noOfgames() : number {
+      return this.games.length
+   }
+
+   getStartDate(): string{
+      const date= this.startDate.toString();
+      return date.substring(0,10)
+   }
+
+   getEndDate(): string{
+      const date= this.endDate.toString();
+      return date.substring(0,10)
+   }
+
+   addNewGame(game: Game): void{
+      this.games.push(game);
+      game.gameNo= this.noOfgames+ 1 ;
+      this.calculateResults();
+   }
+   
+   removeGame(index: number): void{
+      this.games.splice(index, 1);
+   } //update game
+
+   addNewPlayer(playerId: number, surname: string, points: number, gamePlayed: number): void{
+      const aleadyThere= this.results.some( r=> {return r.playerId==  playerId} )
+      if (!aleadyThere) {
+         const result= {
+            "playerId": playerId,
+            "position": 0, 
+            "name": surname, 
+            "points": points,
+            "gamesPlayed": gamePlayed
+         }
+         this.results.push(result);
+      }       
+   } //end game / player proflie
+
+   getResult(playerId: number){
+      return this.results.find(r=> { return r.playerId= playerId }) || {}
+   }
+
+   updatePoints$Games(playerId: number, points: number, gamePlayed: number ): void{
+     this.getResult(playerId).points= points;
+     this.getResult(playerId).gamesPlayed= gamePlayed;
+   } //player proflie
+
+   calculateResults(): void{
+      this.results.sort(( a: any, b: any)=> {  return a.points - b.points;  });
+      this.results.reverse();
+      this.results.forEach( (r, index) => { r.position= index+1 });
+   } //end game
+
+   showEndTournamentAlert(): boolean{
+      if (this.endDate <= new Date()) {
+         return true;
+      }
+      return false;
+   } // home
+
+   postponeTournament(): void{
+      const newEndDate= this.endDate.getMonth()+1
+      this.endDate.setMonth(newEndDate)
+      this.isEnded= false;
+   }// alert
+
+   endTournament(): void{
+      this.isEnded= true;
+   } //end tournament / alert
+
+   getLeaderId(): number{ 
+      const leader= this.results.find( r=>{ return r.position == 1 } )
+      return leader.playerId;
+   }
+
+   declareWinner(player: PlayerRepository): void{
+      player.getPlayer(this.getLeaderId()).winTournament();
+      console.log('called-w');
+      
+   }   
 
 }

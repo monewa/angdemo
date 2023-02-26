@@ -17,7 +17,6 @@ export class TournamentRepository {
 
   constructor(private rest: RestDataSource, private message: GolfMessageService) {  
     this.get();
-    // this.tournaments= this.rest.tournamentData;
   }
 
   getTournaments(): Tournament[]{
@@ -49,6 +48,11 @@ export class TournamentRepository {
     return this.getTournament(id).results;
   }
 
+  getResult(playerId: number): any{
+    const result= this.getResults(playerId).find(r=>{  {r.playerId= playerId} })
+    return result || {}
+ }
+
   getGames(id: number): Game[]{
     return this.getTournament(id).games;
   }
@@ -76,8 +80,12 @@ export class TournamentRepository {
     return this.getScorecard(id, gameNo).scores;
   }
 
+  getFilteredScores(id: number, gameNo: number): ScorecardLine[]{
+    return this.getScorecard(id, gameNo).filteredscorecard;
+  }
+  
   getScoreLine(id: number, gameNo: number, playerId: number): ScorecardLine{
-    const line= this.getScores(id, gameNo).find( s=> { s.playerId== playerId });
+    const line= this.getScores(id, gameNo).find( s=> { return s.playerId== playerId });
     return line || new ScorecardLine(0, '', '', 0)
   }
 

@@ -14,16 +14,10 @@ export class PlayerRepository {
 
   constructor(private rest: RestDataSource, private message: GolfMessageService) { 
     this.get();
-    // this.players= this.rest.playerData;    
   }
 
   getPlayers(): Player[]{
-    // this.get();
     return this.players;
-  }
-
-  getPlayerbyIndex(index: number): Player{
-    return this.players[index];
   }
 
   getPlayer(id: number): Player{
