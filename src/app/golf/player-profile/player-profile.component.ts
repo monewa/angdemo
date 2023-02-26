@@ -16,7 +16,7 @@ export class PlayerProfileComponent implements OnInit {
 
   constructor(private repository: PlayerRepository, public message: GolfMessageService) { }
   
-  getPlayerId(): number{
+  get playerId(): number{
     const regex = /[0-9]/g;
     const indexArr= this.selectedPlayer.match(regex)
     let id= '';
@@ -24,16 +24,16 @@ export class PlayerProfileComponent implements OnInit {
     return Number(id);
   }
 
-  getPlayers(): Player[] {
+  get players(): Player[] {
     return this.repository.getPlayers();
   }
 
-  getGames(): any[]{
-    return this.repository.getGames(this.getPlayerId());
+  get games(): any[]{
+    return this.repository.getGames(this.playerId);
   }
   
-  getPlayer(): Player{
-    return this.repository.getPlayer(this.getPlayerId());
+  get player(): Player{
+    return this.repository.getPlayer(this.playerId);
   }
 
   ngOnInit(): void {

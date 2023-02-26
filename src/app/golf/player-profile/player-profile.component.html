@@ -8,32 +8,34 @@
 </head>
 <body> 
 <app-message [hidden]= "!message.show$removeMessage()"></app-message>
-<div class="card home-card p-5percent m-auto w3-indigo">
+<div class="golf-form p-5percent m-auto w3-indigo">
   <h2>Player Profile</h2><br>
-  Select your player
-  <select class="form-control" [(ngModel)]= "selectedPlayer" >
+  <span *ngIf= "players.length== 0">No players found</span>
+  <span *ngIf= "players.length!= 0">Select your player</span>
+  <select class="shadowWhite form-control" [(ngModel)]= "selectedPlayer" >
     <option >Select a player</option>
-    <option  *ngFor= "let p of getPlayers()" > 
+    <option  *ngFor= "let p of players" > 
        {{p.firstName }} {{ p.surname }}  {{ p.id }}
     </option>
   </select><br>
   <div class="p-5percent w3-light-blue ">
-    <div><span class="bold">Name:</span> {{ getPlayer().firstName || 'n/a' }}</div>
-    <div><span class="bold">Surname:</span> {{ getPlayer().surname || 'n/a'  }}</div>
-    <div><span class="bold">Age:</span> {{ getPlayer().age || 'n/a'  }}</div>
-    <div><span class="bold">Handicap:</span> {{ getPlayer().handicap || 0  }}</div>
-    <div><span class="bold">Games Played:</span> {{ getPlayer().gamesPlayed || 0  }}</div>
-    <div><span class="bold">Games Won:</span> {{ getPlayer().gamesWon || 0  }}</div>
-    <div><span class="bold">Tournaments Won:</span> {{ getPlayer().tournamentsWon || 0  }}</div>
-    <div><span class="bold">Awards Won:</span> {{ getPlayer().awardsWon || 0  }}</div>
-    <div><span class="bold">Player Rating:</span> {{ getPlayer().rating || 0  }}</div><br>
+    <div><span class="bold">Name:</span> {{ player.firstName || 'n/a' }}</div>
+    <div><span class="bold">Surname:</span> {{ player.surname || 'n/a'  }}</div>
+    <div><span class="bold">Age:</span> {{ player.age || 'n/a'  }}</div>
+    <div><span class="bold">Handicap:</span> {{ player.handicap || 0  }}</div>
+    <div><span class="bold">Games Played:</span> {{ player.gamesPlayed || 0  }}</div>
+    <div><span class="bold">Games Won:</span> {{ player.gamesWon || 0  }}</div>
+    <div><span class="bold">Tournaments Won:</span> {{ player.tournamentsWon || 0  }}</div>
+    <div><span class="bold">Awards Won:</span> {{ player.awardsWon || 0  }}</div>
+    <div><span class="bold">Player Rating:</span> {{ player.rating || 0  }}</div><br>
     <!-- <div class= " w3-pale-blue"> -->
       <h5> <span class="w3-deep-purple p-2 bold"> Previous Games</span></h5>
       <table class="w3-responsive w3-table-all no-border">
         <thead class="w3-lime">   
           <th>Game No</th> <th>Tournament</th> <th>Score</th> <th>Points</th>
         </thead> 
-        <tr *ngFor= "let g of getGames()" class="w3-hover-cyan transition">
+      <td colspan="3" *ngIf= "games.length== 0&& playerId!=0">No data found</td>
+        <tr *ngFor= "let g of games" class="w3-hover-cyan transition">
           <td>{{ g.gameNo }}</td><td>{{ g.tournament }}</td>
           <td class= "px-120"><span class="w3-badge w3-teal">{{ g.score }}</span></td>
           <td><span class="w3-badge w3-pink">{{ g.points }}</span></td>
