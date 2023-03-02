@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../model/player';
 import { PlayerRepository } from '../model/player.repository';
-import { GolfMessageService } from '../services/message.service';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-player-form',
@@ -20,12 +20,10 @@ export class PlayerFormComponent implements OnInit {
   tournamentsWon: number= 0;
   awardsWon: number= 0;
   submitted: boolean= false;
-  errorFound: boolean= false;
   isSaved: boolean= false;
-  errorMessage: string= 'Error Found';
   formInvalid: boolean= false;
 
-  constructor(private repository: PlayerRepository, public message: GolfMessageService) { }
+  constructor(private repository: PlayerRepository, private message: MessageService) { }
   
   submit(): void {
     if (this.formInvalid) {
@@ -39,17 +37,15 @@ export class PlayerFormComponent implements OnInit {
 
   saveNewPlayer(): void {
     let player=  new Player( 
-      this.firstName, this.surname, this.birthDate, this.handicap,
-      this.gamesPlayed, this.gamesWon, this.tournamentsWon, this.awardsWon
+      this.firstName, this.surname, this.birthDate, this.handicap,this.gamesPlayed, 
+      this.gamesWon, this.tournamentsWon, this.awardsWon
       )
     this.repository.post(player);
-    setTimeout(() => { this.reset()        
-    }, 5000);
+    this.reset();        
   }
 
   reset(): void {
     this.isSaved= false;
-    this.errorFound= false;
     this.submitted= false;
     this.firstName= '';
     this.surname= '';
@@ -59,6 +55,10 @@ export class PlayerFormComponent implements OnInit {
     this.gamesWon= 0;
     this.tournamentsWon= 0;
     this.awardsWon= 0;
+  }
+
+  get messageIsOpen(): boolean {
+    return this.message.show$removeMessage();
   }
 
   ngOnInit(): void {
