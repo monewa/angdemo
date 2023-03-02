@@ -22,7 +22,7 @@ import { PlayersDataComponent } from './golf/players-data/players-data.component
 import { TournamentFormComponent } from './golf/tournament-form/tournament-form.component';
 import { ScorecardFormComponent } from './golf/scorecard-form/scorecard-form.component';
 import { DemoHomeComponent } from './demo/demo-home/demo-home.component';
-import { GolfMessageComponent } from './golf/message/message.component';
+import { MessageComponent } from './message/message.component';
 // import { golfroutes } from './golf/golf-app.module';
 
 const title1: string = 'Demo';
@@ -73,7 +73,7 @@ export const demoComponents= [ AppComponent, HomeComponent, CalculatorComponent,
 ]
 
 export const golfComponents= [
-    GolfHomeComponent, PlayerProfileComponent, GolfMessageComponent,
+    GolfHomeComponent, PlayerProfileComponent, MessageComponent,
     TournamentReportComponent, PlayersDataComponent, ScorecardFormComponent,
     PlayerFormComponent, TournamentFormComponent
 ]
