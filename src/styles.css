@@ -144,6 +144,8 @@ textarea{ resize: inherit; }
 
 .mx-60{ max-width: 60px; }
 
+.mn-300{ min-width: 300px; }
+
 .px-120{ width: 120px; }
 
 .px-100{ width: 100px; }
