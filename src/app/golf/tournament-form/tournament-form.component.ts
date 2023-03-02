@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tournament } from '../model/tournament';
 import { TournamentRepository } from '../model/tournament.repository';
-import { GolfMessageService } from '../services/message.service';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-tournament-form',
@@ -15,9 +15,9 @@ export class TournamentFormComponent implements OnInit {
   startDate: Date= new Date();
   endDate: Date= new Date();
 
-  constructor(public message: GolfMessageService, private repository: TournamentRepository ) { }
+  constructor(private message: MessageService, private repository: TournamentRepository ) { }
 
-  getTournaments(){
+  get tournaments(){
     return this.repository.getActiveTournaments()
   }
 
@@ -25,6 +25,11 @@ export class TournamentFormComponent implements OnInit {
     this.repository.post(
       new Tournament(this.name,this.startDate, this.endDate))
   }
+  
+  get messageIsOpen(): boolean {
+    return this.message.isOpen
+  }
+  
 
   ngOnInit(): void {
   }
