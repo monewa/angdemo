@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { GolfMessageService } from '../services/message.service';
+import { MessageService } from '../../services/message.service';
 import { Course } from './course';
 import { Game } from './game';
 import { RestDataSource } from './rest.datasource';
@@ -18,7 +18,7 @@ export class CourseRepository {
   courses: Course[]= [];
   games: Game[]= [];
 
-  constructor( private rest: RestDataSource,  private message: GolfMessageService) {   
+  constructor( private rest: RestDataSource,  private message: MessageService) {   
     this.get();  
     // this.courses= this.rest.staticDataCourses;
   }

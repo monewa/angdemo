@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { Player } from "./player";
 import { RestDataSource } from './rest.datasource';
-import{ GolfMessageService } from '../services/message.service'
+import{ MessageService } from '../../services/message.service'
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class PlayerRepository {
 
   players: Player[]= [];
 
-  constructor(private rest: RestDataSource, private message: GolfMessageService) { 
+  constructor(private rest: RestDataSource, private message: MessageService) { 
     this.get();
   }
 

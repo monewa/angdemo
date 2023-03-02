@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Tournament } from './tournament';
 import { RestDataSource } from './rest.datasource';
 import { Game } from './game';
-import { GolfMessageService } from '../services/message.service';
+import { MessageService } from '../../services/message.service';
 import { Scorecard } from './scorecard';
 import { ScorecardLine } from './scorecardLine';
 
@@ -15,7 +15,7 @@ export class TournamentRepository {
   tournaments: Tournament[]= [];
   activeTournaments: Tournament[]= [];
 
-  constructor(private rest: RestDataSource, private message: GolfMessageService) {  
+  constructor(private rest: RestDataSource, private message: MessageService) {  
     this.get();
   }
 

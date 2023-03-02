@@ -22,12 +22,28 @@ export class PlayerModel{
     this.getPlayer(id).calculateHandcap();
   }
 
+  getAge(id: number): number{ 
+    const birthdate= new Date (this.getDateOfBirth(id) )   
+    const today= new Date()
+    let age= today.getFullYear() - birthdate.getFullYear()-1;
+    if ( birthdate.getMonth() <= today.getMonth() && birthdate.getDay() <= today.getDay()   ) {
+      age++;
+    }    
+    return age;
+  }   
+
   getDateOfBirth(id: number): string {
       const date= this.getPlayer(id).birthDate.toString();
       return date.substring(0,10)
   } //Player proflie
 
-  getRating(awardsWon: number, tournamentsWon: number, gamesWon: number, gamesPlayed: number, ) : number {
+  getRating(id: number): number {
+    const player= this.getPlayer(id);
+    const gamesPlayed= player.gamesPlayed
+    const gamesWon= player.gamesWon
+    const tournamentsWon= player.tournamentsWon
+    const awardsWon= player.awardsWon
+
     let rating= (awardsWon* 5) + (tournamentsWon*3) + (gamesWon*1)/ (gamesPlayed);
     return rating= Math.floor(rating);
   }
@@ -73,6 +89,24 @@ export class PlayerModel{
 
   } //Give award
 
+  update(id: number,  firstName: string,  surname: string,  handicap: number,  birthDate: Date, gamesPlayed: number, 
+    gamesWon: number, tournamentsWon: number, awardsWon: number){
+    const player= this.getPlayer(id);
+    player.firstName= firstName;    
+    player.surname= surname;    
+    player.handicap= handicap;    
+    player.birthDate= birthDate;    
+    player.gamesPlayed= gamesPlayed;    
+    player.gamesWon= gamesWon;    
+    player.tournamentsWon= tournamentsWon;    
+    player.awardsWon= awardsWon;
+    this.repository.put(player, id);
+  }
+
+  delete(id: number): void{
+    this.repository.delete(id);
+  }
+
 }
 
 
@@ -82,12 +116,12 @@ export class Player{
     firstName: string= '';
     surname: string= '';
     birthDate: Date= new Date();
-    handicap: number= 0;
     gamesPlayed: number= 0;
     games: any[]= [];  
     gamesWon: number= 0;
     tournamentsWon: number= 0;
     awardsWon: number= 0;
+    handicap: number= 0;
      
     constructor(firstName: string, surname: string, date: any, handicap: number, 
         gamesPlayed: number, gamesWon: number, tournamentsWon: number, awardsWon: number ){
@@ -101,19 +135,21 @@ export class Player{
         this.awardsWon= awardsWon;
     }
 
-    get rating() : number {
-      let rating= (this.awardsWon* 5) + (this.tournamentsWon*3) + (this.gamesWon*1)/ 
+    get rating(): number {
+      let newrating= (this.awardsWon* 5) + (this.tournamentsWon*3) + (this.gamesWon*1)/ 
         (this.gamesPlayed);
-        rating= Math.floor(rating);
-      return rating
+        newrating= Math.floor(newrating)+ 1;
+      return newrating
     }
     
     get age(): number{ 
-      let age= new Date().getFullYear() - this.birthDate.getFullYear()-1;
-      if (  this.birthDate.getMonth() <= new Date().getMonth() ) {
-        age++;
-      }
-      return age;
+      const birthdate= new Date (this.birthDate )   
+      const today= new Date()
+      let newage= today.getFullYear() - birthdate.getFullYear()-1;
+      if ( birthdate.getMonth() <= today.getMonth() && birthdate.getDay() <= today.getDay() ) {
+        newage++;
+      }    
+      return newage;
     }   
 
     playGame(tournamentId:number, tournament: string, gameNo: number, score: number, points: number ): void{
