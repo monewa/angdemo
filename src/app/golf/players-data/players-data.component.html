@@ -7,7 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<app-message [hidden]= "!message.show$removeMessage()"></app-message>
+   <!--  -->
+<app-confirm  [hidden]="!confirmIsOpen" (confirmOption)="isConfirmed= $event"  [title]='title' 
+   [question]='question' (open)= "confirmIsOpen= $event" >
+</app-confirm>
+<app-message  [hidden]= "!messageIsOpen"></app-message>
+
 <div class= "p-2 w3-indigo">
 <h2>Players Table</h2> 
 <br> 
@@ -25,7 +30,7 @@
            <button [hidden]= "checkForEditMode(p.id)" (click)= "edit(p.id)" 
              class="btn btn-primary m-1 ">Edit 
            </button>
-           <button [hidden]= "!checkForEditMode(p.id)" (click)= "openConfirmBox()" 
+           <button  [hidden]= "!checkForEditMode(p.id)" (click)= "openConfirmBox()" 
              class="btn btn-success m-1">Save
            </button>
         </td>
@@ -44,8 +49,8 @@
          <span [hidden]= "checkForEditMode(p.id)">{{ getDateOfBirth(p.id) || 'n/a'}} </span>
          <input [hidden]= "!checkForEditMode(p.id)" [(ngModel)]= "birthDate" 
            maxlength="9" pattern="[0-9-]" class= "form-control" type="text">            
-        </td>
-        <td>{{ p.age }}</td>
+        </td>     <!-- p.age -->
+        <td>{{ age(p.id) || '-'}}</td>
         <td>
            <span [hidden]= "checkForEditMode(p.id)" class="w3-badge w3-green">{{ p.gamesPlayed }} </span>
            <input [hidden]= "!checkForEditMode(p.id)" [(ngModel)]= "gamesPlayed" 
@@ -71,20 +76,20 @@
             <input [hidden]= "!checkForEditMode(p.id)" [(ngModel)]= "handicap" 
             maxlength="3" pattern="[0-9]" class= "mx-60 form-control" type="text"> 
         </td> 
-        <td><span class="w3-badge w3-red">{{ getRating(p.awardsWon, p.tournamentsWon, p.gamesWon, p.gamesPlayed) }}</span></td>
+        <td><span class="w3-badge w3-red">{{ rating(p.id) }}</span></td>
      </tr> 
    </table>
 </div>
 <!-- {{stringify}} -->
 </div> 
          <!-- alert  -->
-<div [hidden]="!confirmIsopen" class=" w3-modal w3-animate-opacity" style="display:'block'">
+<!-- <div  [hidden]="!confirmIsopen" class=" w3-modal w3-animate-opacity" style="display:'block'">
   <div   class="p-5 w3-modal-content alert alert-info m-auto">
    <h4>Confirm Update</h4> 
    Are you sure you want save the changes?<br><br>
    <button (click)="update()" type="submit" class="btn btn-primary m-3 col-sm-2 w3-mobile">Ok</button>
    <button (click)="toggleConfirmBox(false)" type="submit" class="btn btn-danger m-3 col-sm-2 w3-mobile">Cancel</button>
   </div>
-</div>
+</div> -->
 </body>
 </html>

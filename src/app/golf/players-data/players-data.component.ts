@@ -1,8 +1,8 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Player, PlayerModel } from '../model/player';
 import { PlayerRepository } from '../model/player.repository';
-import { GolfMessageService } from '../services/message.service';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-players-data',
@@ -11,21 +11,24 @@ import { GolfMessageService } from '../services/message.service';
 })
 export class PlayersDataComponent implements OnInit {
 
-  confirmIsopen: boolean= false;
+  title: string= ''; 
+  question: string= '';
+  confirmIsOpen: boolean= false;
+  isConfirmed: boolean= false;
+
   selectedId: number= 0;
   editMode: boolean= false;
-
   firstName: string= '';
   surname: string= '';
   birthDate: Date= new Date();
-  handicap: number= 0;
   gamesPlayed: number= 0;
   games: any[]= [];  
   gamesWon: number= 0;
   tournamentsWon: number= 0;
+  handicap: number= 0;
   awardsWon: number= 0;
   
-  constructor(protected playerModel: PlayerModel ,private repository: PlayerRepository, public message: GolfMessageService) {   }
+  constructor(protected playerModel: PlayerModel ,private repository: PlayerRepository, private message: MessageService) {   }
 
    get players(): Player[]{
     return this.repository.getPlayers(); 
@@ -39,10 +42,13 @@ export class PlayersDataComponent implements OnInit {
     return this.playerModel.getDateOfBirth(id); 
   } 
 
-  getRating(awardsWon: number, tournamentsWon: number, gamesWon: number, gamesPlayed: number): number{
-    return this.playerModel.getRating(awardsWon, tournamentsWon, gamesWon, gamesPlayed); 
-  } 
+  age(id: number): number{
+   return this.playerModel.getAge(id);
+  }
 
+  rating(id: number): number{
+    return this.playerModel.getRating(id); 
+  } 
 
   adjustVariablesForEditing(): void{
     const player= this.player;
@@ -69,6 +75,7 @@ export class PlayersDataComponent implements OnInit {
     this.selectedId= id;
     this.adjustVariablesForEditing();
     this.editMode= true;
+    this.confirmIsOpen= false;
   }
 
   openConfirmBox(): void{
@@ -82,49 +89,51 @@ export class PlayersDataComponent implements OnInit {
     const tournamentsWonChanged= this.gamesWon != player.gamesWon;
     const awardsWonChanged= this.gamesWon != player.gamesWon;
 
-    if (firstNameChanged || surnameChanged || handicapChanged || birthDateChanged
-      || handicapChanged || gamesPlayedChanged || gamesWonChanged || tournamentsWonChanged|| 
-      awardsWonChanged){
-      this.toggleConfirmBox(true);
-    }
-    else{
-      this.editMode= false;
-    }
+    if (firstNameChanged || surnameChanged || handicapChanged || birthDateChanged || handicapChanged 
+      || gamesPlayedChanged || gamesWonChanged || tournamentsWonChanged|| awardsWonChanged) {
+        this.showConfirm();
+      }
+      this.cancelEditMode(); 
+  }
+    
+  showConfirm(){
+      this.title= 'Confirm Update';
+      this.question= 'Are you sure you want save the changes?';
+      this.confirmIsOpen= true;
+  }
+    
+  update(): void{ 
+    setTimeout(() => {      
+      if (!this.isConfirmed) {
+        return;      
+      } 
+      this.playerModel.update(this.selectedId, this.firstName, this.surname, this.handicap, this.birthDate, this.gamesPlayed, 
+        this.gamesWon, this.tournamentsWon, this.awardsWon);
+        this.cancelEditMode();
+      }, 3000);
   }
 
-  toggleConfirmBox(option: boolean): void{
-    this.confirmIsopen= option;
-  }
-
-  updateChanges(): void{
-    const player= this.player;
-    player.firstName= this.firstName;    
-    player.surname= this.surname;    
-    player.handicap= this.handicap;    
-    player.birthDate= this.birthDate;    
-    player.gamesPlayed= this.gamesPlayed;    
-    player.gamesWon= this.gamesWon;    
-    player.tournamentsWon= this.tournamentsWon;    
-    player.awardsWon= this.awardsWon;
-  }
-
-  update(): void{
-    const player= this.player;
-    this.updateChanges();
-    this.repository.put(player, player.id);
-    this.reset();
-  }
-
-  reset(): void{
+  cancelEditMode(): void{
     this.editMode= false;
-    this.toggleConfirmBox(false);
   }
 
   delete(id: number): void{
-    this.repository.delete(id);
-    this.reset();
+    this.playerModel.delete(id);
+  }
+
+  get messageIsOpen(): boolean {
+    return this.message.show$removeMessage();
   }
   
+  public get errorMessage() : string {
+    return '' //this.repository.err;
+  }
+
+  ngOnChanges(){
+
+  }
+  
+
   ngOnInit(): void {
   }
 
