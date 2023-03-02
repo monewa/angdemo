@@ -1,8 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Player } from '../model/player';
+import { Player, PlayerModel } from '../model/player';
 import { PlayerRepository } from '../model/player.repository';
-import { GolfMessageService } from '../services/message.service';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-player-profile',
@@ -14,7 +14,7 @@ export class PlayerProfileComponent implements OnInit {
 
   selectedPlayer: string= '';
 
-  constructor(private repository: PlayerRepository, public message: GolfMessageService) { }
+  constructor(private playerModel: PlayerModel, private repository: PlayerRepository, private message: MessageService) { }
   
   get playerId(): number{
     const regex = /[0-9]/g;
@@ -35,6 +35,19 @@ export class PlayerProfileComponent implements OnInit {
   get player(): Player{
     return this.repository.getPlayer(this.playerId);
   }
+
+  get age(): number {
+    return this.playerModel.getAge(this.playerId)
+  }
+
+  get rating(): number {
+    return this.playerModel.getRating(this.playerId)
+  }
+  
+  get messageIsOpen(): boolean {
+    return this.message.isOpen
+  }
+  
 
   ngOnInit(): void {
   }
