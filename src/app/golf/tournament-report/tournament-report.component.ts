@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tournament, TournamentModel } from '../model/tournament';
 import { TournamentRepository } from '../model/tournament.repository';
-import { GolfMessageService } from '../services/message.service';
+import { MessageService } from '../../services/message.service';
 
 @Component({
    selector: 'app-tournament-report',
@@ -15,7 +15,7 @@ export class TournamentReportComponent implements OnInit {
   selectedTournament: string= '';
 
   constructor(private repository: TournamentRepository, public tournamentModel: TournamentModel,
-    public message: GolfMessageService) {  }
+    private message: MessageService) {  }
 
   get tournamentId(): number{
     const startIndex= this.selectedTournament.indexOf('-')
@@ -41,6 +41,10 @@ export class TournamentReportComponent implements OnInit {
 
   get finalResults(): any[]{
     return this.tournament.results;
+  }
+
+  get messageIsOpen(): boolean {
+    return this.message.isOpen
   }
 
   ngOnInit(): void {
