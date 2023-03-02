@@ -1,12 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Game} from '../model/game';
-import { Scorecard, ScorecardModel } from '../model/scorecard';
+import { ScorecardModel } from '../model/scorecard';
 import { ScorecardLine } from '../model/scorecardLine';
 import { TournamentRepository } from '../model/tournament.repository';
 import { Tournament } from '../model/tournament';
-import { GolfMessageService } from '../services/message.service';
-import { PlayerRepository } from '../model/player.repository';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-scorecard-form',
@@ -18,7 +17,7 @@ export class ScorecardFormComponent implements OnInit {
   selectedGame:number= 0;
   selectedTournament:string= '';
 
-  constructor(private scorecard: ScorecardModel, private repository: TournamentRepository, public message: GolfMessageService) { }
+  constructor(private scorecard: ScorecardModel, private repository: TournamentRepository, private message: MessageService) { }
 
   getStringify(object: any){
      return JSON.stringify(object, null, ' ');
@@ -79,6 +78,12 @@ export class ScorecardFormComponent implements OnInit {
   update(){
     this.scorecard.updateScorecard(this.games, this.tournamentId)
   }
+
+  
+  get messageIsOpen(): boolean {
+    return this.message.isOpen
+  }
+  
 
   ngOnInit(): void { 
     }
