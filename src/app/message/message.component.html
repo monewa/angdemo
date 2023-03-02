@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>  
+<div class="mx-800 fade-in p-3 mn-300" style="position: fixed; top: 50px; z-index: 9;">
+    <div [hidden]="type!= 'success'" class=" alert alert-success bg-success p-3 text-white">
+        <h4> {{ title || 'Thank you!' }}
+            <button (click)="close()" class="btn btn-primary m-1" style="float: right;" >X</button>
+        </h4> 
+        <br>{{ message }}<br> 
+    </div>
+    <div [hidden]="type!= 'info'" class=" alert alert-info bg-info p-3 ">
+        <h4>{{ title || 'Info'  }}
+            <button (click)="close()" class="btn btn-primary m-1" style="float: right;" >X</button>
+        </h4>
+        <br> {{ message }}<br> 
+    </div>
+    <div [hidden]="type!= 'error'" class=" alert alert-danger bg-danger p-3 text-white">
+        <h4>{{ title || 'Error!' }}
+            <button (click)="close()" class="btn btn-primary m-1" style="float: right;" >X</button>
+        </h4> <br>
+        {{ message }} <br> 
+    </div>
+
+</div>
+    
+</body>
+</html>
