@@ -12,6 +12,10 @@ export class GolfComponent implements AfterViewInit {
 
   selectedMenu: string= 'Home';
   selectedItem: string= 'Home';
+  // selectedItem: string= 'players-data';
+  // selectedItem: string= 'tournament-form';
+  
+
 
   constructor(public site: SiteManagerService) { }
 
@@ -23,10 +27,7 @@ export class GolfComponent implements AfterViewInit {
   ngAfterViewInit(){
   }
 
-  schedule(){
-    if (new Date()< new Date) {
-    }
-  }
+
   
   ngOnInit(): void {
   }

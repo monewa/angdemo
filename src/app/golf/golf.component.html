@@ -9,11 +9,11 @@
     <title>Golf Scoring</title>
 </head>
  
-<body class="main" >    
+<body class="bg-image" >    
 <nav class="navbar navbar-expand-lg bg-primary navbar-dark text-white">
   <div class="container-fluid" >
     <a class="navbar-brand">
-      <img class="circle-border" src= "assets/img/trophy.jpg" alt="Logo">
+      <img class="circle-border" style="display: none;" src= "assets/img/trophy.jpg" alt="Logo">
     </a>
    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
       data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" 
@@ -74,20 +74,16 @@
 </nav>  
 <h1> <span  class="p-2 w3-indigo rounded m-5">{{ selectedMenu }}</span> </h1>
 <br>
-<app-confirm app-golfhome [hidden]= "selectedItem!= 'confirm'"></app-confirm>
 <app-golfhome [hidden]= "selectedItem!= 'Home'"></app-golfhome>
-<app-player-form [hidden]= "selectedItem!= 'player-form'"></app-player-form>
 <app-tournament-form [hidden]= "selectedItem!= 'tournament-form'" ></app-tournament-form>
 <app-tournament-report [hidden]= "selectedItem!= 'tournament-report'"  ></app-tournament-report>
 <app-player-profile [hidden]= "selectedItem!= 'player-profile'"> </app-player-profile>
+<app-player-form [hidden]= "selectedItem!= 'player-form'"></app-player-form>
+<app-players-data [hidden]= "selectedItem!= 'players-data'"></app-players-data> 
 <app-scorecard-form [hidden]= "selectedItem!= 'scorecard-form'"></app-scorecard-form>
-<app-players-data  [hidden]= "selectedItem!= 'players-data'"></app-players-data> 
-
 </body>
 <footer style="width:100%; float: left;" class="bg-primary text-bg-secondary p-4 mt-5">
   <p>Copyright ©2022  - All Rights reserved</p> 
-  <a (click)= "selectMenu('Reports', 'confirm')"  routerLinkActive= 'lactive'>Confirm</a>
-
 </footer>
 
 </html>
