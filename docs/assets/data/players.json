@@ -164,10 +164,10 @@
     "firstName": "Nelson",
     "surname": "Nkabiti",
     "birthDate": "1994-04-02T00:00:00.000Z",
-    "handicap": "012",
-    "gamesPlayed": "015",
+    "handicap": 12,
+    "gamesPlayed": 15,
     "games": [],
-    "gamesWon": "06",
+    "gamesWon": 6,
     "tournamentsWon": 0,
     "awardsWon": 0
   },
