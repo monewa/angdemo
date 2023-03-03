@@ -14,8 +14,8 @@ export class PlayersDataComponent implements OnInit {
   title: string= ''; 
   question: string= '';
   confirmIsOpen: boolean= false;
-  isConfirmed: boolean= false;
-
+  confirmDeleteIsOpen: boolean= false;
+  
   selectedId: number= 0;
   editMode: boolean= false;
   firstName: string= '';
@@ -78,7 +78,7 @@ export class PlayersDataComponent implements OnInit {
     this.confirmIsOpen= false;
   }
 
-  openConfirmBox(): void{
+  checkForChanges(): void{
     const player= this.player;
     const firstNameChanged= this.firstName != player.firstName;
     const surnameChanged= this.surname != player.surname;
@@ -90,27 +90,43 @@ export class PlayersDataComponent implements OnInit {
     const awardsWonChanged= this.gamesWon != player.gamesWon;
 
     if (firstNameChanged || surnameChanged || handicapChanged || birthDateChanged || handicapChanged 
-      || gamesPlayedChanged || gamesWonChanged || tournamentsWonChanged|| awardsWonChanged) {
-        this.showConfirm();
-      }
-      this.cancelEditMode(); 
+        || gamesPlayedChanged || gamesWonChanged || tournamentsWonChanged|| awardsWonChanged) {
+      this.showConfirmSave();
+    }
+    this.cancelEditMode(); 
+  }
+
+  showConfirmSave(): void{
+    this.title= 'Confirm Update';
+    this.question= 'Are you sure you want save the changes?';
+    this.confirmIsOpen= true;
+  }
+
+  showConfirmDelete(id: number): void{
+    this.title= 'Confirm Delete';
+    this.question= 'Are you sure you want to Delete?';
+    this.confirmDeleteIsOpen= true;
+    this.selectedId= id
   }
     
-  showConfirm(){
-      this.title= 'Confirm Update';
-      this.question= 'Are you sure you want save the changes?';
-      this.confirmIsOpen= true;
+  confirmSave(goAhead: boolean): void{
+    if (!goAhead) {
+      return;      
+    } 
+    this.update();          
+  }
+
+  confirmDelete(goAhead: boolean): void{
+    if (!goAhead) {
+      return;      
+    } 
+    this.delete(this.selectedId);          
   }
     
   update(): void{ 
-    setTimeout(() => {      
-      if (!this.isConfirmed) {
-        return;      
-      } 
       this.playerModel.update(this.selectedId, this.firstName, this.surname, this.handicap, this.birthDate, this.gamesPlayed, 
         this.gamesWon, this.tournamentsWon, this.awardsWon);
         this.cancelEditMode();
-      }, 3000);
   }
 
   cancelEditMode(): void{
@@ -121,18 +137,9 @@ export class PlayersDataComponent implements OnInit {
     this.playerModel.delete(id);
   }
 
-  get messageIsOpen(): boolean {
-    return this.message.show$removeMessage();
+  get messageIsOpen() : boolean {
+    return  this.message.isOpen
   }
-  
-  public get errorMessage() : string {
-    return '' //this.repository.err;
-  }
-
-  ngOnChanges(){
-
-  }
-  
 
   ngOnInit(): void {
   }

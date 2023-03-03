@@ -7,11 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-   <!--  -->
-<app-confirm  [hidden]="!confirmIsOpen" (confirmOption)="isConfirmed= $event"  [title]='title' 
+<app-confirm  *ngIf="confirmIsOpen" (confirmOption)="confirmSave($event)"  [title]='title' 
    [question]='question' (open)= "confirmIsOpen= $event" >
 </app-confirm>
-<app-message  [hidden]= "!messageIsOpen"></app-message>
+<app-confirm  *ngIf="confirmDeleteIsOpen" (confirmOption)="confirmDelete($event)"  [title]='title' 
+   [question]='question' (open)= "confirmDeleteIsOpen= $event" >
+</app-confirm>
+<app-message  *ngIf= "messageIsOpen" ></app-message>
 
 <div class= "p-2 w3-indigo">
 <h2>Players Table</h2> 
@@ -25,12 +27,12 @@
      </thead> 
      <td colspan="8" *ngIf= "players.length== 0">No data found</td>
      <tr *ngFor= "let p of players" class="w3-hover-cyan transition" >
-        <td><button (click)= "delete(p.id)" class="btn btn-danger m-1">Delete</button></td>
+        <td><button (click)= "showConfirmDelete(p.id)" class="btn btn-danger m-1">Delete</button></td>
         <td class="px-90">
            <button [hidden]= "checkForEditMode(p.id)" (click)= "edit(p.id)" 
              class="btn btn-primary m-1 ">Edit 
            </button>
-           <button  [hidden]= "!checkForEditMode(p.id)" (click)= "openConfirmBox()" 
+           <button  [hidden]= "!checkForEditMode(p.id)" (click)= "checkForChanges()" 
              class="btn btn-success m-1">Save
            </button>
         </td>
