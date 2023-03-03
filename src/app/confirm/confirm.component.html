@@ -8,12 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class=" w3-modal w3-animate-opacity" style="display:'block'">
-    <div   class="p-5 w3-modal-content alert alert-info m-auto">
-     <h4>{{ title }}</h4> 
+<div class=" w3-modal w3-animate-opacity " style="display:'block'">
+    <div   class="p-3 w3-modal-content alert alert-info m-auto mx-300">
+     <h4 class="bold">{{ title }}</h4> 
      {{ question }}<br><br>
-     <button (click)="selectOption(true)" class="btn btn-primary m-3 col-sm-2 w3-mobile">Ok</button>
-     <button (click)="selectOption(false)" class="btn btn-danger m-3 col-sm-2 w3-mobile">Cancel</button>
+     <button (click)="selectOption(true)" class="btn btn-primary m-3 w3-mobile">Ok</button>
+     <button (click)="selectOption(false)" class="btn btn-danger m-3 w3-mobile">Cancel</button>
     </div>
 </div>
 </body>
