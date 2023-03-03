@@ -58,7 +58,7 @@ export class PlayerFormComponent implements OnInit {
   }
 
   get messageIsOpen(): boolean {
-    return this.message.show$removeMessage();
+    return this.message.isOpen;
   }
 
   ngOnInit(): void {
