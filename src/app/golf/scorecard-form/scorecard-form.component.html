@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<app-message [hidden]= "!messageIsOpen"></app-message>
+<app-message  *ngIf= "messageIsOpen" ></app-message>
+
 <div class= "golf-form p-5percent w3-indigo m-auto ">
   <!-- {{ getStringify( staticDataCourses ) }} -->
   <h2>Scorecard Form</h2> 
