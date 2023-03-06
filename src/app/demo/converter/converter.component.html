@@ -15,9 +15,9 @@
 <div class= 'converter alt-banner' >
 	<b>Converter</b>
 	<div class= 'numpad'>
-		<label >{{ setAnswerDisplay() }}</label>
+		<label >{{ smallScreenVal }}</label>
 		<br>
-		<input [value]= 'toDisplayValue' [placeholder]= 'setDisplayPlaceholder()' readonly>
+		<input [value]= 'mainScreenVal' [placeholder]= 'placeholder' readonly>
 		<br>
 		<button (click)= 'run("convert")' class= 'unit operator wider'>convert</button>
 		<br>
