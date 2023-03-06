@@ -1,9 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
-import { UserRepository } from '../model/user.repository.service';
+import { Repository } from '../model/repository';
 import {NgModel, NgForm} from '@angular/forms'
 import { WindowService } from '../../services/window.service';
-import { MessageService } from '../services/message.service';
+import { Recipient, RecipientModel } from '../model/recipient.model'; 
+import { MessageService } from 'src/app/services/message.service';
 
 
 @Component({
@@ -13,8 +14,7 @@ import { MessageService } from '../services/message.service';
 })
 export class MailinglistComponent implements OnInit {
 
-	id: number= -1;
-	protected firstName: string= '';
+	protected firstName: string= ''; 
 	protected lastName: string= '';
 	protected country: string= '';
 	protected email: string= '';
@@ -23,18 +23,22 @@ export class MailinglistComponent implements OnInit {
 	protected phone_code: string= ''
 	protected comments: string= '';
 	submitted= false; 
-	countryList: any[]= [];
 	formIsValid: boolean= false;
 	successPopupIsHidden: boolean= true;
 	codeInfoIsHidden: boolean= false;
-	saveError: string= '';
 	saveErrorFound: boolean= false;
-	countriesListError: string= '';
-	idErrorFound: boolean= false;
 	tipStyle: string= 'opacity: 0';
-	
-  constructor(private repository: UserRepository, private messenger: MessageService,
+	 
+    constructor(private repository: Repository, private model: RecipientModel, private message: MessageService,
 	public window: WindowService) { }
+	
+	get countries(): any[] {
+		return this.repository.countries
+	}
+
+	get messageIsOpen(): boolean {
+		return this.message.isOpen;
+	}
 	
 	validateForm(form: NgForm): void{
 		this.submitted= true
@@ -50,49 +54,16 @@ export class MailinglistComponent implements OnInit {
 		return false;
 	}
 
-	generateNextId(): void{
-		this.repository.getUsers().subscribe(
-			data =>{
-				let lastIndex= data.length -1
-				if(lastIndex <= -1){
-					this.id= 1;
-				}
-				this.id= data[lastIndex].id+1;
-			}, 
-			err =>{
-				this.idErrorFound= true;
-				this.messenger.setLogUpdate('', '', false, err.message, 'create-id', this.id);
-			});
-	}
-
 	suggestCode(): void{
-		let result = this.countryList.find(c=> c.country == this.country)
-		this.code= result.code
+		this.code= this.repository.getCountryCode(this.country);
 	}
 	
 	saveForm(): void{			
 		if(!this.formIsValid){
 			return;
 		}
-		this.generateNextId();
-		if (this.idErrorFound) {
-			this.saveError= 'error: wrong id';
-			return;
-		}
 		this.phone_code = `+${this.code} ${this.phone}`;
-		this.repository.addUser(this.id, this.firstName, this.lastName, 
-		this.country, this.email, this.phone_code, this.comments).subscribe(
-			add =>{ },
-			err =>{ 
-				this.saveErrorFound= true;
-			console.log('1st '+this.saveErrorFound);
-				this.saveError= err.message;
-				this.messenger.setLogUpdate('',this.firstName, false, err.message, 'created');
-			}, 
-			() =>{
-				this.messenger.setLogUpdate('', this.firstName, true, '', 'created');
-				this.resetValues();
-			}); 
+		this.model.save(this.firstName, this.lastName, this.country, this.email, this.phone, this.comments)
 	}
 			
 	resetValues(): void{
@@ -112,31 +83,16 @@ export class MailinglistComponent implements OnInit {
 		this.comments= '';
 	}
 
-	showTip(){
+	showTip(): void{
 		this.tipStyle= 'opacity: 1';
 	}
 
-	hideTip(){
+	hideTip(): void{
 		this.tipStyle= 'opacity: 0';
-	}
-
-	getCountries(): void{
-		this.repository.getCountries().subscribe(
-			(data: any[])=> { 
-				this.countryList= data; 
-			},
-		err=> {
-			this.countriesListError= '(country list not found!) '
-		},
-		()=> {
-			this.countriesListError= '';
-		});
 	}
 
 	ngOnInit(): void { 
 		this.window.scrollToTop();
-		this.generateNextId();
-		this.getCountries();
     }
 
 }
