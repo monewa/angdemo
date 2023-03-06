@@ -1,9 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
-import { UserRepository } from '../model/user.repository.service';
-import { MessageService } from '../services/message.service';
+import { Repository } from '../model/repository';
+import { EventLogService } from '../../services/eventlog.service';
 import { WindowService } from '../../services/window.service';
-
+import { Recipient, RecipientModel } from '../model/recipient.model';
+import { MessageService } from 'src/app/services/message.service';
+  
 @Component({
   selector: 'app-mailinglistdata',
   templateUrl: './mailinglistdata.component.html',
@@ -11,166 +13,61 @@ import { WindowService } from '../../services/window.service';
 })
 export class MailinglistdataComponent implements OnInit {
 
-	users: any[]= [];
-	id: number= -1;
-	selectedIndex: number= -1;
+	selectedId: number= -1;
+	scroll= 9;
+	dataIsLoaded: boolean= false;
 	name: string= '';
 	lastName: string= '';
 	country: string= '';
 	email: string= '';
 	phone: string= '';
-	scroll= 9;
-	dataIsLoaded: boolean= false;
 	
-	constructor(private repository: UserRepository, private messenger: MessageService,
-		private window: WindowService) { }
-	
-	get(){
-		this.repository.getUsers().subscribe( 
-			(data)=> { 
-				this.users= data; 
-			});
+	constructor(private repository: Repository, private model: RecipientModel, private log: EventLogService,
+		private window: WindowService, private message: MessageService) { }
+
+	get recipients(): Recipient[] {
+		return this.repository.recipients
 	}
 
-	editUsers(index:number): void{
-		this.selectedIndex=index;
-		this.name= this.users[index].firstName;
-		this.lastName= this.users[index].lastName;
-		this.country= this.users[index].country;
-		this.email= this.users[index].email;
-		this.phone= this.users[index].phone;
-	}
-	
-	checkForEditMode(index:number): boolean{
-		if(this.selectedIndex == index){
-			return false;
-		}
-		return true;
+	get recipient(): Recipient {
+		return this.repository.getRecipient(this.selectedId)
 	}
 
-	updateData(index:number): void{
-		this.selectedIndex= -1;
-		this.id= this.users[index].id;
-		this.messenger.setLogUpdate(this.users[index].firstName, '', true, '', 'selected', this.id);
-		this.updateName(index);
-		this.updateLastName(index); 
-		this.updateCountry(index);
-		this.updatePhone(index);
-		this.updateEmail(index);
-		this.get();
+	get messageIsOpen(): boolean {
+		return this.message.isOpen;
 	}
+	
+	editUsers(id:number): void{
+		this.selectedId=id;
+		this.name= this.recipient.firstName;
+		this.lastName= this.recipient.lastName;
+		this.country= this.recipient.country;
+		this.email= this.recipient.email;
+		this.phone= this.recipient.phone;
+	}
+	
+	inEditMode(id:number): boolean{
+		if(this.selectedId == id){
+			return true;
+		}
+		return false;
+	} 
 
-	updateName(index:number): void{ 
-		let name= this.users[index].firstName;
-		if(name != this.name){
-			this.repository.patchName(this.id, this.name).subscribe(
-				users =>{ }, 
-				err =>{ 
-					this.messenger.setLogUpdate(name, '', false, err.message);
-					this.messenger.setEditNotify(false, this.id);
-				}, 
-				() =>{
-					this.messenger.setEditNotify(true, this.id);
-					this.messenger.setLogUpdate(name, this.name, true);
-				});	
-		}
+	updateData(): void{
+		this.log.setLogUpdate(this.recipient.lastName, '', true, '', 'selected', this.selectedId);
+		this.model.updateName(this.selectedId, this.name);
+		this.model.updateLastname(this.selectedId, this.lastName);
+		this.model.updateCountry(this.selectedId, this.country);
+		this.model.updateEmail(this.selectedId, this.email);
+		this.model.updatePhone(this.selectedId, this.phone);
+		this.selectedId= -1;
 	}
 	
-	updateLastName(index:number): void{
-		let lastName= this.users[index].lastName;
-		if(lastName != this.lastName){
-			this.repository.patchLastname(this.id, this.lastName).subscribe(
-				users =>{ }, 
-				err =>{ 
-					this.messenger.setLogUpdate(lastName, '', false, err.message);
-					this.messenger.setEditNotify(false, this.id);
-				}, 
-				() =>{
-					this.messenger.setEditNotify(true, this.id);
-					this.messenger.setLogUpdate(lastName, this.lastName, true);
-				});
-		}
-	}
-	
-	updateCountry(index:number): void{
-		let country= this.users[index].country;
-		if(country != this.country){
-			this.repository.patchCounty(this.id, this.country).subscribe(
-				users=>{ }, 
-				err =>{ 
-					this.messenger.setLogUpdate(country, '', false, err.message);
-					this.messenger.setEditNotify(false, this.id);
-				}, 
-				() =>{
-					this.messenger.setEditNotify(true, this.id);
-					this.messenger.setLogUpdate(country, this.country, true);
-				});
-		}
-	}
-	
-	updateEmail(index:number): void{
-		let email= this.users[index].email;
-		if(email != this.email){
-			this.repository.patchEmail(this.id, this.email).subscribe(
-				users =>{ }, 
-				err =>{ 
-					this.messenger.setLogUpdate(email, '', false, err.message);
-					this.messenger.setEditNotify(false, this.id);
-				}, 
-				() =>{
-					this.messenger.setEditNotify(true, this.id);
-					this.messenger.setLogUpdate(email, this.email, true);
-				});
-		}
-	}
-	
-	updatePhone(index:number): void{
-		let phone= this.users[index].phone
-		if(phone != this.phone){
-			this.repository.patchPhone(this.id, this.phone).subscribe(
-				users =>{ }, 
-				err =>{ 
-					this.messenger.setLogUpdate(phone, '', false, err.message);
-					this.messenger.setEditNotify(false, this.id);
-				}, 
-				() =>{
-					this.messenger.setEditNotify(true, this.id);
-					this.messenger.setLogUpdate(phone, this.phone, true);
-				});
-		}
-	}
-	
-	deleteUser(id:number, index: number): void{
-		let name= this.users[index].firstName;
-		this.repository.deleteUser(id).subscribe(
-			deleted =>{ }, 
-			err =>{ 
-				this.messenger.setLogUpdate(name, '', false, err.message, 'deleted', id);
-				this.messenger.setDeleteNotify(true, id);
-				this.messenger.deleteNotificationIsOpen= true;
-			}, 
-			() =>{
-				this.messenger.setLogUpdate(name, '', true, '', 'deleted', id);
-				this.messenger.setDeleteNotify(false, id);
-				this.messenger.deleteNotificationIsOpen= true;
-			 });
-		this.get();
+	deleteUser(id:number): void{
+		this.repository.deleteRecipient(id);
 	}	
-
-	getName(id: number){
-		let index= this.users?.indexOf(id);
-		return	this.users[index].firstName;
-	}
-
-	checkForData(): boolean{
-		if(this.users.length <= 0 && this.dataIsLoaded){
-			return false;
-		} 
-		return true;
-	}
 	
-	loadData(){
-		this.get();
+	loadData(): void{
 		this.dataIsLoaded= true;		
 	}
 
