@@ -51,7 +51,7 @@ div.menu{	position:absolute;
 }
 
 nav { background-color: var(--banner-color);
-	z-index: 1;
+	/* z-index: 1; */
 }
 
 .links-btn{	background-color: indigo;
