@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<app-eventlog *ngIf= "eventLogIsOpen" (close)= "eventLogIsOpen = $event" ></app-eventlog>
 <body>
 <div class= "menu">
     <button class= "banner-btn btn">
@@ -22,15 +23,14 @@
         <br>
         U
     </button>
-    <div class= "banner submenu" 
-           [class.show-menu]= "messenger.editNotificationIsOpen || messenger.deleteNotificationIsOpen">
+    <div class= "banner submenu">
         <div class="links w3-mobile">
-            <button (click)= "openEventLog()"   class= 'links-btn'>View Event log</button>
-               <a  target="_blank"  href="https://mo-json-api.herokuapp.com/" 
-               class="links-btn" >Remote server 
+            <button (click)= "openEventLog()"   class= 'links-btn m-1'>View Event log</button><br>
+            <a  target="_blank"  href="https://mo-json-api.herokuapp.com/" 
+               class="links-btn m-1" >Remote server 
             </a>
         </div>
-        <div class= 'notifications'>
+        <!-- <div class= 'notifications'>
             <div *ngIf= 'messenger.editNotificationIsOpen' class= 'edit-notification'> 
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"  
                     class="bi bi-pen" viewBox="0 0 16 16">
@@ -48,15 +48,7 @@
                 <br>
                 <button (click)= 'closeDeleteBox()'>Ok</button>
             </div>
-        </div>
-        <div *ngIf= 'eventLogIsOpen' class= "log fade-in">
-            <div class= "banner">
-                Event Log
-                <button (click)= "closeEventLog()">×</button>
-            </div>
-            <div *ngIf= "checkForEvents()" class= "log-message">no events found</div>
-            <div  [innerHTML]= "messenger.getLog()" ></div>
-        </div>
+        </div> -->
     </div>
 </div>
 </body>

@@ -1,6 +1,6 @@
 
-import { Component, OnInit } from '@angular/core';
-import { MessageService } from '../../services/message.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { EventLogService } from '../../../services/eventlog.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,28 +9,15 @@ import { MessageService } from '../../services/message.service';
 })
 export class MenuComponent implements OnInit {
 
-   eventLogIsOpen: boolean= false;
+  eventLogIsOpen: boolean= false
 
-   constructor(protected messenger: MessageService) { }
+  constructor(protected messenger: EventLogService) { }
 
-   closeEditBox():void{
-     this.messenger.editNotificationIsOpen= false;
-   }
-   closeDeleteBox():void{
-      this.messenger.deleteNotificationIsOpen= false;
-   }
-   openEventLog(): void{
-      this.eventLogIsOpen= true;
-   }
-   closeEventLog(): void{
-        this.eventLogIsOpen= false;
-   }
-   checkForEvents(): boolean{
-     if(this.messenger.getLog() == ''){
-       return true;
-     }
-     return false;
-   }
-   ngOnInit(): void {
-   }
+  openEventLog(): void{
+    this.eventLogIsOpen= true;
+  }
+  
+  ngOnInit(): void {
+  }
+
 }
