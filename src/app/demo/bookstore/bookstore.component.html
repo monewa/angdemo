@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
+<app-message  *ngIf= "messageIsOpen" ></app-message>
 <body class= "fade-in">
 <h1>Book Store
 	<h4>Welcome to our bookshop</h4>
@@ -21,17 +22,17 @@
 
 <div class= "container banner">
 	<p >Browse our best selling books</p>
-	<p>{{ error }}</p>
 	<div class= "books  alt-banner" *ngFor= "let book of books" >
 		<img [src]= "'assets/img/'+book.imageUrl">
 		<div class= "banner-btn title">{{ book.title }}</div>
 		<div class= "description">
-			<p>{{ book.description}}</p>
+			<p>{{ book.description }}</p>
 			<p><i> by {{ book.author }}</i></p>
 			<p>pages: {{ book.pages }}</p>
 			<p>price: <span> {{ book.price | currency }}</span></p>
 		</div>
-	</div>	
+	</div>
+	<div *ngIf= "books.length==0">'no books not found'</div>	
 </div>
 </body>
 

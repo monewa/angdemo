@@ -1,39 +1,30 @@
 
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'src/app/services/message.service';
 import { WindowService } from '../../services/window.service';
-import { UserRepository } from '../model/user.repository.service';
+import { Repository } from '../model/repository';
 
-@Component({
+@Component({ 
   selector: 'app-bookstore',
   templateUrl: './bookstore.component.html',
   styleUrls: ['./bookstore.component.css', '../demo.component.css']
 })
 export class BookstoreComponent implements OnInit {
 
-books: any[] = [];
 
-constructor(private window: WindowService, private repository: UserRepository) { }
+constructor(private window: WindowService, private repository: Repository, private message: MessageService) { }
 
-error: string= '';
-
-getBooks(): void{
-  console.log('sub');
-  
-  this.repository.getBooks().subscribe(
-    (data:any[])=> { 
-      this.books= data; 
-    }, 
-    err=> {
-      this.error= '(no books not found!)';
-    },
-    ()=> {
-      this.error= '';
-    });
+get books(): any[] {
+  return this.repository.books
 }
+
+get messageIsOpen(): boolean {
+  return this.message.isOpen;
+}
+
 
 ngOnInit(): void { 
     this.window.scrollToTop();
-    this.getBooks();
-  }
+}
 
 }
