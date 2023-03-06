@@ -95,7 +95,7 @@ export class TournamentRepository {
         this.tournaments= data;     
         this.filterActiveTournaments();
       },
-      err=> { this.message.setMessage('Error!', `Tournament data not loaded ${err.message}`, 'error') }
+      err=> { this.message.setMessage('Error!', `Tournament data not loaded`, 'error') }
     )
     }, 3000);
   }  
@@ -103,7 +103,7 @@ export class TournamentRepository {
   post(tournament: Tournament): void{
     this.rest.newTournament( tournament).subscribe( 
       (newtournament)=> { this.tournaments.push(newtournament) }, 
-      (err)=> { this.message.setMessage('Error!', `Tournament not saved ${err.message}`, 'error') },
+      err=> { this.message.setMessage('Error!', `Tournament not saved`, 'error') },
       ()=> { this.message.setMessage('Thank you!', 'Tournament saved', 'success') }
     );
   }
@@ -114,7 +114,7 @@ export class TournamentRepository {
         const index= this.tournaments.indexOf(newTournament)
         this.tournaments.splice(index, 1, newTournament)
       }, 
-      (err)=> { this.message.setMessage('Error!', `Tournament not updated ${err.message}`, 'error') },
+      err=> { this.message.setMessage('Error!', `Tournament not updated`, 'error') },
       ()=> { this.message.setMessage('Thank you!', `You updated [id: ${ id }]`, 'success') }
     );
   }
@@ -124,7 +124,7 @@ export class TournamentRepository {
       newGames=> { 
         this.getActiveTournament(id).games= newGames
       }, 
-      (err)=> { this.message.setMessage('Error!', `Games not updated ${err.message}`, 'error') },
+      err=> { this.message.setMessage('Error!', `Games not updated`, 'error') },
       ()=> { this.message.setMessage('Thank you!', `You updated [id: ${ id }]`, 'success') }
     );
   }
@@ -135,7 +135,7 @@ export class TournamentRepository {
         const index= this.tournaments.indexOf(oldtournament);
         this.tournaments.splice(index, 1, oldtournament);
       }, 
-      (err)=> { this.message.setMessage('Error!', `Not deleted ${err.message}`, 'error') },
+      err=> { this.message.setMessage('Error!', `Not deleted`, 'error') },
       ()=> { this.message.setMessage('Thank you!', 'Tournament deleted', 'success') }
     );
   }

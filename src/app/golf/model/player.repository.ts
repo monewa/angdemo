@@ -32,14 +32,14 @@ export class PlayerRepository {
   get(): void{
     this.rest.getPlayers().subscribe( 
     data => { this.players= data },
-    err=> { this.message.setMessage('Error!', `Player data not loaded ${err.message}`, 'error') }
+    err=> { this.message.setMessage('Error!', `Player data not loaded`, 'error') }
     );        
   }
 
   post(player: Player): void{
     this.rest.newPlayer(player).subscribe( 
       newplayer=> { this.players.push(newplayer) }, 
-      err=> { this.message.setMessage('Error!', `Player not saved ${err.message}`, 'error') },
+      err=> { this.message.setMessage('Error!', `Player not saved`, 'error') },
       ()=> { this.message.setMessage('Thank you!', 'Player saved', 'success') }
     );
   }
@@ -50,7 +50,7 @@ export class PlayerRepository {
         const index= this.players.indexOf(newplayer);
         this.players.splice(index, 1, newplayer) 
       },
-      err=>{ this.message.setMessage('Error!', `Player not updated ${err.message}`, 'error') }, 
+      err=> { this.message.setMessage('Error!', `Player not updated`, 'error') }, 
       ()=> { this.message.setMessage('Thank you', `You updated [id: ${ id }]`, 'success'); }
     );
       // this.reset();
@@ -62,7 +62,7 @@ export class PlayerRepository {
         const index= this.players.indexOf(oldplayer);
         this.players.splice(index, 1) 
       },
-      err=> { this.message.setMessage('Error!', `Player not deleted ${err.message}`, 'error') },
+      err=> { this.message.setMessage('Error!', `Player not deleted`, 'error') },
       ()=> { this.message.setMessage('Thank you', 'Player deleted', 'success') }
     );
   }

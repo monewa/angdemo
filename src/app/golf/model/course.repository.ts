@@ -35,14 +35,14 @@ export class CourseRepository {
   get(): void{
     this.rest.getCourses().subscribe( 
       data => { this.courses= data }, 
-      err=> { this.message.setMessage('Error!', `Course data not loaded ${err.message}`, 'error') },
+      err=> { this.message.setMessage('Error!', `Course data not loaded`, 'error') },
     );
   }
 
   post(course: Course): void{
     this.rest.newCourse( course).subscribe( 
       (newcourse)=> { this.courses.push(newcourse)  }, 
-      err=> { this.message.setMessage('Error!', `Course not saved ${err.message}`, 'error') },
+      err=> { this.message.setMessage('Error!', `Course not saved`, 'error') },
       ()=> { this.message.setMessage('Thank you!', 'Course saved', 'success') }
     );
   }
@@ -53,7 +53,7 @@ export class CourseRepository {
         const index= this.courses.indexOf(newCourse);
         this.courses.splice(index, 1, newCourse)  
       }, 
-      err=> { this.message.setMessage('Error!', `Course not updated ${err.message}`, 'error') },
+      err=> { this.message.setMessage('Error!', `Course not updated`, 'error') },
       ()=> { this.message.setMessage('Thank you!', `You updated [id: ${ id }]`, 'success') }
     );
   }
@@ -64,7 +64,7 @@ export class CourseRepository {
         const index= this.courses.indexOf(oldcourse);
         this.courses.splice(index, 1);
       },
-      err=> { this.message.setMessage('Error!', `Course not deleted ${err.message}`, 'error') },
+      err=> { this.message.setMessage('Error!', `Course not deleted`, 'error') },
       ()=> { this.message.setMessage('Thank you!', 'Course deleted', 'success') }
     );
   }

@@ -21,21 +21,22 @@ export class PlayerModel{
   calculateHandcap(id: number): void{  
     this.getPlayer(id).calculateHandcap();
   }
-
+// 33 21 22
   getAge(id: number): number{ 
-    const birthdate= new Date (this.getDateOfBirth(id) )   
+    const birthdate= new Date (this.getPlayer(id).birthDate )   
     const today= new Date()
     let age= today.getFullYear() - birthdate.getFullYear()-1;
-    if ( birthdate.getMonth() <= today.getMonth() && birthdate.getDay() <= today.getDay()   ) {
+    if ( birthdate.getMonth() == today.getMonth() ){
+      if( birthdate.getDay() <= today.getDay() ) {
+        age++;
+      }
+      return age;
+    }  
+    if ( birthdate.getMonth() < today.getMonth() ) {
       age++;
     }    
     return age;
   }   
-
-  getDateOfBirth(id: number): string {
-      const date= this.getPlayer(id).birthDate.toString();
-      return date.substring(0,10)
-  } //Player proflie
 
   getRating(id: number): number {
     const player= this.getPlayer(id);
@@ -43,14 +44,12 @@ export class PlayerModel{
     const gamesWon= player.gamesWon
     const tournamentsWon= player.tournamentsWon
     const awardsWon= player.awardsWon
-
-    let rating= (awardsWon* 5) + (tournamentsWon*3) + (gamesWon*1)/ (gamesPlayed);
-    return rating= Math.floor(rating);
+    const rating= (awardsWon* 5) + (tournamentsWon*3) + (gamesWon*1)/ (gamesPlayed)+1;
+    return rating;
   }
   
   playGame(id: number, tournamentId:number, tournament: string, gameNo: number, score: number, points: number ): void{
     this.getPlayer(id).games.push({ "tournamentId": tournamentId, "tournament": tournament, "gameNo": gameNo, "score": score, "points": points}) 
-    // this.getPlayer(id).playGame(tournamentId, tournament, gameNo, score, points);
   } //End Game
 
   getGames(id: number): any[]{

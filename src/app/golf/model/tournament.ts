@@ -29,17 +29,15 @@ export class TournamentModel{
    getResult(playerId: number): any{
       return this.tournamentRepository.getResult(playerId);
    }
-
+   
+   
    getStartDate(id: number): string{
-      // return this.getTournament(id).getStartDate();
-      const date= this.getTournament(id).startDate.toString();
-      return date.substring(0,10) || '0000-00-00'
+      const date= new Date(this.getTournament(id).startDate).toDateString()
+      return date
    }
 
-   getEndDate(id: number): string{
-      // return this.getTournament(id).getEndDate();
-      const date= this.getTournament(id).endDate.toString();
-      return date.substring(0,10)
+   getNoOfgames(id: number) : number {
+      return this.getGames(id).length;
    }
 
    addNewGame(id: number, game: Game): void{
@@ -137,13 +135,13 @@ export class Tournament{
    }
 
    getStartDate(): string{
-      const date= this.startDate.toString();
-      return date.substring(0,10)
+      const date= new Date(this.startDate).toDateString();
+      return date;
    }
 
    getEndDate(): string{
-      const date= this.endDate.toString();
-      return date.substring(0,10)
+      const date= new Date(this.endDate).toDateString();
+      return date;
    }
 
    addNewGame(game: Game): void{
