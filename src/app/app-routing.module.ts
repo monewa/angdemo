@@ -23,6 +23,10 @@ import { TournamentFormComponent } from './golf/tournament-form/tournament-form.
 import { ScorecardFormComponent } from './golf/scorecard-form/scorecard-form.component';
 import { DemoHomeComponent } from './demo/demo-home/demo-home.component';
 import { MessageComponent } from './message/message.component';
+import { EventlogComponent } from './eventlog/eventlog.component';
+import { ConfirmComponent } from './confirm/confirm.component';
+import { ScheduledConfirmComponent } from './scheduled-confirm/scheduled-confirm.component';
+
 // import { golfroutes } from './golf/golf-app.module';
 
 const title1: string = 'Demo';
@@ -66,14 +70,19 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const demoComponents= [ AppComponent, HomeComponent, CalculatorComponent, 
-	ConverterComponent, MailinglistComponent, MailinglistdataComponent, 
-	BookstoreComponent, AboutmeComponent, PageNotFoundComponent, 
-	MenuComponent, SuccessPopupComponent, GolfComponent, DemoComponent
+export const appComponents= [
+	EventlogComponent, AppComponent, HomeComponent, PageNotFoundComponent, 
+	ConfirmComponent, ScheduledConfirmComponent
+] 
+
+export const demoComponents= [ 
+	CalculatorComponent, ConverterComponent, MailinglistComponent, 
+	MailinglistdataComponent, BookstoreComponent, AboutmeComponent, 	
+	MenuComponent, SuccessPopupComponent, DemoComponent
 ]
 
 export const golfComponents= [
-    GolfHomeComponent, PlayerProfileComponent, MessageComponent,
+    GolfComponent, GolfHomeComponent, PlayerProfileComponent, MessageComponent,
     TournamentReportComponent, PlayersDataComponent, ScorecardFormComponent,
     PlayerFormComponent, TournamentFormComponent
 ]
