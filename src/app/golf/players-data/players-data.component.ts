@@ -1,5 +1,5 @@
 
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Player, PlayerModel } from '../model/player';
 import { PlayerRepository } from '../model/player.repository';
 import { MessageService } from '../../services/message.service';
@@ -37,10 +37,6 @@ export class PlayersDataComponent implements OnInit {
   get player(): Player{
     return this.repository.getPlayer(this.selectedId); 
   }
-
-  getDateOfBirth(id: number): string{
-    return this.playerModel.getDateOfBirth(id); 
-  } 
 
   age(id: number): number{
    return this.playerModel.getAge(id);
@@ -137,7 +133,7 @@ export class PlayersDataComponent implements OnInit {
     this.playerModel.delete(id);
   }
 
-  get messageIsOpen() : boolean {
+  get messageIsOpen(): boolean {
     return  this.message.isOpen
   }
 
