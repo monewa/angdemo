@@ -20,9 +20,9 @@
    </select><br>
    <div class="p-5percent w3-light-blue" >
       <div><span class="bold">Name:</span> {{ tournament.name || 'n/a' }}</div>
-      <div><span class="bold">Total Games:</span> {{ tournament.noOfgames || 0}}</div>
-      <div><span class="bold">Start Date:</span> {{ startDate || '0000-00-00' }}</div>
-      <div><span class="bold">End Date:</span> {{ endDate || '0000-00-00'}}</div>
+      <div><span class="bold">Total Games:</span> {{ noOfgames }}</div>
+      <div><span class="bold">Start Date:</span> {{ tournament.startDate | date: 'dd-MMM-YYYY' }}</div>
+      <div><span class="bold">End Date:</span> {{ tournament.endDate | date: 'dd-MMM-YYYY'}}</div>
       <br>
       <h5> <span class="w3-deep-purple p-2 bold"> Final Scores</span></h5>
       <table class=" w3-table-all w3-responsive no-border">

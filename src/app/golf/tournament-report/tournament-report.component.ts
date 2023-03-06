@@ -23,12 +23,8 @@ export class TournamentReportComponent implements OnInit {
     return Number(id);
   }
   
-  get startDate() : string {
-    return this.tournamentModel.getStartDate(this.tournamentId)
-  }
-
-  get endDate() : string {
-    return this.tournamentModel.getEndDate(this.tournamentId)
+  get noOfgames(): number {
+    return this.tournamentModel.getNoOfgames(this.tournamentId)
   }
 
   get tournaments(): Tournament[]{
