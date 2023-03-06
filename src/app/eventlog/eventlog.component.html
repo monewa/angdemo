@@ -1,0 +1,14 @@
+
+
+<body> 
+<div class= "log fade-in">
+    <div class= "w3-indigo">
+            Event Log
+        <button (click)= "close()">×</button>
+    </div>
+    <div>
+        <span *ngIf= "events.length== 0" class= "log-message">no events found</span>
+        <span  *ngFor="let e of events;" [innerHTML]= "e" ></span> 
+    </div>
+</div>
+</body>
