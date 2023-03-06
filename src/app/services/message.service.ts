@@ -13,31 +13,18 @@ export class MessageService{
 
     constructor() {    }
 
-    setMessage(title: string, message: string, type: string){
+    setMessage(title: string, message: string, type: string= 'error' || 'success'): void{
         this.message= message;
         this.title= title;
         this.type= type
-    }
-
-    showMessage(): void{
-        if (this.message!= '' && this.type!= '') {
-            this.isOpen= true
-        }
-    }
-
-    removeMessageAutomatically(): void{
-        if (this.isOpen) {
-            setTimeout(() => {
-            this.setMessage('', '', '');
-            this.isOpen= false;
-            }, 6500);      
-        }
+        this.showMessage()
     }
     
-    show$removeMessage(): boolean{
-        this.showMessage()
-        this.removeMessageAutomatically()
-        return this.isOpen;
+    showMessage(): void{
+        this.isOpen= true;
     }
 
+    closeMessage(): void{
+        this.isOpen= false;
+    }
 }
