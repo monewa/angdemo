@@ -11,13 +11,10 @@ import { MessageService } from '../../services/message.service';
 })
 export class PlayersDataComponent implements OnInit {
 
-  title: string= ''; 
-  question: string= '';
-  confirmIsOpen: boolean= false;
+  confirmUpdateIsOpen: boolean= false;
   confirmDeleteIsOpen: boolean= false;
-  
   selectedId: number= 0;
-  editMode: boolean= false;
+  inEditMode: boolean= false;
   firstName: string= '';
   surname: string= '';
   birthDate: Date= new Date();
@@ -46,20 +43,20 @@ export class PlayersDataComponent implements OnInit {
     return this.playerModel.getRating(id); 
   } 
 
-  adjustVariablesForEditing(): void{
-    const player= this.player;
-    this.firstName= player.firstName
-    this.surname= player.surname
-    this.handicap= player.handicap
-    this.birthDate= player.birthDate
-    this.gamesPlayed= player.gamesPlayed
-    this.gamesWon= player.gamesWon
-    this.tournamentsWon= player.tournamentsWon
-    this.awardsWon= player.awardsWon
+  assignVariablesForEditing(): void{
+    const p= this.player;
+    this.firstName= p.firstName
+    this.surname= p.surname
+    this.handicap= p.handicap
+    this.birthDate= p.birthDate
+    this.gamesPlayed= p.gamesPlayed
+    this.gamesWon= p.gamesWon
+    this.tournamentsWon= p.tournamentsWon
+    this.awardsWon= p.awardsWon
   }
 
-  checkForEditMode(id: number): boolean{
-    if (this.editMode && this.selectedId == id) {
+  isInEditMode(id: number): boolean{
+    if (this.inEditMode && this.selectedId == id) {
       return true;
     } 
     else {
@@ -69,51 +66,49 @@ export class PlayersDataComponent implements OnInit {
 
   edit(id: number): void{
     this.selectedId= id;
-    this.adjustVariablesForEditing();
-    this.editMode= true;
-    this.confirmIsOpen= false;
+    this.assignVariablesForEditing();
+    this.inEditMode= true;
   }
 
-  checkForChanges(): void{
-    const player= this.player;
-    const firstNameChanged= this.firstName != player.firstName;
-    const surnameChanged= this.surname != player.surname;
-    const handicapChanged= this.handicap != player.handicap;
-    const birthDateChanged= this.birthDate != player.birthDate;
-    const gamesPlayedChanged= this.gamesPlayed != player.gamesPlayed;
-    const gamesWonChanged= this.gamesWon != player.gamesWon;
-    const tournamentsWonChanged= this.gamesWon != player.gamesWon;
-    const awardsWonChanged= this.gamesWon != player.gamesWon;
+  dataIsChanged(): boolean{
+    const p= this.player;
+    const firstNameChanged= this.firstName != p.firstName;
+    const surnameChanged= this.surname != p.surname;
+    const handicapChanged= this.handicap != p.handicap;
+    const birthDateChanged= this.birthDate != p.birthDate;
+    const gamesPlayedChanged= this.gamesPlayed != p.gamesPlayed;
+    const gamesWonChanged= this.gamesWon != p.gamesWon;
+    const tournamentsWonChanged= this.gamesWon != p.gamesWon;
+    const awardsWonChanged= this.gamesWon != p.gamesWon;
 
     if (firstNameChanged || surnameChanged || handicapChanged || birthDateChanged || handicapChanged 
         || gamesPlayedChanged || gamesWonChanged || tournamentsWonChanged|| awardsWonChanged) {
-      this.showConfirmSave();
+      return true;
     }
-    this.cancelEditMode(); 
+    return false;
   }
-
+  
   showConfirmSave(): void{
-    this.title= 'Confirm Update';
-    this.question= 'Are you sure you want save the changes?';
-    this.confirmIsOpen= true;
+    this.cancelEditMode(); 
+    if (this.dataIsChanged()) {
+      this.confirmUpdateIsOpen= true;
+    }
   }
 
   showConfirmDelete(id: number): void{
-    this.title= 'Confirm Delete';
-    this.question= 'Are you sure you want to Delete?';
     this.confirmDeleteIsOpen= true;
     this.selectedId= id
   }
     
-  confirmSave(goAhead: boolean): void{
-    if (!goAhead) {
+  confirmSave(yes: boolean): void{
+    if (!yes) {
       return;      
     } 
     this.update();          
   }
 
-  confirmDelete(goAhead: boolean): void{
-    if (!goAhead) {
+  confirmDelete(yes: boolean): void{
+    if (!yes) {
       return;      
     } 
     this.delete(this.selectedId);          
@@ -126,7 +121,7 @@ export class PlayersDataComponent implements OnInit {
   }
 
   cancelEditMode(): void{
-    this.editMode= false;
+    this.inEditMode= false;
   }
 
   delete(id: number): void{
