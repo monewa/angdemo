@@ -24,10 +24,7 @@ export class MailinglistComponent implements OnInit {
 	protected comments: string= '';
 	submitted= false; 
 	formIsValid: boolean= false;
-	successPopupIsHidden: boolean= true;
-	codeInfoIsHidden: boolean= false;
-	saveErrorFound: boolean= false;
-	tipStyle: string= 'opacity: 0';
+	successPopupIsOpen: boolean= false;
 	 
     constructor(private repository: Repository, private model: RecipientModel, private message: MessageService,
 	public window: WindowService) { }
@@ -39,6 +36,17 @@ export class MailinglistComponent implements OnInit {
 	get messageIsOpen(): boolean {
 		return this.message.isOpen;
 	}
+
+	get successDetails(): { "label": string, "value": any }[]{
+		return [ 
+			{"label": 'Name' , "value": this.firstName},
+			{"label": 'Lastname' , "value": this.lastName},
+			{"label": 'Email' , "value": this.email},
+			{"label": 'Country' , "value": this.country},
+			{"label": 'Phone' , "value": this.phone_code},
+			{"label": 'Comments' , "value": this.comments},
+		]		 
+	}
 	
 	validateForm(form: NgForm): void{
 		this.submitted= true
@@ -47,7 +55,7 @@ export class MailinglistComponent implements OnInit {
 		}  
 	}
 	
-	validateField(field: NgModel): boolean{
+	fieldIsInvalid(field: NgModel): boolean{
 		if(this.submitted&& field.invalid){
 			return true;
 		}
@@ -63,12 +71,11 @@ export class MailinglistComponent implements OnInit {
 			return;
 		}
 		this.phone_code = `+${this.code} ${this.phone}`;
-		this.model.save(this.firstName, this.lastName, this.country, this.email, this.phone, this.comments)
+		this.model.save(this.firstName, this.lastName, this.country, this.email, this.phone_code, this.comments)
 	}
 			
 	resetValues(): void{
 		this.window.scrollToBottom();
-		this.successPopupIsHidden= false;
 		this.submitted= false;
 		this.formIsValid= false;
 	}
@@ -81,14 +88,6 @@ export class MailinglistComponent implements OnInit {
 		this.phone= '';
 		this.code= '';
 		this.comments= '';
-	}
-
-	showTip(): void{
-		this.tipStyle= 'opacity: 1';
-	}
-
-	hideTip(): void{
-		this.tipStyle= 'opacity: 0';
 	}
 
 	ngOnInit(): void { 
