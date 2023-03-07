@@ -11,7 +11,7 @@ import { BookstoreComponent } from './demo/bookstore/bookstore.component';
 import { AboutmeComponent } from './demo/aboutme/aboutme.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MenuComponent } from './demo/mailinglistdata/menu/menu.component';
-import { SuccessPopupComponent } from './demo/mailinglist/success-popup/success-popup.component'
+import { SuccessPopupComponent } from './success-popup/success-popup.component'
 import { DemoComponent } from './demo//demo.component';
 import { GolfComponent } from './golf/golf.component';
 import { GolfHomeComponent } from './golf/golf-home/golf-home.component';
@@ -26,11 +26,13 @@ import { MessageComponent } from './message/message.component';
 import { EventlogComponent } from './eventlog/eventlog.component';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { ScheduledConfirmComponent } from './scheduled-confirm/scheduled-confirm.component';
-
+ 
 // import { golfroutes } from './golf/golf-app.module';
 
 const title1: string = 'Demo';
 const title2: string = 'Golf';
+const site1: string = 'demo/';
+const site2: string = 'golf/';
 
 export const golfroutes: Routes= [
 	{ path: 'golf', title: title2, component: GolfComponent, children: [
@@ -72,13 +74,13 @@ export class AppRoutingModule { }
 
 export const appComponents= [
 	EventlogComponent, AppComponent, HomeComponent, PageNotFoundComponent, 
-	ConfirmComponent, ScheduledConfirmComponent
+	ConfirmComponent, ScheduledConfirmComponent, SuccessPopupComponent
 ] 
 
 export const demoComponents= [ 
 	CalculatorComponent, ConverterComponent, MailinglistComponent, 
 	MailinglistdataComponent, BookstoreComponent, AboutmeComponent, 	
-	MenuComponent, SuccessPopupComponent, DemoComponent
+	MenuComponent, DemoComponent
 ]
 
 export const golfComponents= [

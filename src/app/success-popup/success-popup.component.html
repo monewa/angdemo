@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body >
+<div  class="w3-modal" style= "display:block;" >
+     <div class="w3-modal-content banner ">
+        <div class="header "> 
+          <code style ="font-size: xx-large;">✔</code>   {{ title }}
+        </div> 
+         <div class= "details">
+           <span><b>Your details</b></span >
+           <table>
+             <tr *ngFor= "let d of details">
+               <td><span>{{ d.label }}:</span> {{ d.value }}</td>
+             </tr>
+           </table>
+         </div>
+         <div>
+            <button (click)="close()"  > 
+              <img src= "assets/img/verify.webp" alt= "" height="18"  width="20"> done
+            </button>
+        </div>         
+    </div>
+</div>
+</body>
+</html>
+
