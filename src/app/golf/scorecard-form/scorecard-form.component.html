@@ -8,31 +8,31 @@
 </head>
 <body>
 <app-message  *ngIf= "messageIsOpen" ></app-message>
-
 <div class= "golf-form p-5percent w3-indigo m-auto ">
-  <!-- {{ getStringify( staticDataCourses ) }} -->
-  <h2>Scorecard Form</h2> 
-  <br>
-  <span *ngIf= "tournaments.length== 0">No tournaments found</span>
-  <span *ngIf= "tournaments.length!= 0">Select a Tournament</span>
-  <select [(ngModel)]= "selectedTournament" class="shadowWhite form-control">
+<!-- {{ getStringify( staticDataCourses ) }} -->
+<h2>Scorecard Form</h2> 
+<br>
+<span *ngIf= "tournaments.length== 0">No tournaments found</span>
+<span *ngIf= "tournaments.length!= 0">Select a Tournament</span>
+<select [(ngModel)]= "selectedTournament" class="shadowWhite form-control">
     <option>Select a Tournament </option>
     <option *ngFor= "let t of tournaments"> {{ t.name +' -'+ t.id  }}</option>
-  </select> 
-  <br>
-  <span *ngIf= "games.length== 0">No games found</span>
-  <span *ngIf= "games.length!= 0">Select a Game</span>
-  <select [(ngModel)]= "selectedGame" (change)="selectGame()"  class="shadowWhite mx-200 form-control">
+</select> 
+<br>
+<span *ngIf= "tournamentId>= 1 && games.length== 0">No games found</span>
+<span *ngIf= "games.length!= 0">Select a Game</span>
+<select [(ngModel)]= "selectedGame" (change)="selectGame()"  class="shadowWhite mx-200 form-control">
     <option >Select a Game </option>
     <option *ngFor= "let g of games"> {{ g.gameNo }}</option>
-  </select>
-  <br> 
-  <div class= "table w3-yellow p-5percent rounded"> 
-    <div *ngIf="game.gameNo==0">Select a game first</div>
-    <div *ngIf="game.gameNo!=0">
+</select>
+<br> 
+<div class= "table w3-yellow p-5percent rounded"> 
+    <div *ngIf="game.gameNo<= 0">Select a game first</div>
+    <div *ngIf="game.gameNo!= 0">
       You selected game {{ game.gameNo }} of {{ game.tournament || '...' }}
     </div>
-    <button (click)="addPlayers()" type="button" class="m-3 btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <button (click)="addPlayers()" [disabled]= "game.gameNo<= 0" class="m-3 btn btn-primary" 
+    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
       Add Players 
     </button>
     <table class= "w3-table-all	w3-responsive m-1percent no-border">
@@ -51,24 +51,24 @@
       <button (click)='update()' class="btn btn-success m-4 w3-mobile">Update</button>
       <button class="btn btn-danger m-4 w3-mobile">Cancel</button>
     </div>
-  </div>
+</div>
 </div>
   <!-- players form -->
 <div class="  modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" 
-    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content w3-indigo">
-      <div class="modal-header">
-        <h3 class="modal-title " id="staticBackdropLabel">Add your Players</h3>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content w3-indigo">
+    <div class="modal-header">
+      <h3 class="modal-title " id="staticBackdropLabel">Add your Players</h3>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="p-5percent modal-body">
+      <div class= "w3-pale-blue p-2 rounded">           
+        <div *ngIf="game.gameNo==0">Select a game first</div>
+      <div *ngIf="game.gameNo!=0">
+        Your players will be added to game {{ game.gameNo }} of {{ game.tournament || '...' }}
       </div>
-      <div class="p-5percent modal-body">
-        <div class= "w3-pale-blue p-2 rounded">           
-          <div *ngIf="game.gameNo==0">Select a game first</div>
-        <div *ngIf="game.gameNo!=0">
-          Your players will be added to game {{ game.gameNo }} of {{ game.tournament || '...' }}
-        </div>
-        <table class="w3-responsive w3-table-all m-2 no-border">
+      <table class="w3-responsive w3-table-all m-2 no-border">
           <thead class="w3-lime">
             <th></th> <th>Name</th> <th>Surname</th><th>Handicap</th>
           </thead> 
@@ -77,14 +77,14 @@
             <td><button (click)= "add(p.playerId)" class="btn btn-success m-1">Add</button></td>
             <td>{{ p.firstName }}</td> <td>{{ p.surname }}</td> <td>{{ p.handicap }}</td>
           </tr> 
-        </table>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary m-1 w3-mobile" data-bs-dismiss="modal">Close</button>
+      </table>
       </div>
     </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary m-1 w3-mobile" data-bs-dismiss="modal">Close</button>
+    </div>
   </div>
+</div>
 </div>
 <br> 
 <br>
