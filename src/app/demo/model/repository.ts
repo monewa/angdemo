@@ -73,12 +73,11 @@ export class Repository {
 		this.data.addRecipient(recipient).subscribe(
 			newRecipient=> { this.recipients.push(newRecipient) },
 			err=> { 
-				this.message.setMessage('', name+ ' not created', 'error'); 
+				this.message.setMessage('', name+ 'was not created', 'error'); 
 				this.log.setLogUpdate(name, '',  false, err.message, 'created');
 			}, 
 			() =>{ 
-				this.message.setMessage('', name+' is was created', 'success');
-				this.log.setLogUpdate('', name, true, '', 'created'); 
+				this.log.setLogUpdate('', name, true, '', 'was created'); 
 			});
 	}
 
