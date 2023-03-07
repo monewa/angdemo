@@ -137,5 +137,16 @@
     "results": [],
     "isEnded": false,
     "lastGameNo": 0
+  },
+  {
+    "id": 3,
+    "name": "tebex cup 2006",
+    "startDate": "2006-02-04T22:00:00.000Z",
+    "endDate": "2006-11-04T22:00:00.000Z",
+    "games": [   ],
+    "noOfgames": 0,
+    "results": [],
+    "isEnded": false,
+    "lastGameNo": 0
   }
 ]
