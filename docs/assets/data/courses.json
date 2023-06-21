@@ -1,20 +1,20 @@
 [
   {
     "id": 1,
-    "name": "jhb",
-    "location": "jhb",
+    "name": "Johannesburg club",
+    "location": "Jhb",
     "games": []
   },
   {
     "id": 2,
-    "name": "centurion",
-    "location": "pta",
+    "name": "Centurion club",
+    "location": "Pta",
     "games": []
   },
   {
     "id": 3,
-    "name": "volo",
-    "location": "ktp",
+    "name": "Durban club",
+    "location": "KZN",
     "games": []
   }
 

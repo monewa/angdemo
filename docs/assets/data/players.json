@@ -4,35 +4,10 @@
     "firstName": "Boshomane",
     "surname": "Mohera",
     "birthDate": "1989-04-14",
-    "handicap": 12,
-    "gamesPlayed": 45,
-    "games": [
-      {
-        "gameNo": 1,
-        "tournament": "tebex cup 2000",
-        "score": 89,
-        "points": 12
-      },
-      {
-        "gameNo": 2,
-        "tournament": "tebex cup 2000",
-        "score": 80,
-        "points": 8
-      },
-      {
-        "gameNo": 3,
-        "tournament": "tebex cup 2000",
-        "score": 60,
-        "points": 2
-      },
-      {
-        "gameNo": 1,
-        "tournament": "tebex cup 2005",
-        "score": 90,
-        "points": 12
-      }
-    ],
-    "gamesWon": 5,
+    "handicap": 8,
+    "gamesPlayed": 0,
+    "games": [ ],
+    "gamesWon": 0,
     "tournamentsWon": 0,
     "awardsWon": 0
   },
@@ -42,33 +17,8 @@
     "surname": "Phatelang",
     "birthDate": "2001-05-24",
     "handicap": 10,
-    "gamesPlayed": 12,
-    "games": [
-      {
-        "gameNo": 1,
-        "tournament": "tebex cup 2000",
-        "score": 79,
-        "points": 8
-      },
-      {
-        "gameNo": 2,
-        "tournament": "tebex cup 2000",
-        "score": 85,
-        "points": 12
-      },
-      {
-        "gameNo": 3,
-        "tournament": "tebex cup 2000",
-        "score": 50,
-        "points": 2
-      },
-      {
-        "gameNo": 1,
-        "tournament": "tebex cup 2005",
-        "score": 70,
-        "points": 8
-      }
-    ],
+    "gamesPlayed": 0,
+    "games": [ ],
     "gamesWon": 0,
     "tournamentsWon": 0,
     "awardsWon": 0
@@ -78,34 +28,9 @@
     "firstName": "Kays",
     "surname": "Mguni",
     "birthDate": "2000-06-04",
-    "handicap": 10,
-    "gamesPlayed": 5,
-    "games": [
-      {
-        "gameNo": 1,
-        "tournament": "tebex cup 2000",
-        "score": 70,
-        "points": 6
-      },
-      {
-        "gameNo": 2,
-        "tournament": "tebex cup 2000",
-        "score": 75,
-        "points": 6
-      },
-      {
-        "gameNo": 3,
-        "tournament": "tebex cup 2000",
-        "score": 70,
-        "points": 12
-      },
-      {
-        "gameNo": 1,
-        "tournament": "tebex cup 2005",
-        "score": 40,
-        "points": 2
-      }
-    ],
+    "handicap": 3,
+    "gamesPlayed": 0,
+    "games": [ ],
     "gamesWon": 0,
     "tournamentsWon": 0,
     "awardsWon": 0
@@ -114,35 +39,10 @@
     "id": 4,
     "firstName": "Mark",
     "surname": "Mataruka",
-    "birthDate": "1999-09-02T00:00:00.000Z",
-    "handicap": "10",
+    "birthDate": "1999-09-02",
+    "handicap": 10,
     "gamesPlayed": 0,
-    "games": [
-      {
-        "gameNo": 1,
-        "tournament": "tebex cup 2000",
-        "score": 50,
-        "points": 2
-      },
-      {
-        "gameNo": 2,
-        "tournament": "tebex cup 2000",
-        "score": 55,
-        "points": 2
-      },
-      {
-        "gameNo": 3,
-        "tournament": "tebex cup 2000",
-        "score": 50,
-        "points": 2
-      },
-      {
-        "gameNo": 1,
-        "tournament": "tebex cup 2005",
-        "score": 52,
-        "points": 2
-      }
-    ],
+    "games": [ ],
     "gamesWon": 0,
     "tournamentsWon": 0,
     "awardsWon": 0
@@ -151,11 +51,11 @@
     "id": 5,
     "firstName": "Vele",
     "surname": "Mulaudzi",
-    "birthDate": "1997-07-21T00:00:00.000Z",
-    "handicap": "12",
-    "gamesPlayed": "15",
+    "birthDate": "1997-07-21",
+    "handicap": 16,
+    "gamesPlayed": 0,
     "games": [],
-    "gamesWon": "3",
+    "gamesWon": 0,
     "tournamentsWon": 0,
     "awardsWon": 0
   },
@@ -163,11 +63,11 @@
     "id": 6,
     "firstName": "Nelson",
     "surname": "Nkabiti",
-    "birthDate": "1994-04-02T00:00:00.000Z",
-    "handicap": 12,
-    "gamesPlayed": 15,
+    "birthDate": "1994-04-02",
+    "handicap": 7,
+    "gamesPlayed": 0,
     "games": [],
-    "gamesWon": 6,
+    "gamesWon": 0,
     "tournamentsWon": 0,
     "awardsWon": 0
   },
@@ -175,11 +75,11 @@
     "id": 7,
     "firstName": "Aubry",
     "surname": "Molefe",
-    "birthDate": "1984-07-02T00:00:00.000Z",
+    "birthDate": "1984-07-02",
     "handicap": 9,
-    "gamesPlayed": 11,
+    "gamesPlayed": 0,
     "games": [],
-    "gamesWon": 2,
+    "gamesWon": 0,
     "tournamentsWon": 0,
     "awardsWon": 0
   },
@@ -187,11 +87,11 @@
     "id": 8,
     "firstName": "George",
     "surname": "Matojane",
-    "birthDate": "1976-09-07T00:00:00.000Z",
+    "birthDate": "1976-09-07",
     "handicap": 5,
-    "gamesPlayed": 19,
+    "gamesPlayed": 0,
     "games": [],
-    "gamesWon": 7,
+    "gamesWon": 0,
     "tournamentsWon": 0,
     "awardsWon": 0
   },
@@ -199,25 +99,24 @@
     "id": 9,
     "firstName": "Joko",
     "surname": "Makhoba",
-    "birthDate": "1965-06-30T00:00:00.000Z",
-    "handicap": "9",
-    "gamesPlayed": "20",
+    "birthDate": "1965-06-30",
+    "handicap": 2,
+    "gamesPlayed": 0,
     "games": [],
-    "gamesWon": "9",
-    "tournamentsWon": "2",
-    "awardsWon": "1"
+    "gamesWon": 0,
+    "tournamentsWon": 0,
+    "awardsWon": 0
   },
   {
     "id": 10,
     "firstName": "Chris",
     "surname": "Denga",
-    "birthDate": "1990-12-24T00:00:00.000Z",
-    "age": 32,
-    "gamesPlayed": "4",
+    "birthDate": "1990-12-24",
+    "gamesPlayed": 0,
     "games": [],
-    "gamesWon": "1",
+    "gamesWon": 0,
     "tournamentsWon": 0,
     "awardsWon": 0,
-    "handicap": "15"
+    "handicap": 15
   }
 ]
